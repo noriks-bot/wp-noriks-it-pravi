@@ -1,0 +1,1818 @@
+# Translation of Plugins - Contact Form 7 - Stable (latest release) in Gujarati
+# This file is distributed under the same license as the Plugins - Contact Form 7 - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-02-19 15:36:34+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: gu\n"
+"Project-Id-Version: Plugins - Contact Form 7 - Stable (latest release)\n"
+
+#: admin/includes/welcome-panel.php:102
+msgid "contribute to the project"
+msgstr "યોજનામાં યોગદાન આપો."
+
+#: admin/includes/welcome-panel.php:101
+msgid "https://contactform7.com/contributing/"
+msgstr "https://contactform7.com/contributing/"
+
+#. translators: %s: link labeled 'contribute to the project'
+#: admin/includes/welcome-panel.php:99
+msgid "There are several ways for you to %s: testing, coding, translating it into your local languages, helping other users, financial donations, etc, etc. We equally welcome you regardless of the way you contribute."
+msgstr "તમારા માટે ઘણી રીતો છે %s: પરીક્ષણ, કોડિંગ, તમારી સ્થાનિક ભાષાઓમાં તેનું ભાષાંતર કરવું, અન્ય વપરાશકર્તાઓને મદદ કરવી, નાણાકીય દાન વગેરે વગેરે. તમે જે રીતે યોગદાન આપો છો તે ધ્યાનમાં લીધા વિના અમે તમારું સમાનરૂપે સ્વાગત કરીએ છીએ."
+
+#: admin/includes/welcome-panel.php:96
+msgid "It is hard to continue to maintain this plugin without support from users like you."
+msgstr "તમારા જેવા વપરાશકર્તાઓના સમર્થન વિના આ પ્લગઇનને જાળવવાનું ચાલુ રાખવું મુશ્કેલ છે."
+
+#: modules/textarea.php:154
+msgid "Generates a form-tag for a <a href=\"https://contactform7.com/text-fields/\">multi-line plain text input area</a>."
+msgstr "માટે ફોર્મ-ટેગ જનરેટ કરે છે  <a href=\"https://contactform7.com/text-fields/\">મલ્ટિ-લાઇન પ્લેન ટેક્સ્ટ ઇનપુટ વિસ્તાર</a>."
+
+#: modules/textarea.php:153
+msgid "Text area form-tag generator"
+msgstr "ટેક્સ્ટ એરિયા ફોર્મ-ટેગ જનરેટર"
+
+#: modules/textarea.php:152
+msgid "Text area"
+msgstr "ટેક્સ્ટ વિસ્તાર"
+
+#: modules/text.php:250
+msgid "Generates a form-tag for a <a href=\"https://contactform7.com/text-fields/\">telephone number input field</a>."
+msgstr "અ માટે ફોર્મ-ટેગ જનરેટ કરે છે <a href=\"https://contactform7.com/text-fields/\">ટેલિફોન નંબર ઇનપુટ ફીલ્ડ</a>."
+
+#: modules/text.php:249
+msgid "Telephone number field form-tag generator"
+msgstr "ટેલિફોન નંબર ફીલ્ડ ફોર્મ-ટેગ જનરેટર"
+
+#: modules/text.php:248
+msgid "Telephone number field"
+msgstr "ટેલિફોન નંબર ક્ષેત્ર"
+
+#: modules/text.php:244
+msgid "Generates a form-tag for a <a href=\"https://contactform7.com/text-fields/\">URL input field</a>."
+msgstr "યુઆરએલ ફીલ્ડ ફોર્મ-ટેગ જનરેટર <a href=\"https://contactform7.com/text-fields/\">યુઆરએલ ઇનપુટ ફીલ્ડ</a>."
+
+#: modules/text.php:243
+msgid "URL field form-tag generator"
+msgstr "યુઆરએલ ફીલ્ડ ફોર્મ-ટેગ જનરેટર"
+
+#: modules/text.php:242
+msgid "URL field"
+msgstr "યુઆરએલ ફીલ્ડ"
+
+#: modules/text.php:238
+msgid "Generates a form-tag for an <a href=\"https://contactform7.com/text-fields/\">email address input field</a>."
+msgstr "<a href=\"https://contactform7.com/text-fields/\">ઈમેલ એડ્રેસ ઇનપુટ ફીલ્ડ</a> માટેનું ફોર્મ-ટેગ બનાવે છે."
+
+#: modules/text.php:237
+msgid "Email address field form-tag generator"
+msgstr "ઈમેલ એડ્રેસ ફીલ્ડ ફોર્મ-ટેગ જનરેટર"
+
+#: modules/text.php:236
+msgid "Email address field"
+msgstr "ઈમેલ એડ્રેસ ફીલ્ડ"
+
+#: modules/text.php:232
+msgid "Generates a form-tag for a <a href=\"https://contactform7.com/text-fields/\">single-line plain text input field</a>."
+msgstr "અ માટે ફોર્મ-ટેગ જનરેટ કરે છે <a href=\"https://contactform7.com/text-fields/\">સિંગલ-લાઇન પ્લેન ટેક્સ્ટ ઇનપુટ ફીલ્ડ</a>."
+
+#: modules/text.php:231
+msgid "Text field form-tag generator"
+msgstr "ટેક્સ્ટ ફીલ્ડ ફોર્મ-ટેગ જનરેટર"
+
+#: modules/submit.php:58
+msgid "Generates a form-tag for a <a href=\"https://contactform7.com/submit-button/\">submit button</a>."
+msgstr "<a href=\"https://contactform7.com/submit-button/\">સબમિટ બટન</a> માટેનું ફોર્મ-ટેગ જનરેટ કરે છે."
+
+#: modules/submit.php:57
+msgid "Submit button form-tag generator"
+msgstr "સબમિટ બટન ફોર્મ-ટેગ જનરેટર"
+
+#: modules/select.php:243
+msgid "Generates a form-tag for a <a href=\"https://contactform7.com/checkboxes-radio-buttons-and-menus/\">drop-down menu</a>."
+msgstr "<a href=\"https://contactform7.com/checkboxes-radio-buttons-and-menus/\">ડ્રોપ-ડાઉન મેનૂ</a> માટે ફોર્મ-ટેગ જનરેટ કરે છે."
+
+#: modules/select.php:242
+msgid "Drop-down menu form-tag generator"
+msgstr "ડ્રોપ-ડાઉન મેનુ ફોર્મ-ટેગ જનરેટર"
+
+#: modules/select.php:241
+msgid "Drop-down menu"
+msgstr "ડ્રોપ-ડાઉન મેનુ"
+
+#: modules/quiz.php:283
+msgid "The capital of Brazil? | Rio"
+msgstr "બ્રાઝિલની રાજધાની? | રિયો"
+
+#: modules/quiz.php:268
+msgid "One pipe-separated question-answer pair (question|answer) per line."
+msgstr "એક પાઈપથી અલગ કરેલ પ્રશ્ન-જવાબની જોડી (પ્રશ્ન|જવાબ) પ્રતિ લીટી."
+
+#: modules/quiz.php:207
+msgid "Generates a form-tag for a <a href=\"https://contactform7.com/quiz/\">quiz</a>."
+msgstr "<a href=\"https://contactform7.com/quiz/\">ક્વિઝ</a> માટે ફોર્મ-ટેગ જનરેટ કરે છે."
+
+#: modules/quiz.php:206
+msgid "Quiz form-tag generator"
+msgstr "ક્વિઝ ફોર્મ-ટેગ જનરેટર"
+
+#: modules/number.php:215
+msgid "Generates a form-tag for a <a href=\"https://contactform7.com/number-fields/\">number input field</a>."
+msgstr "<a href=\"https://contactform7.com/number-fields/\">નંબર ઇનપુટ ફીલ્ડ</a> માટે ફોર્મ-ટેગ જનરેટ કરે છે."
+
+#: modules/number.php:214
+msgid "Number field form-tag generator"
+msgstr "નંબર ફીલ્ડ ફોર્મ-ટેગ જનરેટર"
+
+#: modules/file.php:255
+msgid "In bytes. You can use kb and mb suffixes."
+msgstr "બાઇટ્સ માં. તમે kb અને mb પ્રત્યયનો ઉપયોગ કરી શકો છો."
+
+#: modules/file.php:243
+msgid "File size limit"
+msgstr "ફાઇલ સાઈઝ મર્યાદા"
+
+#: modules/file.php:217
+msgid "Pipe-separated file types list. You can use file extensions and MIME types."
+msgstr "પાઈપથી અલગ કરેલ ફાઇલ પ્રકારોની યાદી. તમે ફાઇલ એક્સ્ટેન્શન્સ અને MIME પ્રકારોનો ઉપયોગ કરી શકો છો."
+
+#: modules/file.php:153
+msgid "Generates a form-tag for a <a href=\"https://contactform7.com/file-uploading-and-attachment/\">file uploading field</a>."
+msgstr "<a href=\"https://contactform7.com/file-uploading-and-attachment/\">ફાઇલ અપલોડિંગ ફીલ્ડ</a> માટે ફોર્મ-ટેગ જનરેટ કરે છે."
+
+#: modules/file.php:152
+msgid "File uploading field form-tag generator"
+msgstr "ફાઇલ અપલોડિંગ ફીલ્ડ ફોર્મ-ટેગ જનરેટર"
+
+#: modules/file.php:151
+msgid "File uploading field"
+msgstr "ફાઇલ અપલોડિંગ ફીલ્ડ"
+
+#: modules/date.php:196
+msgid "Generates a form-tag for a <a href=\"https://contactform7.com/date-field/\">date input field</a>."
+msgstr "<a href=\"https://contactform7.com/date-field/\">તારીખ ઇનપુટ ફીલ્ડ</a> માટે ફોર્મ-ટેગ જનરેટ કરે છે."
+
+#: modules/date.php:195
+msgid "Date field form-tag generator"
+msgstr "તારીખ ફીલ્ડ ફોર્મ-ટેગ જનરેટર"
+
+#: modules/checkbox.php:373
+msgid "Generates a form-tag for a group of <a href=\"https://contactform7.com/checkboxes-radio-buttons-and-menus/\">radio buttons</a>."
+msgstr "<a href=\"https://contactform7.com/checkboxes-radio-buttons-and-menus/\">રેડિયો બટનો</a> ના જૂથ માટે ફોર્મ-ટેગ જનરેટ કરે છે."
+
+#: modules/checkbox.php:372
+msgid "Radio buttons form-tag generator"
+msgstr "રેડિયો બટનો ફોર્મ-ટેગ જનરેટર"
+
+#: modules/checkbox.php:371
+msgid "Radio buttons"
+msgstr "રેડિયો વિકલ્પ"
+
+#: modules/checkbox.php:368
+msgid "Generates a form-tag for a group of <a href=\"https://contactform7.com/checkboxes-radio-buttons-and-menus/\">checkboxes</a>."
+msgstr "<a href=\"https://contactform7.com/checkboxes-radio-buttons-and-menus/\">ચેકબોક્સ</a> ના જૂથ માટે ફોર્મ-ટેગ જનરેટ કરે છે."
+
+#: modules/checkbox.php:367
+msgid "Checkboxes form-tag generator"
+msgstr "ચેકબોક્સ ફોર્મ-ટેગ જનરેટર"
+
+#: modules/checkbox.php:366
+msgid "Checkboxes"
+msgstr "ચેકબૉક્સ"
+
+#: modules/acceptance.php:328
+msgid "Put the condition for consent here."
+msgstr "સંમતિ માટેની શરત અહીં મૂકો."
+
+#: admin/includes/tag-generator.php:270
+msgid "This checkbox is optional."
+msgstr "આ ચેકબોક્સ વૈકલ્પિક છે."
+
+#: modules/acceptance.php:268
+msgid "Generates a form-tag for an <a href=\"https://contactform7.com/acceptance-checkbox/\">acceptance checkbox</a>."
+msgstr "<a href=\"https://contactform7.com/acceptance-checkbox/\">સ્વીકૃતિ ચેકબોક્સ</a> માટે ફોર્મ-ટેગ જનરેટ કરે છે."
+
+#: modules/acceptance.php:267
+msgid "Acceptance checkbox form-tag generator"
+msgstr "સ્વીકૃતિ ચેકબોક્સ ફોર્મ-ટેગ જનરેટર"
+
+#. translators: %s: mail-tag corresponding to the form-tag
+#: admin/includes/tag-generator.php:620
+msgid "To use the user input in the email, insert the corresponding mail-tag %s into the email template."
+msgstr "ઈમેલમાં યુઝર ઈનપુટનો ઉપયોગ કરવા માટે, ઈમેલ ટેમ્પલેટમાં અનુરૂપ મેઈલ-ટેગ %s દાખલ કરો."
+
+#: admin/includes/tag-generator.php:587
+msgid "The form-tag to be inserted into the form template"
+msgstr "ફોર્મ ટેમ્પલેટમાં દાખલ કરવાનો ફોર્મ-ટેગ"
+
+#: admin/includes/tag-generator.php:542
+msgid "Use the first item as a label."
+msgstr "લેબલ તરીકે પ્રથમ વસ્તુનો ઉપયોગ કરો."
+
+#: admin/includes/tag-generator.php:523
+msgid ""
+"Option 1\n"
+"Option 2\n"
+"Option 3"
+msgstr ""
+"વિકલ્પ 1\n"
+"વિકલ્પ 2\n"
+"વિકલ્પ 3"
+
+#: admin/includes/tag-generator.php:508
+msgid "One item per line."
+msgstr "લાઇન દીઠ એક વસ્તુ."
+
+#: admin/includes/tag-generator.php:498
+msgid "Selectable values"
+msgstr "પસંદ કરી શકાય તેવા મૂલ્યો"
+
+#: admin/includes/tag-generator.php:472
+msgid "Use this text as the placeholder."
+msgstr "પ્લેસહોલ્ડર તરીકે આ ટેક્સ્ટનો ઉપયોગ કરો."
+
+#: admin/includes/tag-generator.php:376 modules/text.php:304
+#: modules/textarea.php:199
+msgid "Length"
+msgstr "લંબાઇ"
+
+#: admin/includes/tag-generator.php:322
+msgid "This field expects the submitter telephone number."
+msgstr "આ ફીલ્ડ સબમિટર ટેલિફોન નંબરની અપેક્ષા રાખે છે."
+
+#: admin/includes/tag-generator.php:319
+msgid "This field expects the submitter URL."
+msgstr "આ ફીલ્ડ સબમિટર URL ની અપેક્ષા રાખે છે."
+
+#: admin/includes/tag-generator.php:311
+msgid "This field expects the submitter email."
+msgstr "આ ફીલ્ડ સબમિટર ઇમેઇલની અપેક્ષા રાખે છે."
+
+#: admin/includes/tag-generator.php:303
+msgid "This field expects the submitter name."
+msgstr "આ ફીલ્ડ સબમિટર નામની અપેક્ષા રાખે છે."
+
+#: admin/includes/tag-generator.php:289
+msgid "Field name"
+msgstr "ફિલ્ડ નું નામ"
+
+#: admin/includes/tag-generator.php:252
+msgid "This is a required field."
+msgstr "આ એક આવશ્યક ફિલ્ડ છે."
+
+#: admin/includes/tag-generator.php:137
+msgid "Close"
+msgstr "બંધ કરો"
+
+#: admin/includes/tag-generator.php:132
+msgid "Close this dialog box"
+msgstr "આ ડાયલોગ બોક્સ બંધ કરો"
+
+#. translators: 1: version, 2: tag generator title
+#: admin/includes/tag-generator.php:55
+msgid "Use of tag generator instances older than version 2 is deprecated. Version %1$s instance (%2$s) detected."
+msgstr "વર્ઝન 2 કરતાં જૂની ટેગ જનરેટર દાખલાઓનો ઉપયોગ નાપસંદ કરવામાં આવ્યો છે. સંસ્કરણ %1$s ઉદાહરણ (%2$s) મળ્યું."
+
+#: modules/checkbox.php:219
+msgid "Too many items are selected."
+msgstr "ઘણી બધી વસ્તુઓ પસંદ કરવામાં આવી છે."
+
+#: includes/contact-form.php:572
+msgid "Invalid action URL is detected."
+msgstr "અમાન્ય ક્રિયા યુઆરએલ મળી આવ્યું છે."
+
+#: modules/constant-contact/constant-contact.php:135
+msgid "https://contactform7.com/2024/02/02/we-end-the-constant-contact-integration/"
+msgstr "https://contactform7.com/2024/02/02/we-end-the-constant-contact-integration/"
+
+#: modules/checkbox.php:300 modules/select.php:217
+msgid "Undefined value was submitted through this field."
+msgstr "અવ્યાખ્યાયિત મૂલ્ય આ ક્ષેત્ર દ્વારા સબમિટ કરવામાં આવ્યું હતું."
+
+#: includes/rest-api.php:364
+msgid "There is no valid unit tag."
+msgstr "ત્યાં કોઈ માન્ય એકમ ટેગ નથી."
+
+#: modules/sendinblue/contact-form-properties.php:98
+#: modules/sendinblue/service.php:177
+msgid "Brevo integration"
+msgstr "બ્રેવો એકીકરણ"
+
+#. translators: 1: blog name, 2: blog URL
+#: includes/contact-form-template.php:111
+msgid "This email is a receipt for your contact form submission on our website (%1$s %2$s) in which your email address was used. If that was not you, please ignore this message."
+msgstr "આ ઇમેઇલ એ અમારી વેબસાઇટ (%1$s %2$s) પર તમારા સંપર્ક ફોર્મ સબમિશન માટેની રસીદ છે જેમાં તમારા ઇમેઇલ સરનામાંનો ઉપયોગ કરવામાં આવ્યો હતો. જો તે તમે ન હતા, તો કૃપા કરીને આ સંદેશને અવગણો."
+
+#. translators: 1: blog name, 2: blog URL
+#: includes/contact-form-template.php:77
+msgid "This is a notification that a contact form was submitted on your website (%1$s %2$s)."
+msgstr "આ એક સૂચના છે કે તમારી વેબસાઇટ (%1$s %2$s) પર સંપર્ક ફોર્મ સબમિટ કરવામાં આવ્યું હતું."
+
+#: includes/config-validator/mail.php:234
+#: includes/config-validator/mail.php:324
+msgid "Unsafe email config is used without sufficient protection."
+msgstr "અસુરક્ષિત ઇમેઇલ રૂપરેખાનો ઉપયોગ પૂરતા રક્ષણ વિના થાય છે."
+
+#: includes/config-validator/validator.php:239
+msgid "Configuration error is detected."
+msgstr "રૂપરેખાંકન ભૂલ આવી છે."
+
+#: modules/sendinblue/service.php:189
+msgid "Brevo is active on this site."
+msgstr "બ્રેવો આ સાઇટ પર સક્રિય છે."
+
+#: admin/includes/welcome-panel.php:157
+#: modules/sendinblue/contact-form-properties.php:110
+#: modules/sendinblue/contact-form-properties.php:405
+#: modules/sendinblue/service.php:30
+msgid "Brevo"
+msgstr "બ્રેવો"
+
+#: includes/contact-form-functions.php:271
+msgid "Contact form not found."
+msgstr "સંપર્ક ફોર્મ મળ્યું નથી."
+
+#: includes/contact-form-functions.php:270 includes/contact-form.php:571
+#: includes/js/index.js:1
+msgid "Error:"
+msgstr "ભૂલ:"
+
+#: includes/block-editor/block.json
+msgctxt "block keyword"
+msgid "form"
+msgstr "ફોર્મ"
+
+#: includes/block-editor/block.json
+msgctxt "block description"
+msgid "Insert a contact form you have created with Contact Form 7."
+msgstr "સંપર્ક ફોર્મ 7 સાથે તમે બનાવેલ સંપર્ક ફોર્મ દાખલ કરો."
+
+#: includes/block-editor/block.json
+msgctxt "block title"
+msgid "Contact Form 7"
+msgstr "કોન્ટેક્ટ ફોર્મ 7"
+
+#: modules/select.php:88
+msgid "&#8212;Please choose an option&#8212;"
+msgstr "&#8212;કૃપા કરીને એક વિકલ્પ પસંદ કરો&#8212;"
+
+#: modules/akismet/service.php:77
+msgid "Akismet is active on this site."
+msgstr "Akismet આ સાઇટ પર સક્રિય છે."
+
+#: modules/akismet/service.php:54
+msgid "CAPTCHAs are designed to distinguish spambots from humans, and are therefore helpless against human spammers. In contrast to CAPTCHAs, Akismet checks form submissions against the global database of spam; this means Akismet is a comprehensive solution against spam. This is why we consider Akismet to be the centerpiece of the spam prevention strategy."
+msgstr "કેપ્ચા સ્પામબોટ્સને મનુષ્યોથી અલગ પાડવા માટે ડિઝાઇન કરવામાં આવ્યા છે, અને તેથી તે માનવ સ્પામર્સ સામે લાચાર છે. કેપ્ચાથી વિપરીત, અકિસ્મેટ સ્પામના વૈશ્વિક ડેટાબેઝ સામે ફોર્મ સબમિશનની તપાસ કરે છે; આનો અર્થ એ છે કે Akismet એ સ્પામ સામે વ્યાપક ઉકેલ છે. આ કારણે અમે અકિસ્મેટને સ્પામ નિવારણ વ્યૂહરચનાનું કેન્દ્રસ્થાન ગણીએ છીએ."
+
+#: modules/akismet/akismet.php:305
+msgid "Learn how your data is processed."
+msgstr "તમારા ડેટાની પ્રક્રિયા કેવી રીતે થાય છે તે જાણો."
+
+#: modules/akismet/akismet.php:302
+msgid "This form uses Akismet to reduce spam."
+msgstr "આ ફોર્મ સ્પામ ઘટાડવા માટે અકિસ્મેટ નો ઉપયોગ કરે છે."
+
+#: includes/contact-form.php:645
+msgid "Contact form"
+msgstr "સંપર્ક ફોર્મ"
+
+#: includes/config-validator/form.php:69
+msgid "Colons are used in form-tag names."
+msgstr "ફોર્મ-ટેગ નામોમાં કોલોન્સનો ઉપયોગ થાય છે."
+
+#: modules/text.php:197
+msgid "Please enter a telephone number."
+msgstr "કૃપા કરીને ફોન નંબર નાખો."
+
+#: modules/text.php:190
+msgid "Please enter a URL."
+msgstr "કૃપા કરીને URL દાખલ કરો."
+
+#: modules/text.php:183
+msgid "Please enter an email address."
+msgstr "ઇમેઇલ સરનામું દાખલ કરો."
+
+#: modules/number.php:191
+msgid "This field has a too large number."
+msgstr "આ ફીલ્ડમાં ખૂબ મોટી સંખ્યા છે."
+
+#: modules/number.php:186
+msgid "This field has a too small number."
+msgstr "આ ફીલ્ડમાં સંખ્યા ખૂબ ઓછી છે."
+
+#: modules/number.php:181
+msgid "Please enter a number."
+msgstr "કૃપા કરીને સંખ્યા દાખલ કરો."
+
+#: modules/date.php:172
+msgid "This field has a too late date."
+msgstr "આ ફીલ્ડની તારીખ ખૂબ મોડી છે."
+
+#: modules/date.php:167
+msgid "This field has a too early date."
+msgstr "આ ફીલ્ડની તારીખ ખૂબ વહેલી છે."
+
+#: modules/date.php:162
+msgid "Please enter a date in YYYY-MM-DD format."
+msgstr "કૃપા કરીને YYYY-MM-DD ફોર્મેટમાં તારીખ દાખલ કરો."
+
+#: includes/rest-api.php:338
+msgid "The request payload format is not supported."
+msgstr "વિનંતી પેલોડ ફોર્મેટ સમર્થિત નથી."
+
+#. translators: 1: WordPress hook name, 2: version number
+#: includes/functions.php:536
+msgid "Hook %1$s is <strong>deprecated</strong> since Contact Form 7 version %2$s with no alternative available."
+msgstr "હૂક %1$s <strong>નાપસંદ કરેલ છે</strong> કારણ કે સંપર્ક ફોર્મ 7 સંસ્કરણ %2$s કોઈ વિકલ્પ ઉપલબ્ધ નથી."
+
+#: includes/file.php:116
+msgid "The uploaded file is too large."
+msgstr "અપલોડ કરેલી ફાઇલ ખૂબ મોટી છે."
+
+#: includes/contact-form-template.php:199
+msgid "This field has a too short input."
+msgstr "આ ફીલ્ડમાં ખૂબ ટૂંકા ઇનપુટ છે."
+
+#: includes/contact-form-template.php:194
+msgid "This field has a too long input."
+msgstr "આ ફીલ્ડમાં ખૂબ લાંબુ ઇનપુટ છે"
+
+#: includes/contact-form-template.php:189
+msgid "Please fill out this field."
+msgstr "કૃપા કરીને આ ફીલ્ડ ભરો."
+
+#. translators: 1: PHP function name, 2: version number, 3: alternative
+#. function name
+#: includes/functions.php:492
+msgid "Function %1$s is <strong>deprecated</strong> since Contact Form 7 version %2$s! Use %3$s instead."
+msgstr "સંપર્ક ફોર્મ 7 સંસ્કરણ %2$s થી ફંક્શન %1$s <strong>નાપસંદ</strong> છે! તેના બદલે %3$s નો ઉપયોગ કરો."
+
+#: includes/integration.php:25
+msgid "Spam protection"
+msgstr "સ્પામ રક્ષણ."
+
+#. translators: Developer debugging message. 1: PHP function name, 2:
+#. Explanatory message, 3: Contact Form 7 version number.
+#: includes/functions.php:576
+msgid "Function %1$s was called incorrectly. %2$s %3$s"
+msgstr "ફંક્શન %1$s ને ખોટી રીતે બોલાવવામાં આવ્યું હતું. %2$s %3$s"
+
+#. translators: 1: blog name, 2: confirmation link
+#: modules/sendinblue/doi.php:84
+msgid ""
+"Hello,\n"
+"\n"
+"This is a confirmation email sent from %1$s.\n"
+"\n"
+"We have received your submission to our web form, according to which you have allowed us to add you to our contact list. But, the process has not yet been completed. To complete it, please click the following link.\n"
+"\n"
+"%2$s\n"
+"\n"
+"If it was not your intention, or if you have no idea why you received this message, please do not click on the link, and ignore this message. We will never collect or use your personal data without your clear consent.\n"
+"\n"
+"Sincerely,\n"
+"%1$s"
+msgstr ""
+"નમસ્તે,\n"
+"\n"
+"આ %1$s તરફથી મોકલવામાં આવેલ પુષ્ટિકરણ ઇમેઇલ છે.\n"
+"\n"
+"અમને અમારા વેબ ફોર્મ પર તમારું સબમિશન મળ્યું છે, જે મુજબ તમે અમને અમારી સંપર્ક સૂચિમાં તમને ઉમેરવાની મંજૂરી આપી છે. પરંતુ, હજુ સુધી પ્રક્રિયા પૂર્ણ થઈ નથી. તેને પૂર્ણ કરવા માટે, કૃપા કરીને નીચેની લિંકને ક્લિક કરો.\n"
+"\n"
+"%2$s\n"
+"\n"
+"જો તે તમારો ઈરાદો ન હતો, અથવા જો તમને આ સંદેશ શા માટે પ્રાપ્ત થયો તેની કોઈ જાણ ન હોય, તો કૃપા કરીને લિંક પર ક્લિક કરશો નહીં, અને આ સંદેશને અવગણો. અમે તમારી સ્પષ્ટ સંમતિ વિના તમારા વ્યક્તિગત ડેટાને ક્યારેય એકત્રિત અથવા ઉપયોગ કરીશું નહીં.\n"
+"\n"
+"આપની,\n"
+"%1$s"
+
+#. translators: %s: blog name
+#: modules/sendinblue/doi.php:78
+msgid "Opt-in confirmation from %s"
+msgstr "%s તરફથી પુષ્ટિકરણ પસંદ કરો"
+
+#: modules/stripe/stripe.php:380
+msgid "Complete payment"
+msgstr "સંપૂર્ણ ચુકવણી"
+
+#: modules/stripe/stripe.php:365
+msgid "Proceed to checkout"
+msgstr "ચેકઆઉટ માટે આગળ વધો"
+
+#: modules/stripe/stripe.php:249
+msgid "Payment is required. Please pay by credit card."
+msgstr "ચુકવણી જરૂરી છે. કૃપા કરીને ક્રેડિટ કાર્ડ દ્વારા ચૂકવણી કરો."
+
+#: includes/integration.php:27
+msgid "Payments"
+msgstr "ચૂકવણી"
+
+#: modules/stripe/service.php:256
+msgid "Publishable Key"
+msgstr "પ્રકાશિત કરવા યોગ્ય કી"
+
+#: modules/stripe/service.php:229
+msgid "Stripe is not available on this site. It requires an HTTPS-enabled site."
+msgstr "આ સાઇટ પર સ્ટ્રાઇપ ઉપલબ્ધ નથી. તેને HTTPS-સક્ષમ સાઇટની જરૂર છે."
+
+#: modules/stripe/service.php:200
+msgid "Stripe is active on this site."
+msgstr "આ સાઇટ પર સ્ટ્રાઇપ સક્રિય છે."
+
+#: modules/stripe/service.php:188
+msgid "Stripe integration"
+msgstr "સ્ટ્રાઇપ એકીકરણ"
+
+#. translators: 1: first name, 2: last name
+#: modules/sendinblue/sendinblue.php:114
+msgctxt "personal name"
+msgid "%1$s %2$s"
+msgstr "%1$s %2$s"
+
+#: includes/rest-api.php:517
+msgid "Unique identifier for the contact form."
+msgstr "સંપર્ક ફોર્મ માટે અનન્ય ઓળખકર્તા."
+
+#: includes/config-validator/form.php:57
+msgid "Dots are used in form-tag names."
+msgstr "ફોર્મ-ટેગ નામોમાં બિંદુઓનો ઉપયોગ થાય છે."
+
+#: admin/includes/welcome-panel.php:305
+msgid "Show welcome panel"
+msgstr "સ્વાગત પેનલ બતાવો"
+
+#: admin/includes/welcome-panel.php:302
+msgid "Welcome panel"
+msgstr "સ્વાગત પેનલ."
+
+#: admin/includes/welcome-panel.php:169 modules/stripe/service.php:38
+msgid "Stripe"
+msgstr "સ્ટ્રાઇપ "
+
+#: admin/includes/welcome-panel.php:168 modules/stripe/service.php:187
+msgid "https://contactform7.com/stripe-integration/"
+msgstr "https://contactform7.com/stripe-integration/"
+
+#. translators: 1: link labeled 'Cloudflare Turnstile', 2: link labeled
+#. 'Stripe'
+#: admin/includes/welcome-panel.php:162
+msgid "With help from cloud-based machine learning, anti-spam services will protect your forms (%1$s). Even payment services are natively supported (%2$s)."
+msgstr "ક્લાઉડ-આધારિત મશીન લર્નિંગની સહાયથી, સ્પામ વિરોધી સેવાઓ તમારા ફોર્મ્સ (%1$s)ને સુરક્ષિત કરશે. ચુકવણી સેવાઓ પણ નેટીવલી સપોર્ટેડ છે (%2$s)."
+
+#. translators: 1: link labeled 'Brevo'
+#: admin/includes/welcome-panel.php:154
+msgid "Your contact forms will become more powerful and versatile by integrating them with external APIs. With CRM and email marketing services, you can build your own contact lists (%1$s)."
+msgstr "તમારા સંપર્ક ફોર્મ્સ બાહ્ય API સાથે સંકલિત કરીને વધુ શક્તિશાળી અને બહુમુખી બનશે. CRM અને ઇમેઇલ માર્કેટિંગ સેવાઓ સાથે, તમે તમારી પોતાની સંપર્ક સૂચિ બનાવી શકો છો (%1$s અને %2$s)."
+
+#: admin/includes/welcome-panel.php:146
+msgid "You have strong allies to back you up."
+msgstr "તમારું સમર્થન કરવા માટે તમારી પાસે મજબૂત સાથી છે."
+
+#: admin/admin.php:589
+msgid "Integration with external APIs"
+msgstr "બાહ્ય API સાથે એકીકરણ"
+
+#: admin/admin.php:588
+msgid "https://contactform7.com/integration-with-external-apis/"
+msgstr "https://contactform7.com/integration-with-external-apis/"
+
+#. translators: %s: link labeled 'Integration with external APIs'
+#: admin/admin.php:586
+msgid "You can expand the possibilities of your contact forms by integrating them with external services. For details, see %s."
+msgstr "તમે તમારા સંપર્ક ફોર્મની શક્યતાઓને બાહ્ય સેવાઓ સાથે એકીકૃત કરીને વિસ્તૃત કરી શકો છો. વિગતો માટે, %s જુઓ."
+
+#: admin/admin.php:65 admin/admin.php:576
+msgid "Integration with External API"
+msgstr "બાહ્ય API સાથે એકીકરણ"
+
+#: modules/sendinblue/contact-form-properties.php:374
+msgid "Manage your email templates"
+msgstr "તમારા ઇ-મેઇલ ટેમ્પલેટ નું સંચાલન કરો"
+
+#: modules/sendinblue/contact-form-properties.php:357
+msgid "You have no active email template yet."
+msgstr "તમારી પાસે હજી સુધી કોઈ સક્રિય ઇ-મેઇલ ટેમ્પ્લેટ નથી."
+
+#: modules/sendinblue/contact-form-properties.php:335
+msgid "&mdash; Select &mdash;"
+msgstr "&mdash; પસંદ કરો &mdash;"
+
+#: modules/sendinblue/contact-form-properties.php:320
+msgid "Select an email template:"
+msgstr "ઇ-મેઇલ ટેમ્પ્લેટ પસંદ કરો:"
+
+#: modules/sendinblue/contact-form-properties.php:299
+msgid "Send a welcome email to new contacts"
+msgstr "નવા સંપર્કોને સ્વાગત ઇ-મેઇલ મોકલો"
+
+#: modules/sendinblue/contact-form-properties.php:269
+#: modules/sendinblue/contact-form-properties.php:281
+msgid "Welcome email"
+msgstr "સ્વાગત ઇ-મેઇલ"
+
+#: modules/sendinblue/contact-form-properties.php:246
+#: modules/sendinblue/contact-form-properties.php:384
+msgid "(opens in a new tab)"
+msgstr "(નવી ટેબમાં ખુલે છે)"
+
+#: modules/sendinblue/contact-form-properties.php:236
+msgid "Manage your contact lists"
+msgstr "તમારી સંપર્ક સૂચિઓનું સંચાલન કરો"
+
+#: modules/sendinblue/contact-form-properties.php:219
+msgid "You have no contact list yet."
+msgstr "તમારી પાસે હજી સુધી કોઈ સંપર્ક સૂચિ નથી."
+
+#: modules/sendinblue/contact-form-properties.php:188
+msgid "Select lists to which contacts are added:"
+msgstr "યાદીઓ પસંદ કરો કે જેમાં સંપર્કો ઉમેરવામાં આવ્યા છે:"
+
+#: modules/sendinblue/contact-form-properties.php:169
+msgid "Add form submitters to your contact lists"
+msgstr "તમારી સંપર્ક સૂચિમાં ફોર્મ સબમિટર્સ ઉમેરો"
+
+#: modules/sendinblue/contact-form-properties.php:139
+#: modules/sendinblue/contact-form-properties.php:151
+msgid "Contact lists"
+msgstr "સંપર્ક સૂચિ"
+
+#. translators: %s: link labeled 'Brevo integration'
+#: modules/sendinblue/contact-form-properties.php:94
+msgid "You can set up the Brevo integration here. For details, see %s."
+msgstr "તમે અહીં Sendinblue નું સંકલન કરી શકો છો. વિગતો માટે, %s જુઓ."
+
+#: modules/sendinblue/service.php:251
+msgid "Save changes"
+msgstr "ફેરફારો સેવ કરો"
+
+#: modules/sendinblue/service.php:247
+msgctxt "API keys"
+msgid "Remove key"
+msgstr "કી હટાવો"
+
+#: modules/sendinblue/service.php:226
+msgid "API key"
+msgstr "API કી"
+
+#: modules/recaptcha/service.php:335 modules/sendinblue/service.php:208
+#: modules/turnstile/service.php:311
+msgid "Setup integration"
+msgstr "સેટઅપ એકીકરણ"
+
+#: admin/includes/welcome-panel.php:156
+#: modules/sendinblue/contact-form-properties.php:97
+#: modules/sendinblue/service.php:176
+msgid "https://contactform7.com/sendinblue-integration/"
+msgstr "https://contactform7.com/sendinblue-integration/"
+
+#: modules/sendinblue/service.php:166
+msgid "Store and organize your contacts while protecting user privacy on Brevo, the leading CRM & email marketing platform in Europe. Brevo offers unlimited contacts and advanced marketing features."
+msgstr "યુરોપમાં અગ્રણી CRM અને ઇ-મેઇલ માર્કેટિંગ પ્લેટફોર્મ Sendinblue પર વપરાશકર્તાની ગોપનીયતાનું રક્ષણ સાથે તમારા સંપર્કો નો સંગ્રહ અને સંચાલન કરો . Sendinblue અમર્યાદિત સંપર્કો અને અદ્યતન માર્કેટિંગ સુવિધાઓ આપે છે. વિગતો માટે, %s જુઓ."
+
+#: modules/sendinblue/service.php:128
+msgid "You have not been authenticated. Make sure the provided API key is correct."
+msgstr "તમને પ્રમાણિત કરવામાં આવ્યું નથી. ખાતરી કરો કે આપેલી API કી સાચી છે."
+
+#: includes/mail.php:311
+msgid "Failed to attach a file. The total file size exceeds the limit of 25 megabytes."
+msgstr "ફાઇલ જોડવામાં નિષ્ફળ. કુલ ફાઇલનું કદ 25 મેગાબાઇટ્સ ની મર્યાદાને વટાવી ગયું છે."
+
+#. translators: %s: Attachment file path.
+#: includes/mail.php:291
+msgid "Failed to attach a file. %s is not a readable file."
+msgstr "ફાઇલ જોડવામાં નિષ્ફળ. %s એ વાંચી શકાય તેવી ફાઇલ નથી."
+
+#. translators: %s: Attachment file path.
+#: includes/mail.php:277
+msgid "Failed to attach a file. %s is not in the allowed directory."
+msgstr "ફાઇલ જોડવામાં નિષ્ફળ. %s માન્ય ડિરેક્ટરીમાં નથી."
+
+#: includes/contact-form-template.php:42
+msgid "Submit"
+msgstr "સબમિટ"
+
+#: includes/contact-form-template.php:37
+msgid "(optional)"
+msgstr "(વૈકલ્પિક)"
+
+#: admin/includes/welcome-panel.php:74
+msgid "disallowed list"
+msgstr "નામંજૂર યાદી"
+
+#. translators: %s: comma separated list of disallowed words
+#: modules/disallowed-list.php:36
+msgid "Disallowed words (%s) are used."
+msgstr "નામંજૂર શબ્દો (%s) નો ઉપયોગ થાય છે."
+
+#: modules/disallowed-list.php:32
+msgid "Disallowed words are used."
+msgstr " નામંજૂર શબ્દો વપરાય છે."
+
+#. translators: %s: Contact Form 7 version number.
+#: includes/functions.php:567
+msgid "(This message was added in Contact Form 7 version %s.)"
+msgstr "(આ સંદેશ Contact Form 7 સંસ્કરણ %s માં ઉમેરવામાં આવ્યો હતો.)"
+
+#: includes/special-mail-tags.php:22 includes/special-mail-tags.php:104
+#: includes/special-mail-tags.php:170 includes/special-mail-tags.php:239
+#: modules/flamingo.php:304
+msgid "The fourth parameter ($mail_tag) must be an instance of the WPCF7_MailTag class."
+msgstr "ચોથું પરિમાણ ($mail_tag) WPCF7_MailTag ક્લાસ નું દ્રષ્ટાંત હોવું જોઈએ."
+
+#. translators: time format, see https://www.php.net/date
+#: admin/includes/class-contact-forms-list-table.php:231
+msgid "g:i a"
+msgstr "g:i a"
+
+#. translators: 1: date, 2: time
+#: admin/includes/class-contact-forms-list-table.php:227
+msgid "%1$s at %2$s"
+msgstr "%2$s પર %1$s"
+
+#: admin/edit-contact-form.php:373
+msgid "docs"
+msgstr "ડૉક્સ"
+
+#. translators: 1: FAQ, 2: Docs ("FAQ & Docs")
+#: admin/edit-contact-form.php:366
+msgid "%1$s and %2$s"
+msgstr "%1$s અને %2$s"
+
+#: admin/includes/editor.php:527
+msgid "Additional settings"
+msgstr "વધારાના સેટિંગ્સ"
+
+#: modules/recaptcha/service.php:264 modules/sendinblue/service.php:127
+#: modules/sendinblue/service.php:138 modules/stripe/service.php:148
+msgid "Error"
+msgstr "ભૂલ"
+
+#: includes/config-validator/mail.php:437
+msgid "The total size of attachment files is too large."
+msgstr "જોડાણ ફાઇલોનું કુલ કદ ખૂબ મોટું છે."
+
+#: includes/config-validator/form.php:45
+msgid "Unavailable HTML elements are used in the form template."
+msgstr "અનુપલબ્ધ HTML તત્વો ફોર્મ નમૂનામાં વપરાય છે."
+
+#: modules/recaptcha/service.php:316
+msgid "reCAPTCHA is active on this site."
+msgstr "reCAPTCHA આ સાઇટ પર સક્રિય છે."
+
+#: modules/recaptcha/recaptcha.php:148
+msgid "reCAPTCHA response token is empty."
+msgstr "reCAPTCHA પ્રતિસાદ ટોકન ખાલી છે."
+
+#: includes/submission.php:660
+msgid "Submitted nonce is invalid."
+msgstr "સબમિટ કરેલ નોનસે અમાન્ય છે."
+
+#: includes/submission.php:651
+msgid "User-Agent string is unnaturally short."
+msgstr "વપરાશકર્તા-એજન્ટ શબ્દમાળા અકુદરતી ટૂંકા હોય છે."
+
+#. translators: 1: value of reCAPTCHA score 2: value of reCAPTCHA threshold
+#: modules/recaptcha/recaptcha.php:155
+msgid "reCAPTCHA score (%1$.2f) is lower than the threshold (%2$.2f)."
+msgstr "reCAPTCHA  સ્કોર (%1$.2f) થ્રેશોલ્ડ (%2$.2f) કરતા ઓછો છે."
+
+#: modules/akismet/akismet.php:84
+msgid "Akismet returns a spam response."
+msgstr "અકીસ્મેટ સ્પામ પ્રતિસાદ આપે છે."
+
+#. translators: 1: response code, 2: message, 3: body, 4: URL
+#: includes/functions.php:620
+msgid "HTTP Response: %1$s %2$s %3$s from %4$s"
+msgstr "HTTP પ્રતિસાદ: %1$s %2$s માંથી %3$s"
+
+#: modules/recaptcha/service.php:401 modules/stripe/service.php:298
+#: modules/turnstile/service.php:376
+msgid "Save Changes"
+msgstr "ફેરફારો સંગ્રહ"
+
+#: modules/recaptcha/service.php:293
+msgid "reCAPTCHA protects you against spam and other types of automated abuse. With Contact Form 7&#8217;s reCAPTCHA integration module, you can block abusive form submissions by spam bots."
+msgstr "reCAPTCHA તમને સ્પામ અને અન્ય પ્રકારના સ્વચાલિત દુરુપયોગ સામે રક્ષણ આપે છે. સંપર્ક ફોર્મ 7ના reCAPTCHA એકીકરણ મોડ્યુલ સાથે, તમે સ્પામ બોટ્સ દ્વારા અપમાનજનક ફોર્મ સબમિશનને અવરોધિત કરી શકો છો."
+
+#: modules/recaptcha/recaptcha.php:255 modules/recaptcha/service.php:304
+msgid "reCAPTCHA (v3)"
+msgstr "reCAPTCHA (v3)"
+
+#. translators: %s: link labeled 'reCAPTCHA (v3)'
+#: modules/recaptcha/recaptcha.php:252
+msgid "API keys for reCAPTCHA v3 are different from those for v2; keys for v2 do not work with the v3 API. You need to register your sites again to get new keys for v3. For details, see %s."
+msgstr "ReCAPTCHA v3 માટેની API કી v2 થી અલગ છે; V2 માટે કીઓ V3 API સાથે કામ કરતી નથી.V3 માટે નવી કીઓ મેળવવા માટે તમારે તમારી સાઇટ્સ ફરીથી નોંધવાની જરૂર છે. વિગતો માટે, જુઓ %s."
+
+#: modules/constant-contact/constant-contact.php:206
+#: modules/recaptcha/service.php:396 modules/stripe/service.php:294
+#: modules/turnstile/service.php:372
+msgctxt "API keys"
+msgid "Remove Keys"
+msgstr "કી કાઢી નાખો"
+
+#: modules/constant-contact/constant-contact.php:191
+msgid "App Secret"
+msgstr "એપ સિક્રેટ"
+
+#: modules/constant-contact/constant-contact.php:169
+msgid "API Key"
+msgstr "API કી"
+
+#: modules/stripe/service.php:219
+msgid "Setup Integration"
+msgstr "સેટઅપ એકીકરણ"
+
+#: modules/constant-contact/constant-contact.php:56
+msgid "Constant Contact"
+msgstr "સતત સંપર્ક"
+
+#: includes/integration.php:26
+msgid "Email marketing"
+msgstr "ઇ-મેઇલ પ્રચાર"
+
+#: includes/config-validator/mail.php:423
+msgid "It is not allowed to use files outside the wp-content directory."
+msgstr "wp-content ડિરેક્ટરીની બહાર ફાઇલનો ઉપયોગ કરવાની મંજૂરી નથી."
+
+#: admin/edit-contact-form.php:392
+msgid "Professional services"
+msgstr "વ્યાવસાયિક સેવાઓ"
+
+#: admin/edit-contact-form.php:391
+msgid "https://contactform7.com/custom-development/"
+msgstr "https://contactform7.com/custom-development/"
+
+#: admin/edit-contact-form.php:383
+msgid "Support forums"
+msgstr "આધાર ફોરમ્સ"
+
+#: admin/edit-contact-form.php:382
+msgid "https://wordpress.org/support/plugin/contact-form-7/"
+msgstr "https://wordpress.org/support/plugin/contact-form-7/"
+
+#: admin/edit-contact-form.php:354
+msgid "Here are some available options to help solve your problems."
+msgstr "તમારી સમસ્યાઓ ઉકેલવામાં મદદ માટે અહીં કેટલાક વિકલ્પો ઉપલબ્ધ છે."
+
+#: admin/edit-contact-form.php:342
+msgid "Do you need help?"
+msgstr "શું તમારે કોઈ મદદ જોઈએ છે?"
+
+#: modules/acceptance.php:320
+msgid "Condition"
+msgstr "શરત"
+
+#. translators: 1: 'Consented' or 'Not consented', 2: conditions
+#: modules/acceptance.php:240
+msgctxt "mail output for acceptance checkboxes"
+msgid "%1$s: %2$s"
+msgstr "%1$s: %2$s"
+
+#: modules/acceptance.php:224
+msgid "Not consented"
+msgstr "સંમતિ નથી"
+
+#: modules/acceptance.php:222
+msgid "Consented"
+msgstr "સંમતિ આપી"
+
+#: includes/submission.php:120
+msgid "Sending mail has been aborted."
+msgstr "મેઇલ મોકલવાનું બંધ કરવામાં આવ્યું છે."
+
+#. translators: %s: link labeled 'Editing messages'
+#: admin/includes/editor.php:460
+msgid "You can edit messages used in various situations here. For details, see %s."
+msgstr "તમે અહીં વિવિધ પરિસ્થિતિઓમાં વપરાતા સંદેશાને સંપાદિત કરી શકો છો. વિગતો માટે, જુઓ %s."
+
+#: admin/includes/editor.php:463
+msgid "Editing messages"
+msgstr "સંદેશાઓનું સંપાદન"
+
+#: admin/includes/editor.php:462
+msgid "https://contactform7.com/editing-messages/"
+msgstr "https://contactform7.com/editing-messages/"
+
+#. translators: %s: link labeled 'Setting up mail'
+#: admin/includes/editor.php:205
+msgid "You can edit the mail template here. For details, see %s."
+msgstr "તમે અહીં મેઇલ નમૂનાને સંપાદિત કરી શકો છો. વિગતો માટે, જુઓ %s."
+
+#. translators: %s: link labeled 'Editing form template'
+#: admin/includes/editor.php:81
+msgid "You can edit the form template here. For details, see %s."
+msgstr "તમે અહીં ફોર્મ ટેમ્પલેટને સંપાદિત કરી શકો છો. વિગતો માટે, %s જુઓ."
+
+#: admin/includes/editor.php:84
+msgid "Editing form template"
+msgstr "ફોર્મ ટેમ્પ્લેટ નું સંપાદન"
+
+#: admin/includes/editor.php:83
+msgid "https://contactform7.com/editing-form-template/"
+msgstr "https://contactform7.com/editing-form-template/"
+
+#: includes/contact-form.php:546 includes/contact-form.php:1069
+msgid "This contact form is available only for logged in users."
+msgstr "આ સંપર્ક ફોર્મ  ફકત  લોગીન થયેલા વપરાશકર્તાઓ માટે ઉપલબ્ધ છે."
+
+#: includes/config-validator/additional-settings.php:19
+msgid "Deprecated settings are used."
+msgstr "અપ્રચલિત( અમાન્ય ) સેટિંગ્સનો ઉપયોગ કરવામાં આવે છે."
+
+#. translators: %s: link labeled 'Really Simple CAPTCHA'
+#: modules/really-simple-captcha.php:36
+msgid "To use CAPTCHA, you need %s plugin installed."
+msgstr "કેપચ્ચા વાપરવા માટે તમારે %s પ્લગિન સ્થાપિત કરવુ પડશે."
+
+#: includes/rest-api.php:323
+msgid "There was an error deleting the contact form."
+msgstr "સંપર્ક ફોર્મ કાઢી નાખવામાં ત્રુટિ આવી હતી."
+
+#: includes/rest-api.php:66 includes/rest-api.php:82 includes/rest-api.php:98
+msgid "You are not allowed to access the requested contact form."
+msgstr "તમને વિનંતી કરેલ સંપર્ક ફોર્મ ઍક્સેસ કરવાની મંજૂરી નથી."
+
+#: includes/rest-api.php:245 includes/rest-api.php:267
+#: includes/rest-api.php:314 includes/rest-api.php:353
+#: includes/rest-api.php:425 includes/rest-api.php:444
+msgid "The requested contact form was not found."
+msgstr "તમે વિનંતી કરેલું સંપર્ક ફોર્મ ઉપલબ્ધ નથી "
+
+#: includes/rest-api.php:44
+msgid "You are not allowed to create a contact form."
+msgstr "તમને નવું સંપર્ક ફોર્મ બનાવની અનુમતિ નથી "
+
+#: includes/rest-api.php:197
+msgid "Cannot create existing contact form."
+msgstr "પહેલાથી બનેલા સંપર્ક ફોર્મ ફરી બનાવી શકાય નહી."
+
+#: includes/rest-api.php:30
+msgid "You are not allowed to access contact forms."
+msgstr "તમને સંપર્ક ફોર્મ્સ ઍક્સેસ કરવાની મંજૂરી નથી"
+
+#: includes/config-validator/mail.php:409
+msgid "Attachment file does not exist at %path%."
+msgstr "%path% ક્ષેત્રમાં અમાન્ય મેઇલબોક્સ વાક્યરચના વપરાય છે."
+
+#: includes/config-validator/mail.php:310
+msgid "Invalid mailbox syntax is used in the %name% field."
+msgstr "અમાન્ય મેઇલબોક્સ ની વાક્યરચના % name% ફિલ્ડ નો ઉપયોગ થાય છે "
+
+#. translators: %names%: a list of form control names
+#: includes/config-validator/form.php:32
+msgid "Unavailable names (%names%) are used for form controls."
+msgstr "ફોર્મ નિયંત્રણો માટે અનુપલબ્ધ નામો (%names%) નો ઉપયોગ થાય છે."
+
+#: includes/config-validator/mail.php:297
+msgid "There are invalid mail header fields."
+msgstr "અમાન્ય મેઇલ હેડર ફિલ્ડ છે"
+
+#: includes/config-validator/messages.php:29
+msgid "HTML tags are used in a message."
+msgstr "એચટીએમએલ(HTML) ટૅગ્સનો ઉપયોગ સંદેશમાં થાય છે"
+
+#: includes/config-validator/mail.php:198
+msgid "Sender email address does not belong to the site domain."
+msgstr "મોકલનારનું ઇમેઇલ સાઇટ ડોમેનથી સંબંધિત નથી."
+
+#: includes/config-validator/mail.php:180
+#: includes/config-validator/mail.php:217
+msgid "Invalid mailbox syntax is used."
+msgstr "અમાન્ય મેઇલબોક્સ વાક્યરચના ઉપયોગમાં લેવાય છે."
+
+#: includes/config-validator/mail.php:160
+#: includes/config-validator/mail.php:344
+msgid "There is a possible empty field."
+msgstr "ત્યા ખાલી ક્ષેત્રની શક્યતા  છે."
+
+#. translators: %s: number of errors detected
+#: admin/includes/class-contact-forms-list-table.php:131
+msgid "%s configuration error detected"
+msgid_plural "%s configuration errors detected"
+msgstr[0] "%s રૂપરેખાંકનની ત્રુટિ મળી"
+msgstr[1] "%s રૂપરેખાંકનની ત્રુટિઓ મળી"
+
+#: admin/admin.php:646 includes/rest-api.php:209 includes/rest-api.php:278
+msgid "There was an error saving the contact form."
+msgstr "સંપર્ક ફોર્મ સેવ કરતી વખતે કૈક ભૂલ થઇ છે "
+
+#. translators: 1: WordPress hook name, 2: version number, 3: alternative hook
+#. name
+#: includes/functions.php:524
+msgid "Hook %1$s is <strong>deprecated</strong> since Contact Form 7 version %2$s! Use %3$s instead."
+msgstr "સંપર્ક ફોર્મ 7 સંસ્કરણ %2$s થી હૂક %1$s એ <strong>નાપસંદ</strong> છે! તેના બદલે %3$s નો ઉપયોગ કરો."
+
+#: admin/includes/welcome-panel.php:130
+msgid "Flamingo"
+msgstr "ફ્લેમિંગો"
+
+#. translators: %s: link labeled 'Flamingo'
+#: admin/includes/welcome-panel.php:127
+msgid "Install a message storage plugin before this happens to you. %s saves all messages through contact forms into the database. Flamingo is a free WordPress plugin created by the same author as Contact Form 7."
+msgstr "આ થાય તે પહેલાં સંદેશ સ્ટોરેજ પ્લગિન સ્થાપિત કરો. %s બધા સંદેશાઓને સંપર્ક ફોર્મ્સ દ્વારા ડેટાબેઝમાં સાચવે છે. ફ્લેમિંગો એક મફત વર્ડપ્રેસ પ્લગિન છે, જે સંપર્ક ફોર્મ 7 નાજ લેખક દ્વારા બનાવવામાં આવેલું છે."
+
+#: admin/includes/welcome-panel.php:124
+msgid "Contact Form 7 does not store submitted messages anywhere. Therefore, you may lose important messages forever if your mail server has issues or you make a mistake in mail configuration."
+msgstr "સંપર્ક ફોર્મ 7 સબમિટ કરેલા સંદેશાઓ ક્યાંય સંગ્રહિત કરતું નથી. તેથી, જો તમારા મેઇલ સર્વરમાં સમસ્યા હોય અથવા તમે મેઇલ રૂપરેખાંકનમાં ભૂલ કરો તો તમે મહત્વપૂર્ણ સંદેશાઓ કાયમ માટે ગુમાવી શકો છો."
+
+#: admin/includes/welcome-panel.php:118
+msgid "Before you cry over spilt mail&#8230;"
+msgstr "તમે સ્પિલ્ડ મેઇલ પર રડવા પહેલાં&#8230;"
+
+#: admin/includes/welcome-panel.php:73
+msgid "https://contactform7.com/comment-blacklist/"
+msgstr "http://contactform7.com/comment-blacklist/"
+
+#: admin/includes/welcome-panel.php:60
+msgid "Spammers target everything; your contact forms are not an exception. Before you get spammed, protect your contact forms with the powerful anti-spam features Contact Form 7 provides."
+msgstr "સ્પામર્સ દરેક વસ્તુને લક્ષ્ય બનાવે છે; તમારા સંપર્ક ફોર્મ્સ અપવાદ નથી. તમે સ્પામ મેળવો તે પહેલાં, સંપર્ક ફોર્મ 7 પ્રદાન કરે છે તે શક્તિશાળી એન્ટિ-સ્પામ સુવિધાઓ સાથે તમારા સંપર્ક ફોર્મ્સને સુરક્ષિત કરો."
+
+#: admin/includes/welcome-panel.php:54
+msgid "Getting spammed? You have protection."
+msgstr "સ્પામ થયેલ છે? તમારી પાસે સુરક્ષા છે"
+
+#: includes/config-validator/form.php:16
+msgid "Multiple form controls are in a single label element."
+msgstr "એક લેબલ એલિમેન્ટમાં મલ્ટીપલ ફોર્મ નિયંત્રણો છે."
+
+#: admin/includes/config-validator.php:175
+msgid "FAQ about Configuration Validator"
+msgstr "રૂપરેખાંકન માન્યતા વિશે એફએક્યૂ(FAQ)"
+
+#: admin/includes/config-validator.php:174
+msgid "https://contactform7.com/configuration-validator-faq/"
+msgstr "http://contactform7.com/configuration-validator-faq/"
+
+#: modules/quiz.php:181
+msgid "The answer to the quiz is incorrect."
+msgstr "આપેલ ક્વિઝ નો જવાબ ખોટો છે."
+
+#: includes/file.php:121
+msgid "There was an error uploading the file."
+msgstr "ફાઇલ અપલોડ કરતી વખતે ભૂલ/ત્રુટિ આવી હતી."
+
+#: includes/file.php:111
+msgid "You are not allowed to upload files of this type."
+msgstr "તમને આ પ્રકારની ફાઇલો અપલોડ કરવાની મંજૂરી નથી"
+
+#: includes/file.php:106
+msgid "There was an unknown error uploading the file."
+msgstr "ફાઈલ અપલોડ કરવામાં એક અજ્ઞાત ત્રૂટિ આવી હતી"
+
+#: includes/contact-form-template.php:184
+msgid "You must accept the terms and conditions before sending your message."
+msgstr "તમારો  સંદેશ મોકલતા પહેલાં તમારે ટર્મ અને શરતો સ્વીકાર કરવો જ જોઈએ"
+
+#: includes/contact-form-template.php:174
+msgid "One or more fields have an error. Please check and try again."
+msgstr "એક અથવા વધુ ફિલ્ડમાં ત્રૂટિ છે કૃપા કરીને તપાસો અને ફરીથી પ્રયાસ કરો"
+
+#: includes/contact-form-template.php:169
+#: includes/contact-form-template.php:179
+msgid "There was an error trying to send your message. Please try again later."
+msgstr "તમારો સંદેશ મોકલવાના પ્રયાસમા ત્રૂટિ આવી હતી. કૃપા કરીને પછી ફરી પ્રયત્ન કરો."
+
+#: includes/contact-form-template.php:164
+msgid "Thank you for your message. It has been sent."
+msgstr "તમારા સંદેશ માટે તમારો આભાર. તે મોકલવામાં આવ્યો છે."
+
+#. translators: 1: blog name, 2: [your-subject]
+#: includes/contact-form-template.php:52 includes/contact-form-template.php:96
+msgctxt "mail subject"
+msgid "%1$s \"%2$s\""
+msgstr "%1$s \"%2$s\""
+
+#: admin/includes/config-validator.php:48
+msgid "Misconfiguration leads to mail delivery failure or other troubles. Validate your contact forms now."
+msgstr "ખોટી ગોઠવણી મેલ ડિલિવરી નિષ્ફળતા અથવા અન્ય મુશ્કેલીઓ તરફ દોરી જાય છે. હવે તમારા સંપર્ક ફોર્મ માન્ય કરો."
+
+#: admin/includes/config-validator.php:45
+msgid "Validate Contact Form 7 Configuration"
+msgstr "ગોઠવણીની પદ્ધતિ માં સમ્પર્ક ફોર્મ ૭ માન્ય છે."
+
+#: includes/config-validator/validator.php:56
+msgid "https://contactform7.com/configuration-errors/"
+msgstr "https://contactform7.com/configuration-errors/"
+
+#: admin/admin.php:664
+msgid "Configuration validation completed. No invalid contact form was found."
+msgstr "રૂપરેખાંકન માન્યતા પૂર્ણ થઇ છે. કોઈ અમાન્ય સંપર્ક ફોર્મ મળ્યું નહોતું."
+
+#. translators: %s: number of contact forms
+#: admin/admin.php:656
+msgid "Configuration validation completed. %s invalid contact form was found."
+msgid_plural "Configuration validation completed. %s invalid contact forms were found."
+msgstr[0] "રૂપરેખાંકન માન્યતા પૂર્ણ. %s અમાન્ય સંપર્ક ફોર્મ મળી આવ્યું હતું."
+msgstr[1] "રૂપરેખાંકન માન્યતા પૂર્ણ. %s અમાન્ય સંપર્ક ફોર્મ્સ મળી આવ્યા હતા."
+
+#: admin/includes/config-validator.php:142
+msgid "Validate Configuration"
+msgstr "માન્ય રૂપરેખાંકન"
+
+#. translators: %s: number of contact forms
+#: admin/includes/config-validator.php:118
+msgid "Validate %s contact form now"
+msgid_plural "Validate %s contact forms now"
+msgstr[0] "%s ફોર્મ હવે માન્ય કરો"
+msgstr[1] "%s ફોર્મ્સ હવે માન્ય કરો"
+
+#: admin/includes/config-validator.php:75
+msgid "You are not allowed to validate configuration."
+msgstr "તમે રૂપરેખાંકન માન્ય કરવા માટે મંજૂરી નથી."
+
+#: modules/recaptcha/recaptcha.php:254 modules/recaptcha/service.php:303
+msgid "https://contactform7.com/recaptcha/"
+msgstr "http://contactform7.com/recaptcha/"
+
+#: modules/recaptcha/service.php:372 modules/stripe/service.php:273
+#: modules/turnstile/service.php:351
+msgid "Secret Key"
+msgstr "ગુપ્ત કી"
+
+#: modules/recaptcha/service.php:355 modules/turnstile/service.php:334
+msgid "Site Key"
+msgstr "સાઇટ કી"
+
+#: modules/recaptcha/service.php:273 modules/sendinblue/service.php:147
+#: modules/stripe/service.php:157 modules/turnstile/service.php:246
+msgid "Settings saved."
+msgstr "સેટિંગ્સ સાચવ્યા."
+
+#: modules/recaptcha/service.php:265 modules/sendinblue/service.php:139
+#: modules/stripe/service.php:149
+msgid "Invalid key values."
+msgstr "અમાન્ય કી મૂલ્યો"
+
+#: modules/recaptcha/service.php:29
+msgid "reCAPTCHA"
+msgstr "reCAPTCHA"
+
+#. Author URI of the plugin
+#: wp-contact-form-7.php
+msgid "https://ideasilo.wordpress.com/"
+msgstr "http://ideasilo.wordpress.com/"
+
+#. Author of the plugin
+#: wp-contact-form-7.php
+msgid "Takayuki Miyoshi"
+msgstr "તાકાયુકી મીયોશી"
+
+#. Description of the plugin
+#: wp-contact-form-7.php
+msgid "Just another contact form plugin. Simple but flexible."
+msgstr "જસ્ટ અન્ય સંપર્ક ફોર્મ પ્લગઇન. સરળ પણ સાનુકૂળ."
+
+#. Plugin URI of the plugin
+#: wp-contact-form-7.php
+msgid "https://contactform7.com/"
+msgstr "http://contactform7.com/"
+
+#. translators: title of your first contact form. %d: number fixed to '1'
+#: load.php:195
+msgid "Contact form %d"
+msgstr "સંપર્ક ફોર્મ %d"
+
+#: modules/textarea.php:143
+msgid "text area"
+msgstr "લખાણ વિસ્તાર"
+
+#: admin/includes/welcome-panel.php:66 modules/akismet/service.php:22
+msgid "Akismet"
+msgstr "Akismet"
+
+#: modules/text.php:230
+msgid "Text field"
+msgstr "ટેક્સ્ટ ફીલ્ડ્સ"
+
+#: modules/text.php:216
+msgid "tel"
+msgstr "ફોન"
+
+#: modules/text.php:215
+msgid "URL"
+msgstr "URL"
+
+#: modules/text.php:214
+msgid "email"
+msgstr "ઇમેઇલ"
+
+#: modules/text.php:213
+msgid "text"
+msgstr "લખાણ"
+
+#: modules/text.php:195
+msgid "Telephone number that the sender entered is invalid"
+msgstr "પ્રેષક દાખલ થયો ટેલિફોન નંબર અમાન્ય છે"
+
+#: modules/text.php:188
+msgid "URL that the sender entered is invalid"
+msgstr "પ્રેષક દાખલ થયો URL અમાન્ય છે"
+
+#: modules/text.php:181
+msgid "Email address that the sender entered is invalid"
+msgstr "પ્રેષક દાખલ થયો ઇમેઇલ સરનામું અમાન્ય છે"
+
+#: modules/submit.php:100
+msgid "Label"
+msgstr "લેબલ"
+
+#: modules/submit.php:56
+msgid "Submit button"
+msgstr "સબમિટ બટન"
+
+#: modules/submit.php:47
+msgid "submit"
+msgstr "સબમિટ કરો"
+
+#: modules/select.php:232
+msgid "drop-down menu"
+msgstr "ડ્રોપ-ડાઉન મેનૂ"
+
+#: modules/quiz.php:258
+msgid "Questions and answers"
+msgstr "પ્રશ્ન અને જવાબ"
+
+#: modules/quiz.php:205
+msgid "Quiz"
+msgstr "પ્રશ્નોતરી"
+
+#: modules/quiz.php:196
+msgid "quiz"
+msgstr "પ્રશ્નોતરી"
+
+#: modules/quiz.php:179
+msgid "Sender does not enter the correct answer to the quiz"
+msgstr "મોકલનાર ક્વિઝનો સાચો જવાબ દાખલ કરતો નથી"
+
+#: modules/number.php:252
+msgid "Slider"
+msgstr "Slider"
+
+#: modules/number.php:251
+msgid "Spinbox"
+msgstr "ચક્કર ફરતું ખોખું"
+
+#: modules/number.php:213
+msgid "Number field"
+msgstr "નંબર ફીલ્ડ્સ"
+
+#: modules/number.php:204
+msgid "number"
+msgstr "નંબર"
+
+#: modules/number.php:190
+msgid "Number is larger than maximum limit"
+msgstr "સંખ્યા મહત્તમ મર્યાદા કરતાં પણ મોટો છે"
+
+#: modules/number.php:185
+msgid "Number is smaller than minimum limit"
+msgstr "સંખ્યા ન્યુનત્તમ મર્યાદા કરતા ઓછી છે"
+
+#: modules/number.php:180
+msgid "Number format that the sender entered is invalid"
+msgstr "પ્રેષક દાખલ કે જે નંબર બંધારણમાં અમાન્ય છે"
+
+#. translators: %s: the path of the temporary folder
+#: includes/file.php:426
+msgid "This contact form has file uploading fields, but the temporary folder for the files (%s) does not exist or is not writable. You can create the folder or change its permission manually."
+msgstr "આ ફોર્મમાં ફાઇલ અપલોડિંગ ક્ષેત્રો છે, પરંતુ ફાઇલો (%s) માટે કામચલાઉ ફોલ્ડર અસ્તિત્વમાં નથી અથવા લખી શકાય તેવું નથી. તમે ફોલ્ડર બનાવી શકો છો અથવા તેની પરવાનગી જાતે બદલી શકો છો."
+
+#: modules/file.php:205
+msgid "Acceptable file types"
+msgstr "સ્વીકાર્ય ફાઇલ પ્રકારો"
+
+#: modules/file.php:142
+msgid "file"
+msgstr "ફાઇલ"
+
+#: includes/file.php:120
+msgid "Uploading a file fails for PHP error"
+msgstr "ફાઇલ અપલોડ કરીને PHP ભૂલ માટે નિષ્ફળ જાય છે"
+
+#: includes/file.php:115
+msgid "Uploaded file is too large"
+msgstr "અપલોડ કરેલી ફાઇલ ખૂબ મોટી છે"
+
+#: includes/file.php:110
+msgid "Uploaded file is not allowed for file type"
+msgstr "અપલોડ કરેલી ફાઇલને ફાઇલ પ્રકાર માટેની મંજૂરી નથી"
+
+#: includes/file.php:105
+msgid "Uploading a file fails for any reason"
+msgstr "ફાઇલ અપલોડ કરી રહ્યા છીએ કોઈપણ કારણોસર નિષ્ફળ જાય"
+
+#: admin/includes/tag-generator.php:412
+msgid "Max"
+msgstr "મહત્તમ"
+
+#: admin/includes/tag-generator.php:393
+msgid "Min"
+msgstr "ન્યુનત્તમ"
+
+#: modules/date.php:242 modules/number.php:261
+msgid "Range"
+msgstr "પહોંચમર્યાદા"
+
+#: admin/includes/tag-generator.php:436
+msgid "Default value"
+msgstr "ડિફૉલ્ટ મૂલ્ય"
+
+#: modules/date.php:194
+msgid "Date field"
+msgstr "તારીખ ક્ષેત્ર"
+
+#: modules/date.php:185
+msgid "date"
+msgstr "તારીખ"
+
+#: modules/date.php:171
+msgid "Date is later than maximum limit"
+msgstr "તારીખ મહત્તમ મર્યાદા કરતાં પાછળથી છે"
+
+#: modules/date.php:166
+msgid "Date is earlier than minimum limit"
+msgstr "તારીખ ન્યુનત્તમ મર્યાદા કરતાં પહેલાં છે"
+
+#: modules/date.php:161
+msgid "Date format that the sender entered is invalid"
+msgstr "પ્રેષક દાખલ તારીખ ફોર્મેટ અમાન્ય છે"
+
+#: admin/includes/tag-generator.php:562
+msgid "Wrap each item with a label element."
+msgstr "દરેક આઇટમને લેબલ તત્વ સાથે મુકો."
+
+#: admin/includes/tag-generator.php:219
+msgid "Field type"
+msgstr "ફિલ્ડનો પ્રકાર"
+
+#: modules/checkbox.php:352
+msgid "radio buttons"
+msgstr "રેડીઓ બટન"
+
+#: modules/checkbox.php:351
+msgid "checkboxes"
+msgstr "ચેકબોક્ષ"
+
+#: modules/really-simple-captcha.php:293
+msgid "This contact form contains CAPTCHA fields, but the necessary libraries (GD and FreeType) are not available on your server."
+msgstr "આ સંપર્કને ફોર્મ કેપ્ચા ક્ષેત્રો પડે છે, પરંતુ જરૂરી લાઈબ્રેરીઓ (જીડી અને FreeType) તમારા સર્વર પર ઉપલબ્ધ નથી."
+
+#. translators: %s: Path to the temporary folder
+#: modules/really-simple-captcha.php:282
+msgid "This contact form contains CAPTCHA fields, but the temporary folder for the files (%s) does not exist or is not writable. You can create the folder or change its permission manually."
+msgstr "આ સંપર્કને ફોર્મ કેપ્ચા ક્ષેત્રો પડે છે, પરંતુ ફાઈલો માટે કામચલાઉ ફોલ્ડર (%s) અસ્તિત્વમાં નથી અથવા લખી શકાય તેવી નથી. જો તમે ફોલ્ડર બનાવવા અથવા જાતે તેની પરવાનગી બદલી શકો છો."
+
+#: modules/really-simple-captcha.php:241
+msgid "Your entered code is incorrect."
+msgstr "તમારી દાખલ કોડ ખોટો છે."
+
+#: modules/really-simple-captcha.php:239
+msgid "The code that sender entered does not match the CAPTCHA"
+msgstr "પ્રેષક દાખલ કે કોડ કેપ્ચા મેળ ખાતો નથી"
+
+#: admin/includes/tag-generator.php:599
+msgid "Insert Tag"
+msgstr "ટૅગ શામેલ કરો"
+
+#: admin/includes/tag-generator.php:362
+msgid "Class attribute"
+msgstr "ક્લાસ અટટ્રીબ્યુટ "
+
+#: admin/includes/tag-generator.php:347
+msgid "ID attribute"
+msgstr "આઈડી એટ્રિબ્યુટ"
+
+#: modules/acceptance.php:266
+msgid "Acceptance checkbox"
+msgstr "સ્વીકૃતિ ચેકબોક્ષ"
+
+#: modules/acceptance.php:257
+msgid "acceptance"
+msgstr "સ્વીકાર"
+
+#. translators: 1: property name, 2: method name
+#: includes/contact-form.php:233
+msgid "<code>%1$s</code> property of a <code>WPCF7_ContactForm</code> object is <strong>no longer accessible</strong>. Use <code>%2$s</code> method instead."
+msgstr "<code>%1$s</code> એક <code> WPCF7_ContactForm </code> ઑબ્જેક્ટની મિલકત <strong> લાંબા સમય સુધી ઍક્સેસિબલ નથી </strong>. તેને બદલે <code>%2$s</code> પદ્ધતિનો ઉપયોગ કરો."
+
+#: includes/contact-form.php:114 includes/contact-form.php:437
+msgid "Untitled"
+msgstr "અનામાંકિત"
+
+#: includes/contact-form.php:52
+msgid "Contact Form"
+msgstr "સંપર્ક ફોર્મ"
+
+#: includes/contact-form-template.php:198
+msgid "There is a field with input that is shorter than the minimum allowed length"
+msgstr "ઇનપુટ સાથે એક ફિલ્ડ છે જે ઓછામાં ઓછી લંબાઈ કરતા ટૂંકી હોય છે"
+
+#: includes/contact-form-template.php:193
+msgid "There is a field with input that is longer than the maximum allowed length"
+msgstr "ઇનપુટ સાથે એક ફિલ્ડ છે જે મહત્તમ મંજૂર લંબાઈ કરતા વધુ લાંબી છે"
+
+#: includes/contact-form-template.php:188
+msgid "There is a field that the sender must fill in"
+msgstr "આ ફિલ્ડ કે જેમા પ્રેષક ભરવા આવશ્યક છે"
+
+#: includes/contact-form-template.php:183
+msgid "There are terms that the sender must accept"
+msgstr "પ્રેષક સ્વીકારવી જ જોઈએ કે જે શરતો હોય છે"
+
+#: includes/contact-form-template.php:178
+msgid "Submission was referred to as spam"
+msgstr "ભર્યા સ્પામ તરીકે ઓળખવામાં આવી હતી"
+
+#: includes/contact-form-template.php:173
+msgid "Validation errors occurred"
+msgstr "માન્યતા ભૂલો આવી"
+
+#: includes/contact-form-template.php:72 includes/contact-form-template.php:106
+msgid "Message Body:"
+msgstr "સંદેશ શારીરિક:"
+
+#. translators: %s: [your-subject]
+#: includes/contact-form-template.php:69
+msgid "Subject: %s"
+msgstr "વિષય: %s"
+
+#. translators: %s: [your-name] [your-email]
+#: includes/contact-form-template.php:64
+msgid "From: %s"
+msgstr "માંથી:%s "
+
+#: modules/submit.php:26
+msgid "Send"
+msgstr "મોકલો"
+
+#: includes/contact-form-template.php:41
+msgid "Your message"
+msgstr "તમારો સંદેશ"
+
+#: includes/contact-form-template.php:39
+msgid "Your email"
+msgstr "તમારું ઇ-મેઇલ"
+
+#: includes/contact-form-template.php:38
+msgid "Your name"
+msgstr "તમારું નામ"
+
+#. translators: %s: title of form-tag
+#: admin/includes/tag-generator.php:85
+msgid "Form-tag Generator: %s"
+msgstr "ફોર્મ-ટૅગ જનરેટર: %s"
+
+#: admin/includes/help-tabs.php:97
+msgid "For more information:"
+msgstr "વધારે માહિતી માટે:"
+
+#: admin/includes/help-tabs.php:89
+msgid "Any information you provide will not be shared with service providers without your authorization."
+msgstr "તમારી અધિકૃતિ વગર તમે પ્રદાન કરો છો તે કોઈપણ માહિતી સેવા પ્રદાતાઓ સાથે શેર કરવામાં આવશે નહીં."
+
+#: admin/includes/help-tabs.php:88
+msgid "You may need to first sign up for an account with the service that you plan to use. When you do so, you would need to authorize Contact Form 7 to access the service with your account."
+msgstr "તમારે ઉપયોગમાં લેવાતી યોજના સાથે એકાઉન્ટ માટે પ્રથમ સાઇન અપ કરવું પડશે. જ્યારે તમે આવું કરો, ત્યારે તમારા એકાઉન્ટ સાથેની સેવાને ઍક્સેસ કરવા માટે સંપર્ક ફોર્મ 7 ને અધિકૃત કરવાની જરૂર પડશે."
+
+#: admin/includes/help-tabs.php:87
+msgid "On this screen, you can manage services that are available through Contact Form 7. Using API will allow you to collaborate with any services that are available."
+msgstr "આ સ્ક્રીન પર, તમે સંપર્ક ફોર્મ 7 દ્વારા ઉપલબ્ધ સેવાઓને સંચાલિત કરી શકો છો. API નો ઉપયોગ કરીને તમને ઉપલબ્ધ હોય તેવી કોઈપણ સેવાઓ સાથે સહયોગ કરવાની મંજૂરી મળશે."
+
+#: admin/includes/help-tabs.php:85
+msgid "There are also special mail-tags that have specific names, but do not have corresponding form-tags. They are used to represent meta information of form submissions like the submitter&#8217;s IP address or the URL of the page."
+msgstr "ત્યાં ખાસ મેઇલ-ટsગ્સ પણ છે કે જેમાં વિશિષ્ટ નામો છે, પરંતુ ડોન &#8217;t સંબંધિત ફોર્મ-ટsગ્સ હોય છે. તેઓ સબમિટર જેવા ફોર્મ સબમિશંસની મેટા માહિતીને રજૂ કરવા માટે વપરાય છે &#8217;s IP સરનામું અથવા પૃષ્ઠનો URL."
+
+#: admin/includes/help-tabs.php:84
+msgid "A mail-tag is also a short code enclosed in square brackets that you can use in every Mail and Mail (2) field. A mail-tag represents a user input value through an input field of a corresponding form-tag."
+msgstr "મેલ-ટૅગ એ સ્ક્વેર કૌંસમાં સંક્ષિપ્ત કોડ છે જેનો ઉપયોગ તમે દરેક મેઇલ અને મેલ (2) ફીલ્ડમાં કરી શકો છો. મેલ-ટેગ અનુરૂપ ફોર્મ-ટૅગના ઇનપુટ ફીલ્ડ દ્વારા વપરાશકર્તા ઇનપુટ મૂલ્યને પ્રસ્તુત કરે છે."
+
+#: admin/includes/help-tabs.php:82
+msgid "While form-tags have a comparatively complex syntax, you do not need to know the syntax to add form-tags because you can use the straightforward tag generator (<strong>Generate Tag</strong> button on this screen)."
+msgstr "જ્યારે ફોર્મ-ટેગ્સમાં તુલનાત્મક રીતે જટિલ વાક્યરચના હોય છે, ત્યારે તમારે ફોર્મ-ટેગ્સ ઉમેરવા માટે વાક્યરચના જાણવાની જરૂર નથી કારણ કે તમે સીધા ટેગ જનરેટર (આ સ્ક્રીન પર <strong>ટેગ જનરેટ કરો</strong> બટન નો ઉપયોગ કરી શકો છો."
+
+#: admin/includes/help-tabs.php:81
+msgid "A form-tag is a short code enclosed in square brackets used in a form content. A form-tag generally represents an input field, and its components can be separated into four parts: type, name, options, and values. Contact Form 7 supports several types of form-tags including text fields, number fields, date fields, checkboxes, radio buttons, menus, file-uploading fields, CAPTCHAs, and quiz fields."
+msgstr "ફોર્મ-ટૅગ એ ફોર્મ સામગ્રીમાં ઉપયોગમાં લેવાયેલ ચોરસ કૌંસમાં સંક્ષિપ્ત કોડ છે. ફોર્મ-ટૅગ સામાન્ય રીતે ઇનપુટ ક્ષેત્રનું પ્રતિનિધિત્વ કરે છે અને તેના ઘટકોને ચાર ભાગોમાં વિભાજિત કરી શકાય છે: પ્રકાર, નામ, વિકલ્પો અને મૂલ્યો. ફોર્મ 7 સંપર્ક ફોર્મ ક્ષેત્રો, નંબર ફીલ્ડ્સ, તારીખ ફીલ્ડ્સ, ચેકબૉક્સેસ, રેડિયો બટનો, મેનુઓ, ફાઇલ-અપલોડિંગ ફીલ્ડ્સ, કૅપ્ચા અને ક્વિઝ ક્ષેત્રો સહિત ઘણા પ્રકારનાં ફોર્મ-ટૅગ્સને સપોર્ટ કરે છે."
+
+#: admin/includes/help-tabs.php:79
+msgid "<strong>Additional Settings</strong> provides a place where you can customize the behavior of this contact form by adding code snippets."
+msgstr "<strong>વધારાના સેટિંગ્સ</strong> એવી જગ્યા પૂરી પાડે છે કે જ્યાં તમે કોડ સ્નિપેટ્સ ઉમેરીને આ સંપર્ક ફોર્મનાં વર્તનને કસ્ટમાઇઝ કરી શકો છો."
+
+#: admin/includes/help-tabs.php:78
+msgid "In <strong>Messages</strong>, you can edit various types of messages used for this contact form. These messages are relatively short messages, like a validation error message you see when you leave a required field blank."
+msgstr "<strong>સંદેશા</strong> માં, તમે આ સંપર્ક ફોર્મ માટે ઉપયોગમાં લેવાતા વિવિધ પ્રકારના સંદેશાને સંપાદિત કરી શકો છો. આ સંદેશા પ્રમાણમાં ટૂંકા સંદેશાઓ છે, જેમ કે માન્યતા ભૂલ સંદેશો જે તમે જોઈ શકો છો જ્યારે તમે આવશ્યક ફિલ્ડ ખાલી છોડો છો."
+
+#: admin/includes/help-tabs.php:77
+msgid "<strong>Mail (2)</strong> is an additional mail template that works similar to Mail. Mail (2) is different in that it is sent only when Mail has been sent successfully."
+msgstr "<strong>મેઇલ (2)</strong> એ એક વધારાના મેલનું ટેમ્પલેટ છે જે મેઇલ જેવું જ કામ કરે છે. મેઇલ (2) એ અલગ છે કે તે ફક્ત ત્યારે મોકલવામાં આવે છે જ્યારે મેઇલ સફળતાપૂર્વક મોકલવામાં આવે છે."
+
+#: admin/includes/help-tabs.php:76
+msgid "<strong>Mail</strong> manages a mail template (headers and message body) that this contact form will send when users submit it. You can use Contact Form 7&#8217;s mail-tags here."
+msgstr "<strong>મેઇલ</strong> સંદેશા એક મેલ ટેમ્પલેટ(હેડર અને સંદેશા બૉડી) નું સંચાલન કરે છે કે જ્યારે વપરાશકર્તાઓ તેને સબમિટ કરે ત્યારે આ સંપર્ક ફોર્મ મોકલશે. તમે અહીં સંપર્ક ફોર્મ 7 ના મેલ-ટેગ્સનો ઉપયોગ કરી શકો છો."
+
+#: admin/includes/help-tabs.php:75
+msgid "<strong>Form</strong> is a content of HTML form. You can use arbitrary HTML, which is allowed inside a form element. You can also use Contact Form 7&#8217;s form-tags here."
+msgstr "<strong>ફોર્મ</strong> એ HTML ફોર્મની સામગ્રી છે. તમે મનસ્વી HTML નો ઉપયોગ કરી શકો છો, જે ફોર્મ એલિમેન્ટની અંદર માન્ય છે. તમે અહીં સંપર્ક ફોર્મ 7 ના ફોર્મ-ટેગ્સનો ઉપયોગ પણ કરી શકો છો."
+
+#: admin/includes/help-tabs.php:74
+msgid "<strong>Title</strong> is the title of a contact form. This title is only used for labeling a contact form, and can be edited."
+msgstr "<strong>શીર્ષક</strong> આ સંપર્ક ફોર્મ નું શીર્ષક છે. આ શીર્ષક ફક્ત સંપર્ક ફોર્મ ને લેબલિંગ કરવા માટે જ ઉપયોગ માં લીધું છે, અને તે સંપાદિત થઇ શકે છે."
+
+#: admin/includes/help-tabs.php:73
+msgid "On this screen, you can edit a contact form. A contact form is comprised of the following components:"
+msgstr "આ સ્ક્રીન પર, તમે સંપર્ક ફોર્મ સંપાદિત કરી શકો છો. સંપર્ક ફોર્મ નીચેના કોમ્પોનેન્ટ્સનું બનેલું છે:"
+
+#: admin/includes/help-tabs.php:71
+msgid "<strong>Duplicate</strong> - Clones that contact form. A cloned contact form inherits all content from the original, but has a different ID."
+msgstr "<strong>ડુપ્લિકેટ</strong> - સંપર્ક ફોર્મથી ક્લોન્સ. ક્લોન કરેલ સંપર્ક ફોર્મ મૂળથી બધી સામગ્રીને પ્રાપ્ત કરે છે, પરંતુ તેની પાસે એક અલગ ID છે."
+
+#: admin/includes/help-tabs.php:70
+msgid "<strong>Edit</strong> - Navigates to the editing screen for that contact form. You can also reach that screen by clicking on the contact form title."
+msgstr "<strong>સંપાદિત</strong> - તે સંપર્ક ફોર્મ માટે સંપાદન સ્ક્રીન પર નેવિગેટ કરે છે. સંપર્ક ફોર્મ ટાઇટલ પર ક્લિક કરીને તમે તે સ્ક્રીન પર પણ પહોંચી શકો છો."
+
+#: admin/includes/help-tabs.php:69
+msgid "Hovering over a row in the contact forms list will display action links that allow you to manage your contact form. You can perform the following actions:"
+msgstr "સંપર્ક ફોર્મ્સની સૂચિમાં એક લાઇન પર હોવર કરવાથી ક્રિયા લિંક્સ પ્રદર્શિત થશે જે તમને તમારા સંપર્ક ફોર્મનું સંચાલન કરવાની મંજૂરી આપે છે. તમે નીચેની ક્રિયાઓ કરી શકો છો:"
+
+#: admin/includes/help-tabs.php:67
+msgid "On this screen, you can manage contact forms provided by Contact Form 7. You can manage an unlimited number of contact forms. Each contact form has a unique ID and Contact Form 7 shortcode ([contact-form-7 ...]). To insert a contact form into a post or a text widget, insert the shortcode into the target."
+msgstr "આ સ્ક્રીન પર, તમે સંપર્ક ફોર્મ 7 દ્વારા પૂરી પાડવામાં આવેલ સંપર્ક ફોર્મસ મેનેજ કરી શકો છો. તમે સંપર્ક ફોર્મ અમર્યાદિત સંખ્યામાં મેનેજ કરી શકો છો. દરેક સંપર્ક ફોર્મ પાસે એક એકમાત્ર ID અને સંપર્ક ફોર્મ 7 શોર્ટકોડ ([સંપર્ક-ફોર્મ -7 ...]) છે. પોસ્ટ અથવા ટેક્સ્ટ વિજેટમાં સંપર્ક ફોર્મ દાખલ કરવા માટે, લક્ષ્યમાં શોર્ટકોડ દાખલ કરો."
+
+#: admin/includes/help-tabs.php:44
+msgid "Mail-tags"
+msgstr "મેઇલ-ટૅગ્સ"
+
+#: admin/includes/help-tabs.php:38
+msgid "Form-tags"
+msgstr "ફોર્મ-ટૅગ્સ"
+
+#: admin/includes/help-tabs.php:22
+msgid "Available Actions"
+msgstr "ઉપલબ્ધ ક્રિયાઓ"
+
+#: admin/includes/help-tabs.php:16 admin/includes/help-tabs.php:32
+#: admin/includes/help-tabs.php:54
+msgid "Overview"
+msgstr "નિરીક્ષણ"
+
+#. translators: %s: link labeled 'Additional settings'
+#: admin/includes/editor.php:524
+msgid "You can add customization code snippets here. For details, see %s."
+msgstr "તમે અહીં કસ્ટમાઇઝેશન કોડ સ્નિપેટ્સ ઉમેરી શકો છો. વધારે વિગતો માટે %s જુઓ. "
+
+#: admin/includes/editor.php:526
+msgid "https://contactform7.com/additional-settings/"
+msgstr "http://contactform7.com/additional-settings/"
+
+#: admin/includes/editor.php:433
+msgid "File attachments"
+msgstr "ફાઇલ જોડાણો"
+
+#: admin/includes/editor.php:417
+msgid "Use HTML content type"
+msgstr "HTML સામગ્રી પ્રકાર વાપરો"
+
+#: admin/includes/editor.php:397
+msgid "Exclude lines with blank mail-tags from output"
+msgstr "આઉટપુટમાંથી ખાલી મેલ-ટેગ્સ સાથેની લીટીઓને દૂર કરો"
+
+#: admin/includes/editor.php:360
+msgid "Message body"
+msgstr "મેસેજ બોડી"
+
+#: admin/includes/editor.php:329
+msgid "Additional headers"
+msgstr "વધારાના હેડરો"
+
+#: admin/includes/editor.php:301 includes/contact-form-template.php:40
+msgid "Subject"
+msgstr "વિષય"
+
+#: admin/includes/editor.php:273
+msgid "From"
+msgstr "પ્રતિ"
+
+#: admin/includes/editor.php:245
+msgid "To"
+msgstr "માટે"
+
+#: admin/includes/editor.php:217
+msgid "In the following fields, you can use these mail-tags:"
+msgstr "નીચેના ક્ષેત્રોમાં, તમે આ મેઈલ-ટૅગ્સનો ઉપયોગ કરી શકો છો:"
+
+#: admin/includes/editor.php:191
+msgid "Mail (2) is an additional mail template often used as an autoresponder."
+msgstr "મેઈલ (2) એ એક વધારાનું ઇમેઇલ ટેમ્પ્લેટ છે જે ઑટોરેસ્પેન્ડર તરીકે વારંવાર વપરાય છે."
+
+#: admin/includes/editor.php:130
+msgid "Use Mail (2)"
+msgstr "ઉપયોગિત મેઇલ (૨)"
+
+#: admin/includes/editor.php:129
+msgid "Mail (2)"
+msgstr "ટપાલ (2)"
+
+#. translators: date format, see https://www.php.net/date
+#: admin/includes/class-contact-forms-list-table.php:229
+msgid "Y/m/d"
+msgstr "Y/m/d"
+
+#. translators: %s: title of contact form
+#: admin/includes/class-contact-forms-list-table.php:115
+msgid "Edit &#8220;%s&#8221;"
+msgstr "સંપાદિત કરો &#8220;%s&#8221;"
+
+#: admin/includes/class-contact-forms-list-table.php:162
+msgid "Edit"
+msgstr "સંપાદિત કરો"
+
+#: admin/includes/class-contact-forms-list-table.php:15
+msgid "Date"
+msgstr "તારીખ"
+
+#: admin/includes/class-contact-forms-list-table.php:14
+msgid "Author"
+msgstr "લેખક"
+
+#: admin/includes/class-contact-forms-list-table.php:13
+msgid "Shortcode"
+msgstr "શોર્ટકોડ"
+
+#: admin/includes/class-contact-forms-list-table.php:12
+#: includes/block-editor/index.js:1
+msgid "Title"
+msgstr "શીર્ષક"
+
+#: admin/edit-contact-form.php:449 admin/includes/editor.php:536
+msgid "Additional Settings"
+msgstr "વધારાના સેટિંગ્સ"
+
+#. translators: %d: number of additional settings
+#: admin/edit-contact-form.php:446
+msgid "Additional Settings (%d)"
+msgstr "વધારા ના સેટિંગ્સ (%d)"
+
+#: admin/edit-contact-form.php:426 admin/includes/editor.php:481
+msgid "Messages"
+msgstr "સંદેશાઓ"
+
+#: admin/edit-contact-form.php:422 admin/includes/editor.php:138
+msgid "Mail"
+msgstr "ટપાલ"
+
+#: admin/edit-contact-form.php:418 admin/includes/editor.php:91
+msgid "Form"
+msgstr "ફોર્મ"
+
+#: admin/includes/help-tabs.php:100
+msgid "Support"
+msgstr "આધાર"
+
+#: admin/includes/help-tabs.php:100
+msgid "https://contactform7.com/support/"
+msgstr "http://contactform7.com/support/"
+
+#: admin/edit-contact-form.php:369 admin/includes/help-tabs.php:99
+msgid "FAQ"
+msgstr "FAQ"
+
+#: admin/edit-contact-form.php:368 admin/includes/help-tabs.php:99
+msgid "https://contactform7.com/faq/"
+msgstr "http://contactform7.com/faq/"
+
+#: admin/includes/help-tabs.php:98
+msgid "Docs"
+msgstr "ડૉક્સ"
+
+#: admin/edit-contact-form.php:372 admin/includes/help-tabs.php:98
+msgid "https://contactform7.com/docs/"
+msgstr "http://contactform7.com/docs/"
+
+#: admin/edit-contact-form.php:311
+#: admin/includes/class-contact-forms-list-table.php:83
+msgid "Delete"
+msgstr "કાઢી નાખો"
+
+#: admin/edit-contact-form.php:282
+#: admin/includes/class-contact-forms-list-table.php:180
+msgid "Duplicate"
+msgstr "નકલી"
+
+#: admin/edit-contact-form.php:246
+msgid "Status"
+msgstr "સ્થિતિ"
+
+#: admin/edit-contact-form.php:205
+msgid "You can also use this old-style shortcode:"
+msgstr "તમે આ જૂની-શૈલીના શૉર્ટકૉડનો ઉપયોગ પણ કરી શકો છો:"
+
+#: admin/edit-contact-form.php:173
+msgid "Copy this shortcode and paste it into your post, page, or text widget content:"
+msgstr "આ shortcode ને કૉપી કરો અને તેને તમારી પોસ્ટ, પેજ અથવા ટેક્સ્ટ ના વિજેટ લખાણ માં પેસ્ટ કરો."
+
+#: admin/edit-contact-form.php:152 admin/edit-contact-form.php:153
+msgid "Enter title here"
+msgstr "અહીં શીર્ષક દાખલ કરો"
+
+#: admin/edit-contact-form.php:14 admin/edit-contact-form.php:272
+msgid "Save"
+msgstr "સેવ કરો"
+
+#: admin/admin.php:730
+msgid "You are not allowed to edit this contact form."
+msgstr "તમને આ સંપર્ક ફોર્મ સંપાદિત કરવાની મંજૂરી નથી."
+
+#: admin/includes/welcome-panel.php:129
+msgid "https://contactform7.com/save-submitted-messages-with-flamingo/"
+msgstr "http://contactform7.com/save-submitted-messages-with-flamingo/"
+
+#: modules/akismet/service.php:65
+msgid "Spam filtering with Akismet"
+msgstr "Akismet સાથે સ્પામ ફિલ્ટરિંગ"
+
+#: admin/includes/welcome-panel.php:65 modules/akismet/service.php:64
+msgid "https://contactform7.com/spam-filtering-with-akismet/"
+msgstr "http://contactform7.com/spam-filtering-with-akismet/"
+
+#: admin/includes/editor.php:208
+msgid "Setting up mail"
+msgstr "મેઇલ સેટ કરી રહ્યા છીએ"
+
+#: admin/includes/editor.php:207
+msgid "https://contactform7.com/setting-up-mail/"
+msgstr "https://contactform7.com/setting-up-mail/"
+
+#: admin/includes/welcome-panel.php:90
+msgid "Contact Form 7 needs your support."
+msgstr "સંપર્ક ફોર્મ 7 ને તમારા સર્પોટ ની જરૂર છે."
+
+#: admin/includes/welcome-panel.php:218
+msgid "Dismiss"
+msgstr "બરતરફ"
+
+#. translators: 1: version of Contact Form 7, 2: version of WordPress, 3: URL
+#: admin/admin.php:708
+msgid "<strong>Contact Form 7 %1$s requires WordPress %2$s or higher.</strong> Please <a href=\"%3$s\">update WordPress</a> first."
+msgstr "<strong>સંપર્કફોર્મ7 %1$s માટે WordPress %2$s અથવા ઉચ્ચ જરૂરી છે. </strong> href=\"%3$s\"> સુધારા WordPress કરો </a> પ્રથમ <a કરો."
+
+#: admin/admin.php:690
+msgid "Settings"
+msgstr "સેટિંગ્સ"
+
+#: admin/admin.php:643
+msgid "Contact form deleted."
+msgstr "ફોર્મ કાઢી સંપર્ક કરો."
+
+#: admin/admin.php:641
+msgid "Contact form saved."
+msgstr "ફોર્મ સાચવી સંપર્ક કરો."
+
+#: admin/admin.php:639
+msgid "Contact form created."
+msgstr "ફોર્મ બનાવનાર સંપર્ક કરો."
+
+#: admin/admin.php:503
+msgid "Search Contact Forms"
+msgstr "શોધ સંપર્ક ફોર્મ"
+
+#. translators: %s: search keywords
+#: admin/admin.php:467
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "માટે શોધ પરિણામ &#8220;%s&#8221;"
+
+#: admin/admin.php:349
+msgid "Error in deleting."
+msgstr "કાઢી નાંખવાનું ભૂલ આવી."
+
+#: admin/admin.php:343
+msgid "You are not allowed to delete this item."
+msgstr "તમે આ આઇટમ કાઢી નાખવા માટે મંજૂરી નથી."
+
+#: admin/admin.php:245 admin/admin.php:298
+msgid "You are not allowed to edit this item."
+msgstr "તમે આ આઇટમ સંપાદિત કરવા માટે મંજૂરી નથી."
+
+#: admin/admin.php:66
+msgid "Integration"
+msgstr "સંકલન"
+
+#: admin/admin.php:41 admin/admin.php:444 includes/contact-form.php:51
+msgid "Contact Forms"
+msgstr "ફોર્મ સંપર્ક"
+
+#: admin/admin.php:40 admin/edit-contact-form.php:42
+msgid "Edit Contact Form"
+msgstr "સંપર્ક ફોર્મ સંપાદિત કરો"
+
+#: admin/admin.php:30
+msgid "Contact"
+msgstr "સંપર્ક"
+
+#. Plugin Name of the plugin
+#: wp-contact-form-7.php admin/admin.php:29 modules/flamingo.php:215
+msgid "Contact Form 7"
+msgstr "ફોર્મ 7 સંપર્ક"
