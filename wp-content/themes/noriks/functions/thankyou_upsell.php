@@ -242,11 +242,11 @@ function noriks_handle_add_upsell() {
     }
 
     $order = wc_get_order( $order_id );
-    if ( ! $order ) wp_send_json_error( 'Ordine non trovato' );
+    if ( ! $order ) wp_send_json_error( 'Η παραγγελία δεν βρέθηκε' );
 
     // Only allow upsell on COD orders in primary-hold
     if ( $order->get_payment_method() !== 'cod' ) {
-        wp_send_json_error( 'Upsell disponibile solo per pagamento alla consegna' );
+        wp_send_json_error( 'Upsell διαθέσιμο μόνο για αντικαταβολή' );
     }
     if ( $order->get_status() !== 'primary-hold' ) {
         wp_send_json_error( 'Vrijeme za dodavanje je isteklo' );
@@ -260,7 +260,7 @@ function noriks_handle_add_upsell() {
 
     // Get the actual product (variation or simple)
     $product = $variation_id ? wc_get_product( $variation_id ) : wc_get_product( $product_id );
-    if ( ! $product ) wp_send_json_error( 'Prodotto non trovato' );
+    if ( ! $product ) wp_send_json_error( 'Το προϊόν δεν βρέθηκε' );
 
     // Duplicate check
     $check_product_id = $variation_id ? $product_id : $product->get_id();
@@ -288,7 +288,7 @@ function noriks_handle_add_upsell() {
         $active_price = (float) $product->get_regular_price();
     }
     if ( ! $active_price ) {
-        wp_send_json_error( 'Prezzo del prodotto non disponibile' );
+        wp_send_json_error( 'Η τιμή του προϊόντος δεν είναι διαθέσιμη' );
     }
 
     $upsell_price = round( $active_price * 0.5, 2 );
@@ -311,7 +311,7 @@ function noriks_handle_add_upsell() {
 
     $order->add_order_note(
         sprintf(
-            'Thank you upsell: %s dodano s 50%% popustom — akcijska cijena: %s, upsell cijena: %s',
+            'Thank you upsell: %s προστέθηκε με 50%% έκπτωση — τιμή προσφοράς: %s, τιμή upsell: %s',
             $product->get_name(),
             wc_price( $active_price ),
             wc_price( $upsell_price )

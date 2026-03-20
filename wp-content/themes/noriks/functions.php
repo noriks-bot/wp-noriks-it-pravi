@@ -6,7 +6,10 @@
  */
 
 include(get_template_directory() . '/functions/checkout_mods.php');
+<<<<<<< HEAD
+=======
 include(get_template_directory() . '/functions/thankyou_upsell.php');
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 include(get_template_directory() . '/functions/cpts.php');
 include(get_template_directory() . '/functions/options.php');
 include(get_template_directory() . '/functions/single_product_mods.php');
@@ -15,12 +18,18 @@ include(get_template_directory() . '/functions/discounts.php');
 
 
 add_filter( 'woocommerce_gallery_image_size', function() {
+<<<<<<< HEAD
+    return 'full';
+=======
     return 'large';
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 });
 
 
 
 
+<<<<<<< HEAD
+=======
 /**
  * Auto-apply coupon from URL parameter on checkout
  * Usage: /checkout/?coupon=SMS20
@@ -39,6 +48,7 @@ function auto_apply_coupon_from_url() {
 
 
 
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 // Dodaj v functions.php ali kot mu-plugin
 add_action('rest_api_init', function() {
     register_rest_route('noriks/v1', '/abandoned-carts', array(
@@ -71,7 +81,10 @@ function noriks_get_abandoned_carts($request) {
 
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 /**
  * Force redirect to Cart after add-to-cart on single product pages
  * and neutralize any upsell modal JS.
@@ -79,14 +92,24 @@ function noriks_get_abandoned_carts($request) {
 add_action('init', function () {
 	// Server-side redirect for NON-AJAX adds (highest priority wins)
 	add_filter('woocommerce_add_to_cart_redirect', function ($url) {
-		return home_url('/it/cart/'); // or wc_get_cart_url()
+<<<<<<< HEAD
+		return home_url('/hr/cart/'); // or wc_get_cart_url()
 	}, 9999);
 });
+
+=======
+		return home_url('/gr/cart/'); // or wc_get_cart_url()
+	}, 9999);
+});
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
  */
 
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 $webshop_language = get_field("webshop_language", "options");
 
 if( $webshop_language == null  || $webshop_language == false  || $webshop_language == "" ) {
@@ -96,8 +119,13 @@ if( $webshop_language == null  || $webshop_language == false  || $webshop_langua
 /*  include language specific files */
 if ($webshop_language == "EN") {
   include(get_template_directory() . '/functions/lang/en.php');
+<<<<<<< HEAD
 } else if ($webshop_language == "IT") {
   include(get_template_directory() . '/functions/lang/it.php');
+=======
+} else if ($webshop_language == "GR") {
+  include(get_template_directory() . '/functions/lang/gr.php');
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 }
 /*  include language specific files */
 
@@ -200,11 +228,19 @@ function enqueue_main_styles() {
 
     // Enqueue checkout.css on checkout
     if (function_exists('is_checkout') && is_checkout()) {
+<<<<<<< HEAD
+=======
         wp_enqueue_style('google-roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap', array(), null);
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         wp_enqueue_style(
             'checkout-style',
             get_template_directory_uri() . '/css/checkout.css',
             array(),
+<<<<<<< HEAD
+            filemtime(get_template_directory() . '/css/checkout.css'),
+            'all'
+        );
+=======
             md5_file(get_template_directory() . '/css/checkout.css'),
             'all'
         );
@@ -215,6 +251,7 @@ function enqueue_main_styles() {
             filemtime(get_template_directory() . '/js/checkout-fields.js'),
             true
         );
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
     
     
@@ -231,6 +268,8 @@ function enqueue_main_styles() {
     
     
     
+<<<<<<< HEAD
+=======
     // Enqueue header.css (load everywhere)
     wp_enqueue_style(
         'header-style',
@@ -268,6 +307,7 @@ function enqueue_main_styles() {
             true
         );
     }
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 }
 add_action('wp_enqueue_scripts', 'enqueue_main_styles');
 
@@ -384,7 +424,11 @@ function custom_quantity_buttons() {
                 qtyField.hide();
                 // Add custom quantity buttons
                 qtyWrapper.append(`
-                    <div class="label choose-your-pack"><label for="choose-your-pack">Seleziona il tuo pacchetto</label></div>
+<<<<<<< HEAD
+                    <div class="label choose-your-pack"><label for="choose-your-pack">Odaberite svoj paket</label></div>
+=======
+                    <div class="label choose-your-pack"><label for="choose-your-pack">Επιλέξτε το πακέτο σας</label></div>
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                     <div class="custom-qty-buttons">
                         <button type="button" class="qty-btn" data-qty="1"><?php echo esc_html($show_123_qty_1_t1); ?>  <br/><span class="qty-off">-<?php echo esc_html($discount_1); ?><?php echo esc_html($show_123_qty_2_t2); ?> </span> <span class="qty-off-text"><?php echo wc_price($price_per_one_1); ?> <?php echo esc_html($show_123_qty_1_t3); ?></span> </button>
                         <button type="button" class="qty-btn" data-qty="2"><?php echo esc_html($show_123_qty_2_t1); ?> <br/><span class="qty-off">-<?php echo esc_html($discount_2); ?><?php echo esc_html($show_123_qty_2_t2); ?></span><span class="qty-off-text"><?php echo wc_price($price_per_one_2); ?> <?php echo esc_html($show_123_qty_2_t3); ?></span></button>
@@ -413,7 +457,11 @@ function custom_quantity_buttons() {
                 qtyField.hide();
                 // Add custom quantity buttons
                 qtyWrapper.append(`
-                    <div class="label choose-your-pack"><label for="choose-your-pack">Seleziona il tuo pacchetto</label></div>
+<<<<<<< HEAD
+                    <div class="label choose-your-pack"><label for="choose-your-pack">Odaberite svoj paket</label></div>
+=======
+                    <div class="label choose-your-pack"><label for="choose-your-pack">Επιλέξτε το πακέτο σας</label></div>
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                     <div class="custom-qty-buttons">
                         <button type="button" class="qty-btn" data-qty="1">3 pack  <br/><span class="qty-off">39% OFF</span> <span class="qty-off-text">€15,75 per item</span> </button>
                         <button type="button" class="qty-btn" data-qty="2">6 pack <br/><span class="qty-off"> 49% OFF</span><span class="qty-off-text">€15,75 per item</span></button>
@@ -508,7 +556,11 @@ function custom_quantity_buttons() {
                 qtyField.hide();
                 // Add custom quantity buttons
                 qtyWrapper.append(`
-                    <div class="label choose-your-pack"><label for="choose-your-pack">Seleziona il tuo pacchetto</label></div>
+<<<<<<< HEAD
+                    <div class="label choose-your-pack"><label for="choose-your-pack">Odaberite svoj paket</label></div>
+=======
+                    <div class="label choose-your-pack"><label for="choose-your-pack">Επιλέξτε το πακέτο σας</label></div>
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                     <div class="custom-qty-buttons">
                         <button type="button" class="qty-btn" data-qty="6"><?php echo esc_html($show_6912_qty_1_t1); ?>  <br/><span class="qty-off">-<?php echo esc_html($discount_1); ?><?php echo esc_html($show_6912_qty_2_t2); ?> </span> <span class="qty-off-text"><?php echo wc_price($price_per_one_1); ?> <?php echo esc_html($show_6912_qty_1_t3); ?></span> </button>
                         <button type="button" class="qty-btn" data-qty="9"><?php echo esc_html($show_6912_qty_2_t1); ?> <br/><span class="qty-off">-<?php echo esc_html($discount_2); ?><?php echo esc_html($show_6912_qty_2_t2); ?></span><span class="qty-off-text"><?php echo wc_price($price_per_one_2); ?> <?php echo esc_html($show_6912_qty_2_t3); ?></span></button>
@@ -537,7 +589,11 @@ function custom_quantity_buttons() {
                 qtyField.hide();
                 // Add custom quantity buttons
                 qtyWrapper.append(`
-                    <div class="label choose-your-pack"><label for="choose-your-pack">Seleziona il tuo pacchetto</label></div>
+<<<<<<< HEAD
+                    <div class="label choose-your-pack"><label for="choose-your-pack">Odaberite svoj paket</label></div>
+=======
+                    <div class="label choose-your-pack"><label for="choose-your-pack">Επιλέξτε το πακέτο σας</label></div>
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                     <div class="custom-qty-buttons">
                         <button type="button" class="qty-btn" data-qty="1">2 pack  <br/><span class="qty-off">39% OFF</span> <span class="qty-off-text">€15,75 per item</span> </button>
                         <button type="button" class="qty-btn" data-qty="2">4 pack <br/><span class="qty-off"> 49% OFF</span><span class="qty-off-text">€15,75 per item</span></button>
@@ -566,7 +622,11 @@ function custom_quantity_buttons() {
                 qtyField.hide();
                 // Add custom quantity buttons
                 qtyWrapper.append(`
-                    <div class="label choose-your-pack"><label for="choose-your-pack">Seleziona il tuo pacchetto</label></div>
+<<<<<<< HEAD
+                    <div class="label choose-your-pack"><label for="choose-your-pack">Odaberite svoj paket</label></div>
+=======
+                    <div class="label choose-your-pack"><label for="choose-your-pack">Επιλέξτε το πακέτο σας</label></div>
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                     <div class="custom-qty-buttons">
                         <button type="button" class="qty-btn" data-qty="1">12 pack  <br/><span class="qty-off">39% OFF</span> <span class="qty-off-text">€15,75 per item</span> </button>
                         <button type="button" class="qty-btn" data-qty="2">24 pack <br/><span class="qty-off"> 49% OFF</span><span class="qty-off-text">€15,75 per item</span></button>
@@ -759,7 +819,49 @@ function add_second_product_thumbnail() {
 
 
 
+<<<<<<< HEAD
+function enqueue_custom_carousels_assets() {
+    // Slick Carousel CSS
+    wp_enqueue_style(
+        'slick-carousel-css',
+        'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',
+        array(),
+        '1.8.1'
+    );
+
+    // Glide.js CSS
+    wp_enqueue_style(
+        'glidejs-css',
+        'https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css',
+        array(),
+        null
+    );
+
+    // jQuery (Slick requires jQuery and WordPress includes jQuery by default)
+    wp_enqueue_script('jquery');
+
+    // Slick Carousel JS
+    wp_enqueue_script(
+        'slick-carousel-js',
+        'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js',
+        array('jquery'),
+        '1.8.1',
+        true
+    );
+
+    // Glide.js JS
+    wp_enqueue_script(
+        'glidejs-js',
+        'https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js',
+        array(),
+        null,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_carousels_assets');
+=======
 /* Slick/Glide carousel assets removed */
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 add_action( 'woocommerce_before_variations_form', function() {
     get_template_part( 'template_parts/size-chart-modal' );
@@ -941,6 +1043,9 @@ remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
 add_filter('tiny_mce_plugins', function ($plugins) {
     return is_array($plugins) ? array_diff($plugins, ['wpemoji']) : [];
 });
+<<<<<<< HEAD
+=======
 
 // Custom side cart upsell modal (replaces YITH Quick View)
 include(get_template_directory() . '/functions/sidecart-upsell-modal.php');
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f

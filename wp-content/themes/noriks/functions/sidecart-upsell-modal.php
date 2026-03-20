@@ -171,7 +171,7 @@ function noriks_upsell_modal_markup() {
                     </select>
                 </div>
                 <div id="noriks-modal-attributes" class="noriks-modal-attributes"></div>
-                <div id="noriks-modal-error" class="noriks-modal-error" style="display:none;">Seleziona tutte le opzioni</div>
+                <div id="noriks-modal-error" class="noriks-modal-error" style="display:none;">Επιλέξτε όλες τις επιλογές</div>
                 <button id="noriks-modal-add" class="noriks-modal-add-btn">DODAJ U KOŠARICU</button>
             </div>
             <div id="noriks-modal-loading" class="noriks-modal-loading" style="display:none;">

@@ -1,6 +1,10 @@
 
 <section class="new-video-rewies">
-  <h2 class="new-video-rewies__title">Guarda come gli altri adorano i loro boxer NORIKS</h2>
+<<<<<<< HEAD
+  <h2 class="new-video-rewies__title">Guarda come altri adorano i loro boxer NORIKS</h2>
+=======
+  <h2 class="new-video-rewies__title">Δείτε πώς οι άλλοι λατρεύουν τα NORIKS μποξεράκια τους</h2>
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
   <div class="new-video-rewies__slider">
 
@@ -8,14 +12,14 @@
     <div class="new-video-rewies__card">
       <div class="new-video-rewies__video-box">
         <video preload="metadata" playsinline disablepictureinpicture
-          poster="https://noriks.com/it/wp-content/uploads/2025/12/ugc1.png">
-          <source src="https://noriks.com/it/wp-content/uploads/2025/12/ugc_1.mp4" type="video/mp4">
+          poster="https://noriks.com/hr/wp-content/uploads/2025/12/ugc1.png">
+          <source src="https://noriks.com/hr/wp-content/uploads/2025/12/ugc_1.mp4" type="video/mp4">
         </video>
         <span class="new-video-rewies__play-btn"></span>
       </div>
       <div class="new-video-rewies__content">
         <div class="new-video-rewies__header">
-          <!--<img class="new-video-rewies__avatar" src="https://noriks.com/it/wp-content/uploads/2025/12/dario_profilna.jpg">-->
+          <!--<img class="new-video-rewies__avatar" src="https://noriks.com/hr/wp-content/uploads/2025/12/dario_profilna.jpg">-->
           <div>
             <strong>Filip P.</strong>
             <!--<span class="new-video-rewies__time">4h ago</span>-->
@@ -33,14 +37,14 @@
     <div class="new-video-rewies__card">
       <div class="new-video-rewies__video-box">
         <video preload="metadata" playsinline disablepictureinpicture
-          poster="https://noriks.com/it/wp-content/uploads/2025/12/ugc2.png">
-          <source src="https://noriks.com/it/wp-content/uploads/2025/12/ugc_2.mp4" type="video/mp4">
+          poster="https://noriks.com/hr/wp-content/uploads/2025/12/ugc2.png">
+          <source src="https://noriks.com/hr/wp-content/uploads/2025/12/ugc_2.mp4" type="video/mp4">
         </video>
         <span class="new-video-rewies__play-btn"></span>
       </div>
       <div class="new-video-rewies__content">
         <div class="new-video-rewies__header">
-          <!--<img class="new-video-rewies__avatar" src="https://noriks.com/it/wp-content/uploads/2025/12/dario_profilna.jpg">-->
+          <!--<img class="new-video-rewies__avatar" src="https://noriks.com/hr/wp-content/uploads/2025/12/dario_profilna.jpg">-->
           <div>
             <strong>Petar S.</strong>
             <!--<span class="new-video-rewies__time">16h ago</span>-->
@@ -58,14 +62,14 @@
     <div class="new-video-rewies__card">
       <div class="new-video-rewies__video-box">
         <video preload="metadata" playsinline disablepictureinpicture
-          poster="https://noriks.com/it/wp-content/uploads/2025/12/ugc3.png">
-          <source src="https://noriks.com/it/wp-content/uploads/2025/12/ugc_3.mp4" type="video/mp4">
+          poster="https://noriks.com/hr/wp-content/uploads/2025/12/ugc3.png">
+          <source src="https://noriks.com/hr/wp-content/uploads/2025/12/ugc_3.mp4" type="video/mp4">
         </video>
         <span class="new-video-rewies__play-btn"></span>
       </div>
       <div class="new-video-rewies__content">
         <div class="new-video-rewies__header">
-         <!-- <img class="new-video-rewies__avatar" src="https://noriks.com/it/wp-content/uploads/2025/12/dario_profilna.jpg">-->
+         <!-- <img class="new-video-rewies__avatar" src="https://noriks.com/hr/wp-content/uploads/2025/12/dario_profilna.jpg">-->
           <div>
            <strong>Luka M.</strong>
             <!--<span class="new-video-rewies__time">1d ago</span>-->
@@ -84,14 +88,14 @@
     <div class="new-video-rewies__card">
       <div class="new-video-rewies__video-box">
         <video preload="metadata" playsinline disablepictureinpicture
-          poster="https://noriks.com/it/wp-content/uploads/2025/12/ugc4.png">
-          <source src="https://noriks.com/it/wp-content/uploads/2025/12/ugc_4.mp4" type="video/mp4">
+          poster="https://noriks.com/hr/wp-content/uploads/2025/12/ugc4.png">
+          <source src="https://noriks.com/hr/wp-content/uploads/2025/12/ugc_4.mp4" type="video/mp4">
         </video>
         <span class="new-video-rewies__play-btn"></span>
       </div>
       <div class="new-video-rewies__content">
         <div class="new-video-rewies__header">
-       <!--   <img class="new-video-rewies__avatar" src="https://noriks.com/it/wp-content/uploads/2025/12/dario_profilna.jpg">-->
+       <!--   <img class="new-video-rewies__avatar" src="https://noriks.com/hr/wp-content/uploads/2025/12/dario_profilna.jpg">-->
           <div>
             <strong>Marko M.</strong>
            <!-- <span class="new-video-rewies__time">4h ago</span>-->
@@ -109,14 +113,14 @@
     <div class="new-video-rewies__card">
       <div class="new-video-rewies__video-box">
         <video preload="metadata" playsinline disablepictureinpicture
-          poster="https://noriks.com/it/wp-content/uploads/2025/12/ugc5.png">
-          <source src="https://noriks.com/it/wp-content/uploads/2025/12/ugc_5.mp4" type="video/mp4">
+          poster="https://noriks.com/hr/wp-content/uploads/2025/12/ugc5.png">
+          <source src="https://noriks.com/hr/wp-content/uploads/2025/12/ugc_5.mp4" type="video/mp4">
         </video>
         <span class="new-video-rewies__play-btn"></span>
       </div>
       <div class="new-video-rewies__content">
         <div class="new-video-rewies__header">
-          <!--<img class="new-video-rewies__avatar" src="https://noriks.com/it/wp-content/uploads/2025/12/dario_profilna.jpg">-->
+          <!--<img class="new-video-rewies__avatar" src="https://noriks.com/hr/wp-content/uploads/2025/12/dario_profilna.jpg">-->
           <div>
            <strong>Ivan O.</strong>
             <!--<span class="new-video-rewies__time">16h ago</span>-->

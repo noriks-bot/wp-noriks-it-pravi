@@ -52,7 +52,11 @@ if ( ! defined( 'ABSPATH' ) ) {
       ★★★★★
     </div>
     <div class="reviews">
+<<<<<<< HEAD
       <a style="color:black;" href="#reviews-section">Eccellente 4.8 | <?php echo get_field('singlepp_reviews_text_1', 'option'); ?> <?php echo get_field('singlepp_reviews_text_2', 'option'); ?></a>
+=======
+      <a style="color:black;" href="#reviews-section">Εξοχος 4.8 | <?php echo get_field('singlepp_reviews_text_1', 'option'); ?> <?php echo get_field('singlepp_reviews_text_2', 'option'); ?></a>
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     </div>
   </div>
  
