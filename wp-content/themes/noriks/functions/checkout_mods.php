@@ -1,363 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-
-
-/**
- * Force Billing and Shipping Country to GR for all WooCommerce orders
- */
-add_action( 'woocommerce_checkout_create_order', function( $order, $data ) {
-
-    // Set billing country
-    $order->set_billing_country( 'IT' );
-
-    // Set shipping country
-    $order->set_shipping_country( 'IT' );
-
-}, 20, 2 );
-
-
-
-
-// 1) Tell Woo’s default chooser to prefer COD when available.
-add_filter('default_checkout_payment_method', function($method, $available_gateways) {
-    return isset($available_gateways['cod']) ? 'cod' : $method;
-}, 10, 2);
-
-// 2) On first render (no prior choice in session), set COD as chosen.
-add_action('woocommerce_before_checkout_form', function () {
-    if (is_admin() && !defined('DOING_AJAX')) {
-        return;
-    }
-    if (!function_exists('WC') || !WC()->session) {
-        return;
-    }
-
-    $chosen = WC()->session->get('chosen_payment_method');
-    if (empty($chosen)) {
-        $available = WC()->payment_gateways()->get_available_payment_gateways();
-        if (isset($available['cod'])) {
-            WC()->session->set('chosen_payment_method', 'cod');
-        }
-    }
-}, 5);
-
-/**
- * Optional (front-end safety net):
- * If your theme/JS wipes the selection on first paint, precheck COD once.
- * Remove this block if you don’t need it.
- */
-add_action('wp_footer', function () {
-    if (!is_checkout() || is_wc_endpoint_url('order-received')) {
-        return;
-    } ?>
-    <script>
-    jQuery(function($){
-        var $checked = $('input[name="payment_method"]:checked');
-        if (!$checked.length && $('#payment_method_cod').length) {
-            $('#payment_method_cod').prop('checked', true).trigger('change');
-        }
-    });
-    </script>
-<?php });
-
-
-//  we need to move order now button bellow shop table on mobile only
-
-
-/**
- * Move WooCommerce "Place order" button after the order review table on mobile only.
- * We hide the default button (only the button, not payments) and print our own copy later.
- */
-add_action( 'wp', function () {
-
-    // Only on the checkout page (not the thank-you page) and only on mobile.
-    if ( ! function_exists( 'is_checkout' ) || ! is_checkout() || ( function_exists( 'is_order_received_page' ) && is_order_received_page() ) ) {
-        return;
-    }
-    if ( ! function_exists( 'wp_is_mobile' ) || ! wp_is_mobile() ) {
-        return;
-    }
-
-    // 1) Suppress only the default "Place order" button output.
-    add_filter( 'woocommerce_order_button_html', 'mytheme_hide_default_place_order_button', 999 );
-
-    // 2) Re-output a button after the order review table.
-    add_action( 'woocommerce_checkout_after_order_review', 'mytheme_mobile_place_order_button_after_review', 20 );
-});
-
-/**
- * Filter callback to hide the default button.
- */
-function mytheme_hide_default_place_order_button( $html ) {
-    return '';
-}
-
-/**
- * Our custom button after the order review table (inside the checkout form).
- */
-function mytheme_mobile_place_order_button_after_review() {
-
-    // Use WooCommerce’s default translatable text (filters will still run on the TEXT, which is safe).
-    $order_button_text = apply_filters(
-        'woocommerce_order_button_text',
-        __( 'Place order', 'woocommerce' )
-    );
-
-    // IMPORTANT: do NOT pass this HTML back through 'woocommerce_order_button_html' (it would be blanked).
-    echo sprintf(
-        '<button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="%1$s" data-value="%1$s">%2$s</button>',
-        esc_attr( $order_button_text ),
-        esc_html( $order_button_text )
-    );
-}
-
-
-
-
-
-
-//  we need to move order now button bellow shop table on mobile only
-
-
-
-
-
-
-
-
-
-
-
-
-add_action( 'wp', function() {
-    // Remove coupon form from its default location
-    remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
-
-    // Add coupon form after order review
-   // add_action( 'woocommerce_review_order_after_order_total', 'woocommerce_checkout_coupon_form' );
-});
-
-
-
-
-
-add_filter('woocommerce_billing_fields', 'no_billing_phone_validation' );
-function no_billing_phone_validation( $fields ) {
-    $fields['billing_phone']['required'] = true;
-    return $fields;
-}
-
-// we hide ship to different address
-add_filter( 'woocommerce_cart_needs_shipping_address', '__return_false' );
-
-
-// we hide order extra notes
-add_filter( 'woocommerce_checkout_fields', 'remove_order_notes_field' );
-function remove_order_notes_field( $fields ) {
-    if ( isset( $fields['order']['order_comments'] ) ) {
-        unset( $fields['order']['order_comments'] );
-    }
-    return $fields;
-}
-
-
-
-// Move email field to top of billing fields
-/*
-add_filter( 'woocommerce_checkout_fields', 'custom_move_email_field_first', 20, 1 );
-function custom_move_email_field_first( $fields ) {
-    if ( isset( $fields['billing']['billing_email'] ) ) {
-        $fields['billing']['billing_email']['priority'] = 1; // Ensure it's first
-    }
-    return $fields;
-}
-*/
-
-
-add_filter( 'woocommerce_checkout_fields', 'custom_checkout_reorder_fields' );
-function custom_checkout_reorder_fields( $fields ) {
-    // Email first
-    if ( isset( $fields['billing']['billing_email'] ) ) {
-        $fields['billing']['billing_email']['priority'] = 1;
-    }
-    
-      // Email first
-    if ( isset( $fields['billing']['billing_phone'] ) ) {
-        $fields['billing']['billing_phone']['priority'] = 2;
-    }
-
-    // Country next
-    if ( isset( $fields['billing']['billing_country'] ) ) {
-        $fields['billing']['billing_country']['priority'] = 5;
-    }
-
-    // First name
-    if ( isset( $fields['billing']['billing_first_name'] ) ) {
-        $fields['billing']['billing_first_name']['priority'] = 10;
-    }
-
-    // Last name
-    if ( isset( $fields['billing']['billing_last_name'] ) ) {
-        $fields['billing']['billing_last_name']['priority'] = 20;
-    }
-
-
-
-     // Ensure address_1 has a priority before address_2
-    if ( isset( $fields['billing']['billing_address_1'] ) ) {
-        $fields['billing']['billing_address_1']['priority'] = 40;
-        $fields['billing']['billing_address_1']['required'] = true; // Keep it required
-    }
-
-
-
-
-    // Make sure address_2 exists, is visible, and ordered correctly
-    if ( isset( $fields['billing']['billing_address_2'] ) ) {
-        $fields['billing']['billing_address_2']['priority'] = 45; // Just after address_1
-        $fields['billing']['billing_address_2']['required'] = false; // Usually optional
-        $fields['billing']['billing_address_2']['class'] = array( 'form-row-wide' );
-        
-          $fields['billing']['billing_address_1']['label'] = __( 'Via/Piazza', 'your-textdomain' );
-        
-        
-        $fields['billing']['billing_address_2']['label'] = __( 'Numero Civico', 'your-textdomain' );
-        $fields['billing']['billing_address_2']['placeholder'] = __( 'Kućni broj', 'your-textdomain' );
-        $fields['billing']['billing_address_2']['required'] = true; // Keep it required
-    }
-
-
-
-
-
-    return $fields;
-}
-
-
-
-add_filter( 'woocommerce_checkout_required_field_notice', function( $error, $field_label ) {
-    // Remove "Naplata " prefix from the error message
-    // Example input: "Naplata Mobitel (primjer: 0912345678)"
-    $clean_label = preg_replace( '/^Naplata\s*/i', '', $field_label );
-
-    // Rebuild WooCommerce's required field message
-    $error = sprintf( __( '%s je obavezno polje.', 'woocommerce' ), $clean_label );
-
-    return $error;
-}, 10, 2 );
-
-// Output a heading above the email field
-add_action( 'woocommerce_before_checkout_billing_form', 'add_contact_heading_before_email' );
-function add_contact_heading_before_email() {
-
-    
-    echo '<h3 class="checkout-section-title">I tuoi dati</h3>';
-}
-
-
-add_filter( 'woocommerce_checkout_fields', 'move_labels_to_placeholders' );
-function move_labels_to_placeholders( $fields ) {
-    foreach ( $fields as $section_key => $section ) {
-        foreach ( $section as $field_key => $field ) {
-            if ( isset( $fields[$section_key][$field_key]['label'] ) ) {
-                $fields[$section_key][$field_key]['placeholder'] = $fields[$section_key][$field_key]['label'];
-                $fields[$section_key][$field_key]['label'] = '';
-            }
-        }
-    }
-    return $fields;
-}
-
-
-// Remove default payment section
-remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
-
-// Re-add payment section right after billing fields
-add_action( 'woocommerce_checkout_after_customer_details', 'woocommerce_checkout_payment', 5 );
-
-
-
-
-
-
-
-add_filter( 'woocommerce_checkout_cart_item_quantity', 'add_product_image_to_checkout_review', 10, 3 );
-function add_product_image_to_checkout_review( $product_name, $cart_item, $cart_item_key ) {
-    if ( is_checkout() ) {
-        $product = $cart_item['data'];
-        $thumbnail = $product->get_image( [ 40, 40 ], [ 'style' => 'margin-right:10px; vertical-align:middle;' ] );
-
-        // Wrap in span or div for better layout control
-        return '<span  style="order: 1; display: flex; align-items: center;">' . $thumbnail . '<span>' . $product_name . '</span></span>';
-    }
-
-    return $product_name;
-}
-
-
-add_action( 'woocommerce_checkout_create_order', 'copy_billing_to_shipping_after_order', 10, 2 );
-function copy_billing_to_shipping_after_order( $order, $data ) {
-    // Copy each billing field to the shipping field
-    $fields = [
-        'first_name',
-        'last_name',
-        'company',
-        'address_1',
-        'address_2',
-        'city',
-        'state',
-        'postcode',
-        'country',
-        'phone',
-    ];
-
-    foreach ( $fields as $field ) {
-        $billing_value = $order->{"get_billing_$field"}();
-        $order->{"set_shipping_$field"}( $billing_value );
-    }
-}
-
-
-
-
-add_filter( 'woocommerce_gateway_description', 'remove_payment_method_description', 20, 2 );
-function remove_payment_method_description( $description, $payment_id ) {
-    return ''; // Return empty description
-}
-
-
-
-add_filter( 'woocommerce_cart_shipping_method_full_label', 'custom_shipping_label_price_only', 10, 2 );
-function custom_shipping_label_price_only( $label, $method ) {
-    if ( is_checkout() ) {
-        // Get only the cost formatted
-        $price = wc_price( $method->cost + array_sum( $method->get_taxes() ) );
-
-        return $price; // Output just the price, like "2,99 €"
-    }
-
-    return $label; // Keep default elsewhere (e.g., cart)
-}
-
-
-
-
-
-add_filter( 'woocommerce_package_rates', 'auto_select_and_hide_paid_shipping_when_free', 100, 2 );
-function auto_select_and_hide_paid_shipping_when_free( $rates, $package ) {
-    $free = [];
-
-    foreach ( $rates as $rate_id => $rate ) {
-        if ( 'free_shipping' === $rate->method_id ) {
-            $free[ $rate_id ] = $rate;
-            break; // only need one free method
-        }
-    }
-
-    return ! empty( $free ) ? $free : $rates;
-}
-=======
 /**
  * Checkout Modifications — Vigoshop CDN CSS + WC field config
  * Works WITHIN WooCommerce checkout system (no template bypass)
@@ -840,13 +481,13 @@ add_action( 'wp_footer', function() {
 
         /* Email format */
         if (isEmail && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-          showError($row, '\u2715 Εισαγάγετε έγκυρη διεύθυνση email');
+          showError($row, '\u2715 Inserisci un indirizzo email valido');
           return false;
         }
 
         /* Phone format (at least 6 digits) */
         if (isPhone && val && val.replace(/\D/g,'').length < 6) {
-          showError($row, '\u2715 Εισαγάγετε έγκυρο αριθμό τηλεφώνου');
+          showError($row, '\u2715 Inserisci un numero di telefono valido');
           return false;
         }
 
@@ -941,27 +582,27 @@ add_filter( 'woocommerce_checkout_fields', function( $fields ) {
     // phone/email priorities already set above (10/20)
 
     // Labels, placeholders, required
-    $fields['billing']['billing_first_name']['label'] = 'Όνομα';
-    $fields['billing']['billing_first_name']['placeholder'] = 'Όνομα';
-    $fields['billing']['billing_last_name']['label'] = 'Επώνυμο';
-    $fields['billing']['billing_last_name']['placeholder'] = 'Επώνυμο';
-    $fields['billing']['billing_address_1']['label'] = 'Οδός';
-    $fields['billing']['billing_address_1']['placeholder'] = 'Οδός';
-    $fields['billing']['billing_address_2']['label'] = 'Αριθμός';
-    $fields['billing']['billing_address_2']['placeholder'] = 'Αριθμός';
+    $fields['billing']['billing_first_name']['label'] = 'Nome';
+    $fields['billing']['billing_first_name']['placeholder'] = 'Nome';
+    $fields['billing']['billing_last_name']['label'] = 'Cognome';
+    $fields['billing']['billing_last_name']['placeholder'] = 'Cognome';
+    $fields['billing']['billing_address_1']['label'] = 'Via';
+    $fields['billing']['billing_address_1']['placeholder'] = 'Via';
+    $fields['billing']['billing_address_2']['label'] = 'Numero civico';
+    $fields['billing']['billing_address_2']['placeholder'] = 'Numero civico';
     $fields['billing']['billing_address_2']['required'] = true;
-    $fields['billing']['billing_postcode']['label'] = 'Ταχυδρομικός κώδικας';
-    $fields['billing']['billing_postcode']['placeholder'] = 'Ταχυδρομικός κώδικας';
-    $fields['billing']['billing_city']['label'] = 'Πόλη';
-    $fields['billing']['billing_city']['placeholder'] = 'Επιλέξτε πόλη';
-    $fields['billing']['billing_phone']['label'] = 'Τηλέφωνο';
+    $fields['billing']['billing_postcode']['label'] = 'CAP';
+    $fields['billing']['billing_postcode']['placeholder'] = 'CAP';
+    $fields['billing']['billing_city']['label'] = 'Città';
+    $fields['billing']['billing_city']['placeholder'] = 'Seleziona la città';
+    $fields['billing']['billing_phone']['label'] = 'Telefono';
     $fields['billing']['billing_phone']['placeholder'] = 'Broj mobilnog telefona';
-    $fields['billing']['billing_phone']['description'] = '<span class="desc-left">Παράδειγμα: 6912345678</span><span class="desc-right">Για βοήθεια με την αποστολή</span>';
+    $fields['billing']['billing_phone']['description'] = '<span class="desc-left">Primjer: 0912345678</span><span class="desc-right">Za pomoć s dostavom</span>';
     $fields['billing']['billing_email']['label'] = 'E-mail adresa';
     $fields['billing']['billing_email']['placeholder'] = 'E-mail adresa';
-    $fields['billing']['billing_email']['description'] = 'Για επιβεβαίωση παραγγελίας και παρακολούθηση αποστολής';
+    $fields['billing']['billing_email']['description'] = 'Per la conferma dell'ordine e il tracciamento della spedizione';
     $fields['billing']['billing_email']['required'] = false;
-    $fields['billing']['billing_country']['default'] = 'GR';
+    $fields['billing']['billing_country']['default'] = 'IT';
     unset( $fields['billing']['billing_company'] );
 
     // Vigoshop CSS classes
@@ -987,7 +628,7 @@ add_filter( 'woocommerce_checkout_fields', function( $fields ) {
  */
 add_filter( 'woocommerce_form_field_text', function( $field, $key ) {
     if ( $key === 'billing_last_name' ) {
-        $field .= '<div class="form-row form-row-wide col-xs-12">Εισαγάγετε τη διεύθυνση όπου θα βρίσκεστε <b>μεταξύ 8:00 και 16:00</b>.</div>';
+        $field .= '<div class="form-row form-row-wide col-xs-12">Inserisci l'indirizzo dove sarai <b>tra le 8:00 e le 16:00</b>.</div>';
     }
     return $field;
 }, 10, 2 );
@@ -996,11 +637,11 @@ add_filter( 'woocommerce_form_field_text', function( $field, $key ) {
  * Billing title
  */
 add_action( 'woocommerce_before_checkout_billing_form', function() {
-    echo '<h3 class="checkout-billing-title">Πληρωμή και Αποστολή</h3>';
+    echo '<h3 class="checkout-billing-title">Pagamento e Spedizione</h3>';
 });
 
-add_filter( 'default_checkout_billing_country', function() { return 'GR'; });
-add_filter( 'woocommerce_order_button_text', function() { return 'Παραγγελία'; });
+add_filter( 'default_checkout_billing_country', function() { return 'IT'; });
+add_filter( 'woocommerce_order_button_text', function() { return 'Ordina'; });
 
 /**
  * Payment gateway order: COD → Stripe → PayPal
@@ -1032,4 +673,3 @@ add_filter( 'the_content', function( $content ) {
     }
     return $content;
 }, 999 );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
