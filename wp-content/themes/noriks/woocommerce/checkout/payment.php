@@ -26,11 +26,7 @@ if ( ! wp_doing_ajax() ) {
 
 <div id="payment" class="woocommerce-checkout-payment">
     
-<<<<<<< HEAD
- <h3 class="checkout-section-title"><?php echo get_field("checkout_option_subheading_2","options"); ?></h3>   
-=======
  <?php // ACF subheading removed — section titles handled by checkout_mods.php ?>   
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     
     
 	<?php if ( WC()->cart->needs_payment() ) : ?>
@@ -49,33 +45,7 @@ if ( ! wp_doing_ajax() ) {
 		</ul>
 	<?php endif; ?>
 	
-<<<<<<< HEAD
-	<?php
-$chosen_methods = WC()->session->get( 'chosen_shipping_methods' );
-
-if ( ! empty( $chosen_methods ) && is_array( $chosen_methods ) ) {
-    $packages = WC()->shipping()->get_packages();
-
-    foreach ( $packages as $i => $package ) {
-        if ( isset( $chosen_methods[ $i ] ) ) {
-            $method_id = $chosen_methods[ $i ];
-            
-            $shippping_subtitle = get_field("checkout_option_subheading_3","options");
-
-            foreach ( $package['rates'] as $rate_id => $rate ) {
-                if ( $rate_id === $method_id ) {
-                    echo '<div class="woocommerce-selected-shipping" style="margin-top:20px;">';
-                    echo '<h3 class="checkout-section-title"> ' . $shippping_subtitle .' </h3> <ul class="shipping-method-ul"><li> ' . esc_html( $rate->get_label() ) . ' (' . wc_price( $rate->get_cost() ) . ')' ;
-                    echo '</li></ul></div>';
-                }
-            }
-        }
-    }
-}
-?>
-=======
 	<?php // Shipping display removed — handled by standalone Dostava section ?>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	
 	
 	
@@ -93,11 +63,6 @@ if ( ! empty( $chosen_methods ) && is_array( $chosen_methods ) ) {
 		<?php wc_get_template( 'checkout/terms.php' ); ?>
 
 		<?php do_action( 'woocommerce_review_order_before_submit' ); ?>
-<<<<<<< HEAD
-		
-		<?php $order_button_text = "Completa ordine"; ?>
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 		<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="button alt' . esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ) . '" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button>' ); // @codingStandardsIgnoreLine ?>
 

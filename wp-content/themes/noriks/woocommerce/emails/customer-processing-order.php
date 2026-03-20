@@ -33,52 +33,29 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 <?php
 if ( ! empty( $order->get_billing_first_name() ) ) {
 	/* translators: %s: Customer first name */
-<<<<<<< HEAD
-	printf( esc_html__( 'Ciao %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) );
+	printf( esc_html__( 'Hej  %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) );
 } else {
-	printf( esc_html__( 'Ciao,', 'woocommerce' ) );
-=======
-	printf( esc_html__( 'Γεια σου %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) );
-} else {
-	printf( esc_html__( 'Γεια σου,', 'woocommerce' ) );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+	printf( esc_html__( 'Hej ,', 'woocommerce' ) );
 }
 ?>
 </p>
 <?php if ( $email_improvements_enabled ) : ?>
 
 
-<<<<<<< HEAD
-	<p style="color:black;">Il tuo ordine è stato ricevuto con successo – grazie per aver scelto NORIKS!
+	<p style="color:black;">Tvoja narudžba je uspješno zaprimljena – hvala ti što si odabrao NORIKS!
 	<br/>	<br/>
-	Ora stiamo preparando il tuo prodotto NORIKS e presto sarà in viaggio.
+	Sad pripremamo tvoj NORIKS proizvod i uskoro kreće na put.
     <br/><br/>
-    Solo comfort e una piacevole sensazione – per tutto il giorno.<br/><br/>
+    Samo udobnost i dobar osjećaj – cijeli dan.<br/><br/>
     
-    Ti informeremo non appena il tuo pacco sarà in partenza verso di te.<br/>
-    Se hai bisogno di qualsiasi cosa – siamo qui per te. 🙂<br/><br/>
-    
-    
-    <strong>Se hai sbagliato taglia, quantità o colore nell’ordine – niente paura!</strong><br/>
-    Rispondi direttamente a questa e-mail e facci sapere cosa deve essere modificato prima della spedizione del pacco. Saremo felici di sistemare tutto rapidamente.<br/><br/>
-    
-    Il team NORIKS
-=======
-	<p style="color:black;">Η παραγγελία σου καταχωρήθηκε με επιτυχία – ευχαριστούμε που επέλεξες τη NORIKS!
-	<br/>	<br/>
-	Τώρα ετοιμάζουμε το προϊόν NORIKS σου και σύντομα θα ξεκινήσει το ταξίδι του.
-    <br/><br/>
-    Μόνο άνεση και καλή αίσθηση – όλη μέρα.<br/><br/>
-    
-    Θα σε ενημερώσουμε μόλις το πακέτο σου ξεκινήσει προς εσένα.<br/>
-    Αν χρειαστείς οτιδήποτε – είμαστε εδώ. 🙂<br/><br/>
+    Javit ćemo ti čim tvoj paket krene prema tebi.<br/>
+    Ako ti bilo što zatreba – tu smo. 🙂<br/><br/>
     
     
-    <strong>Αν έγινε κάποιο λάθος με το μέγεθος, την ποσότητα ή το χρώμα στην παραγγελία – μην ανησυχείς!</strong><br/>
-    Απάντησε απευθείας σε αυτό το e-mail και πες μας τι πρέπει να αλλάξει πριν την αποστολή του πακέτου. Θα το τακτοποιήσουμε γρήγορα με χαρά.<br/><br/>
+    <strong>Ako ste se zabunili oko veličine, količine ili boje u narudžbi – bez brige!</strong><br/>
+    Odgovorite direktno na ovaj e-mail i javite nam što treba promijeniti prije slanja paketa. Rado ćemo sve brzo srediti.<br/><br/>
     
-    Η ομάδα NORIKS
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+    NORIKS tim
     </p>
 
 	
@@ -88,37 +65,20 @@ if ( ! empty( $order->get_billing_first_name() ) ) {
 	<?php /* translators: %s: Order number */ ?>
 	
 		
-<<<<<<< HEAD
-	<p style="color:black;">Il tuo ordine è stato ricevuto con successo – grazie per aver scelto NORIKS!
+	<p style="color:black;">Tvoja narudžba je uspješno zaprimljena – hvala ti što si odabrao NORIKS!
 	<br/>	<br/>
-Ora stiamo preparando il tuo prodotto NORIKS e presto sarà in viaggio.
+Sad pripremamo tvoj NORIKS proizvod i uskoro kreće na put.
     <br/><br/>
-    Solo comfort e una piacevole sensazione – per tutto il giorno.<br/><br/>
+    Samo udobnost i dobar osjećaj – cijeli dan.<br/><br/>
     
-    Ti informeremo non appena il tuo pacco sarà in partenza verso di te.<br/>
-    Se hai bisogno di qualsiasi cosa – siamo qui per te. 🙂<br/><br/>
-    
-    
-    <strong>Se hai sbagliato taglia, quantità o colore nell’ordine – niente paura!</strong><br/>
-    Rispondi direttamente a questa e-mail e facci sapere cosa deve essere modificato prima della spedizione del pacco. Saremo felici di sistemare tutto rapidamente.<br/><br/>
-    
-    Il team NORIKS
-=======
-	<p style="color:black;">Η παραγγελία σου καταχωρήθηκε με επιτυχία – ευχαριστούμε που επέλεξες τη NORIKS!
-	<br/>	<br/>
-Τώρα ετοιμάζουμε το προϊόν NORIKS σου και σύντομα θα ξεκινήσει το ταξίδι του.
-    <br/><br/>
-    Μόνο άνεση και καλή αίσθηση – όλη μέρα.<br/><br/>
-    
-    Θα σε ενημερώσουμε μόλις το πακέτο σου ξεκινήσει προς εσένα.<br/>
-    Αν χρειαστείς οτιδήποτε – είμαστε εδώ. 🙂<br/><br/>
+    Javit ćemo ti čim tvoj paket krene prema tebi.<br/>
+    Ako ti bilo što zatreba – tu smo. 🙂<br/><br/>
     
     
-    <strong>Αν έγινε κάποιο λάθος με το μέγεθος, την ποσότητα ή το χρώμα στην παραγγελία – μην ανησυχείς!</strong><br/>
-    Απάντησε απευθείας σε αυτό το e-mail και πες μας τι πρέπει να αλλάξει πριν την αποστολή του πακέτου. Θα το τακτοποιήσουμε γρήγορα με χαρά.<br/><br/>
+    <strong>Ako ste se zabunili oko veličine, količine ili boje u narudžbi – bez brige!</strong><br/>
+    Odgovorite direktno na ovaj e-mail i javite nam što treba promijeniti prije slanja paketa. Rado ćemo sve brzo srediti.<br/><br/>
     
-    Η ομάδα NORIKS
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+    NORIKS tim
     </p>
 
 

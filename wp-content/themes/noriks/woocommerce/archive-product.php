@@ -46,43 +46,23 @@ function is_active_menu_item( $path ) {
 <nav class="category-menu">
   <ul>
     <li class="<?php echo is_shop() ? 'active' : ''; ?>">
-<<<<<<< HEAD
-      <a href="/it/shop">Tutti i prodotti</a>
+      <a href="/it/shop">Svi produkti</a>
     </li>
 
-    <li class="<?php echo is_active_menu_item('/product-category/magliette') ? 'active' : ''; ?>">
-      <a href="/it/product-category/magliette/">Magliette</a>
+    <li class="<?php echo is_active_menu_item('/product-category/majice') ? 'active' : ''; ?>">
+      <a href="/it/product-category/majice/">Majice</a>
     </li>
 
-    <li class="<?php echo is_active_menu_item('/product-category/boxer') ? 'active' : ''; ?>">
-      <a href="/it/product-category/boxer/">Boxer</a>
+    <li class="<?php echo is_active_menu_item('/product-category/bokserice') ? 'active' : ''; ?>">
+      <a href="/it/product-category/bokserice/">Bokserice</a>
     </li>
 
-    <li class="<?php echo is_active_menu_item('/product-category/set') ? 'active' : ''; ?>">
-      <a href="/it/product-category/set/">Set</a>
+    <li class="<?php echo is_active_menu_item('/product-category/kompleti') ? 'active' : ''; ?>">
+      <a href="/it/product-category/kompleti/">Kompleti</a>
     </li>
 
-    <li class="<?php echo is_active_menu_item('/product-category/calzini') ? 'active' : ''; ?>">
-      <a href="/it/product-category/calzini/">Calzini</a>
-=======
-      <a href="/gr/shop">Όλα τα προϊόντα</a>
-    </li>
-
-    <li class="<?php echo is_active_menu_item('/product-category/mplouzoakia/') ? 'active' : ''; ?>">
-      <a href="/gr/product-category/mplouzoakia/">Μπλουζάκια</a>
-    </li>
-
-    <li class="<?php echo is_active_menu_item('/product-category/mpoxer/') ? 'active' : ''; ?>">
-      <a href="/gr/product-category/mpoxer/">Μποξεράκια</a>
-    </li>
-
-    <li class="<?php echo is_active_menu_item('/product-category/set/') ? 'active' : ''; ?>">
-      <a href="/gr/product-category/set/">Σετ</a>
-    </li>
-
-    <li class="<?php echo is_active_menu_item('/product-category/kaltses/') ? 'active' : ''; ?>">
-      <a href="/gr/product-category/kaltses/">Κάλτσες</a>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+    <li class="<?php echo is_active_menu_item('/product-category/carape') ? 'active' : ''; ?>">
+      <a href="/it/product-category/carape/">Čarape</a>
     </li>
   </ul>
 </nav>
@@ -266,11 +246,7 @@ function is_active_menu_item( $path ) {
 <section class="one-banner-shop" style="position: relative; margin: 0 auto; padding: 0;">
 
   <img
-<<<<<<< HEAD
-    src="/it/wp-content/themes/noriks/img/noriks-shop.png"
-=======
-    src="/gr/wp-content/themes/noriks/img/noriks-shop.png"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+    src="<?php echo get_template_directory_uri(); ?>/img/noriks-shop.png"
     style="display:block; width:100%; min-height:105px; border-radius:0;"
     alt=""
   >
@@ -380,90 +356,41 @@ $shop_filter_fields = get_field("shop_filter_fields", "option");
 // SHOP PAGE (/shop)
 if ( is_shop() ) {
 
-
-
-<<<<<<< HEAD
     echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2"]');
 
 // CATEGORY: /bokserice + ALL CHILD CATEGORIES
-} elseif ( is_product_category_or_child('boxer') ) {
+} elseif ( is_product_category_or_child('bokserice') ) {
 
     echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2-2-2"]');
 
 // CATEGORY GROUP
 } elseif (
     is_product_category_or_child('bestsellers') ||
-    is_product_category_or_child('velke-baliky') ||
-    is_product_category_or_child('pacchetto-starter')
+    is_product_category_or_child('veliki-paketi') ||
+    is_product_category_or_child('starter-paketi')
 ) {
 
-    echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2"]');
+    echo do_shortcode('[yith_wcan_filters slug="default-preset-2-3"]');
 
 // CATEGORY: /majice + children
-} elseif ( is_product_category_or_child('magliette') ) {
+} elseif ( is_product_category_or_child('majice') ) {
 
     echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2-2"]');
 
 // CATEGORY: /kompleti + children
-} elseif ( is_product_category_or_child('set') ) {
+} elseif ( is_product_category_or_child('kompleti') ) {
 
     echo do_shortcode('[yith_wcan_filters slug="default-preset"]');
 
 // CATEGORY: /carape + children
-} elseif ( is_product_category_or_child('calzini') ) {
+} elseif ( is_product_category_or_child('carape') ) {
 
     echo do_shortcode('[yith_wcan_filters slug="default-preset-2"]');
-=======
-    echo do_shortcode('[yith_wcan_filters slug="%cf%8c%ce%bb%ce%b1"]');
-
-// CATEGORY: /bokserice + ALL CHILD CATEGORIES (CZ: boxerky, GR: mpoxerakia/boxerakia)
-} elseif ( is_product_category_or_child('mpoxer') || is_product_category_or_child('mpoxerakia') || is_product_category_or_child('boxerakia') || is_product_category_or_child('boxers') ) {
-
-    echo do_shortcode('[yith_wcan_filters slug="%ce%bc%cf%80%cf%8c%ce%be%ce%b5%cf%81"]');
-
-// CATEGORY GROUP (starter packs)
-} elseif (
-    is_product_category_or_child('paketo-ekkinisis') ||
-    is_product_category_or_child('dimofili') ||
-    is_product_category_or_child('megala-paketa') ||
-    is_product_category_or_child('paketo-ekkinisis') ||
-    is_product_category_or_child('starter-pack')
-) {
-
-    echo do_shortcode('[yith_wcan_filters slug="%cf%8c%ce%bb%ce%b1"]');
-
-
-
-// CATEGORY: /majice + children (CZ: tricka, GR: mplouzoakia/blouzakia)
-} elseif ( is_product_category_or_child('tricka') || is_product_category_or_child('mplouzoakia') || is_product_category_or_child('blouzakia') || is_product_category_or_child('t-shirts') ) {
-
-    echo do_shortcode('[yith_wcan_filters slug="%ce%bc%cf%80%ce%bb%ce%bf%cf%85%ce%b6%ce%ac%ce%ba%ce%b9%ce%b1"]');
-    
-    
-    
-    
-
-// CATEGORY: /kompleti + children (CZ: sady, GR: set/seta)
-} elseif ( is_product_category_or_child('set') || is_product_category_or_child('set') || is_product_category_or_child('seta') || is_product_category_or_child('bundles') ) {
-
-    echo do_shortcode('[yith_wcan_filters slug="%cf%83%ce%b5%cf%84"]');
-
-
-
-// CATEGORY: /carape + children (CZ: ponozky, GR: kaltses) SOCKS
-} elseif ( is_product_category_or_child('kaltses') || is_product_category_or_child('kaltses') || is_product_category_or_child('socks') ) {
-
-    echo do_shortcode('[yith_wcan_filters slug="%ce%ba%ce%ac%ce%bb%cf%84%cf%83%ce%b5%cf%82"]');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 // FALLBACK for any other product category
 } elseif ( is_product_category() ) {
 
-<<<<<<< HEAD
     echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2"]');
-=======
-    echo do_shortcode('[yith_wcan_filters slug="%cf%8c%ce%bb%ce%b1"]');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 }
 ?>
         </div>
@@ -956,31 +883,7 @@ if ( is_shop() ) {
 
 
 
-<script>
-  function initMobileSlider() {
-    const isMobile = window.innerWidth < 768; // Change breakpoint as needed
-    const $slider = jQuery('.your-slider');
-
-    if (isMobile && !$slider.hasClass('slick-initialized')) {
-      $slider.slick({
-               dots: false,
-               arrows: false,
-              infinite: false,
-              speed: 300,
-              slidesToShow: 1,
-              centerMode: false,
-              variableWidth: true
-      });
-    } else if (!isMobile && $slider.hasClass('slick-initialized')) {
-      $slider.slick('unslick');
-    }
-  }
-
-  jQuery(document).ready(function () {
-    initMobileSlider();
-    jQuery(window).on('resize', initMobileSlider);
-  });
-</script>
+<!-- Slick carousel init removed -->
 
 
 

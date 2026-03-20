@@ -21,10 +21,6 @@
   }
   
   
-<<<<<<< HEAD
-
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
   
   /* Hide hover image */
   .product-image-swap .hover-img {
@@ -160,14 +156,6 @@ button:focus {outline : none; outline-color: transparent !important;}
 
 
 .xoo-wsc-ft-btn-checkout { 
-<<<<<<< HEAD
-    background: #f5a623 !important;
-    color: black !important;
-}
-
-.xoo-wsc-ft-btn-checkout span { 
-    color: black !important;
-=======
     background: #c00 !important;
     color: #fff !important;
     border-radius: 0 !important;
@@ -210,7 +198,6 @@ button:focus {outline : none; outline-color: transparent !important;}
 .xoo-wsc-ft-buttons-cont a.xoo-wsc-ft-btn {
     width: 100% !important;
     box-sizing: border-box !important;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 }
 
 

@@ -21,15 +21,15 @@ if (!defined('ABSPATH')) exit;
 	        <meta name="robots" content="noindex, nofollow"><link rel='dns-prefetch' href='//widget.trustpilot.com' />
 <link rel='dns-prefetch' href='//static.klaviyo.com' />
 <link rel='dns-prefetch' href='//js.braintreegateway.com' />
-<meta name="title" content="Dovršite kupnju" />
+<meta name="title" content="Completa l'acquisto" />
 <meta name="description" content="Sve što vam treba na jednom mjestu. Istražite veliki izbor proizvoda po najnižim cijenama. Kliknite sada i uživajte u najboljim ponudama i velikoj raznolikosti!" />
 <meta name="image" content="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/mstile-310x310.png" />
 <meta property="og:locale" content="hr" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Dovršite kupnju" />
+<meta property="og:title" content="Completa l'acquisto" />
 <meta property="og:description" content="Sve što vam treba na jednom mjestu. Istražite veliki izbor proizvoda po najnižim cijenama. Kliknite sada i uživajte u najboljim ponudama i velikoj raznolikosti!" />
 <meta property="og:image" content="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/mstile-310x310.png" />
-<meta property="og:image:alt" content="Vigoshop - Dovršite kupnju" />
+<meta property="og:image:alt" content="Vigoshop - Completa l'acquisto" />
 <style id='classic-theme-styles-inline-css' type='text/css'>
 /*! This file is auto-generated */
 .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
@@ -173,22 +173,22 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 <div class="before_form container container--xs">
 
   <form name="checkout" method="post" class="checkout woocommerce-checkout"
-        action="#" enctype="multipart/form-data" aria-label="Plaćanje">
+        action="#" enctype="multipart/form-data" aria-label="Pagamento">
 
     
               <div class="col2-set" id="customer_details">
         <div class="col-1 clearfix">
           <div class="woocommerce-billing-fields">
   
-    <h3 class="checkout-billing-title">Plaćanje i Dostava</h3>
+    <h3 class="checkout-billing-title">Pagamento e Spedizione</h3>
 
   
   
   <div class="woocommerce-billing-fields__field-wrapper">
-    <p class="form-row form-row-first form-group col-xs-12 validate-required" id="billing_first_name_field" data-priority="30"><label for="billing_first_name" class="required_field">Ime&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_first_name" id="billing_first_name" placeholder="Ime"  value="" aria-required="true" maxlength="80" autocomplete="given-name" /></span></p><p class="form-row form-row-last form-group col-xs-12 validate-required" id="billing_last_name_field" data-priority="40"><label for="billing_last_name" class="required_field">Prezime&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_last_name" id="billing_last_name" placeholder="Prezime"  value="" aria-required="true" maxlength="80" autocomplete="family-name" /></span></p><div class="form-row form-row-wide col-xs-12">Unesite adresu na kojoj ćete biti <b>između 8:00 i 16:00 sati</b>.</div><p class="form-row form-row-wide address-field form-group form-group col-xs-12 validate-required" id="billing_address_1_field" data-priority="50"><label for="billing_address_1" class="required_field">Ulica&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_address_1" id="billing_address_1" placeholder="Ulica"  value="" aria-required="true" maxlength="80" autocomplete="address-line1" /></span></p><p class="form-row form-row-wide address-field form-group form-group col-xs-12 validate-required" id="billing_address_2_field" data-priority="60"><label for="billing_address_2" class="screen-reader-text required_field">Kućni broj&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_address_2" id="billing_address_2" placeholder="Kućni broj"  value="" autocomplete="address-line2" maxlength="80" aria-required="true" /></span></p><p class="form-row form-row-wide address-field form-group form-group col-xs-12 validate-required validate-postcode" id="billing_postcode_field" data-priority="70"><label for="billing_postcode" class="required_field">Poštanski broj&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="tel" class="input-text form-input" name="billing_postcode" id="billing_postcode" placeholder="Poštanski broj"  value="" aria-required="true" maxlength="30" autocomplete="postal-code" /></span></p><p class="form-row form-row-wide dropdown form-group form-group col-xs-12 validate-required" id="billing_city_field" data-priority=""><label for="billing_city" class="required_field">Grad&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><select name="billing_city" id="billing_city" class="select form-input" aria-required="true" data-allow_clear="true" data-placeholder="Odaberite grad">
-							<option value=""  selected='selected'>Odaberite grad</option>
-						</select></span></p><p class="form-row form-row-wide form-group col-xs-12 validate-required validate-phone" id="billing_phone_field" data-priority="10"><label for="billing_phone" class="required_field">Telefon&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="tel" class="input-text form-input" name="billing_phone" id="billing_phone" placeholder="Broj mobilnog telefona"  value="" maxlength="17" aria-required="true" autocomplete="tel" /></span></p><p class="form-row form-row-wide form-group col-xs-12 validate-email" id="billing_email_field" data-priority="20"><label for="billing_email" class="">E-mail adresa&nbsp;<span class="optional">(προαιρετικό)</span></label><span class="woocommerce-input-wrapper"><input type="email" class="input-text form-input" name="billing_email" id="billing_email" placeholder="E-mail adresa"  value="" maxlength="80" autocomplete="email" /></span></p><p class="form-row form-row-wide address-field form-group col-xs-12 validate-state" id="billing_state_field" data-priority="80"><label for="billing_state" class="">Županija&nbsp;<span class="optional">(προαιρετικό)</span></label><span class="woocommerce-input-wrapper"><select name="billing_state" id="billing_state" class="state_select form-input" autocomplete="address-level1" data-placeholder="placeholder_province"  data-input-classes="form-input" data-label="Županija">
-						<option value="">Odaberite opciju&hellip;</option><option value="HR-01" >Zagreb County</option><option value="HR-02" >Krapina-Zagorje County</option><option value="HR-03" >Sisak-Moslavina County</option><option value="HR-04" >Karlovac County</option><option value="HR-05" >Varaždin County</option><option value="HR-06" >Koprivnica-Križevci County</option><option value="HR-07" >Bjelovar-Bilogora County</option><option value="HR-08" >Primorje-Gorski Kotar County</option><option value="HR-09" >Lika-Senj County</option><option value="HR-10" >Virovitica-Podravina County</option><option value="HR-11" >Požega-Slavonia County</option><option value="HR-12" >Brod-Posavina County</option><option value="HR-13" >Zadar County</option><option value="HR-14" >Osijek-Baranja County</option><option value="HR-15" >Šibenik-Knin County</option><option value="HR-16" >Vukovar-Srijem County</option><option value="HR-17" >Split-Dalmatia County</option><option value="HR-18" >Istria County</option><option value="HR-19" >Dubrovnik-Neretva County</option><option value="HR-20" >Međimurje County</option><option value="HR-21" >Zagreb City</option></select></span></p><p class="form-row form-row-wide address-field update_totals_on_change form-group col-xs-12 validate-required" id="billing_country_field" data-priority="90"><label for="billing_country" class="required_field">Country / Region&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><strong>Ελλάδα</strong><input type="hidden" name="billing_country" id="billing_country" value="GR" aria-required="true" autocomplete="do-not-autofill" class="country_to_state" readonly="readonly" /></span></p><p class="form-row kl_newsletter_checkbox_field form-group col-xs-12" id="kl_newsletter_checkbox_field" data-priority=""><span class="woocommerce-input-wrapper"><label class="checkbox " ><input type="checkbox" name="kl_newsletter_checkbox" id="kl_newsletter_checkbox" value="1" class="input-checkbox form-input"  /> Sign me up to receive email updates and news&nbsp;<span class="optional">(προαιρετικό)</span></label></span></p><p class="form-row form-row-wide hsplus-checkout-field hsplus-checkout-field--no-top-margin hsplus-checkout-field--hidden" id="hsplus_accepts_marketing_field" data-priority="11"><span class="woocommerce-input-wrapper"><label class="checkbox " ><input type="checkbox" name="hsplus_accepts_marketing" id="hsplus_accepts_marketing" value="1" class="input-checkbox woocommerce-form__input woocommerce-form__input-checkbox hsplus-checkbox"  /> Sign up for exclusive offers and news via text messages&nbsp;<span class="optional">(προαιρετικό)</span></label></span></p>  </div>
+    <p class="form-row form-row-first form-group col-xs-12 validate-required" id="billing_first_name_field" data-priority="30"><label for="billing_first_name" class="required_field">Ime&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_first_name" id="billing_first_name" placeholder="Nome"  value="" aria-required="true" maxlength="80" autocomplete="given-name" /></span></p><p class="form-row form-row-last form-group col-xs-12 validate-required" id="billing_last_name_field" data-priority="40"><label for="billing_last_name" class="required_field">Prezime&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_last_name" id="billing_last_name" placeholder="Cognome"  value="" aria-required="true" maxlength="80" autocomplete="family-name" /></span></p><div class="form-row form-row-wide col-xs-12">Inserisci l'indirizzo dove sarai <b>tra le 8:00 e le 16:00</b>.</div><p class="form-row form-row-wide address-field form-group form-group col-xs-12 validate-required" id="billing_address_1_field" data-priority="50"><label for="billing_address_1" class="required_field">Ulica&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_address_1" id="billing_address_1" placeholder="Via"  value="" aria-required="true" maxlength="80" autocomplete="address-line1" /></span></p><p class="form-row form-row-wide address-field form-group form-group col-xs-12 validate-required" id="billing_address_2_field" data-priority="60"><label for="billing_address_2" class="screen-reader-text required_field">Numero civico&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_address_2" id="billing_address_2" placeholder="Numero civico"  value="" autocomplete="address-line2" maxlength="80" aria-required="true" /></span></p><p class="form-row form-row-wide address-field form-group form-group col-xs-12 validate-required validate-postcode" id="billing_postcode_field" data-priority="70"><label for="billing_postcode" class="required_field">CAP&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="tel" class="input-text form-input" name="billing_postcode" id="billing_postcode" placeholder="CAP"  value="" aria-required="true" maxlength="30" autocomplete="postal-code" /></span></p><p class="form-row form-row-wide dropdown form-group form-group col-xs-12 validate-required" id="billing_city_field" data-priority=""><label for="billing_city" class="required_field">Grad&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><select name="billing_city" id="billing_city" class="select form-input" aria-required="true" data-allow_clear="true" data-placeholder="Seleziona la città">
+							<option value=""  selected='selected'>Seleziona la città</option>
+						</select></span></p><p class="form-row form-row-wide form-group col-xs-12 validate-required validate-phone" id="billing_phone_field" data-priority="10"><label for="billing_phone" class="required_field">Telefon&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="tel" class="input-text form-input" name="billing_phone" id="billing_phone" placeholder="Numero di cellulare"  value="" maxlength="17" aria-required="true" autocomplete="tel" /></span></p><p class="form-row form-row-wide form-group col-xs-12 validate-email" id="billing_email_field" data-priority="20"><label for="billing_email" class="">Indirizzo email&nbsp;<span class="optional">(facoltativo)</span></label><span class="woocommerce-input-wrapper"><input type="email" class="input-text form-input" name="billing_email" id="billing_email" placeholder="Indirizzo email"  value="" maxlength="80" autocomplete="email" /></span></p><p class="form-row form-row-wide address-field form-group col-xs-12 validate-state" id="billing_state_field" data-priority="80"><label for="billing_state" class="">Provincia&nbsp;<span class="optional">(facoltativo)</span></label><span class="woocommerce-input-wrapper"><select name="billing_state" id="billing_state" class="state_select form-input" autocomplete="address-level1" data-placeholder="placeholder_province"  data-input-classes="form-input" data-label="Provincia">
+						<option value="">Seleziona un'opzione&hellip;</option><option value="HR-01" >Zagreb County</option><option value="HR-02" >Krapina-Zagorje County</option><option value="HR-03" >Sisak-Moslavina County</option><option value="HR-04" >Karlovac County</option><option value="HR-05" >Varaždin County</option><option value="HR-06" >Koprivnica-Križevci County</option><option value="HR-07" >Bjelovar-Bilogora County</option><option value="HR-08" >Primorje-Gorski Kotar County</option><option value="HR-09" >Lika-Senj County</option><option value="HR-10" >Virovitica-Podravina County</option><option value="HR-11" >Požega-Slavonia County</option><option value="HR-12" >Brod-Posavina County</option><option value="HR-13" >Zadar County</option><option value="HR-14" >Osijek-Baranja County</option><option value="HR-15" >Šibenik-Knin County</option><option value="HR-16" >Vukovar-Srijem County</option><option value="HR-17" >Split-Dalmatia County</option><option value="HR-18" >Istria County</option><option value="HR-19" >Dubrovnik-Neretva County</option><option value="HR-20" >Međimurje County</option><option value="HR-21" >Zagreb City</option></select></span></p><p class="form-row form-row-wide address-field update_totals_on_change form-group col-xs-12 validate-required" id="billing_country_field" data-priority="90"><label for="billing_country" class="required_field">Country / Region&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><strong>Italia</strong><input type="hidden" name="billing_country" id="billing_country" value="IT" aria-required="true" autocomplete="do-not-autofill" class="country_to_state" readonly="readonly" /></span></p><p class="form-row kl_newsletter_checkbox_field form-group col-xs-12" id="kl_newsletter_checkbox_field" data-priority=""><span class="woocommerce-input-wrapper"><label class="checkbox " ><input type="checkbox" name="kl_newsletter_checkbox" id="kl_newsletter_checkbox" value="1" class="input-checkbox form-input"  /> Sign me up to receive email updates and news&nbsp;<span class="optional">(facoltativo)</span></label></span></p><p class="form-row form-row-wide hsplus-checkout-field hsplus-checkout-field--no-top-margin hsplus-checkout-field--hidden" id="hsplus_accepts_marketing_field" data-priority="11"><span class="woocommerce-input-wrapper"><label class="checkbox " ><input type="checkbox" name="hsplus_accepts_marketing" id="hsplus_accepts_marketing" value="1" class="input-checkbox woocommerce-form__input woocommerce-form__input-checkbox hsplus-checkbox"  /> Sign up for exclusive offers and news via text messages&nbsp;<span class="optional">(facoltativo)</span></label></span></p>  </div>
 
   </div>
 
@@ -205,12 +205,12 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 
 		
 		<div class="woocommerce-additional-fields__field-wrapper">
-							<p class="form-row notes form-group col-xs-12" id="order_comments_field" data-priority=""><label for="order_comments" class="">Napomene uz narudžbu&nbsp;<span class="optional">(προαιρετικό)</span></label><span class="woocommerce-input-wrapper"><textarea name="order_comments" class="input-text form-input" id="order_comments" placeholder="Bilješke o vašoj narudžbi.  "  rows="2" cols="5"maxlength="80"></textarea></span></p>					</div>
+							<p class="form-row notes form-group col-xs-12" id="order_comments_field" data-priority=""><label for="order_comments" class="">Napomene uz narudžbu&nbsp;<span class="optional">(facoltativo)</span></label><span class="woocommerce-input-wrapper"><textarea name="order_comments" class="input-text form-input" id="order_comments" placeholder="Bilješke o vašoj narudžbi.  "  rows="2" cols="5"maxlength="80"></textarea></span></p>					</div>
 
 	
 	<div id="custom_shipping">
 
-        <h3>Dostava</h3>
+        <h3>Spedizione</h3>
     
         <ul class="shipping_method_custom">
 
@@ -222,12 +222,12 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
                     <svg viewBox="0 0 19 14" fill="#3DBD00"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5725 3.40179L8.14482 13.5874C7.5815 14.1375 6.66839 14.1375 6.1056 13.5874L0.422493 8.03956C-0.140831 7.48994 -0.140831 6.59748 0.422493 6.04707L1.44121 5.05126C2.00471 4.50094 2.91854 4.50094 3.48132 5.05126L7.12254 8.60835L15.5145 0.412609C16.078 -0.137536 16.9909 -0.137536 17.5537 0.412609L18.5733 1.40842C19.1424 1.95795 19.1424 2.8505 18.5725 3.40179Z" /></svg>                                        <div class="outer-wrapper">
                         <div class="inner-wrapper-dates">
                         <strong
-                            class="hs-custom-date">Τετάρτη, 18.3. - Πέμπτη, 19.3.</strong>
+                            class="hs-custom-date">srijeda, 18.3. - četvrtak, 19.3.</strong>
                         </div>
                         <div class="inner-wrapper-img">
                                                         <span class="shipping_method_delivery_price tag tag--red">
                                 <span class="woocommerce-Price-amount amount"><bdi>2,99<span class="woocommerce-Price-currencySymbol">&euro;</span></bdi></span>                            </span>
-                                                        <span class="delivery_img"><img decoding="async" class="elta_courier standard" src="https://images.vigo-shop.com/general/curriers/home_small_paket24@2x.png"/></span>
+                                                        <span class="delivery_img"><img decoding="async" class="corriere standard" src="https://images.vigo-shop.com/general/curriers/home_small_paket24@2x.png"/></span>
                         </div>
                     </div>
                 </label>
@@ -238,7 +238,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
         <div class="delivery-from-eu-warehouse">
         <img decoding="async" class="delivery-from-eu-warehouse__icon"
             src="https://images.vigo-shop.com/general/flags/eu-warehouse.svg"><span
-            class="delivery-from-eu-warehouse__text">Αποθήκη στην ΕΕ</span>
+            class="delivery-from-eu-warehouse__text">Magazzino nell'UE</span>
     </div>
     </div>
 <div class="sup_outher_wrapper">
@@ -248,7 +248,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
                 <div class="vigo-gift__tooltip">
                     <div class="flex flex--autosize flex--middle">
                         <div class="flex__item down_arrow "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.061,12.354a1.5,1.5,0,0,0-2.122,0L13.5,14.793V6a1.5,1.5,0,0,0-3,0v8.793L8.061,12.354a1.5,1.5,0,0,0-2.122,2.121l3.586,3.586a3.5,3.5,0,0,0,4.95,0l3.586-3.586A1.5,1.5,0,0,0,18.061,12.354Z"/></svg></div>
-                        <div class="flex__item f--bold">  Dodajte u narudžbu</div>
+                        <div class="flex__item f--bold">  Aggiungi all'ordine</div>
                     </div>
                 </div>
                 <div class="flex sup_inner_wrapper">
@@ -258,7 +258,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
                                 <label for="surprise_item_upsell_0" class=""></label>
                                 <input id="surprise_item_upsell_0" type="checkbox" class="checkbox-simple checkbox-simple--green val--bottom"  disabled/>
                             </div>
-                            <div class="f--l f--bold surprise_title">Proizvod iznenađenja</div>
+                            <div class="f--l f--bold surprise_title">Prodotto sorpresa</div>
                             <div class="tag_wrapper">
                                 <div class="tag tag--red">
                                     <span class="woocommerce-Price-amount amount"><bdi>3,99<span class="woocommerce-Price-currencySymbol">&euro;</span></bdi></span>                                </div>
@@ -279,24 +279,24 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
     </div>
 </div>
 
-    <h3 class="payment-title">Način plaćanja</h3>
+    <h3 class="payment-title">Metodo di pagamento</h3>
     <div id="payment" class="woocommerce-checkout-payment">
 			<ul class="wc_payment_methods payment_methods methods">
 			<li class="wc_payment_method payment_method_cod">
   <input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="cod"  checked='checked' data-order_button_text="" />
 
   <label for="payment_method_cod">
-    Plaćanje prilikom preuzimanja <span class="payment-fee-not-free"><span class="woocommerce-Price-amount amount">1,99<span class="woocommerce-Price-currencySymbol">&euro;</span></span></span><div class="hs-checkout__payment-method-cod-icon-container">
+    Pagamento alla consegna <span class="payment-fee-not-free"><span class="woocommerce-Price-amount amount">1,99<span class="woocommerce-Price-currencySymbol">&euro;</span></span></span><div class="hs-checkout__payment-method-cod-icon-container">
         <img decoding="async" class="hs-checkout__payment-method-cod-icon" src="https://images.vigo-shop.com/general/checkout/cod/uni_cash_on_delivery.svg" />
     </div>  </label>
   </li>
 <li class="wc_payment_method payment_method_braintree_credit_card">
-  <input id="payment_method_braintree_credit_card" type="radio" class="input-radio" name="payment_method" value="braintree_credit_card"  data-order_button_text="Naruči" />
+  <input id="payment_method_braintree_credit_card" type="radio" class="input-radio" name="payment_method" value="braintree_credit_card"  data-order_button_text="Ordina" />
 
   <label for="payment_method_braintree_credit_card">
-    Kreditna kartica <span class="payment-fee-free">Besplatno</span><div class="sv-wc-payment-gateway-card-icons"><img decoding="async" src="https://vigoshop.hr/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/images/card-visa.svg" alt="visa" class="sv-wc-payment-gateway-icon wc-braintree-credit-card-payment-gateway-icon" width="40" height="25" style="width: 40px; height: 25px;" /><img decoding="async" src="https://vigoshop.hr/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/images/card-mastercard.svg" alt="mastercard" class="sv-wc-payment-gateway-icon wc-braintree-credit-card-payment-gateway-icon" width="40" height="25" style="width: 40px; height: 25px;" /><img decoding="async" src="https://vigoshop.hr/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/images/card-maestro.svg" alt="maestro" class="sv-wc-payment-gateway-icon wc-braintree-credit-card-payment-gateway-icon" width="40" height="25" style="width: 40px; height: 25px;" /></div>  </label>
+    Carta di credito <span class="payment-fee-free">Gratuito</span><div class="sv-wc-payment-gateway-card-icons"><img decoding="async" src="https://vigoshop.hr/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/images/card-visa.svg" alt="visa" class="sv-wc-payment-gateway-icon wc-braintree-credit-card-payment-gateway-icon" width="40" height="25" style="width: 40px; height: 25px;" /><img decoding="async" src="https://vigoshop.hr/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/images/card-mastercard.svg" alt="mastercard" class="sv-wc-payment-gateway-icon wc-braintree-credit-card-payment-gateway-icon" width="40" height="25" style="width: 40px; height: 25px;" /><img decoding="async" src="https://vigoshop.hr/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/images/card-maestro.svg" alt="maestro" class="sv-wc-payment-gateway-icon wc-braintree-credit-card-payment-gateway-icon" width="40" height="25" style="width: 40px; height: 25px;" /></div>  </label>
       <div class="payment_box payment_method_braintree_credit_card" style="display:none;">
-      <fieldset id="wc-braintree-credit-card-credit-card-form" aria-label="Informacije o plaćanju"><legend style="display:none;">Informacije o plaćanju</legend><div class="wc-braintree-credit-card-new-payment-method-form js-wc-braintree-credit-card-new-payment-method-form"><input type="hidden" name="wc-braintree-credit-card-card-type" value="" /><input type="hidden" name="wc-braintree-credit-card-3d-secure-enabled" value="" /><input type="hidden" name="wc-braintree-credit-card-3d-secure-verified" value="" /><input type="hidden" name="wc-braintree-credit-card-3d-secure-order-total" value="21.98" />		<input type="hidden" id="wc_braintree_credit_card_payment_nonce" name="wc_braintree_credit_card_payment_nonce" />
+      <fieldset id="wc-braintree-credit-card-credit-card-form" aria-label="Informazioni di pagamento"><legend style="display:none;">Informazioni di pagamento</legend><div class="wc-braintree-credit-card-new-payment-method-form js-wc-braintree-credit-card-new-payment-method-form"><input type="hidden" name="wc-braintree-credit-card-card-type" value="" /><input type="hidden" name="wc-braintree-credit-card-3d-secure-enabled" value="" /><input type="hidden" name="wc-braintree-credit-card-3d-secure-verified" value="" /><input type="hidden" name="wc-braintree-credit-card-3d-secure-order-total" value="21.98" />		<input type="hidden" id="wc_braintree_credit_card_payment_nonce" name="wc_braintree_credit_card_payment_nonce" />
 		<input type="hidden" id="wc-braintree-credit-card-device-data" name="wc_braintree_device_data" />
 				<div class="form-row ">
 			<label for="wc-braintree-credit-card-context-hosted"></label>
@@ -320,12 +320,12 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 		</style>    </div>
   </li>
 <li class="wc_payment_method payment_method_braintree_paypal">
-  <input id="payment_method_braintree_paypal" type="radio" class="input-radio" name="payment_method" value="braintree_paypal"  data-order_button_text="Naruči" />
+  <input id="payment_method_braintree_paypal" type="radio" class="input-radio" name="payment_method" value="braintree_paypal"  data-order_button_text="Ordina" />
 
   <label for="payment_method_braintree_paypal">
-    PayPal <span class="payment-fee-free">Besplatno</span><img decoding="async" src="https://images.vigo-shop.com/general/checkout/paypal/PayPal.svg" alt="PayPal">  </label>
+    PayPal <span class="payment-fee-free">Gratuito</span><img decoding="async" src="https://images.vigo-shop.com/general/checkout/paypal/PayPal.svg" alt="PayPal">  </label>
       <div class="payment_box payment_method_braintree_paypal" style="display:none;">
-      <fieldset id="wc-braintree-paypal-paypal-form" aria-label="Informacije o plaćanju"><legend style="display:none;">Informacije o plaćanju</legend><div class="wc-braintree-paypal-new-payment-method-form js-wc-braintree-paypal-new-payment-method-form">		<input type="hidden" id="wc_braintree_paypal_payment_nonce" name="wc_braintree_paypal_payment_nonce" />
+      <fieldset id="wc-braintree-paypal-paypal-form" aria-label="Informazioni di pagamento"><legend style="display:none;">Informazioni di pagamento</legend><div class="wc-braintree-paypal-new-payment-method-form js-wc-braintree-paypal-new-payment-method-form">		<input type="hidden" id="wc_braintree_paypal_payment_nonce" name="wc_braintree_paypal_payment_nonce" />
 		<input type="hidden" id="wc-braintree-paypal-device-data" name="wc_braintree_device_data" />
 		<p class="form-row " id="wc-braintree-paypal-context_field" data-priority=""><span class="woocommerce-input-wrapper"><input type="hidden" class="input-hidden " name="wc-braintree-paypal-context" id="wc-braintree-paypal-context" value="shortcode"  /></span></p>
 		
@@ -347,14 +347,14 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 			</div>
 	
 		        <div id="hs-cod-checkout-prompt" style="display:none;">
-            <div class="cod-prompt-text">Dovršite narudžbu sada, <strong>platite pouzećem 🙂</strong></div>
+            <div class="cod-prompt-text">Completa il tuo ordine ora, <strong>pagamento alla consegna 🙂</strong></div>
             <img decoding="async" class="cod-prompt-image" src="https://images.vigo-shop.com/general/checkout/cod/uni_cash_on_delivery.svg">
         </div>
 
 
                 <div id="hs-vat-tax-checkout-prompt">
-            <span class="tax-and-vat-checkout-claims">Χωρίς επιπλέον τελωνειακά έξοδα</span>
-            <span class="tax-and-vat-checkout-claims">Ο ΦΠΑ περιλαμβάνεται στην τιμή</span>
+            <span class="tax-and-vat-checkout-claims">Nessun costo doganale aggiuntivo</span>
+            <span class="tax-and-vat-checkout-claims">IVA inclusa nel prezzo</span>
         </div>
         <div id="pdf">
     <div class="pdf-title-container">
@@ -392,14 +392,14 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
             </div>
 
             <div class="cell-grid">
-                Dostava:
+                Spedizione:
             </div>
             <div class="cell-grid column-option">
-                Besplatno            </div>
+                Gratuito            </div>
             <div class="cell-grid column-selected">
                 <span class="woocommerce-Price-amount amount"><bdi>2,99<span class="woocommerce-Price-currencySymbol">&euro;</span></bdi></span>            </div>
                         <div class="cell-grid">
-                Ukupna narudžba:
+                Totale ordine:
             </div>
             <div class="cell-grid totals column-option bottom">
                 <span class="totals"><span class="woocommerce-Price-amount amount"><bdi>21,98<span class="woocommerce-Price-currencySymbol">&euro;</span></bdi></span></span>
@@ -417,7 +417,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 </div>
 
 
-<h3 class="place-order-title" style="display: block;">Sažetak narudžbe</h3>
+<h3 class="place-order-title" style="display: block;">Riepilogo ordine</h3>
 <div class="vigo-checkout-total order-total shop_table woocommerce-checkout-review-order-table">
     <div class="grid m-top--s review-all-products-container">
 
@@ -472,9 +472,9 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 
     
         <div id="order_review" class="woocommerce-checkout-review-order container container--xs bg--white">
-            <button type="submit" class="button alt button--l button--block button--green button--rounded button--green-gradient" name="woocommerce_checkout_place_order" id="place_order" data-value="Naruči" />Naruči</button></div><div class="checkout-warranty flex flex--center flex--middle">
+            <button type="submit" class="button alt button--l button--block button--green button--rounded button--green-gradient" name="woocommerce_checkout_place_order" id="place_order" data-value="Ordina" />Ordina</button></div><div class="checkout-warranty flex flex--center flex--middle">
     <div class="flex__item--autosize checkout-warranty__icon">
-       <img decoding="async" src="https://images.vigo-shop.com/general/guarantee_money_back/satisfaction_icon_gr.png">
+       <img decoding="async" src="https://images.vigo-shop.com/general/guarantee_money_back/satisfaction_icon_it.png">
     </div>
     <div class="flex__item--autosize f--m checkout-warranty__text">
         <strong>Kupujte bez brige </strong><br>
@@ -482,7 +482,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 </div>
 
 <div class="agreed_terms_txt">
-    <span class="policy-agreement-obligation">Klikom na gumb <strong>Naruči</strong> pristajem na narudžbu uz obvezu plaćanja.</span> <br>
+    <span class="policy-agreement-obligation">Cliccando il pulsante <strong>Ordina</strong> accetto l'ordine con obbligo di pagamento.</span> <br>
             <div class="terms-checkbox-and-links">
             <label class="checkbox">
                 <input type="checkbox" class="input-checkbox" name="agree_to_checkout_terms" id="agree_to_terms_checkbox" value="1">
@@ -666,7 +666,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 <h3 class="ql-align-justify"><strong>xi. Platforma za rješavanje sporova</strong></h3>
 <p class="ql-align-justify">U skladu s pravnim standardima, tvrtka HS plus d.o.o. ne priznaje nijednog pružatelja usluga izvansudskog rješavanja potrošačkih sporova kao pružatelja koji je ovlašten rješavati potrošačke sporove koje potrošači mogu pokrenuti na temelju izvansudske nagodbe Zakona o potrošačkim sporovima.</p>
 <p class="ql-align-justify">Platforma za rješavanje sporova dostupna je na stranici&nbsp;<a href="https://ec.europa.eu/consumers/odr/">http://ec.europa.eu/consumers/odr/</a>.</p>
-<p class="ql-align-justify">Više informacija o platformi za rješavanje sporova potražite na <a href="https://ec.europa.eu/commission/presscorner/detail/gr/MEMO_13_193">ec.europa.eu</a>.</p>
+<p class="ql-align-justify">Više informacija o platformi za rješavanje sporova potražite na <a href="https://ec.europa.eu/commission/presscorner/detail/it/MEMO_13_193">ec.europa.eu</a>.</p>
 <p class="ql-align-justify">
 <h2 class="ql-align-justify"><strong>3. KOMUNIKACIJA</strong></h2>
 <p class="ql-align-justify">Tvrtka će se obratiti korisniku samo s pomoću daljinske komunikacije ako je to potrebno za izvršavanje narudžbe.</p>
@@ -719,7 +719,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 <p class="ql-align-justify"><strong>HS PLUS d.o.o.,</strong></p>
 <p class="ql-align-justify"><strong>Poštanska ulica 25,</strong></p>
 <p class="ql-align-justify"><strong>10410 Velika Gorica</strong></p>
-<p class="ql-align-justify"><strong>Ελλάδα</strong></p>
+<p class="ql-align-justify"><strong>Italia</strong></p>
 <p class="ql-align-justify">Savjetujemo vam da paket pošaljete preporučenom poštom s potvrdom pošiljke, kako bi bilo moguće riješiti vaš prigovor čak i u slučaju gubitka paketa na temelju potvrde o isporuci putem broja za praćenje.</p>
 <p class="ql-align-justify"><strong>Trošak dostave je na strani pošiljatelja, ne prihvaćamo pošiljke sa otkupninom.</strong></p>
 <p class="ql-align-justify"><strong>Čim reklamacijska služba primi Vaš paket</strong>, novi proizvod šalje se u zamjenu ili se otkupnina vraća na Vaš tekući račun u roku od 8 radnih dana. Vratit ćemo iznos za vraćene proizvode i troškove najjeftinijeg rješenja dostave (standardna naknada za dostavu). Prioritetno rukovanje, osiguranje paketa i plaćanje pouzećem predstavljaju dodatni trošak koji se može izbjeći, a usluga se izvršava samo na poseban zahtjev klijenta. Prilagođeni troškovi neće biti vraćeni. U slučaju odustajanja od kupnje, kupac snosi troškove povratne dostave, tako da se također ne vraćaju troškovi povratne dostave proizvoda.</p>
@@ -747,7 +747,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
     </div>
 </div>
         <div id="custom_mailing_checkout_field">
-            <p class="form-row email_opt_in" id="email_opt_in_field" data-priority="15"><span class="woocommerce-input-wrapper"><label class="checkbox " ><input type="checkbox" name="email_opt_in" id="email_opt_in" value="1" class="input-checkbox "  /> Da, želim prvi/a saznati za trenutne akcije. <span id="mailing_read_more_link" style="text-decoration: underline">Više informacija</span>&nbsp;<span class="optional">(προαιρετικό)</span></label></span></p>        </div>
+            <p class="form-row email_opt_in" id="email_opt_in_field" data-priority="15"><span class="woocommerce-input-wrapper"><label class="checkbox " ><input type="checkbox" name="email_opt_in" id="email_opt_in" value="1" class="input-checkbox "  /> Da, želim prvi/a saznati za trenutne akcije. <span id="mailing_read_more_link" style="text-decoration: underline">Više informacija</span>&nbsp;<span class="optional">(facoltativo)</span></label></span></p>        </div>
         <div id="checkout-popup">
             <div class="checkout-popup-wrapper">
                 <img decoding="async" class="img-info" src="https://images.vigo-shop.com/general/vigoshop_info.svg">
@@ -927,7 +927,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 <h3 class="ql-align-justify"><strong>xi. Platforma za rješavanje sporova</strong></h3>
 <p class="ql-align-justify">U skladu s pravnim standardima, tvrtka HS plus d.o.o. ne priznaje nijednog pružatelja usluga izvansudskog rješavanja potrošačkih sporova kao pružatelja koji je ovlašten rješavati potrošačke sporove koje potrošači mogu pokrenuti na temelju izvansudske nagodbe Zakona o potrošačkim sporovima.</p>
 <p class="ql-align-justify">Platforma za rješavanje sporova dostupna je na stranici&nbsp;<a href="https://ec.europa.eu/consumers/odr/">http://ec.europa.eu/consumers/odr/</a>.</p>
-<p class="ql-align-justify">Više informacija o platformi za rješavanje sporova potražite na <a href="https://ec.europa.eu/commission/presscorner/detail/gr/MEMO_13_193">ec.europa.eu</a>.</p>
+<p class="ql-align-justify">Više informacija o platformi za rješavanje sporova potražite na <a href="https://ec.europa.eu/commission/presscorner/detail/it/MEMO_13_193">ec.europa.eu</a>.</p>
 <p class="ql-align-justify">
 <h2 class="ql-align-justify"><strong>3. KOMUNIKACIJA</strong></h2>
 <p class="ql-align-justify">Tvrtka će se obratiti korisniku samo s pomoću daljinske komunikacije ako je to potrebno za izvršavanje narudžbe.</p>
@@ -995,7 +995,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
             </div>
                 <div class="partial_inner_section delivery-from-eu-warehouse ">
             <img class="delivery-from-eu-warehouse__icon" src="https://images.vigo-shop.com/general/flags/eu-warehouse.svg">
-            <div class="text_wrapper delivery-from-eu-warehouse__text">Αποθήκη στην ΕΕ</div>
+            <div class="text_wrapper delivery-from-eu-warehouse__text">Magazzino nell'UE</div>
         </div>
             </div>
 </div>

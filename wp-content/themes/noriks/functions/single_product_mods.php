@@ -18,11 +18,7 @@ function my_add_price_to_button_text( $text, $prod = null ) {
     }
 
     // If product is in category "orto", return default text (unchanged)
-<<<<<<< HEAD
-    if ( has_term( array( 'pacchetto-starter','orto' ), 'product_cat', $prod->get_id() ) ) {
-=======
     if ( has_term( 'orto', 'product_cat', $prod->get_id() ) ) {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         return $text;
     }
 
@@ -66,11 +62,7 @@ add_action( 'wp_footer', function () {
 	document.addEventListener('DOMContentLoaded', function () {
 	  var btn = document.querySelector('.storefront-sticky-add-to-cart__content-button');
 	  if (!btn) return;
-<<<<<<< HEAD
 	  btn.textContent = 'Torna alla selezione';
-=======
-	  btn.textContent = 'Natrag na odabir';
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	  btn.setAttribute('href', '#title-buy-now'); // put your desired URL here
 	});
 	</script>

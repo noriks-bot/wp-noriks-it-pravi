@@ -42,11 +42,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 					
 				//	var_dump($attribute_name);
 						
-<<<<<<< HEAD
-						if ( $attribute_name == 'Choose your size' ||  $attribute_name == 'Size' || $attribute_name == 'Taglia'  || $attribute_name == 'Taglia maglietta'  )     {
-=======
-						if ( $attribute_name == 'Choose your size' ||  $attribute_name == 'Size' || $attribute_name == 'Velikost'  || $attribute_name == 'Velikost trička' || $attribute_name == 'Μέγεθος' || $attribute_name == 'Επιλέξτε μέγεθος' )     {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+						if ( $attribute_name == 'Choose your size' ||  $attribute_name == 'Size' || $attribute_name == 'Veličina'  || $attribute_name == 'Veličina majice'  )     {
 						    
 						    
 						    
@@ -64,21 +60,13 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
     vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
         <path d="M11.4124 2.58464L2.08525 11.9118C1.86558 12.1315 1.86558 12.4876 2.08525 12.7073L5.78977 16.4118C6.00944 16.6315 6.3656 16.6315 6.58527 16.4118L15.9124 7.08466C16.1321 6.86499 16.1321 6.50883 15.9124 6.28916L12.2079 2.58464C11.9883 2.36497 11.6321 2.36497 11.4124 2.58464Z" stroke="#111213" stroke-width="0.84375"></path>
         <path d="M9.28125 4.71875L11.5312 6.96875M6.75 7.25L9 9.5M4.21875 9.78125L6.46875 12.0312" stroke="#111213" stroke-width="0.84375"></path>
-<<<<<<< HEAD
-      </svg>Guida alle taglie</a>';
-=======
-      </svg>Πίνακας μεγεθών</a>';
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+      </svg>Tablica veličina</a>';
                         }
 						?>
 						
 						
 						<?php
-<<<<<<< HEAD
-							if (  $attribute_name == 'Taglia boxer'  )     {
-=======
-							if (  $attribute_name == 'Velikost boxerek' || $attribute_name == 'Μέγεθος μποξεράκια' )     {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+							if (  $attribute_name == 'Veličina bokseric'  )     {
 						    
 						    
 						    
@@ -96,11 +84,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
     vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
         <path d="M11.4124 2.58464L2.08525 11.9118C1.86558 12.1315 1.86558 12.4876 2.08525 12.7073L5.78977 16.4118C6.00944 16.6315 6.3656 16.6315 6.58527 16.4118L15.9124 7.08466C16.1321 6.86499 16.1321 6.50883 15.9124 6.28916L12.2079 2.58464C11.9883 2.36497 11.6321 2.36497 11.4124 2.58464Z" stroke="#111213" stroke-width="0.84375"></path>
         <path d="M9.28125 4.71875L11.5312 6.96875M6.75 7.25L9 9.5M4.21875 9.78125L6.46875 12.0312" stroke="#111213" stroke-width="0.84375"></path>
-<<<<<<< HEAD
-      </svg>Guida alle taglie</a>';
-=======
-      </svg>Πίνακας μεγεθών</a>';
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+      </svg>Tablica veličina</a>';
                         }
 						?>
 						

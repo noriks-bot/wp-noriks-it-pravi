@@ -99,12 +99,8 @@ $(this).append('<div class="qty-btn-group"><button type="button" class="qty-btn 
                     </svg>
                   </span>
                   <span class="wc-reserve-note__text">
-<<<<<<< HEAD
-                   Affrettati! Qualcuno ha appena ordinato uno dei prodotti nel tuo carrello. La prenotazione è valida ancora per <strong id="wc-reserve-timer">10:00</strong> minuti.
-=======
-                    Παρακαλώ βιαστείτε! Κάποιος μόλις παρήγγειλε ένα από τα προϊόντα στο καλάθι σας. 
-                    Rezervacija vrijedi još samo <strong id="wc-reserve-timer">10:00</strong> minuta.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+                    Sbrigati! Qualcuno ha appena ordinato uno dei prodotti nel tuo carrello. 
+                    La prenotazione è valida solo per <strong id="wc-reserve-timer">10:00</strong> minuti.
                   </span>
                 </div>
                 
