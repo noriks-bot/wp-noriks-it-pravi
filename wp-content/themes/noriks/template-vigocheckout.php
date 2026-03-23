@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Vigo Checkout (Standalone)
- * Description: Pixel-perfect vigoshop.hr checkout replica - standalone HTML, no WP template.
+ * Description: Pixel-perfect vigoshop.it checkout replica - standalone HTML, no WP template.
  */
 
 // Prevent direct access
@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) exit;
 // Output clean HTML directly - no wp_head(), no WP template
 ?>
 <!DOCTYPE html>
-<html lang="hr" >
+<html lang="it" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
@@ -21,15 +21,15 @@ if (!defined('ABSPATH')) exit;
 	        <meta name="robots" content="noindex, nofollow"><link rel='dns-prefetch' href='//widget.trustpilot.com' />
 <link rel='dns-prefetch' href='//static.klaviyo.com' />
 <link rel='dns-prefetch' href='//js.braintreegateway.com' />
-<meta name="title" content="Dovršite kupnju" />
-<meta name="description" content="Sve što vam treba na jednom mjestu. Istražite veliki izbor proizvoda po najnižim cijenama. Kliknite sada i uživajte u najboljim ponudama i velikoj raznolikosti!" />
-<meta name="image" content="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/mstile-310x310.png" />
+<meta name="title" content="Completa l'acquisto" />
+<meta name="description" content="Tutto ciò di cui hai bisogno in un unico posto. Esplora una vasta selezione di prodotti ai prezzi più bassi. Clicca ora e goditi le migliori offerte!" />
+<meta name="image" content="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/mstile-310x310.png" />
 <meta property="og:locale" content="hr" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Dovršite kupnju" />
-<meta property="og:description" content="Sve što vam treba na jednom mjestu. Istražite veliki izbor proizvoda po najnižim cijenama. Kliknite sada i uživajte u najboljim ponudama i velikoj raznolikosti!" />
-<meta property="og:image" content="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/mstile-310x310.png" />
-<meta property="og:image:alt" content="Vigoshop - Dovršite kupnju" />
+<meta property="og:title" content="Completa l'acquisto" />
+<meta property="og:description" content="Tutto ciò di cui hai bisogno in un unico posto. Esplora una vasta selezione di prodotti ai prezzi più bassi. Clicca ora e goditi le migliori offerte!" />
+<meta property="og:image" content="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/mstile-310x310.png" />
+<meta property="og:image:alt" content="Vigoshop - Completa l'acquisto" />
 <style id='classic-theme-styles-inline-css' type='text/css'>
 /*! This file is auto-generated */
 .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
@@ -40,93 +40,93 @@ if (!defined('ABSPATH')) exit;
 :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
 :root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
 </style>
-<link rel='stylesheet' id='select2-css' href='https://vigoshop.hr/app/plugins/woocommerce/assets/css/select2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='select2-css' href='https://vigoshop.it/app/plugins/woocommerce/assets/css/select2.css' type='text/css' media='all' />
 <style id='woocommerce-inline-inline-css' type='text/css'>
 .woocommerce form .form-row .required { visibility: visible; }
 </style>
-<link rel='stylesheet' id='brands-styles-css' href='https://vigoshop.hr/app/plugins/woocommerce/assets/css/brands.css' type='text/css' media='all' />
-<link rel='stylesheet' id='hsplus-child-style-css' href='https://vigoshop.hr/app/themes/hsplus-child/style.css' type='text/css' media='all' />
-<link rel='stylesheet' id='app-css' href='https://vigoshop.hr/app/themes/hsplus/dist/app-bb7116ca22.css' type='text/css' media='all' />
-<link rel='stylesheet' id='swiper-style-css' href='https://vigoshop.hr/app/themes/hsplus/assets/plugins/swiper/swiper.min.css' type='text/css' media='all' />
-<link rel='stylesheet' id='app-extra-css' href='https://vigoshop.hr/app/themes/hsplus/dist/vigoshop-2809b8fc43.css' type='text/css' media='all' />
-<link rel='stylesheet' id='agent-kc-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/agent-kc/css/agent-kc-d24968c5d8.css' type='text/css' media='all' />
-<link rel='stylesheet' id='cart-warranty-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/cart-warranty/css/cart-warranty-294993db14.css' type='text/css' media='all' />
-<link rel='stylesheet' id='checkout-extra-triggers-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/checkout-extra-triggers/css/checkout-extra-triggers-8a82c39c7f.css' type='text/css' media='all' />
-<link rel='stylesheet' id='custom-validation-styles-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/checkout-validation/css/custom-checkout-general-3ba2df51f0.css' type='text/css' media='all' />
-<link rel='stylesheet' id='custom-checkout-hr-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/checkout-validation/css/custom-checkout-hr-708bf051cd.css' type='text/css' media='all' />
-<link rel='stylesheet' id='cookie-consent-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/cookie-consent/css/cookie-consent-0f1f70401c.css' type='text/css' media='all' />
-<link rel='stylesheet' id='custom-payment-notice-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/custom-payment-notice/css/custom-payment-notice-0baf6bff40.css' type='text/css' media='all' />
-<link rel='stylesheet' id='header-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/header/css/header-f98b75e0d2.css' type='text/css' media='all' />
-<link rel='stylesheet' id='hide-payments-test-product-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/hide-payments-test-product/css/hide-payments-test-product-e46f2e914d.css' type='text/css' media='all' />
-<link rel='stylesheet' id='general-shop-elements-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/homepage-shop-elements/css/general-shop-elements-a82fb8d5a2.css' type='text/css' media='all' />
-<link rel='stylesheet' id='lazy-load-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/image-lazy-load/css/lazy-load-4b6eac4005.css' type='text/css' media='all' />
-<link rel='stylesheet' id='payment-methods-fixes-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/payment-methods-fixes/css/payment-methods-fixes-75bc076f0b.css' type='text/css' media='all' />
-<link rel='stylesheet' id='product-page-courier-info-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/product-page-courier-info/css/product-page-courier-info-96801577cc.css' type='text/css' media='all' />
-<link rel='stylesheet' id='product-page-warranty-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/product-page-warranty/css/product-page-warranty-7d50f99458.css' type='text/css' media='all' />
-<link rel='stylesheet' id='sv-wc-payment-gateway-payment-form-v5_15_10-css' href='https://vigoshop.hr/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/css/frontend/sv-wc-payment-gateway-payment-form.min.css' type='text/css' media='all' />
-<link rel='stylesheet' id='wc-braintree-css' href='https://vigoshop.hr/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/assets/css/frontend/wc-braintree.min.css' type='text/css' media='all' />
-<link rel='stylesheet' id='video-in-product-gallery-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/video-in-product-gallery/css/video-in-product-gallery-89309214b3.css' type='text/css' media='all' />
-<link rel='stylesheet' id='abandoned-cart-restore-addons-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/abandoned-cart-restore-addons/css/abandoned-cart-restore-addons-740a577066.css' type='text/css' media='all' />
-<link rel='stylesheet' id='cart-item-restore-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/cart-item-restore/css/cart-item-restore-b6a0f18b47.css' type='text/css' media='all' />
-<link rel='stylesheet' id='checkout-order-review-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/checkout-order-review/css/checkout-order-review-17423b66f5.css' type='text/css' media='all' />
-<link rel='stylesheet' id='checkout-timer-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/checkout-timer/css/checkout-timer-73c98a5995.css' type='text/css' media='all' />
-<link rel='stylesheet' id='checkout-upsell-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/checkout-upsell/css/checkout-upsell-49a595b20c.css' type='text/css' media='all' />
-<link rel='stylesheet' id='coupon-banner-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/coupon-banner/css/coupon-banner-d56e152358.css' type='text/css' media='all' />
-<link rel='stylesheet' id='custom-cta-settings-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/custom-cta-settings/css/custom-cta-settings-0fd450b106.css' type='text/css' media='all' />
-<link rel='stylesheet' id='email-checkbox-subscription-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/email-checkbox-subscription/css/email-checkbox-subscription-1def327263.css' type='text/css' media='all' />
-<link rel='stylesheet' id='free-shipping-above-quantity-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/free-shipping-above-quantity/css/free-shipping-above-quantity-02588a20ff.css' type='text/css' media='all' />
-<link rel='stylesheet' id='loader-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/loader/css/loader-c25fc35077.css' type='text/css' media='all' />
-<link rel='stylesheet' id='notice-test-product-only-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/notice-test-product-only/css/notice-test-product-only-21c486c451.css' type='text/css' media='all' />
-<link rel='stylesheet' id='order-received-popup-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/order-received-popup/css/order-received-popup-c97d38fd18.css' type='text/css' media='all' />
-<link rel='stylesheet' id='parcel-pickup-hr-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/parcel-pickup/css/parcel-pickup-hr-8754cf5c08.css' type='text/css' media='all' />
-<link rel='stylesheet' id='extra-shipping-method-buttons-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/parcel-pickup/css/extra-shipping-method-buttons-093d5c786e.css' type='text/css' media='all' />
-<link rel='stylesheet' id='pdf-products-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/pdf-products/css/pdf-products-2009e19a3b.css' type='text/css' media='all' />
-<link rel='stylesheet' id='pdf-special-offer-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/pdf-products/css/pdf-special-offer-545e3ee266.css' type='text/css' media='all' />
-<link rel='stylesheet' id='pdf-special-offer-homepage-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/pdf-products/css/pdf-special-offer-homepage-eca0ed3481.css' type='text/css' media='all' />
-<link rel='stylesheet' id='shipping-method-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/shipping-method/css/shipping-method-14ad2b0a1f.css' type='text/css' media='all' />
-<link rel='stylesheet' id='terms-and-conditions-link-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/terms-and-conditions-link/css/terms-and-conditions-link-4d809e8b6d.css' type='text/css' media='all' />
-<link rel='stylesheet' id='virtual-products-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/virtual-products/css/virtual-products-ff847d8762.css' type='text/css' media='all' />
-<link rel='stylesheet' id='quantity-discount-price-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/quantity-discount-price/css/quantity-discount-price-86d6e7d23e.css' type='text/css' media='all' />
-<link rel='stylesheet' id='hsplus-css' href='https://vigoshop.hr/app/plugins/mk-abandoned/public/css/hsplus-public.css' type='text/css' media='all' />
-<script type="text/javascript" src="https://vigoshop.hr/wp/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
-<script type="text/javascript" src="https://vigoshop.hr/app/plugins/woocommerce/assets/js/selectWoo/selectWoo.full.min.js" id="selectWoo-js" defer="defer" data-wp-strategy="defer"></script>
-<script type="text/javascript" src="https://vigoshop.hr/wp/wp-includes/js/dist/hooks.min.js" id="wp-hooks-js"></script>
-<script type="text/javascript" src="https://vigoshop.hr/wp/wp-includes/js/dist/i18n.min.js" id="wp-i18n-js"></script>
+<link rel='stylesheet' id='brands-styles-css' href='https://vigoshop.it/app/plugins/woocommerce/assets/css/brands.css' type='text/css' media='all' />
+<link rel='stylesheet' id='hsplus-child-style-css' href='https://vigoshop.it/app/themes/hsplus-child/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='app-css' href='https://vigoshop.it/app/themes/hsplus/dist/app-bb7116ca22.css' type='text/css' media='all' />
+<link rel='stylesheet' id='swiper-style-css' href='https://vigoshop.it/app/themes/hsplus/assets/plugins/swiper/swiper.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='app-extra-css' href='https://vigoshop.it/app/themes/hsplus/dist/vigoshop-2809b8fc43.css' type='text/css' media='all' />
+<link rel='stylesheet' id='agent-kc-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/agent-kc/css/agent-kc-d24968c5d8.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cart-warranty-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/cart-warranty/css/cart-warranty-294993db14.css' type='text/css' media='all' />
+<link rel='stylesheet' id='checkout-extra-triggers-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/checkout-extra-triggers/css/checkout-extra-triggers-8a82c39c7f.css' type='text/css' media='all' />
+<link rel='stylesheet' id='custom-validation-styles-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/checkout-validation/css/custom-checkout-general-3ba2df51f0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='custom-checkout-hr-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/checkout-validation/css/custom-checkout-hr-708bf051cd.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cookie-consent-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/cookie-consent/css/cookie-consent-0f1f70401c.css' type='text/css' media='all' />
+<link rel='stylesheet' id='custom-payment-notice-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/custom-payment-notice/css/custom-payment-notice-0baf6bff40.css' type='text/css' media='all' />
+<link rel='stylesheet' id='header-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/header/css/header-f98b75e0d2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='hide-payments-test-product-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/hide-payments-test-product/css/hide-payments-test-product-e46f2e914d.css' type='text/css' media='all' />
+<link rel='stylesheet' id='general-shop-elements-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/homepage-shop-elements/css/general-shop-elements-a82fb8d5a2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='lazy-load-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/image-lazy-load/css/lazy-load-4b6eac4005.css' type='text/css' media='all' />
+<link rel='stylesheet' id='payment-methods-fixes-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/payment-methods-fixes/css/payment-methods-fixes-75bc076f0b.css' type='text/css' media='all' />
+<link rel='stylesheet' id='product-page-courier-info-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/product-page-courier-info/css/product-page-courier-info-96801577cc.css' type='text/css' media='all' />
+<link rel='stylesheet' id='product-page-warranty-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/product-page-warranty/css/product-page-warranty-7d50f99458.css' type='text/css' media='all' />
+<link rel='stylesheet' id='sv-wc-payment-gateway-payment-form-v5_15_10-css' href='https://vigoshop.it/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/css/frontend/sv-wc-payment-gateway-payment-form.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-braintree-css' href='https://vigoshop.it/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/assets/css/frontend/wc-braintree.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='video-in-product-gallery-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/video-in-product-gallery/css/video-in-product-gallery-89309214b3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='abandoned-cart-restore-addons-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/abandoned-cart-restore-addons/css/abandoned-cart-restore-addons-740a577066.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cart-item-restore-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/cart-item-restore/css/cart-item-restore-b6a0f18b47.css' type='text/css' media='all' />
+<link rel='stylesheet' id='checkout-order-review-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/checkout-order-review/css/checkout-order-review-17423b66f5.css' type='text/css' media='all' />
+<link rel='stylesheet' id='checkout-timer-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/checkout-timer/css/checkout-timer-73c98a5995.css' type='text/css' media='all' />
+<link rel='stylesheet' id='checkout-upsell-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/checkout-upsell/css/checkout-upsell-49a595b20c.css' type='text/css' media='all' />
+<link rel='stylesheet' id='coupon-banner-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/coupon-banner/css/coupon-banner-d56e152358.css' type='text/css' media='all' />
+<link rel='stylesheet' id='custom-cta-settings-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/custom-cta-settings/css/custom-cta-settings-0fd450b106.css' type='text/css' media='all' />
+<link rel='stylesheet' id='email-checkbox-subscription-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/email-checkbox-subscription/css/email-checkbox-subscription-1def327263.css' type='text/css' media='all' />
+<link rel='stylesheet' id='free-shipping-above-quantity-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/free-shipping-above-quantity/css/free-shipping-above-quantity-02588a20ff.css' type='text/css' media='all' />
+<link rel='stylesheet' id='loader-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/loader/css/loader-c25fc35077.css' type='text/css' media='all' />
+<link rel='stylesheet' id='notice-test-product-only-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/notice-test-product-only/css/notice-test-product-only-21c486c451.css' type='text/css' media='all' />
+<link rel='stylesheet' id='order-received-popup-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/order-received-popup/css/order-received-popup-c97d38fd18.css' type='text/css' media='all' />
+<link rel='stylesheet' id='parcel-pickup-hr-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/parcel-pickup/css/parcel-pickup-hr-8754cf5c08.css' type='text/css' media='all' />
+<link rel='stylesheet' id='extra-shipping-method-buttons-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/parcel-pickup/css/extra-shipping-method-buttons-093d5c786e.css' type='text/css' media='all' />
+<link rel='stylesheet' id='pdf-products-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/pdf-products/css/pdf-products-2009e19a3b.css' type='text/css' media='all' />
+<link rel='stylesheet' id='pdf-special-offer-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/pdf-products/css/pdf-special-offer-545e3ee266.css' type='text/css' media='all' />
+<link rel='stylesheet' id='pdf-special-offer-homepage-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/pdf-products/css/pdf-special-offer-homepage-eca0ed3481.css' type='text/css' media='all' />
+<link rel='stylesheet' id='shipping-method-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/shipping-method/css/shipping-method-14ad2b0a1f.css' type='text/css' media='all' />
+<link rel='stylesheet' id='terms-and-conditions-link-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/terms-and-conditions-link/css/terms-and-conditions-link-4d809e8b6d.css' type='text/css' media='all' />
+<link rel='stylesheet' id='virtual-products-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/virtual-products/css/virtual-products-ff847d8762.css' type='text/css' media='all' />
+<link rel='stylesheet' id='quantity-discount-price-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/quantity-discount-price/css/quantity-discount-price-86d6e7d23e.css' type='text/css' media='all' />
+<link rel='stylesheet' id='hsplus-css' href='https://vigoshop.it/app/plugins/mk-abandoned/public/css/hsplus-public.css' type='text/css' media='all' />
+<script type="text/javascript" src="https://vigoshop.it/wp/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://vigoshop.it/app/plugins/woocommerce/assets/js/selectWoo/selectWoo.full.min.js" id="selectWoo-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" src="https://vigoshop.it/wp/wp-includes/js/dist/hooks.min.js" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://vigoshop.it/wp/wp-includes/js/dist/i18n.min.js" id="wp-i18n-js"></script>
 <script type="text/javascript" id="wp-i18n-js-after">
 /* <![CDATA[ */
 wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 /* ]]> */
 </script>
-<script type="text/javascript" src="https://vigoshop.hr/app/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js" id="wc-jquery-blockui-js" defer="defer" data-wp-strategy="defer"></script>
-<script type="text/javascript" src="https://vigoshop.hr/app/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js" id="wc-js-cookie-js" data-wp-strategy="defer"></script>
-<link rel="icon" href="https://vigoshop.hr/app/uploads/2018/03/cropped-vigoshop-fb-profilna-puscica-1-32x32.png" sizes="32x32" />
-<link rel="icon" href="https://vigoshop.hr/app/uploads/2018/03/cropped-vigoshop-fb-profilna-puscica-1-192x192.png" sizes="192x192" />
-<link rel="apple-touch-icon" href="https://vigoshop.hr/app/uploads/2018/03/cropped-vigoshop-fb-profilna-puscica-1-180x180.png" />
-<meta name="msapplication-TileImage" content="https://vigoshop.hr/app/uploads/2018/03/cropped-vigoshop-fb-profilna-puscica-1-270x270.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-76x76.png">
+<script type="text/javascript" src="https://vigoshop.it/app/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js" id="wc-jquery-blockui-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" src="https://vigoshop.it/app/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js" id="wc-js-cookie-js" data-wp-strategy="defer"></script>
+<link rel="icon" href="https://vigoshop.it/app/uploads/2018/03/cropped-vigoshop-fb-profilna-puscica-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://vigoshop.it/app/uploads/2018/03/cropped-vigoshop-fb-profilna-puscica-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://vigoshop.it/app/uploads/2018/03/cropped-vigoshop-fb-profilna-puscica-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://vigoshop.it/app/uploads/2018/03/cropped-vigoshop-fb-profilna-puscica-1-270x270.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-76x76.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114"
-          href="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-114x114.png">
+          href="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-114x114.png">
     <link rel="apple-touch-icon-precomposed" sizes="120x120"
-          href="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-120x120.png">
+          href="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-120x120.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
-          href="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-144x144.png">
+          href="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-144x144.png">
     <link rel="apple-touch-icon-precomposed" sizes="152x152"
-          href="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-152x152.png">
-    <link rel="icon" type="image/png" href="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/favicon-16x16.png" sizes="16x16"/>
-    <link rel="icon" type="image/png" href="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/favicon-32x32.png" sizes="32x32"/>
-    <link rel="icon" type="image/png" href="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/favicon-96x96.png" sizes="96x96"/>
-    <link rel="icon" type="image/png" href="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/favicon-128.png" sizes="128x128"/>
-    <link rel="icon" type="image/png" href="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/favicon-196x196.png" sizes="196x196"/>
+          href="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" href="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/favicon-16x16.png" sizes="16x16"/>
+    <link rel="icon" type="image/png" href="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/favicon-128.png" sizes="128x128"/>
+    <link rel="icon" type="image/png" href="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/favicon-196x196.png" sizes="196x196"/>
     <meta name="application-name" content="vigoshop"/>
     <meta name="msapplication-TileColor" content="#FFFFFF"/>
-    <meta name="msapplication-TileImage" content="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/mstile-144x144.png"/>
-    <meta name="msapplication-square70x70logo" content="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/mstile-70x70.png"/>
-    <meta name="msapplication-square150x150logo" content="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/mstile-150x150.png"/>
-    <meta name="msapplication-wide310x150logo" content="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/mstile-310x150.png"/>
-    <meta name="msapplication-square310x310logo" content="https://vigoshop.hr/app/themes/hsplus/images/favicon/vigoshop/mstile-310x310.png"/>
+    <meta name="msapplication-TileImage" content="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/mstile-144x144.png"/>
+    <meta name="msapplication-square70x70logo" content="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/mstile-70x70.png"/>
+    <meta name="msapplication-square150x150logo" content="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/mstile-150x150.png"/>
+    <meta name="msapplication-wide310x150logo" content="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/mstile-310x150.png"/>
+    <meta name="msapplication-square310x310logo" content="https://vigoshop.it/app/themes/hsplus/images/favicon/vigoshop/mstile-310x310.png"/>
     </head>
 <body class="wp-singular page-template-default page page-id-6 wp-theme-hsplus wp-child-theme-hsplus-child  theme-vigoshop theme-hsplus woocommerce-checkout woocommerce-page woocommerce-no-js brand-vigoshop" data-hswooplus="10.3.7"  >
 
@@ -185,10 +185,10 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
   
   
   <div class="woocommerce-billing-fields__field-wrapper">
-    <p class="form-row form-row-first form-group col-xs-12 validate-required" id="billing_first_name_field" data-priority="30"><label for="billing_first_name" class="required_field">Ime&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_first_name" id="billing_first_name" placeholder="Ime"  value="" aria-required="true" maxlength="80" autocomplete="given-name" /></span></p><p class="form-row form-row-last form-group col-xs-12 validate-required" id="billing_last_name_field" data-priority="40"><label for="billing_last_name" class="required_field">Prezime&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_last_name" id="billing_last_name" placeholder="Prezime"  value="" aria-required="true" maxlength="80" autocomplete="family-name" /></span></p><div class="form-row form-row-wide col-xs-12">Inserisci l'indirizzo dove sarai <b>tra le 8:00 e le 16:00</b>.</div><p class="form-row form-row-wide address-field form-group form-group col-xs-12 validate-required" id="billing_address_1_field" data-priority="50"><label for="billing_address_1" class="required_field">Ulica&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_address_1" id="billing_address_1" placeholder="Ulica"  value="" aria-required="true" maxlength="80" autocomplete="address-line1" /></span></p><p class="form-row form-row-wide address-field form-group form-group col-xs-12 validate-required" id="billing_address_2_field" data-priority="60"><label for="billing_address_2" class="screen-reader-text required_field">Kućni broj&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_address_2" id="billing_address_2" placeholder="Kućni broj"  value="" autocomplete="address-line2" maxlength="80" aria-required="true" /></span></p><p class="form-row form-row-wide address-field form-group form-group col-xs-12 validate-required validate-postcode" id="billing_postcode_field" data-priority="70"><label for="billing_postcode" class="required_field">Poštanski broj&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="tel" class="input-text form-input" name="billing_postcode" id="billing_postcode" placeholder="Poštanski broj"  value="" aria-required="true" maxlength="30" autocomplete="postal-code" /></span></p><p class="form-row form-row-wide dropdown form-group form-group col-xs-12 validate-required" id="billing_city_field" data-priority=""><label for="billing_city" class="required_field">Grad&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><select name="billing_city" id="billing_city" class="select form-input" aria-required="true" data-allow_clear="true" data-placeholder="Seleziona la città">
-							<option value=""  selected='selected'>Seleziona la città</option>
-						</select></span></p><p class="form-row form-row-wide form-group col-xs-12 validate-required validate-phone" id="billing_phone_field" data-priority="10"><label for="billing_phone" class="required_field">Telefon&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="tel" class="input-text form-input" name="billing_phone" id="billing_phone" placeholder="Broj mobilnog telefona"  value="" maxlength="17" aria-required="true" autocomplete="tel" /></span></p><p class="form-row form-row-wide form-group col-xs-12 validate-email" id="billing_email_field" data-priority="20"><label for="billing_email" class="">E-mail adresa&nbsp;<span class="optional">(neobavezno)</span></label><span class="woocommerce-input-wrapper"><input type="email" class="input-text form-input" name="billing_email" id="billing_email" placeholder="E-mail adresa"  value="" maxlength="80" autocomplete="email" /></span></p><p class="form-row form-row-wide address-field form-group col-xs-12 validate-state" id="billing_state_field" data-priority="80"><label for="billing_state" class="">Županija&nbsp;<span class="optional">(neobavezno)</span></label><span class="woocommerce-input-wrapper"><select name="billing_state" id="billing_state" class="state_select form-input" autocomplete="address-level1" data-placeholder="placeholder_province"  data-input-classes="form-input" data-label="Županija">
-						<option value="">Odaberite opciju&hellip;</option><option value="HR-01" >Zagreb County</option><option value="HR-02" >Krapina-Zagorje County</option><option value="HR-03" >Sisak-Moslavina County</option><option value="HR-04" >Karlovac County</option><option value="HR-05" >Varaždin County</option><option value="HR-06" >Koprivnica-Križevci County</option><option value="HR-07" >Bjelovar-Bilogora County</option><option value="HR-08" >Primorje-Gorski Kotar County</option><option value="HR-09" >Lika-Senj County</option><option value="HR-10" >Virovitica-Podravina County</option><option value="HR-11" >Požega-Slavonia County</option><option value="HR-12" >Brod-Posavina County</option><option value="HR-13" >Zadar County</option><option value="HR-14" >Osijek-Baranja County</option><option value="HR-15" >Šibenik-Knin County</option><option value="HR-16" >Vukovar-Srijem County</option><option value="HR-17" >Split-Dalmatia County</option><option value="HR-18" >Istria County</option><option value="HR-19" >Dubrovnik-Neretva County</option><option value="HR-20" >Međimurje County</option><option value="HR-21" >Zagreb City</option></select></span></p><p class="form-row form-row-wide address-field update_totals_on_change form-group col-xs-12 validate-required" id="billing_country_field" data-priority="90"><label for="billing_country" class="required_field">Country / Region&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><strong>Hrvatska</strong><input type="hidden" name="billing_country" id="billing_country" value="IT" aria-required="true" autocomplete="do-not-autofill" class="country_to_state" readonly="readonly" /></span></p><p class="form-row kl_newsletter_checkbox_field form-group col-xs-12" id="kl_newsletter_checkbox_field" data-priority=""><span class="woocommerce-input-wrapper"><label class="checkbox " ><input type="checkbox" name="kl_newsletter_checkbox" id="kl_newsletter_checkbox" value="1" class="input-checkbox form-input"  /> Sign me up to receive email updates and news&nbsp;<span class="optional">(neobavezno)</span></label></span></p><p class="form-row form-row-wide hsplus-checkout-field hsplus-checkout-field--no-top-margin hsplus-checkout-field--hidden" id="hsplus_accepts_marketing_field" data-priority="11"><span class="woocommerce-input-wrapper"><label class="checkbox " ><input type="checkbox" name="hsplus_accepts_marketing" id="hsplus_accepts_marketing" value="1" class="input-checkbox woocommerce-form__input woocommerce-form__input-checkbox hsplus-checkbox"  /> Sign up for exclusive offers and news via text messages&nbsp;<span class="optional">(neobavezno)</span></label></span></p>  </div>
+    <p class="form-row form-row-first form-group col-xs-12 validate-required" id="billing_first_name_field" data-priority="30"><label for="billing_first_name" class="required_field">Nome&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_first_name" id="billing_first_name" placeholder="Nome"  value="" aria-required="true" maxlength="80" autocomplete="given-name" /></span></p><p class="form-row form-row-last form-group col-xs-12 validate-required" id="billing_last_name_field" data-priority="40"><label for="billing_last_name" class="required_field">Cognome&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_last_name" id="billing_last_name" placeholder="Cognome"  value="" aria-required="true" maxlength="80" autocomplete="family-name" /></span></p><div class="form-row form-row-wide col-xs-12">Inserisci l'indirizzo dove sarai <b>tra le 8:00 e le 16:00</b>.</div><p class="form-row form-row-wide address-field form-group form-group col-xs-12 validate-required" id="billing_address_1_field" data-priority="50"><label for="billing_address_1" class="required_field">Via&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_address_1" id="billing_address_1" placeholder="Via"  value="" aria-required="true" maxlength="80" autocomplete="address-line1" /></span></p><p class="form-row form-row-wide address-field form-group form-group col-xs-12 validate-required" id="billing_address_2_field" data-priority="60"><label for="billing_address_2" class="screen-reader-text required_field">Numero civico&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-input" name="billing_address_2" id="billing_address_2" placeholder="Numero civico"  value="" autocomplete="address-line2" maxlength="80" aria-required="true" /></span></p><p class="form-row form-row-wide address-field form-group form-group col-xs-12 validate-required validate-postcode" id="billing_postcode_field" data-priority="70"><label for="billing_postcode" class="required_field">CAP&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="tel" class="input-text form-input" name="billing_postcode" id="billing_postcode" placeholder="CAP"  value="" aria-required="true" maxlength="30" autocomplete="postal-code" /></span></p><p class="form-row form-row-wide dropdown form-group form-group col-xs-12 validate-required" id="billing_city_field" data-priority=""><label for="billing_city" class="required_field">Città&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><select name="billing_city" id="billing_city" class="select form-input" aria-required="true" data-allow_clear="true" data-placeholder="Seleziona città">
+							<option value=""  selected='selected'>Seleziona città</option>
+						</select></span></p><p class="form-row form-row-wide form-group col-xs-12 validate-required validate-phone" id="billing_phone_field" data-priority="10"><label for="billing_phone" class="required_field">Telefono&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><input type="tel" class="input-text form-input" name="billing_phone" id="billing_phone" placeholder="Numero di cellulare"  value="" maxlength="17" aria-required="true" autocomplete="tel" /></span></p><p class="form-row form-row-wide form-group col-xs-12 validate-email" id="billing_email_field" data-priority="20"><label for="billing_email" class="">Indirizzo email&nbsp;<span class="optional">(facoltativo)</span></label><span class="woocommerce-input-wrapper"><input type="email" class="input-text form-input" name="billing_email" id="billing_email" placeholder="Indirizzo email"  value="" maxlength="80" autocomplete="email" /></span></p><p class="form-row form-row-wide address-field form-group col-xs-12 validate-state" id="billing_state_field" data-priority="80"><label for="billing_state" class="">Provincia&nbsp;<span class="optional">(facoltativo)</span></label><span class="woocommerce-input-wrapper"><select name="billing_state" id="billing_state" class="state_select form-input" autocomplete="address-level1" data-placeholder="Seleziona provincia"  data-input-classes="form-input" data-label="Provincia">
+						<option value="">Seleziona un'opzione&hellip;</option><option value="IT-RM">Roma</option><option value="IT-MI">Milano</option><option value="IT-NA">Napoli</option><option value="IT-TO">Torino</option><option value="IT-PA">Palermo</option><option value="IT-GE">Genova</option><option value="IT-BO">Bologna</option><option value="IT-FI">Firenze</option><option value="IT-BA">Bari</option><option value="IT-CT">Catania</option><option value="IT-VE">Venezia</option><option value="IT-VR">Verona</option><option value="IT-PD">Padova</option><option value="IT-TS">Trieste</option><option value="IT-BS">Brescia</option><option value="IT-PR">Parma</option><option value="IT-MO">Modena</option><option value="IT-PG">Perugia</option><option value="IT-CA">Cagliari</option></select></span></p><p class="form-row form-row-wide address-field update_totals_on_change form-group col-xs-12 validate-required" id="billing_country_field" data-priority="90"><label for="billing_country" class="required_field">Paese / Regione&nbsp;<span class="required" aria-hidden="true">*</span></label><span class="woocommerce-input-wrapper"><strong>Italia</strong><input type="hidden" name="billing_country" id="billing_country" value="IT" aria-required="true" autocomplete="do-not-autofill" class="country_to_state" readonly="readonly" /></span></p><p class="form-row kl_newsletter_checkbox_field form-group col-xs-12" id="kl_newsletter_checkbox_field" data-priority=""><span class="woocommerce-input-wrapper"><label class="checkbox " ><input type="checkbox" name="kl_newsletter_checkbox" id="kl_newsletter_checkbox" value="1" class="input-checkbox form-input"  /> Sign me up to receive email updates and news&nbsp;<span class="optional">(facoltativo)</span></label></span></p><p class="form-row form-row-wide hsplus-checkout-field hsplus-checkout-field--no-top-margin hsplus-checkout-field--hidden" id="hsplus_accepts_marketing_field" data-priority="11"><span class="woocommerce-input-wrapper"><label class="checkbox " ><input type="checkbox" name="hsplus_accepts_marketing" id="hsplus_accepts_marketing" value="1" class="input-checkbox woocommerce-form__input woocommerce-form__input-checkbox hsplus-checkbox"  /> Sign up for exclusive offers and news via text messages&nbsp;<span class="optional">(facoltativo)</span></label></span></p>  </div>
 
   </div>
 
@@ -205,7 +205,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 
 		
 		<div class="woocommerce-additional-fields__field-wrapper">
-							<p class="form-row notes form-group col-xs-12" id="order_comments_field" data-priority=""><label for="order_comments" class="">Napomene uz narudžbu&nbsp;<span class="optional">(neobavezno)</span></label><span class="woocommerce-input-wrapper"><textarea name="order_comments" class="input-text form-input" id="order_comments" placeholder="Bilješke o vašoj narudžbi.  "  rows="2" cols="5"maxlength="80"></textarea></span></p>					</div>
+							<p class="form-row notes form-group col-xs-12" id="order_comments_field" data-priority=""><label for="order_comments" class="">Note sull'ordine&nbsp;<span class="optional">(facoltativo)</span></label><span class="woocommerce-input-wrapper"><textarea name="order_comments" class="input-text form-input" id="order_comments" placeholder="Note sul tuo ordine.  "  rows="2" cols="5"maxlength="80"></textarea></span></p>					</div>
 
 	
 	<div id="custom_shipping">
@@ -222,12 +222,12 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
                     <svg viewBox="0 0 19 14" fill="#3DBD00"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5725 3.40179L8.14482 13.5874C7.5815 14.1375 6.66839 14.1375 6.1056 13.5874L0.422493 8.03956C-0.140831 7.48994 -0.140831 6.59748 0.422493 6.04707L1.44121 5.05126C2.00471 4.50094 2.91854 4.50094 3.48132 5.05126L7.12254 8.60835L15.5145 0.412609C16.078 -0.137536 16.9909 -0.137536 17.5537 0.412609L18.5733 1.40842C19.1424 1.95795 19.1424 2.8505 18.5725 3.40179Z" /></svg>                                        <div class="outer-wrapper">
                         <div class="inner-wrapper-dates">
                         <strong
-                            class="hs-custom-date">srijeda, 18.3. - četvrtak, 19.3.</strong>
+                            class="hs-custom-date">mercoledì, 18.3. - giovedì, 19.3.</strong>
                         </div>
                         <div class="inner-wrapper-img">
                                                         <span class="shipping_method_delivery_price tag tag--red">
                                 <span class="woocommerce-Price-amount amount"><bdi>2,99<span class="woocommerce-Price-currencySymbol">&euro;</span></bdi></span>                            </span>
-                                                        <span class="delivery_img"><img decoding="async" class="corriere standard" src="https://images.vigo-shop.com/general/curriers/home_small_paket24@2x.png"/></span>
+                                                        <span class="delivery_img"><img decoding="async" class="corriere_espresso standard" src="https://images.vigo-shop.com/general/curriers/home_small_paket24@2x.png"/></span>
                         </div>
                     </div>
                 </label>
@@ -248,7 +248,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
                 <div class="vigo-gift__tooltip">
                     <div class="flex flex--autosize flex--middle">
                         <div class="flex__item down_arrow "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.061,12.354a1.5,1.5,0,0,0-2.122,0L13.5,14.793V6a1.5,1.5,0,0,0-3,0v8.793L8.061,12.354a1.5,1.5,0,0,0-2.122,2.121l3.586,3.586a3.5,3.5,0,0,0,4.95,0l3.586-3.586A1.5,1.5,0,0,0,18.061,12.354Z"/></svg></div>
-                        <div class="flex__item f--bold">  Dodajte u narudžbu</div>
+                        <div class="flex__item f--bold">  Aggiungi all'ordine</div>
                     </div>
                 </div>
                 <div class="flex sup_inner_wrapper">
@@ -258,13 +258,13 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
                                 <label for="surprise_item_upsell_0" class=""></label>
                                 <input id="surprise_item_upsell_0" type="checkbox" class="checkbox-simple checkbox-simple--green val--bottom"  disabled/>
                             </div>
-                            <div class="f--l f--bold surprise_title">Proizvod iznenađenja</div>
+                            <div class="f--l f--bold surprise_title">Prodotto sorpresa</div>
                             <div class="tag_wrapper">
                                 <div class="tag tag--red">
                                     <span class="woocommerce-Price-amount amount"><bdi>3,99<span class="woocommerce-Price-currencySymbol">&euro;</span></bdi></span>                                </div>
                             </div>
                         </div>
-                        <div class="f--m c--darkgray s-top--s">U vrijednosti između 5 € i 15 €.</div>
+                        <div class="f--m c--darkgray s-top--s">Del valore tra 5 € e 15 €.</div>
                     </div>
                     <div class="vigo-checkout-gift__img">
                         <img decoding="async" class="img" src="https://images.vigo-shop.com/general/present_responsive.svg" alt="Gift icon">
@@ -294,9 +294,9 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
   <input id="payment_method_braintree_credit_card" type="radio" class="input-radio" name="payment_method" value="braintree_credit_card"  data-order_button_text="Ordina" />
 
   <label for="payment_method_braintree_credit_card">
-    Carta di credito <span class="payment-fee-free">Gratuito</span><div class="sv-wc-payment-gateway-card-icons"><img decoding="async" src="https://vigoshop.hr/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/images/card-visa.svg" alt="visa" class="sv-wc-payment-gateway-icon wc-braintree-credit-card-payment-gateway-icon" width="40" height="25" style="width: 40px; height: 25px;" /><img decoding="async" src="https://vigoshop.hr/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/images/card-mastercard.svg" alt="mastercard" class="sv-wc-payment-gateway-icon wc-braintree-credit-card-payment-gateway-icon" width="40" height="25" style="width: 40px; height: 25px;" /><img decoding="async" src="https://vigoshop.hr/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/images/card-maestro.svg" alt="maestro" class="sv-wc-payment-gateway-icon wc-braintree-credit-card-payment-gateway-icon" width="40" height="25" style="width: 40px; height: 25px;" /></div>  </label>
+    Carta di credito <span class="payment-fee-free">Gratuito</span><div class="sv-wc-payment-gateway-card-icons"><img decoding="async" src="https://vigoshop.it/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/images/card-visa.svg" alt="visa" class="sv-wc-payment-gateway-icon wc-braintree-credit-card-payment-gateway-icon" width="40" height="25" style="width: 40px; height: 25px;" /><img decoding="async" src="https://vigoshop.it/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/images/card-mastercard.svg" alt="mastercard" class="sv-wc-payment-gateway-icon wc-braintree-credit-card-payment-gateway-icon" width="40" height="25" style="width: 40px; height: 25px;" /><img decoding="async" src="https://vigoshop.it/app/plugins/woocommerce-gateway-paypal-powered-by-braintree/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/images/card-maestro.svg" alt="maestro" class="sv-wc-payment-gateway-icon wc-braintree-credit-card-payment-gateway-icon" width="40" height="25" style="width: 40px; height: 25px;" /></div>  </label>
       <div class="payment_box payment_method_braintree_credit_card" style="display:none;">
-      <fieldset id="wc-braintree-credit-card-credit-card-form" aria-label="Informacije o plaćanju"><legend style="display:none;">Informacije o plaćanju</legend><div class="wc-braintree-credit-card-new-payment-method-form js-wc-braintree-credit-card-new-payment-method-form"><input type="hidden" name="wc-braintree-credit-card-card-type" value="" /><input type="hidden" name="wc-braintree-credit-card-3d-secure-enabled" value="" /><input type="hidden" name="wc-braintree-credit-card-3d-secure-verified" value="" /><input type="hidden" name="wc-braintree-credit-card-3d-secure-order-total" value="21.98" />		<input type="hidden" id="wc_braintree_credit_card_payment_nonce" name="wc_braintree_credit_card_payment_nonce" />
+      <fieldset id="wc-braintree-credit-card-credit-card-form" aria-label="Informazioni di pagamento"><legend style="display:none;">Informazioni di pagamento</legend><div class="wc-braintree-credit-card-new-payment-method-form js-wc-braintree-credit-card-new-payment-method-form"><input type="hidden" name="wc-braintree-credit-card-card-type" value="" /><input type="hidden" name="wc-braintree-credit-card-3d-secure-enabled" value="" /><input type="hidden" name="wc-braintree-credit-card-3d-secure-verified" value="" /><input type="hidden" name="wc-braintree-credit-card-3d-secure-order-total" value="21.98" />		<input type="hidden" id="wc_braintree_credit_card_payment_nonce" name="wc_braintree_credit_card_payment_nonce" />
 		<input type="hidden" id="wc-braintree-credit-card-device-data" name="wc_braintree_device_data" />
 				<div class="form-row ">
 			<label for="wc-braintree-credit-card-context-hosted"></label>
@@ -325,7 +325,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
   <label for="payment_method_braintree_paypal">
     PayPal <span class="payment-fee-free">Gratuito</span><img decoding="async" src="https://images.vigo-shop.com/general/checkout/paypal/PayPal.svg" alt="PayPal">  </label>
       <div class="payment_box payment_method_braintree_paypal" style="display:none;">
-      <fieldset id="wc-braintree-paypal-paypal-form" aria-label="Informacije o plaćanju"><legend style="display:none;">Informacije o plaćanju</legend><div class="wc-braintree-paypal-new-payment-method-form js-wc-braintree-paypal-new-payment-method-form">		<input type="hidden" id="wc_braintree_paypal_payment_nonce" name="wc_braintree_paypal_payment_nonce" />
+      <fieldset id="wc-braintree-paypal-paypal-form" aria-label="Informazioni di pagamento"><legend style="display:none;">Informazioni di pagamento</legend><div class="wc-braintree-paypal-new-payment-method-form js-wc-braintree-paypal-new-payment-method-form">		<input type="hidden" id="wc_braintree_paypal_payment_nonce" name="wc_braintree_paypal_payment_nonce" />
 		<input type="hidden" id="wc-braintree-paypal-device-data" name="wc_braintree_device_data" />
 		<p class="form-row " id="wc-braintree-paypal-context_field" data-priority=""><span class="woocommerce-input-wrapper"><input type="hidden" class="input-hidden " name="wc-braintree-paypal-context" id="wc-braintree-paypal-context" value="shortcode"  /></span></p>
 		
@@ -347,7 +347,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 			</div>
 	
 		        <div id="hs-cod-checkout-prompt" style="display:none;">
-            <div class="cod-prompt-text">Completa il tuo ordine ora, <strong>pagamento alla consegna 🙂</strong></div>
+            <div class="cod-prompt-text">Completa l'ordine ora, <strong>pagamento alla consegna 🙂</strong></div>
             <img decoding="async" class="cod-prompt-image" src="https://images.vigo-shop.com/general/checkout/cod/uni_cash_on_delivery.svg">
         </div>
 
@@ -363,7 +363,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 <!--                --><!--            </span>-->
         </h3>
     </div>
-    <p class="pdf-description">Kada kupite e-knjigu, besplatno Vam dajemo troškove dostave.</p>
+    <p class="pdf-description">Quando acquisti l'e-book, ti offriamo la spedizione gratuita.</p>
 
     <div id="pdf-grid">
         <div class="table-grid">
@@ -379,7 +379,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
             </div>
             <div id="pdf-select-false" class="cell-grid column-selected top">
                 <input type="radio" id="ebook_false"  name="ebook_offer" value="false" checked>
-                <label for="ebook_false">Ne želim e-knjigu</label>
+                <label for="ebook_false">Non voglio l'e-book</label>
             </div>
 
             <div class="cell-grid">
@@ -392,14 +392,14 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
             </div>
 
             <div class="cell-grid">
-                Dostava:
+                Spedizione:
             </div>
             <div class="cell-grid column-option">
                 Gratuito            </div>
             <div class="cell-grid column-selected">
                 <span class="woocommerce-Price-amount amount"><bdi>2,99<span class="woocommerce-Price-currencySymbol">&euro;</span></bdi></span>            </div>
                         <div class="cell-grid">
-                Ukupna narudžba:
+                Ordine totale:
             </div>
             <div class="cell-grid totals column-option bottom">
                 <span class="totals"><span class="woocommerce-Price-amount amount"><bdi>21,98<span class="woocommerce-Price-currencySymbol">&euro;</span></bdi></span></span>
@@ -410,10 +410,10 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
     </div>
     <p class="pdf-more-info">
         <img decoding="async" src="https://images.vigo-shop.com/general/checkout/pdf_info_icon.svg">
-        <u>Više informacija o e-knjizi</u>
+        <u>Maggiori informazioni sull'e-book</u>
     </p>
     <p class="pdf-more-info-description">
-        Odaberite našu e-knjigu i dobijte pristup trikovima koji mijenjaju život, savjetima za uštedu novca i vrhunskoj pogodnosti. Također štedite na otpremi. Odaberite e-knjigu za pametniju, lakšu i pristupačniju budućnost!</p>
+        Odaberite našu e-book i dobijte pristup trikovima koji mijenjaju život, savjetima za uštedu novca i vrhunskoj pogodnosti. Također štedite na otpremi. Odaberite e-book za pametniju, lakšu i pristupačniju budućnost!</p>
 </div>
 
 
@@ -441,7 +441,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
             <div class="c--darkgray review-section-container review-addons shipping_order_review">
                 <div class="review-addons-title">
                     <div>
-                        Paket24 Hrvatske pošte                    </div>
+                        Corriere espresso                    </div>
                 </div>
 
                                     <div class="review-addons-price review-sale-price"> <span class="woocommerce-Price-amount amount"><bdi>2,99<span class="woocommerce-Price-currencySymbol">&euro;</span></bdi></span>                    </div>
@@ -454,7 +454,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 
         <div class="vigo-checkout-total__sum flex flex--middle border_price">
         <div class="flex__item f--l">
-            Ukupni iznos: <span class="f--bold price_total_wrapper"><span class="woocommerce-Price-amount amount"><bdi>21,98<span class="woocommerce-Price-currencySymbol">&euro;</span></bdi></span>        </div>
+            Totale: <span class="f--bold price_total_wrapper"><span class="woocommerce-Price-amount amount"><bdi>21,98<span class="woocommerce-Price-currencySymbol">&euro;</span></bdi></span>        </div>
     </div>
 </div>
 
@@ -472,42 +472,42 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 
     
         <div id="order_review" class="woocommerce-checkout-review-order container container--xs bg--white">
-            <button type="submit" class="button alt button--l button--block button--green button--rounded button--green-gradient" name="woocommerce_checkout_place_order" id="place_order" data-value="Naruči" />Naruči</button></div><div class="checkout-warranty flex flex--center flex--middle">
+            <button type="submit" class="button alt button--l button--block button--green button--rounded button--green-gradient" name="woocommerce_checkout_place_order" id="place_order" data-value="Ordina" />Ordina</button></div><div class="checkout-warranty flex flex--center flex--middle">
     <div class="flex__item--autosize checkout-warranty__icon">
        <img decoding="async" src="https://images.vigo-shop.com/general/guarantee_money_back/satisfaction_icon_it.png">
     </div>
     <div class="flex__item--autosize f--m checkout-warranty__text">
-        <strong>Kupujte bez brige </strong><br>
-        Povrat novca moguć u roku od 90 dana    </div>
+        <strong>Acquista senza preoccupazioni </strong><br>
+        Rimborso possibile entro 90 giorni    </div>
 </div>
 
 <div class="agreed_terms_txt">
-    <span class="policy-agreement-obligation">Cliccando il pulsante <strong>Ordina</strong> accetto l'ordine con obbligo di pagamento.</span> <br>
+    <span class="policy-agreement-obligation">Cliccando sul pulsante <strong>Ordina</strong> accetto l'ordine con obbligo di pagamento.</span> <br>
             <div class="terms-checkbox-and-links">
             <label class="checkbox">
                 <input type="checkbox" class="input-checkbox" name="agree_to_checkout_terms" id="agree_to_terms_checkbox" value="1">
             </label>
-            Pročitao sam i prihvaćam <a href="#" id="terms_conditions_link"> Opće uvjete prodaje </a> i <a href="#" id="withdrawal_policy_link"> pravo na odustajanje </a>.        </div>
+            Ho letto e accetto <a href="#" id="terms_conditions_link"> le Condizioni generali di vendita </a> i <a href="#" id="withdrawal_policy_link"> il diritto di recesso </a>.        </div>
     </div>
 
 <div id="terms-conditions-popup" class="checkout-popup" style="display: none;">
     <div class="checkout-popup-wrapper">
         <div id="terms-conditions-content">
-            <h2 class="ql-align-justify"><strong>Opći uvjeti poslovanja</strong></h2>
+            <h2 class="ql-align-justify"><strong>Condizioni generali</strong></h2>
 <p class="ql-align-justify"></p>
 <p class="ql-align-justify"><a class="button" href="https://images.hs-plus.com/legal/terms-conditions/terms-conditions_Vigoshop_hr.pdf" style="background-color: lightgray"> Spremite i ispišite</a></p>
-<p class="ql-align-justify">Dobro došli na web-mjesto <a href="https://vigoshop.hr">vigoshop.hr</a> kojim upravlja tvrtka HS plus d.o.o., Gmajna 8, SI-1236 Trzin (dalje u tekstu: tvrtka).</p>
-<p class="ql-align-justify">Ovi se Opći uvjeti poslovanja primjenjuju na sve aktivnosti omogućene u internetskoj trgovini koja je dostupna na&nbsp;<a href="https://vigoshop.hr">vigoshop.hr</a> (dalje u tekstu: web-mjesto). Opći uvjeti poslovanja obvezujući su za sve korisnike. Molimo vas da ih pažljivo pročitate. Ako se ne slažete s bilo kojim dijelom ovih Općih uvjeta poslovanja ili ako se u potpunosti ne slažete s njima, ne smijete upotrebljavati naše web-mjesto i naše usluge. Opći uvjeti poslovanja predstavljaju valjani ugovor sklopljen između vas i tvrtke.</p>
+<p class="ql-align-justify">Dobro došli na web-mjesto <a href="https://vigoshop.it">vigoshop.it</a> kojim upravlja tvrtka HS plus d.o.o., Gmajna 8, SI-1236 Trzin (dalje u tekstu: tvrtka).</p>
+<p class="ql-align-justify">Ovi se Opći uvjeti poslovanja primjenjuju na sve aktivnosti omogućene u internetskoj trgovini koja je dostupna na&nbsp;<a href="https://vigoshop.it">vigoshop.it</a> (dalje u tekstu: web-mjesto). Opći uvjeti poslovanja obvezujući su za sve korisnike. Molimo vas da ih pažljivo pročitate. Ako se ne slažete s bilo kojim dijelom ovih Općih uvjeta poslovanja ili ako se u potpunosti ne slažete s njima, ne smijete upotrebljavati naše web-mjesto i naše usluge. Opći uvjeti poslovanja predstavljaju valjani ugovor sklopljen između vas i tvrtke.</p>
 <p class="ql-align-justify">Web-mjesto dostupno je „takvo kakvo jest”, a tvrtka ne pruža jamstva, ni neizravno ni izravno, koja se odnose na pravo vlasništva, marketing ili prikladnost za bilo koju svrhu proizvoda koji su predstavljeni na web-mjestu.</p>
 <p class="ql-align-justify">Vlasnik web-mjesta postupat će s dužnom pažnjom kako bi pokušao osigurati da podaci navedeni na web-mjestu budu detaljni i ažurni. Istodobno, vlasnik web-mjesta zadržava pravo izmijeniti sadržaj web-mjesta ili ga prestati dopunjavati u bilo kojem trenutku, bez prethodne najave. Osim toga, vlasnik web-mjesta može izmijeniti usluge, proizvode, cijene ili programe opisane na ovom web-mjestu u bilo kojem trenutku i bez najave.</p>
 <h2 class="ql-align-justify"><strong>1 DEFINICIJE</strong></h2>
-<p class="ql-align-justify"><strong>Tvrtka</strong>&nbsp;je tvrtka HS plus d.o.o., Gmajna 8, SI-1236 Trzin koja je vlasnik web-mjesta&nbsp;<a href="https://vigoshop.hr">vigoshop.hr</a>&nbsp;i upravlja njime.</p>
-<p class="ql-align-justify"><strong>Web-mjesto&nbsp;</strong>je web-mjesto dostupno na&nbsp;<a href="https://vigoshop.hr">https://vigoshop.hr</a>, kojom upravlja tvrtka, i u okviru koje djeluje internetska trgovina.</p>
+<p class="ql-align-justify"><strong>Tvrtka</strong>&nbsp;je tvrtka HS plus d.o.o., Gmajna 8, SI-1236 Trzin koja je vlasnik web-mjesta&nbsp;<a href="https://vigoshop.it">vigoshop.it</a>&nbsp;i upravlja njime.</p>
+<p class="ql-align-justify"><strong>Web-mjesto&nbsp;</strong>je web-mjesto dostupno na&nbsp;<a href="https://vigoshop.it">https://vigoshop.it</a>, kojom upravlja tvrtka, i u okviru koje djeluje internetska trgovina.</p>
 <p class="ql-align-justify"><strong>Korisnik</strong>&nbsp;je svaka fizička osoba koja se koristi web-mjestom.</p>
 <p class="ql-align-justify"><strong>Kupac</strong>&nbsp;(ili&nbsp;<strong>„vi”</strong>&nbsp;) je svaka fizička osoba koja izvrši kupnju u internetskoj trgovini.</p>
 <p class="ql-align-justify"><strong>Potrošač</strong>&nbsp;je fizička osoba koja nabavlja ili upotrebljava robu i usluge u svrhe izvan opsega njegove profesionalne djelatnosti ili djelatnosti s ciljem ostvarenja dohotka. Za potrebe ovih Općih uvjeta poslovanja svi kupci smatraju se i potrošačima.</p>
-<p class="ql-align-justify"><strong>Pravila o zaštiti privatnosti</strong>&nbsp;dokument je koji sadržava sve informacije o obradi osobnih podataka koja se odvija u okviru web-mjesta. Navedena Pravila o zaštiti privatnosti dostupna su&nbsp;<a href="https://vigoshop.hr/pravila-o-zastiti-privatnosti">ovdje</a>.</p>
-<p class="ql-align-justify"><strong>Pravila o kolačićima</strong>&nbsp;dokument je koji sadržava sve informacije o upotrebi kolačića koja se odvija u okviru web-mjesta. Navedena Pravila o kolačićima dostupna su&nbsp;<a href="https://vigoshop.hr/pravila-o-kolacicima">ovdje</a>.</p>
+<p class="ql-align-justify"><strong>Pravila o zaštiti privatnosti</strong>&nbsp;dokument je koji sadržava sve informacije o obradi osobnih podataka koja se odvija u okviru web-mjesta. Navedena Pravila o zaštiti privatnosti dostupna su&nbsp;<a href="https://vigoshop.it/pravila-o-zastiti-privatnosti">ovdje</a>.</p>
+<p class="ql-align-justify"><strong>Pravila o kolačićima</strong>&nbsp;dokument je koji sadržava sve informacije o upotrebi kolačića koja se odvija u okviru web-mjesta. Navedena Pravila o kolačićima dostupna su&nbsp;<a href="https://vigoshop.it/pravila-o-kolacicima">ovdje</a>.</p>
 <h2 class="ql-align-justify"><strong>2. VIGOSHOP.HR INTERNETSKA TRGOVINA</strong></h2>
 <p class="ql-align-justify">Općim uvjetima poslovanja utvrđuje se rad internetske trgovine, definiraju prava i obveze korisnika i internetske trgovine te uređuje poslovni odnos između internetske trgovine i kupca.&nbsp;Opći uvjeti poslovanja koji vrijede u trenutku kupnje (u trenutku kada se vrši internetska narudžba) obvezujući su za kupca. Svaki put kada se izvrši narudžba, korisnik će biti obaviješten o Općim uvjetima poslovanja. Izvršavanjem narudžbe korisnik potvrđuje da je obaviješten o ovim Općim uvjetima poslovanja.</p>
 <p class="ql-align-justify">Potvrda Općih uvjeta poslovanja pri izvršavanju narudžbe u našoj internetskoj trgovini predstavlja obvezujući ugovor između vas i tvrtke. Molimo vas da&nbsp;<strong>pažljivo pročitate</strong>&nbsp;Opće uvjete poslovanja&nbsp;<strong>prije potvrde narudžbe</strong>. Ako se ne slažete s našim Općim uvjetima poslovanja, ne možete upotrebljavati usluge koje pruža naša internetska trgovina. Također, nije moguće djelomično se složiti s Općim uvjetima poslovanja. Da biste dovršili kupnju, morate prihvatiti&nbsp;<strong>cjelokupne</strong>&nbsp;Opće uvjete poslovanja koji su na snazi u trenutku kupnje.</p>
@@ -525,7 +525,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 </ol>
 <p class="ql-align-justify">Svi podaci koje nam dostavite tijekom slanja narudžbe bit će obrađeni u skladu s Pravilima o zaštiti privatnosti koje možete pronaći na dnu web-mjesta.</p>
 <p class="ql-align-justify">Obavještavamo vas da će se vrijednost cjelokupne kupnje, uključujući isporuku ili druge troškove koji vrijede za kupnju, naplatiti nakon potvrde vaše narudžbe. Obavijestit ćemo vas o svim dodatnim troškovima prije nego što izvršite kupnju. S odabranim načinom plaćanja mogu biti povezati i dodatni troškovi.</p>
-<p class="ql-align-justify">Možete pratiti i upravljati svojom narudžbom u RMA aplikaciji na ovoj poveznici <a href="https://rma.hs-plus.com/language/hr_HR/" rel="noopener noreferrer" target="_blank" style="background-color: rgb(248, 248, 248); color: rgba(var(--sk_highlight,18,100,163),1);">https://rma.hs-plus.com/language/hr_HR/</a>. Za pristup Vam je potreban broj narudžbe ili kod za praćenje te e-mail ili broj telefona koje ste unijeli u narudžbenicu prilikom kupnje. U ovoj aplikaciji (ako narudžba još nije u pripremi) također možete otkazati narudžbu, promijeniti sadržaj narudžbe, adresu, broj telefona, pratiti narudžbu te također pristupiti potvrdi o plaćanju.</p>
+<p class="ql-align-justify">Možete pratiti i upravljati svojom narudžbom u RMA aplikaciji na ovoj poveznici <a href="https://rma.hs-plus.com/language/it_IT/" rel="noopener noreferrer" target="_blank" style="background-color: rgb(248, 248, 248); color: rgba(var(--sk_highlight,18,100,163),1);">https://rma.hs-plus.com/language/it_IT/</a>. Za pristup Vam je potreban broj narudžbe ili kod za praćenje te e-mail ili broj telefona koje ste unijeli u narudžbenicu prilikom kupnje. U ovoj aplikaciji (ako narudžba još nije u pripremi) također možete otkazati narudžbu, promijeniti sadržaj narudžbe, adresu, broj telefona, pratiti narudžbu te također pristupiti potvrdi o plaćanju.</p>
 <h3 class="ql-align-justify"><strong>iii. Cijene, načini plaćanja i promocije</strong></h3>
 <p class="ql-align-justify"><strong>Cijene</strong></p>
 <p class="ql-align-justify">Sve cijene navedene na web-mjestu izražene su u EUR i uključuju PDV.&nbsp;Cijene se primjenjuju od trenutka kada je narudžba izvršena. Ponuda vrijedi do opoziva.</p>
@@ -534,9 +534,9 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 <p class="ql-align-justify"><strong>Načini plaćanja</strong></p>
 <p class="ql-align-justify">U našoj internetskoj trgovini možete upotrebljavati sljedeće načine plaćanja:</p>
 <ul>
-<li class="ql-align-justify">Plaćanje pouzećem – kupac plaća račun gotovinom ili kreditnom karticom dostavnom kuriru koji robu isporučuje na adresu kupca;</li>
-<li class="ql-align-justify">Plaćanje kreditnom karticom;</li>
-<li class="ql-align-justify">Plaćanje preko PayPala.</li>
+<li class="ql-align-justify">Pagamento pouzećem – kupac plaća račun gotovinom ili kreditnom karticom dostavnom kuriru koji robu isporučuje na adresu kupca;</li>
+<li class="ql-align-justify">Pagamento kreditnom karticom;</li>
+<li class="ql-align-justify">Pagamento preko PayPala.</li>
 </ul>
 <p class="ql-align-justify">Tvrtka zadržava pravo provjere odabranog načina plaćanja s pomoću provjere autentičnosti. Nadalje, zadržavamo pravo daljnje provjere odabranog načina plaćanja tražeći da nam pošaljete dokaz o uplati.&nbsp;</p>
 <p class="ql-align-justify">Upoznati ste s činjenicom da morate platiti cjelokupan iznos narudžbe (uključujući sve troškove povezane s transakcijom i isporukom) u skladu s odabranim načinom plaćanja. Jamčite da imate sposobnost i pravo izvršavati transakcije s pomoću kreditne kartice ili bilo kojeg drugog odabranog načina plaćanja.</p>
@@ -551,14 +551,14 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 <p class="ql-align-justify">Ako kurir za dostavu ne uspije kontaktirati kupca, slijedi drugi pokušaj dostave paketa sljedeći radni dan. Ako i drugi pokušaj dostave ne uspije, paket i njegov sadržaj vraćaju se pošiljatelju.</p>
 <p class="ql-align-justify">Iznos plaćen za neuspješno isporučene i unaprijed plaćene narudžbe automatski se vraća u roku od 8 (osam) radnih dana skladišta koje bilježi povrat paketa ili tvrtke koja utvrdi da paket nije uspješno isporučen.</p>
 <p class="ql-align-justify"><strong>Sigurnosna upozorenja za upotrebu svih proizvoda</strong></p>
-<p class="ql-align-justify">Upotreba proizvoda iz naše internetske trgovine može predstavljati određeni rizik za život i zdravlje. Morate izričito potvrditi da razumijete da uporaba navedenih proizvoda predstavlja takav rizik koji u potpunosti prihvaćate. Naručivanjem i/ili upotrebom spomenutih proizvoda potvrđujete da ste upoznati s navedenim rizicima koji mogu uključivati rizik od bolesti, ozljeda, invaliditeta ili smrti. Morate preuzeti punu odgovornost za sve posljedice koje bi mogle nastati naručivanjem i/ili upotrebom proizvoda.</p>
+<p class="ql-align-justify">Upotreba proizvoda iz naše internetske trgovine može predstavljati određeni rizik za život i zdravlje. Morate izričito potvrditi da razumijete da uporaba navedenih proizvoda predstavlja takav rizik koji u potpunosti prihvaćate. Ordinavanjem i/ili upotrebom spomenutih proizvoda potvrđujete da ste upoznati s navedenim rizicima koji mogu uključivati rizik od bolesti, ozljeda, invaliditeta ili smrti. Morate preuzeti punu odgovornost za sve posljedice koje bi mogle nastati naručivanjem i/ili upotrebom proizvoda.</p>
 <p class="ql-align-justify">Prije upotrebe bilo kojeg proizvoda morate pročitati upute za upotrebu.</p>
 <p class="ql-align-justify">Prije upotrebe svaki proizvod mora biti testiran na siguran način. Ako niste potpuno sigurni kako testirati proizvod, ljubazno vas molimo da ga ne upotrebljavate, da nas o tome obavijestite ili ga vratite.</p>
 <p class="ql-align-justify">Tvrtka ne preuzima nikakvu odgovornost za neizravnu ili izravnu štetu nastalu upotrebom proizvoda naručenih na web-mjestu, bez obzira je li kupac ili treća strana proizvode upotrebljavao ispravno ili neispravno. Ovo izuzeće primjenjuje se u najvećoj mogućoj mjeri dopuštenoj zakonodavstvom.</p>
 <p class="ql-align-justify">U slučaju zahtjeva za naknadu štete podnesenog protiv tvrtke, tvrtka ograničava svoju odgovornost za štete na trostruku tržišnu cijenu proizvoda.</p>
 <p class="ql-align-justify">Nastojimo pružiti što detaljnije i preciznije opise proizvoda i fotografije. Ipak, ne možemo jamčiti da su svi podaci o proizvodu i njihove fotografije potpuno točni. Budući da se određeni proizvodi mogu nabaviti kod različitih dobavljača, moguća su manja odstupanja u pakiranju ili izgledu proizvoda. Spomenuta odstupanja ni na koji način ne utječu na kvalitetu ili funkcionalnost proizvoda.&nbsp;&nbsp;</p>
 <h3 class="ql-align-justify"><strong>v. Pravo na odustajanje od Ugovora</strong></h3>
-<p class="ql-align-justify">Kupac koji izvrši kupnju u našoj internetskoj trgovini ima pravo odustati od Ugovora. Navedeno odustajanje od Ugovora može se izjaviti u roku od 90 dana od datuma isporuke narudžbe, a tvrtku o tome obavještava dostavna služba.&nbsp;Kupac ne mora navesti razlog svoje odluke. Navedeno pravo na odustajanje od Ugovora primjenjuje se samo na kupce koji su fizičke osobe i koji robu i usluge stječu ili upotrebljavaju izvan svoje profesionalne djelatnosti ili djelatnosti s ciljem ostvarenja dohotka.&nbsp;</p>
+<p class="ql-align-justify">Kupac koji izvrši kupnju u našoj internetskoj trgovini ima pravo odustati od Ugovora. Navedeno odustajanje od Ugovora može se izjaviti u roku od 90 dana od datuma isporuke narudžbe, a tvrtku o tome obavještava dostavna služba.&nbsp;Kupac ne mora navesti razlog svoje odluke. Navedeno il diritto di recesso od Ugovora primjenjuje se samo na kupce koji su fizičke osobe i koji robu i usluge stječu ili upotrebljavaju izvan svoje profesionalne djelatnosti ili djelatnosti s ciljem ostvarenja dohotka.&nbsp;</p>
 <p class="ql-align-justify">Smatra se da je izjava o odustajanju izdana pravodobno ako je podnesena u roku za odustajanje od Ugovora. Izjavu o odustajanju možete dostaviti na unaprijed dogovorenom obrascu ili nam je možete poslati e-poštom.&nbsp;Obrazac možete pronaći na kartici „Pravo na odustajanje od kupnje” pri dnu web-mjesta. Teret dokazivanja koji se odnosi na ostvarivanje prava na odustajanje iz ovog članka snosi potrošač.</p>
 <p class="ql-align-justify"><strong>Odustajanjem od Ugovora kupac može steći povrat novca ili zamijeniti proizvod, ali ne može iskoristiti kredit!</strong></p>
 <p class="ql-align-justify">Nakon predaje izjave o odustajanju, svoje proizvode morate vratiti u roku od 14 dana od datuma izjave o odustajanju. Robu pošaljite na našu adresu: <strong>HS PLUS d.o.o., Poštanska ulica 25, 10410 Velika Gorica</strong>.&nbsp;Smatra se da je roba pravovremeno vraćena ako je pošaljete prije isteka roka za povrat u trajanju od 90 dana.&nbsp;Morate vratiti neizmijenjenu količinu neoštećenih proizvoda, zapakiranih u originalno pakiranje ili ambalažu koja proizvode štiti na isti način kao i originalna ambalaža. Ne možete vratiti oštećene proizvode, proizvode u izmijenjenoj količini ili proizvode upakirane u neprikladnu ambalažu. Molimo vratite artikle kao paketnu pošiljku, a ne kao pismo, osiguravajući da je paket označen kodom za odustanak od kupnje, koji ćete dobiti tijekom postupka.Ako paket nije pravilno označen (poslan bez koda za odustanak od kupnje), to može značajno produžiti vrijeme potrebno za obradu vašeg zahtjeva. U slučaju odustajanja od ugovora, podmirit ćete samo troškove povrata robe, s tim da se navedeni troškovi ne mogu nadoknaditi.</p>
@@ -710,7 +710,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 <p class="ql-align-justify">Od kupnje možete odustati u roku&nbsp;<strong>od 90 dana od isporuke, </strong>bez navođenja razloga. Morate vratiti proizvod na našu adresu da biste mogli zatražiti zamjenu za drugi proizvod ili povrat novca za proizvod. Rok za odustajanje od kupnje istječe 90 dana nakon kada vi ili treća strana koju ste odredili, a koja nije prevoznik, fizički preuzmu robu.</p>
 <p class="ql-align-justify"><strong>Proizvod koji želite vratiti mora biti neoštećen, ako je razumno moguće u originalnoj i neoštećenoj ambalaži sa svom isporučenom opremom. </strong>U slučaju da se proizvod ili originalno pakiranje oštete ili pretjerano koriste, trgovina ima pravo naplatiti odbitak pri povratu kupovne vrijednosti proizvoda.</p>
 <p class="ql-align-justify"><strong>U roku 90 dana od isporuke možete ispuniti</strong>&nbsp;obrazac na poveznici za zamjenu proizvoda&nbsp;ili&nbsp;povrat novca<strong>&nbsp;ILI&nbsp;</strong>možete nas obavijestiti e-poštom o namjeri da odustajete od kupnje.</p>
-<p class="ql-align-justify">U slučaju zamjene proizvoda ili povrata novca ispunite: <a href="https://rma.hs-plus.com/language/hr_HR/">LINK</a></p>
+<p class="ql-align-justify">U slučaju zamjene proizvoda ili povrata novca ispunite: <a href="https://rma.hs-plus.com/language/it_IT/">LINK</a></p>
 <p>Odmah nakon podnošenja obrasca, primit ćete kod za otkazivanje putem e-pošte kako biste potvrdili svoj zahtjev. Ovaj kod mora biti napisan na paketu zajedno s vašim podacima.</p>
 <p class="ql-align-justify">Ako ne primite kod za otkazivanje nakon podnošenja obrasca, molimo kontaktirajte nas putem e-pošte.</p>
 <p class="ql-align-justify">Također možete koristiti obrazac eurposkog modela za odstupanje od kupnje, kojem možete pristupiti na sljedećem linku <strong><a href="https://images.hs-plus.com/shared/pdf/0ccf93b329048_HR_UNIVERSAL_FORM.pdf">OBRAZAC</a></strong>. U tom slučaju isprintajte obrazac, ispunite podatke koji nedostaju i stavite potpisan dokument u paket koji se vraća. OPREZ: Korištenje ovog obrazca ipak nije obavezno i može produžiti vrijeme obrade vašeg zahtjeva jer će se paket vratiti bez reklamacijskog koda što će zahtjevati ručnu obradu.</p>
@@ -719,7 +719,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 <p class="ql-align-justify"><strong>HS PLUS d.o.o.,</strong></p>
 <p class="ql-align-justify"><strong>Poštanska ulica 25,</strong></p>
 <p class="ql-align-justify"><strong>10410 Velika Gorica</strong></p>
-<p class="ql-align-justify"><strong>Hrvatska</strong></p>
+<p class="ql-align-justify"><strong>Italia</strong></p>
 <p class="ql-align-justify">Savjetujemo vam da paket pošaljete preporučenom poštom s potvrdom pošiljke, kako bi bilo moguće riješiti vaš prigovor čak i u slučaju gubitka paketa na temelju potvrde o isporuci putem broja za praćenje.</p>
 <p class="ql-align-justify"><strong>Trošak dostave je na strani pošiljatelja, ne prihvaćamo pošiljke sa otkupninom.</strong></p>
 <p class="ql-align-justify"><strong>Čim reklamacijska služba primi Vaš paket</strong>, novi proizvod šalje se u zamjenu ili se otkupnina vraća na Vaš tekući račun u roku od 8 radnih dana. Vratit ćemo iznos za vraćene proizvode i troškove najjeftinijeg rješenja dostave (standardna naknada za dostavu). Prioritetno rukovanje, osiguranje paketa i plaćanje pouzećem predstavljaju dodatni trošak koji se može izbjeći, a usluga se izvršava samo na poseban zahtjev klijenta. Prilagođeni troškovi neće biti vraćeni. U slučaju odustajanja od kupnje, kupac snosi troškove povratne dostave, tako da se također ne vraćaju troškovi povratne dostave proizvoda.</p>
@@ -747,28 +747,28 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
     </div>
 </div>
         <div id="custom_mailing_checkout_field">
-            <p class="form-row email_opt_in" id="email_opt_in_field" data-priority="15"><span class="woocommerce-input-wrapper"><label class="checkbox " ><input type="checkbox" name="email_opt_in" id="email_opt_in" value="1" class="input-checkbox "  /> Da, želim prvi/a saznati za trenutne akcije. <span id="mailing_read_more_link" style="text-decoration: underline">Više informacija</span>&nbsp;<span class="optional">(neobavezno)</span></label></span></p>        </div>
+            <p class="form-row email_opt_in" id="email_opt_in_field" data-priority="15"><span class="woocommerce-input-wrapper"><label class="checkbox " ><input type="checkbox" name="email_opt_in" id="email_opt_in" value="1" class="input-checkbox "  /> Da, želim prvi/a saznati za trenutne akcije. <span id="mailing_read_more_link" style="text-decoration: underline">Više informacija</span>&nbsp;<span class="optional">(facoltativo)</span></label></span></p>        </div>
         <div id="checkout-popup">
             <div class="checkout-popup-wrapper">
                 <img decoding="async" class="img-info" src="https://images.vigo-shop.com/general/vigoshop_info.svg">
                 <span>HSplus d.o.o. može UPOTREBLJAVATI osobne podatke koji su poslani (uključujući povijest kupnje i vaše postavke) za prilagođenu komunikaciju putem SMS poruka, telefonskih poziva, tiskanih kataloga i/ili e-pošte u vezi s proizvodima, posebnim ponudama, istraživanjima, promocijama, događajima i ostalim komunikacijama. U svakom trenutku možete povući svoju suglasnost za primanje e-pošte pritiskanjem veze za odjavu pretplate u svakoj poruci e-pošte. Dodatne informacije, uključujući informacije o ostvarivanju vaših prava u vezi s osobnim podacima koje smo prikupili, potražite u                     <span id="terms-conditions-content_email-checkbox">
                         UVJETIMA I ODREDBAMA                    </span>.
                         <div class="terms-conditions-content_email" style="display: none;">
-                            <h2 class="ql-align-justify"><strong>Opći uvjeti poslovanja</strong></h2>
+                            <h2 class="ql-align-justify"><strong>Condizioni generali</strong></h2>
 <p class="ql-align-justify"></p>
 <p class="ql-align-justify"><a class="button" href="https://images.hs-plus.com/legal/terms-conditions/terms-conditions_Vigoshop_hr.pdf" style="background-color: lightgray"> Spremite i ispišite</a></p>
-<p class="ql-align-justify">Dobro došli na web-mjesto <a href="https://vigoshop.hr">vigoshop.hr</a> kojim upravlja tvrtka HS plus d.o.o., Gmajna 8, SI-1236 Trzin (dalje u tekstu: tvrtka).</p>
-<p class="ql-align-justify">Ovi se Opći uvjeti poslovanja primjenjuju na sve aktivnosti omogućene u internetskoj trgovini koja je dostupna na&nbsp;<a href="https://vigoshop.hr">vigoshop.hr</a> (dalje u tekstu: web-mjesto). Opći uvjeti poslovanja obvezujući su za sve korisnike. Molimo vas da ih pažljivo pročitate. Ako se ne slažete s bilo kojim dijelom ovih Općih uvjeta poslovanja ili ako se u potpunosti ne slažete s njima, ne smijete upotrebljavati naše web-mjesto i naše usluge. Opći uvjeti poslovanja predstavljaju valjani ugovor sklopljen između vas i tvrtke.</p>
+<p class="ql-align-justify">Dobro došli na web-mjesto <a href="https://vigoshop.it">vigoshop.it</a> kojim upravlja tvrtka HS plus d.o.o., Gmajna 8, SI-1236 Trzin (dalje u tekstu: tvrtka).</p>
+<p class="ql-align-justify">Ovi se Opći uvjeti poslovanja primjenjuju na sve aktivnosti omogućene u internetskoj trgovini koja je dostupna na&nbsp;<a href="https://vigoshop.it">vigoshop.it</a> (dalje u tekstu: web-mjesto). Opći uvjeti poslovanja obvezujući su za sve korisnike. Molimo vas da ih pažljivo pročitate. Ako se ne slažete s bilo kojim dijelom ovih Općih uvjeta poslovanja ili ako se u potpunosti ne slažete s njima, ne smijete upotrebljavati naše web-mjesto i naše usluge. Opći uvjeti poslovanja predstavljaju valjani ugovor sklopljen između vas i tvrtke.</p>
 <p class="ql-align-justify">Web-mjesto dostupno je „takvo kakvo jest”, a tvrtka ne pruža jamstva, ni neizravno ni izravno, koja se odnose na pravo vlasništva, marketing ili prikladnost za bilo koju svrhu proizvoda koji su predstavljeni na web-mjestu.</p>
 <p class="ql-align-justify">Vlasnik web-mjesta postupat će s dužnom pažnjom kako bi pokušao osigurati da podaci navedeni na web-mjestu budu detaljni i ažurni. Istodobno, vlasnik web-mjesta zadržava pravo izmijeniti sadržaj web-mjesta ili ga prestati dopunjavati u bilo kojem trenutku, bez prethodne najave. Osim toga, vlasnik web-mjesta može izmijeniti usluge, proizvode, cijene ili programe opisane na ovom web-mjestu u bilo kojem trenutku i bez najave.</p>
 <h2 class="ql-align-justify"><strong>1 DEFINICIJE</strong></h2>
-<p class="ql-align-justify"><strong>Tvrtka</strong>&nbsp;je tvrtka HS plus d.o.o., Gmajna 8, SI-1236 Trzin koja je vlasnik web-mjesta&nbsp;<a href="https://vigoshop.hr">vigoshop.hr</a>&nbsp;i upravlja njime.</p>
-<p class="ql-align-justify"><strong>Web-mjesto&nbsp;</strong>je web-mjesto dostupno na&nbsp;<a href="https://vigoshop.hr">https://vigoshop.hr</a>, kojom upravlja tvrtka, i u okviru koje djeluje internetska trgovina.</p>
+<p class="ql-align-justify"><strong>Tvrtka</strong>&nbsp;je tvrtka HS plus d.o.o., Gmajna 8, SI-1236 Trzin koja je vlasnik web-mjesta&nbsp;<a href="https://vigoshop.it">vigoshop.it</a>&nbsp;i upravlja njime.</p>
+<p class="ql-align-justify"><strong>Web-mjesto&nbsp;</strong>je web-mjesto dostupno na&nbsp;<a href="https://vigoshop.it">https://vigoshop.it</a>, kojom upravlja tvrtka, i u okviru koje djeluje internetska trgovina.</p>
 <p class="ql-align-justify"><strong>Korisnik</strong>&nbsp;je svaka fizička osoba koja se koristi web-mjestom.</p>
 <p class="ql-align-justify"><strong>Kupac</strong>&nbsp;(ili&nbsp;<strong>„vi”</strong>&nbsp;) je svaka fizička osoba koja izvrši kupnju u internetskoj trgovini.</p>
 <p class="ql-align-justify"><strong>Potrošač</strong>&nbsp;je fizička osoba koja nabavlja ili upotrebljava robu i usluge u svrhe izvan opsega njegove profesionalne djelatnosti ili djelatnosti s ciljem ostvarenja dohotka. Za potrebe ovih Općih uvjeta poslovanja svi kupci smatraju se i potrošačima.</p>
-<p class="ql-align-justify"><strong>Pravila o zaštiti privatnosti</strong>&nbsp;dokument je koji sadržava sve informacije o obradi osobnih podataka koja se odvija u okviru web-mjesta. Navedena Pravila o zaštiti privatnosti dostupna su&nbsp;<a href="https://vigoshop.hr/pravila-o-zastiti-privatnosti">ovdje</a>.</p>
-<p class="ql-align-justify"><strong>Pravila o kolačićima</strong>&nbsp;dokument je koji sadržava sve informacije o upotrebi kolačića koja se odvija u okviru web-mjesta. Navedena Pravila o kolačićima dostupna su&nbsp;<a href="https://vigoshop.hr/pravila-o-kolacicima">ovdje</a>.</p>
+<p class="ql-align-justify"><strong>Pravila o zaštiti privatnosti</strong>&nbsp;dokument je koji sadržava sve informacije o obradi osobnih podataka koja se odvija u okviru web-mjesta. Navedena Pravila o zaštiti privatnosti dostupna su&nbsp;<a href="https://vigoshop.it/pravila-o-zastiti-privatnosti">ovdje</a>.</p>
+<p class="ql-align-justify"><strong>Pravila o kolačićima</strong>&nbsp;dokument je koji sadržava sve informacije o upotrebi kolačića koja se odvija u okviru web-mjesta. Navedena Pravila o kolačićima dostupna su&nbsp;<a href="https://vigoshop.it/pravila-o-kolacicima">ovdje</a>.</p>
 <h2 class="ql-align-justify"><strong>2. VIGOSHOP.HR INTERNETSKA TRGOVINA</strong></h2>
 <p class="ql-align-justify">Općim uvjetima poslovanja utvrđuje se rad internetske trgovine, definiraju prava i obveze korisnika i internetske trgovine te uređuje poslovni odnos između internetske trgovine i kupca.&nbsp;Opći uvjeti poslovanja koji vrijede u trenutku kupnje (u trenutku kada se vrši internetska narudžba) obvezujući su za kupca. Svaki put kada se izvrši narudžba, korisnik će biti obaviješten o Općim uvjetima poslovanja. Izvršavanjem narudžbe korisnik potvrđuje da je obaviješten o ovim Općim uvjetima poslovanja.</p>
 <p class="ql-align-justify">Potvrda Općih uvjeta poslovanja pri izvršavanju narudžbe u našoj internetskoj trgovini predstavlja obvezujući ugovor između vas i tvrtke. Molimo vas da&nbsp;<strong>pažljivo pročitate</strong>&nbsp;Opće uvjete poslovanja&nbsp;<strong>prije potvrde narudžbe</strong>. Ako se ne slažete s našim Općim uvjetima poslovanja, ne možete upotrebljavati usluge koje pruža naša internetska trgovina. Također, nije moguće djelomično se složiti s Općim uvjetima poslovanja. Da biste dovršili kupnju, morate prihvatiti&nbsp;<strong>cjelokupne</strong>&nbsp;Opće uvjete poslovanja koji su na snazi u trenutku kupnje.</p>
@@ -786,7 +786,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 </ol>
 <p class="ql-align-justify">Svi podaci koje nam dostavite tijekom slanja narudžbe bit će obrađeni u skladu s Pravilima o zaštiti privatnosti koje možete pronaći na dnu web-mjesta.</p>
 <p class="ql-align-justify">Obavještavamo vas da će se vrijednost cjelokupne kupnje, uključujući isporuku ili druge troškove koji vrijede za kupnju, naplatiti nakon potvrde vaše narudžbe. Obavijestit ćemo vas o svim dodatnim troškovima prije nego što izvršite kupnju. S odabranim načinom plaćanja mogu biti povezati i dodatni troškovi.</p>
-<p class="ql-align-justify">Možete pratiti i upravljati svojom narudžbom u RMA aplikaciji na ovoj poveznici <a href="https://rma.hs-plus.com/language/hr_HR/" rel="noopener noreferrer" target="_blank" style="background-color: rgb(248, 248, 248); color: rgba(var(--sk_highlight,18,100,163),1);">https://rma.hs-plus.com/language/hr_HR/</a>. Za pristup Vam je potreban broj narudžbe ili kod za praćenje te e-mail ili broj telefona koje ste unijeli u narudžbenicu prilikom kupnje. U ovoj aplikaciji (ako narudžba još nije u pripremi) također možete otkazati narudžbu, promijeniti sadržaj narudžbe, adresu, broj telefona, pratiti narudžbu te također pristupiti potvrdi o plaćanju.</p>
+<p class="ql-align-justify">Možete pratiti i upravljati svojom narudžbom u RMA aplikaciji na ovoj poveznici <a href="https://rma.hs-plus.com/language/it_IT/" rel="noopener noreferrer" target="_blank" style="background-color: rgb(248, 248, 248); color: rgba(var(--sk_highlight,18,100,163),1);">https://rma.hs-plus.com/language/it_IT/</a>. Za pristup Vam je potreban broj narudžbe ili kod za praćenje te e-mail ili broj telefona koje ste unijeli u narudžbenicu prilikom kupnje. U ovoj aplikaciji (ako narudžba još nije u pripremi) također možete otkazati narudžbu, promijeniti sadržaj narudžbe, adresu, broj telefona, pratiti narudžbu te također pristupiti potvrdi o plaćanju.</p>
 <h3 class="ql-align-justify"><strong>iii. Cijene, načini plaćanja i promocije</strong></h3>
 <p class="ql-align-justify"><strong>Cijene</strong></p>
 <p class="ql-align-justify">Sve cijene navedene na web-mjestu izražene su u EUR i uključuju PDV.&nbsp;Cijene se primjenjuju od trenutka kada je narudžba izvršena. Ponuda vrijedi do opoziva.</p>
@@ -795,9 +795,9 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 <p class="ql-align-justify"><strong>Načini plaćanja</strong></p>
 <p class="ql-align-justify">U našoj internetskoj trgovini možete upotrebljavati sljedeće načine plaćanja:</p>
 <ul>
-<li class="ql-align-justify">Plaćanje pouzećem – kupac plaća račun gotovinom ili kreditnom karticom dostavnom kuriru koji robu isporučuje na adresu kupca;</li>
-<li class="ql-align-justify">Plaćanje kreditnom karticom;</li>
-<li class="ql-align-justify">Plaćanje preko PayPala.</li>
+<li class="ql-align-justify">Pagamento pouzećem – kupac plaća račun gotovinom ili kreditnom karticom dostavnom kuriru koji robu isporučuje na adresu kupca;</li>
+<li class="ql-align-justify">Pagamento kreditnom karticom;</li>
+<li class="ql-align-justify">Pagamento preko PayPala.</li>
 </ul>
 <p class="ql-align-justify">Tvrtka zadržava pravo provjere odabranog načina plaćanja s pomoću provjere autentičnosti. Nadalje, zadržavamo pravo daljnje provjere odabranog načina plaćanja tražeći da nam pošaljete dokaz o uplati.&nbsp;</p>
 <p class="ql-align-justify">Upoznati ste s činjenicom da morate platiti cjelokupan iznos narudžbe (uključujući sve troškove povezane s transakcijom i isporukom) u skladu s odabranim načinom plaćanja. Jamčite da imate sposobnost i pravo izvršavati transakcije s pomoću kreditne kartice ili bilo kojeg drugog odabranog načina plaćanja.</p>
@@ -812,14 +812,14 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 <p class="ql-align-justify">Ako kurir za dostavu ne uspije kontaktirati kupca, slijedi drugi pokušaj dostave paketa sljedeći radni dan. Ako i drugi pokušaj dostave ne uspije, paket i njegov sadržaj vraćaju se pošiljatelju.</p>
 <p class="ql-align-justify">Iznos plaćen za neuspješno isporučene i unaprijed plaćene narudžbe automatski se vraća u roku od 8 (osam) radnih dana skladišta koje bilježi povrat paketa ili tvrtke koja utvrdi da paket nije uspješno isporučen.</p>
 <p class="ql-align-justify"><strong>Sigurnosna upozorenja za upotrebu svih proizvoda</strong></p>
-<p class="ql-align-justify">Upotreba proizvoda iz naše internetske trgovine može predstavljati određeni rizik za život i zdravlje. Morate izričito potvrditi da razumijete da uporaba navedenih proizvoda predstavlja takav rizik koji u potpunosti prihvaćate. Naručivanjem i/ili upotrebom spomenutih proizvoda potvrđujete da ste upoznati s navedenim rizicima koji mogu uključivati rizik od bolesti, ozljeda, invaliditeta ili smrti. Morate preuzeti punu odgovornost za sve posljedice koje bi mogle nastati naručivanjem i/ili upotrebom proizvoda.</p>
+<p class="ql-align-justify">Upotreba proizvoda iz naše internetske trgovine može predstavljati određeni rizik za život i zdravlje. Morate izričito potvrditi da razumijete da uporaba navedenih proizvoda predstavlja takav rizik koji u potpunosti prihvaćate. Ordinavanjem i/ili upotrebom spomenutih proizvoda potvrđujete da ste upoznati s navedenim rizicima koji mogu uključivati rizik od bolesti, ozljeda, invaliditeta ili smrti. Morate preuzeti punu odgovornost za sve posljedice koje bi mogle nastati naručivanjem i/ili upotrebom proizvoda.</p>
 <p class="ql-align-justify">Prije upotrebe bilo kojeg proizvoda morate pročitati upute za upotrebu.</p>
 <p class="ql-align-justify">Prije upotrebe svaki proizvod mora biti testiran na siguran način. Ako niste potpuno sigurni kako testirati proizvod, ljubazno vas molimo da ga ne upotrebljavate, da nas o tome obavijestite ili ga vratite.</p>
 <p class="ql-align-justify">Tvrtka ne preuzima nikakvu odgovornost za neizravnu ili izravnu štetu nastalu upotrebom proizvoda naručenih na web-mjestu, bez obzira je li kupac ili treća strana proizvode upotrebljavao ispravno ili neispravno. Ovo izuzeće primjenjuje se u najvećoj mogućoj mjeri dopuštenoj zakonodavstvom.</p>
 <p class="ql-align-justify">U slučaju zahtjeva za naknadu štete podnesenog protiv tvrtke, tvrtka ograničava svoju odgovornost za štete na trostruku tržišnu cijenu proizvoda.</p>
 <p class="ql-align-justify">Nastojimo pružiti što detaljnije i preciznije opise proizvoda i fotografije. Ipak, ne možemo jamčiti da su svi podaci o proizvodu i njihove fotografije potpuno točni. Budući da se određeni proizvodi mogu nabaviti kod različitih dobavljača, moguća su manja odstupanja u pakiranju ili izgledu proizvoda. Spomenuta odstupanja ni na koji način ne utječu na kvalitetu ili funkcionalnost proizvoda.&nbsp;&nbsp;</p>
 <h3 class="ql-align-justify"><strong>v. Pravo na odustajanje od Ugovora</strong></h3>
-<p class="ql-align-justify">Kupac koji izvrši kupnju u našoj internetskoj trgovini ima pravo odustati od Ugovora. Navedeno odustajanje od Ugovora može se izjaviti u roku od 90 dana od datuma isporuke narudžbe, a tvrtku o tome obavještava dostavna služba.&nbsp;Kupac ne mora navesti razlog svoje odluke. Navedeno pravo na odustajanje od Ugovora primjenjuje se samo na kupce koji su fizičke osobe i koji robu i usluge stječu ili upotrebljavaju izvan svoje profesionalne djelatnosti ili djelatnosti s ciljem ostvarenja dohotka.&nbsp;</p>
+<p class="ql-align-justify">Kupac koji izvrši kupnju u našoj internetskoj trgovini ima pravo odustati od Ugovora. Navedeno odustajanje od Ugovora može se izjaviti u roku od 90 dana od datuma isporuke narudžbe, a tvrtku o tome obavještava dostavna služba.&nbsp;Kupac ne mora navesti razlog svoje odluke. Navedeno il diritto di recesso od Ugovora primjenjuje se samo na kupce koji su fizičke osobe i koji robu i usluge stječu ili upotrebljavaju izvan svoje profesionalne djelatnosti ili djelatnosti s ciljem ostvarenja dohotka.&nbsp;</p>
 <p class="ql-align-justify">Smatra se da je izjava o odustajanju izdana pravodobno ako je podnesena u roku za odustajanje od Ugovora. Izjavu o odustajanju možete dostaviti na unaprijed dogovorenom obrascu ili nam je možete poslati e-poštom.&nbsp;Obrazac možete pronaći na kartici „Pravo na odustajanje od kupnje” pri dnu web-mjesta. Teret dokazivanja koji se odnosi na ostvarivanje prava na odustajanje iz ovog članka snosi potrošač.</p>
 <p class="ql-align-justify"><strong>Odustajanjem od Ugovora kupac može steći povrat novca ili zamijeniti proizvod, ali ne može iskoristiti kredit!</strong></p>
 <p class="ql-align-justify">Nakon predaje izjave o odustajanju, svoje proizvode morate vratiti u roku od 14 dana od datuma izjave o odustajanju. Robu pošaljite na našu adresu: <strong>HS PLUS d.o.o., Poštanska ulica 25, 10410 Velika Gorica</strong>.&nbsp;Smatra se da je roba pravovremeno vraćena ako je pošaljete prije isteka roka za povrat u trajanju od 90 dana.&nbsp;Morate vratiti neizmijenjenu količinu neoštećenih proizvoda, zapakiranih u originalno pakiranje ili ambalažu koja proizvode štiti na isti način kao i originalna ambalaža. Ne možete vratiti oštećene proizvode, proizvode u izmijenjenoj količini ili proizvode upakirane u neprikladnu ambalažu. Molimo vratite artikle kao paketnu pošiljku, a ne kao pismo, osiguravajući da je paket označen kodom za odustanak od kupnje, koji ćete dobiti tijekom postupka.Ako paket nije pravilno označen (poslan bez koda za odustanak od kupnje), to može značajno produžiti vrijeme potrebno za obradu vašeg zahtjeva. U slučaju odustajanja od ugovora, podmirit ćete samo troškove povrata robe, s tim da se navedeni troškovi ne mogu nadoknaditi.</p>
@@ -986,12 +986,12 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
         <div class="partial_inner_section">
             <img src="https://images.vigo-shop.com/general/banner_icons/delivery_icon.svg" alt="">
             <div class="text_wrapper">
-                Dostavlja: Paket24 Hrvatske pošte            </div>
+                Dostavlja: Corriere espresso            </div>
         </div>
 
                     <div class="partial_inner_section">
                 <img src="https://images.vigo-shop.com/general/banner_icons/COD_icon.svg" alt="">
-                <div class="text_wrapper">Plaćanje pouzećem</div>
+                <div class="text_wrapper">Pagamento pouzećem</div>
             </div>
                 <div class="partial_inner_section delivery-from-eu-warehouse ">
             <img class="delivery-from-eu-warehouse__icon" src="https://images.vigo-shop.com/general/flags/eu-warehouse.svg">
@@ -1008,31 +1008,31 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
                     <div class="footer-main__links">
                         <ul>
                                                             <li>
-                                    <a href="https://vigoshop.hr/opci-uvjeti-poslovanja/"
-                                       class="button button--link c--gray">Opći uvjeti poslovanja</a>
+                                    <a href="https://vigoshop.it/opci-uvjeti-poslovanja/"
+                                       class="button button--link c--gray">Condizioni generali</a>
                                 </li>
                                                             <li>
-                                    <a href="https://vigoshop.hr/pravila-o-zastiti-privatnosti/"
+                                    <a href="https://vigoshop.it/pravila-o-zastiti-privatnosti/"
                                        class="button button--link c--gray">Pravila o zaštiti privatnosti</a>
                                 </li>
                                                             <li>
-                                    <a href="https://vigoshop.hr/pravila-o-kolacicima/"
+                                    <a href="https://vigoshop.it/pravila-o-kolacicima/"
                                        class="button button--link c--gray">Pravila o kolačićima</a>
                                 </li>
                                                             <li>
-                                    <a href="https://vigoshop.hr/pravo-na-odustajanje-od-kupnje/"
-                                       class="button button--link c--gray">Pravo na odustajanje od kupnje</a>
+                                    <a href="https://vigoshop.it/pravo-na-odustajanje-od-kupnje/"
+                                       class="button button--link c--gray">Diritto di recesso dall'acquisto</a>
                                 </li>
                                                             <li>
-                                    <a href="https://vigoshop.hr/prituzbe-i-sporovi/"
-                                       class="button button--link c--gray">Pritužbe i sporovi</a>
+                                    <a href="https://vigoshop.it/prituzbe-i-sporovi/"
+                                       class="button button--link c--gray">Reclami e controversie</a>
                                 </li>
                                                             <li>
-                                    <a href="https://vigoshop.hr/zamjena-u-jamstvu/"
-                                       class="button button--link c--gray">Zamjena u jamstvu</a>
+                                    <a href="https://vigoshop.it/zamjena-u-jamstvu/"
+                                       class="button button--link c--gray">Sostituzione in garanzia</a>
                                 </li>
                                                             <li>
-                                    <a href="https://vigoshop.hr/informacije-o-tvrtki/"
+                                    <a href="https://vigoshop.it/informacije-o-tvrtki/"
                                        class="button button--link c--gray">Informacije o tvrtki</a>
                                 </li>
                                                             <li>
@@ -1168,7 +1168,7 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 <!--    -->    </div>
 </div>
     </div>
-        <link rel='stylesheet' id='check-client-css' href='https://vigoshop.hr/app/plugins/core/resources/dist/css/check-client/css/check-client-8571deb0ef.css' type='text/css' media='all' />
+        <link rel='stylesheet' id='check-client-css' href='https://vigoshop.it/app/plugins/core/resources/dist/css/check-client/css/check-client-8571deb0ef.css' type='text/css' media='all' />
 </div>
 </body>
 </html>
