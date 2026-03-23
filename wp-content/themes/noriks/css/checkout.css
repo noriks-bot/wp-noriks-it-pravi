@@ -409,6 +409,9 @@ body.woocommerce-checkout .noriks-order-summary .review-product-info div {
 .noriks-order-summary .vigo-checkout-total__sum { margin-bottom: 10px !important; }
 
 /* IT: show Provincia (state) field */
-p#billing_state_field {
+body.woocommerce-checkout p#billing_state_field,
+html body p#billing_state_field,
+p#billing_state_field.form-row {
   display: block !important;
+  visibility: visible !important;
 }
