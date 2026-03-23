@@ -99,42 +99,26 @@
   <div  style="<?php if ( has_term( array( 'orto-starter', 'orto-majica-bokserica' ), 'product_cat', get_the_ID() ) ): ?>  display: block; <?php endif; ?>"
         class="size-chart-left">
       
-<<<<<<< HEAD
-      <?php if ( has_term( array( 'boxer', 'orto-boxer' , 'bokserice-sastavi-paket' ), 'product_cat', get_the_ID() )   && 
-=======
       <?php if ( has_term( array( 'boxerky', 'orto-bokserice' , 'bokserice-sastavi-paket', 'bokserice', 'mpoxerakia', 'boxers', 'boxerakia' ), 'product_cat', get_the_ID() )   && 
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
        !has_term( 'black-friday', 'product_cat', get_the_ID() )   ): ?>
       
     <img
     
     style="margin-top: 70px;margin-bottom: 70px;"
     
-<<<<<<< HEAD
-      src="https://noriks.com/it/wp-content/uploads/2026/02/boxers_size_it.png"
-=======
       src="https://noriks.com/gr/wp-content/uploads/2026/02/boxers_size_gr.png"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       alt="Size Guide">
       
       
        
-<<<<<<< HEAD
-      <?php elseif ( has_term( array( 'calzini', 'zimske-carape	' ), 'product_cat', get_the_ID() ) ): ?>
-=======
       <?php elseif ( has_term( array( 'ponozky', 'zimske-carape', 'kaltses', 'socks' ), 'product_cat', get_the_ID() ) ): ?>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       
       
        <img
     
     style="margin-top: 70px;margin-bottom: 70px;"
     
-<<<<<<< HEAD
-      src="https://noriks.com/it/wp-content/uploads/2026/02/Nogavice_tabela_velikosti_it.png"
-=======
       src="https://noriks.com/gr/wp-content/uploads/2026/01/Nogavice_tabela_velikosti_GR.png"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       alt="Size Guide">
       
       
@@ -146,11 +130,7 @@
     
     style="margin-top: 35px;margin-bottom: 0px;"
     
-<<<<<<< HEAD
-      src="https://noriks.com/it/wp-content/uploads/2026/02/majice-tabela-velikost-it.png"
-=======
       src="https://noriks.com/gr/wp-content/uploads/2026/02/Nogavice_tabela_velikosti_Gr.png"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       alt="Size Guide">
       
       
@@ -158,11 +138,7 @@
     
     style="margin-top: 0px;margin-bottom: 0px;"
     
-<<<<<<< HEAD
-      src="https://noriks.com/it/wp-content/uploads/2026/02/boxers_size_it.png"
-=======
       src="https://noriks.com/gr/wp-content/uploads/2026/02/boxers_size_gr.png"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       alt="Size Guide">
      
       
@@ -174,11 +150,7 @@
     
     style="margin-top: 70px;margin-bottom: 70px;"
     
-<<<<<<< HEAD
-      src="https://noriks.com/it/wp-content/uploads/2026/02/majice-tabela-velikost-it.png"
-=======
       src="/gr/wp-content/uploads/2025/09/noriks_tablica_gr.jpg"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       alt="Size Guide">
       
       <?php endif; ?>

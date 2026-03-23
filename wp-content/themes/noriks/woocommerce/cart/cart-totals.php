@@ -25,11 +25,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<h2 style="      font-size: 19px;
     line-height: 1.214;
-<<<<<<< HEAD
-    font-weight: bold;  font-family: 'Inter', sans-serif;">Riepilogo ordine</h2>
-=======
     font-weight: bold;  font-family: 'Inter', sans-serif;">Σύνοψη παραγγελίας</h2>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     
     <div style="width: 100%; background: black; color:black; height: 1px;"class="line-separator"></div>
 
@@ -117,13 +113,8 @@ defined( 'ABSPATH' ) || exit;
 	<div class="wc-proceed-to-checkout">
 		<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
 		
-<<<<<<< HEAD
-		<a href="/it/shop/" class="checkout-button button continue-shopping-button">
-	Continua lo shopping</a>
-=======
 		<a href="/gr/shop/" class="checkout-button button continue-shopping-button">
 	Συνέχεια αγορών</a>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		
 	</div>
 

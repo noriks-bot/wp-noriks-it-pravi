@@ -81,11 +81,7 @@ $topseler_text =  get_field("singlepp_bestseller_text", "options");
      if($alt_output == false): 
          
          
-<<<<<<< HEAD
-         $is_boxers = has_term( array( 'bokserice', 'bokserice-sastavi-paket' ), 'product_cat', $current_product_id );
-=======
          $is_boxers = has_term( array( 'bokserice', 'bokserice-sastavi-paket', 'boxerky', 'mpoxerakia', 'boxers', 'boxerakia' ), 'product_cat', $current_product_id );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
          
          if( $is_boxers ): 
@@ -94,17 +90,10 @@ $topseler_text =  get_field("singlepp_bestseller_text", "options");
           
          
             if( has_term('black-friday', 'product_cat', $current_product_id ) ): 
-<<<<<<< HEAD
-             $topseler_text =  "Zimska ponuda"; 
-             
-            else:
-                 $topseler_text =  get_field("singlepp_priceper_before","options") . " " . $tmp_price . " ".  "€ po boksericama"; 
-=======
              $topseler_text =  "Χειμερινή προσφορά"; 
              
             else:
                  $topseler_text =  get_field("singlepp_priceper_before","options") . " " . $tmp_price . " ".  "€ ανά μποξεράκι"; 
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
             endif;
          
          

@@ -6,10 +6,7 @@
  */
 
 include(get_template_directory() . '/functions/checkout_mods.php');
-<<<<<<< HEAD
-=======
 include(get_template_directory() . '/functions/thankyou_upsell.php');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 include(get_template_directory() . '/functions/cpts.php');
 include(get_template_directory() . '/functions/options.php');
 include(get_template_directory() . '/functions/single_product_mods.php');
@@ -18,73 +15,13 @@ include(get_template_directory() . '/functions/discounts.php');
 
 
 add_filter( 'woocommerce_gallery_image_size', function() {
-<<<<<<< HEAD
-    return 'full';
-=======
     return 'large';
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 });
 
 
 
 
-<<<<<<< HEAD
-=======
-/**
- * Auto-apply coupon from URL parameter on checkout
- * Usage: /checkout/?coupon=SMS20
- */
-add_action('woocommerce_before_checkout_form', 'auto_apply_coupon_from_url', 10);
-function auto_apply_coupon_from_url() {
-    if (isset($_GET['coupon']) && !empty($_GET['coupon'])) {
-        $coupon_code = sanitize_text_field($_GET['coupon']);
-        if (!WC()->cart->has_discount($coupon_code)) {
-            WC()->cart->apply_coupon($coupon_code);
-        }
-    }
-}
 
-
-
-
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
-// Dodaj v functions.php ali kot mu-plugin
-add_action('rest_api_init', function() {
-    register_rest_route('noriks/v1', '/abandoned-carts', array(
-        'methods' => 'GET',
-        'callback' => 'noriks_get_abandoned_carts',
-        'permission_callback' => function() {
-            return isset($_GET['key']) && $_GET['key'] === 'n0r1k5-c4rt-4cc355';
-        }
-    ));
-});
-
-function noriks_get_abandoned_carts($request) {
-    global $wpdb;
-    $table = $wpdb->prefix . 'cartflows_ca_cart_abandonment';
-    
-    $results = $wpdb->get_results("
-        SELECT id, email, cart_contents, cart_total, 
-               other_fields, order_status, time
-        FROM $table 
-        WHERE order_status = 'abandoned'
-        ORDER BY time DESC LIMIT 500
-    ", ARRAY_A);
-    
-    foreach($results as &$row) {
-        $row['cart_contents'] = maybe_unserialize($row['cart_contents']);
-        $row['other_fields'] = maybe_unserialize($row['other_fields']);
-    }
-    return new WP_REST_Response($results, 200);
-}
-
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 /**
  * Force redirect to Cart after add-to-cart on single product pages
  * and neutralize any upsell modal JS.
@@ -92,40 +29,15 @@ function noriks_get_abandoned_carts($request) {
 add_action('init', function () {
 	// Server-side redirect for NON-AJAX adds (highest priority wins)
 	add_filter('woocommerce_add_to_cart_redirect', function ($url) {
-<<<<<<< HEAD
-		return home_url('/hr/cart/'); // or wc_get_cart_url()
-	}, 9999);
-});
-
-=======
 		return home_url('/gr/cart/'); // or wc_get_cart_url()
 	}, 9999);
 });
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
  */
 
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
-$webshop_language = get_field("webshop_language", "options");
-
-if( $webshop_language == null  || $webshop_language == false  || $webshop_language == "" ) {
-  $webshop_language = "EN";
-}
-
-/*  include language specific files */
-if ($webshop_language == "EN") {
-  include(get_template_directory() . '/functions/lang/en.php');
-<<<<<<< HEAD
-} else if ($webshop_language == "IT") {
-  include(get_template_directory() . '/functions/lang/it.php');
-=======
 } else if ($webshop_language == "GR") {
   include(get_template_directory() . '/functions/lang/gr.php');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 }
 /*  include language specific files */
 
@@ -228,19 +140,6 @@ function enqueue_main_styles() {
 
     // Enqueue checkout.css on checkout
     if (function_exists('is_checkout') && is_checkout()) {
-<<<<<<< HEAD
-=======
-        wp_enqueue_style('google-roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap', array(), null);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
-        wp_enqueue_style(
-            'checkout-style',
-            get_template_directory_uri() . '/css/checkout.css',
-            array(),
-<<<<<<< HEAD
-            filemtime(get_template_directory() . '/css/checkout.css'),
-            'all'
-        );
-=======
             md5_file(get_template_directory() . '/css/checkout.css'),
             'all'
         );
@@ -251,7 +150,6 @@ function enqueue_main_styles() {
             filemtime(get_template_directory() . '/js/checkout-fields.js'),
             true
         );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
     
     
@@ -268,167 +166,7 @@ function enqueue_main_styles() {
     
     
     
-<<<<<<< HEAD
-=======
-    // Enqueue header.css (load everywhere)
-    wp_enqueue_style(
-        'header-style',
-        get_template_directory_uri() . '/css/header.css',
-        array(),
-        filemtime(get_template_directory() . '/css/header.css'),
-        'all'
-    );
-
-    // Enqueue footer.css (load everywhere)
-    wp_enqueue_style(
-        'footer-style',
-        get_template_directory_uri() . '/css/footer.css',
-        array(),
-        filemtime(get_template_directory() . '/css/footer.css'),
-        'all'
-    );
-
-    // Enqueue header.js (load everywhere)
-    wp_enqueue_script(
-        'header-js',
-        get_template_directory_uri() . '/js/header.js',
-        array(),
-        filemtime(get_template_directory() . '/js/header.js'),
-        true
-    );
-
-    // Enqueue price-update.js only on product pages
-    if (function_exists('is_product') && is_product()) {
-        wp_enqueue_script(
-            'price-update-js',
-            get_template_directory_uri() . '/js/price-update.js',
-            array(),
-            filemtime(get_template_directory() . '/js/price-update.js'),
-            true
-        );
-    }
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
-}
-add_action('wp_enqueue_scripts', 'enqueue_main_styles');
-
-function custom_quantity_buttons() {
-    if (is_product()) {
-
-        /****** here we add logic to select which qty buttons we show if any ******/
-        $post_id = get_the_ID(); // Get current post ID
-        $show_qty_options = get_field('show_qty_options', $post_id);
-        $show_qty_options_123     = false;
-        $show_qty_options_369     = false;
-        $show_qty_options_6912    = false;
-        $show_qty_options_248     = false;
-        $show_qty_options_122436  = false;
-
-        // Check if it's true
-        if ($show_qty_options) {
-            /****** here we add which buttons logic ******/
-            if (get_field('show_123', $post_id) == true)  {
-                $show_qty_options_123 = true;
-            }
-            if (get_field('show_369', $post_id) == true)  {
-                $show_qty_options_369 = true;
-            }
-            if (get_field('show_6912', $post_id) == true) {
-                $show_qty_options_6912 = true;
-            }
-            if (get_field('show_248', $post_id) == true)  {
-                $show_qty_options_248 = true;
-            }
-            if (get_field('show_122446', $post_id) == true)  {
-                 $show_qty_options_122436 = true;
-            }
-            /****** here we add which buttons logic ******/
-        } else {
-            // just skip, and do not show qty buttons at all
-        }
-
-        /****** we will make if else statemes which buttons we show ******/
-        ?>
-
-        <?php if ($show_qty_options && $show_qty_options_123): ?>
-        <?php
-        // get all dynamic discount and values here
-        $show_123_qty_1_t1 =  get_field("show_123_qty_1_t1","options");
-        $show_123_qty_1_t2 =  get_field("show_123_qty_1_t2","options");
-        $show_123_qty_1_t3 =  get_field("show_123_qty_1_t3","options");
-        $show_123_qty_2_t1 =  get_field("show_123_qty_2_t1","options");
-        $show_123_qty_2_t2 =  get_field("show_123_qty_2_t2","options");
-        $show_123_qty_2_t3 =  get_field("show_123_qty_2_t3","options");
-        $show_123_qty_3_t1 =  get_field("show_123_qty_3_t1","options");
-        $show_123_qty_3_t2 =  get_field("show_123_qty_3_t2","options");
-        $show_123_qty_3_t3 =  get_field("show_123_qty_3_t3","options");
-
-        // calculate here price per one
-        $product = wc_get_product( $post_id );
-        $sale_price    = null;
-        $regular_price = null;
-
-        if ( $product ) {
-            if ( $product->is_type('simple') ) {
-                $sale_price    = $product->get_sale_price();
-                $regular_price = $product->get_regular_price();
-            } elseif ( $product->is_type('variable') ) {
-                // For variable products, get the lowest prices from variations
-                $variations = $product->get_children(); // variation IDs
-
-                $lowest_sale    = null;
-                $lowest_regular = null;
-
-                foreach ( $variations as $variation_id ) {
-                    $variation = wc_get_product( $variation_id );
-                    if ( $variation ) {
-                        $sale    = floatval( $variation->get_sale_price() );
-                        $regular = floatval( $variation->get_regular_price() );
-
-                        if ( $sale && ( is_null($lowest_sale) || $sale < $lowest_sale ) ) {
-                            $lowest_sale = $sale;
-                        }
-
-                        if ( $regular && ( is_null($lowest_regular) || $regular < $lowest_regular ) ) {
-                            $lowest_regular = $regular;
-                        }
-                    }
-                }
-
-                $sale_price    = $lowest_sale;
-                $regular_price = $lowest_regular;
-            }
-        }
-
-        // Quantities
-        $__qty_1 = 1;
-        $__qty_2 = 2;
-        $__qty_3 = 3;
-
-        $price_per_one_1 = $__qty_1 ? $sale_price / $__qty_1 : 0;
-        $price_per_one_2 = $__qty_2 ? ( ( $sale_price * 2 ) / $__qty_2 ) * 0.95 : 0;
-        $price_per_one_3 = $__qty_3 ? ( ( $sale_price * 3 ) / $__qty_3 ) * 0.9 : 0;
-
-        $regular_price_1 = $regular_price * 1;
-        $regular_price_2 = $regular_price * 2;
-        $regular_price_3 = $regular_price * 3;
-
-        $discount_1 = $regular_price > 0 ? round( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 ) : 0;
-        $discount_2 = $regular_price_2 > 0 ? round( ( ( $regular_price_2 - ($price_per_one_2 * 2) ) / $regular_price_2 ) * 100 ) : 0;
-        $discount_3 = $regular_price_3 > 0 ? round( ( ( $regular_price_3 - ($price_per_one_3 * 3) ) / $regular_price_3 ) * 100 ) : 0;
-        ?>
-        <script>
-            jQuery(document).ready(function($) {
-                let qtyField = $("input.qty");
-                let qtyWrapper = qtyField.parent();
-                // Hide default WooCommerce input
-                qtyField.hide();
-                // Add custom quantity buttons
-                qtyWrapper.append(`
-<<<<<<< HEAD
-                    <div class="label choose-your-pack"><label for="choose-your-pack">Odaberite svoj paket</label></div>
-=======
                     <div class="label choose-your-pack"><label for="choose-your-pack">Επιλέξτε το πακέτο σας</label></div>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                     <div class="custom-qty-buttons">
                         <button type="button" class="qty-btn" data-qty="1"><?php echo esc_html($show_123_qty_1_t1); ?>  <br/><span class="qty-off">-<?php echo esc_html($discount_1); ?><?php echo esc_html($show_123_qty_2_t2); ?> </span> <span class="qty-off-text"><?php echo wc_price($price_per_one_1); ?> <?php echo esc_html($show_123_qty_1_t3); ?></span> </button>
                         <button type="button" class="qty-btn" data-qty="2"><?php echo esc_html($show_123_qty_2_t1); ?> <br/><span class="qty-off">-<?php echo esc_html($discount_2); ?><?php echo esc_html($show_123_qty_2_t2); ?></span><span class="qty-off-text"><?php echo wc_price($price_per_one_2); ?> <?php echo esc_html($show_123_qty_2_t3); ?></span></button>
@@ -457,11 +195,7 @@ function custom_quantity_buttons() {
                 qtyField.hide();
                 // Add custom quantity buttons
                 qtyWrapper.append(`
-<<<<<<< HEAD
-                    <div class="label choose-your-pack"><label for="choose-your-pack">Odaberite svoj paket</label></div>
-=======
                     <div class="label choose-your-pack"><label for="choose-your-pack">Επιλέξτε το πακέτο σας</label></div>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                     <div class="custom-qty-buttons">
                         <button type="button" class="qty-btn" data-qty="1">3 pack  <br/><span class="qty-off">39% OFF</span> <span class="qty-off-text">€15,75 per item</span> </button>
                         <button type="button" class="qty-btn" data-qty="2">6 pack <br/><span class="qty-off"> 49% OFF</span><span class="qty-off-text">€15,75 per item</span></button>
@@ -556,11 +290,7 @@ function custom_quantity_buttons() {
                 qtyField.hide();
                 // Add custom quantity buttons
                 qtyWrapper.append(`
-<<<<<<< HEAD
-                    <div class="label choose-your-pack"><label for="choose-your-pack">Odaberite svoj paket</label></div>
-=======
                     <div class="label choose-your-pack"><label for="choose-your-pack">Επιλέξτε το πακέτο σας</label></div>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                     <div class="custom-qty-buttons">
                         <button type="button" class="qty-btn" data-qty="6"><?php echo esc_html($show_6912_qty_1_t1); ?>  <br/><span class="qty-off">-<?php echo esc_html($discount_1); ?><?php echo esc_html($show_6912_qty_2_t2); ?> </span> <span class="qty-off-text"><?php echo wc_price($price_per_one_1); ?> <?php echo esc_html($show_6912_qty_1_t3); ?></span> </button>
                         <button type="button" class="qty-btn" data-qty="9"><?php echo esc_html($show_6912_qty_2_t1); ?> <br/><span class="qty-off">-<?php echo esc_html($discount_2); ?><?php echo esc_html($show_6912_qty_2_t2); ?></span><span class="qty-off-text"><?php echo wc_price($price_per_one_2); ?> <?php echo esc_html($show_6912_qty_2_t3); ?></span></button>
@@ -589,11 +319,7 @@ function custom_quantity_buttons() {
                 qtyField.hide();
                 // Add custom quantity buttons
                 qtyWrapper.append(`
-<<<<<<< HEAD
-                    <div class="label choose-your-pack"><label for="choose-your-pack">Odaberite svoj paket</label></div>
-=======
                     <div class="label choose-your-pack"><label for="choose-your-pack">Επιλέξτε το πακέτο σας</label></div>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                     <div class="custom-qty-buttons">
                         <button type="button" class="qty-btn" data-qty="1">2 pack  <br/><span class="qty-off">39% OFF</span> <span class="qty-off-text">€15,75 per item</span> </button>
                         <button type="button" class="qty-btn" data-qty="2">4 pack <br/><span class="qty-off"> 49% OFF</span><span class="qty-off-text">€15,75 per item</span></button>
@@ -622,11 +348,7 @@ function custom_quantity_buttons() {
                 qtyField.hide();
                 // Add custom quantity buttons
                 qtyWrapper.append(`
-<<<<<<< HEAD
-                    <div class="label choose-your-pack"><label for="choose-your-pack">Odaberite svoj paket</label></div>
-=======
                     <div class="label choose-your-pack"><label for="choose-your-pack">Επιλέξτε το πακέτο σας</label></div>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                     <div class="custom-qty-buttons">
                         <button type="button" class="qty-btn" data-qty="1">12 pack  <br/><span class="qty-off">39% OFF</span> <span class="qty-off-text">€15,75 per item</span> </button>
                         <button type="button" class="qty-btn" data-qty="2">24 pack <br/><span class="qty-off"> 49% OFF</span><span class="qty-off-text">€15,75 per item</span></button>
@@ -819,49 +541,7 @@ function add_second_product_thumbnail() {
 
 
 
-<<<<<<< HEAD
-function enqueue_custom_carousels_assets() {
-    // Slick Carousel CSS
-    wp_enqueue_style(
-        'slick-carousel-css',
-        'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',
-        array(),
-        '1.8.1'
-    );
-
-    // Glide.js CSS
-    wp_enqueue_style(
-        'glidejs-css',
-        'https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css',
-        array(),
-        null
-    );
-
-    // jQuery (Slick requires jQuery and WordPress includes jQuery by default)
-    wp_enqueue_script('jquery');
-
-    // Slick Carousel JS
-    wp_enqueue_script(
-        'slick-carousel-js',
-        'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js',
-        array('jquery'),
-        '1.8.1',
-        true
-    );
-
-    // Glide.js JS
-    wp_enqueue_script(
-        'glidejs-js',
-        'https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js',
-        array(),
-        null,
-        true
-    );
-}
-add_action('wp_enqueue_scripts', 'enqueue_custom_carousels_assets');
-=======
 /* Slick/Glide carousel assets removed */
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 add_action( 'woocommerce_before_variations_form', function() {
     get_template_part( 'template_parts/size-chart-modal' );

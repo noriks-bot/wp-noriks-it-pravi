@@ -46,25 +46,6 @@ function is_active_menu_item( $path ) {
 <nav class="category-menu">
   <ul>
     <li class="<?php echo is_shop() ? 'active' : ''; ?>">
-<<<<<<< HEAD
-      <a href="/it/shop">Tutti i prodotti</a>
-    </li>
-
-    <li class="<?php echo is_active_menu_item('/product-category/magliette') ? 'active' : ''; ?>">
-      <a href="/it/product-category/magliette/">Magliette</a>
-    </li>
-
-    <li class="<?php echo is_active_menu_item('/product-category/boxer') ? 'active' : ''; ?>">
-      <a href="/it/product-category/boxer/">Boxer</a>
-    </li>
-
-    <li class="<?php echo is_active_menu_item('/product-category/set') ? 'active' : ''; ?>">
-      <a href="/it/product-category/set/">Set</a>
-    </li>
-
-    <li class="<?php echo is_active_menu_item('/product-category/calzini') ? 'active' : ''; ?>">
-      <a href="/it/product-category/calzini/">Calzini</a>
-=======
       <a href="/gr/shop">Όλα τα προϊόντα</a>
     </li>
 
@@ -82,7 +63,6 @@ function is_active_menu_item( $path ) {
 
     <li class="<?php echo is_active_menu_item('/product-category/kaltses/') ? 'active' : ''; ?>">
       <a href="/gr/product-category/kaltses/">Κάλτσες</a>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     </li>
   </ul>
 </nav>
@@ -266,11 +246,7 @@ function is_active_menu_item( $path ) {
 <section class="one-banner-shop" style="position: relative; margin: 0 auto; padding: 0;">
 
   <img
-<<<<<<< HEAD
-    src="/it/wp-content/themes/noriks/img/noriks-shop.png"
-=======
     src="/gr/wp-content/themes/noriks/img/noriks-shop.png"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     style="display:block; width:100%; min-height:105px; border-radius:0;"
     alt=""
   >
@@ -382,38 +358,6 @@ if ( is_shop() ) {
 
 
 
-<<<<<<< HEAD
-    echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2"]');
-
-// CATEGORY: /bokserice + ALL CHILD CATEGORIES
-} elseif ( is_product_category_or_child('boxer') ) {
-
-    echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2-2-2"]');
-
-// CATEGORY GROUP
-} elseif (
-    is_product_category_or_child('bestsellers') ||
-    is_product_category_or_child('velke-baliky') ||
-    is_product_category_or_child('pacchetto-starter')
-) {
-
-    echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2"]');
-
-// CATEGORY: /majice + children
-} elseif ( is_product_category_or_child('magliette') ) {
-
-    echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2-2"]');
-
-// CATEGORY: /kompleti + children
-} elseif ( is_product_category_or_child('set') ) {
-
-    echo do_shortcode('[yith_wcan_filters slug="default-preset"]');
-
-// CATEGORY: /carape + children
-} elseif ( is_product_category_or_child('calzini') ) {
-
-    echo do_shortcode('[yith_wcan_filters slug="default-preset-2"]');
-=======
     echo do_shortcode('[yith_wcan_filters slug="%cf%8c%ce%bb%ce%b1"]');
 
 // CATEGORY: /bokserice + ALL CHILD CATEGORIES (CZ: boxerky, GR: mpoxerakia/boxerakia)
@@ -454,16 +398,11 @@ if ( is_shop() ) {
 } elseif ( is_product_category_or_child('kaltses') || is_product_category_or_child('kaltses') || is_product_category_or_child('socks') ) {
 
     echo do_shortcode('[yith_wcan_filters slug="%ce%ba%ce%ac%ce%bb%cf%84%cf%83%ce%b5%cf%82"]');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 // FALLBACK for any other product category
 } elseif ( is_product_category() ) {
 
-<<<<<<< HEAD
-    echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2"]');
-=======
     echo do_shortcode('[yith_wcan_filters slug="%cf%8c%ce%bb%ce%b1"]');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 }
 ?>
         </div>

@@ -38,11 +38,7 @@ get_header(); ?>
   <div class="hero__media" aria-hidden="true">
     <!-- Replace with your image -->
     <img
-<<<<<<< HEAD
-      src="/hr/wp-content/themes/noriks/img/noriks-hero.jpeg"
-=======
       src="/gr/wp-content/themes/noriks/img/noriks-hero.jpeg"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       alt=""
     />
   </div>
@@ -50,17 +46,10 @@ get_header(); ?>
   <div class="hero__overlay" aria-hidden="true"></div>
 
   <div class="hero__content">
-<<<<<<< HEAD
-    <!--<p class="hero__eyebrow">NOVO: NORIKS </p>-->
-    <h1 class="hero__title">La maglietta che risolve tutti i problemi.</h1>
-
-    <a class="hero__btn" href="/it/shop">ACQUISTA ORA</a>
-=======
     <!--<p class="hero__eyebrow">ΝΕΟ: NORIKS </p>-->
     <h1 class="hero__title">Το μπλουζάκι που λύνει όλα τα προβλήματα.</h1>
 
     <a class="hero__btn" href="/gr/shop">ΑΓΟΡΑΣΤΕ ΤΩΡΑ</a>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
   </div>
 </section>
 
@@ -182,33 +171,19 @@ get_header(); ?>
   
   <section class="collections">
   <div class="collections__header">
-<<<<<<< HEAD
-    <h2 class="collections__title">Acquista per collezione</h2>
-
-    <a class="collections__cta" href="/it/shop">
-      Tutti i prodotti <span aria-hidden="true">›</span>
-=======
     <h2 class="collections__title">Αγοράστε ανά συλλογή</h2>
 
     <a class="collections__cta" href="/gr/shop">
       Όλα τα προϊόντα <span aria-hidden="true">›</span>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     </a>
   </div>
 
   <div class="collections__grid">
     <!-- Card 1 -->
-<<<<<<< HEAD
-    <a class="collection-card" href="/it/product-category/magliette/">
-      <div class="collection-card__media">
-        <img
-          src="/it/wp-content/themes/noriks/img/noriks-majice.jpeg"
-=======
     <a class="collection-card" href="https://noriks.com/gr/product-category/mplouzoakia/">
       <div class="collection-card__media">
         <img
           src="/gr/wp-content/themes/noriks/img/noriks-majice.jpeg"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
           alt="Crew neck t-shirt"
         />
       </div>
@@ -216,17 +191,10 @@ get_header(); ?>
       <div class="collection-card__body">
         <div class="collection-card__text">
           <div class="collection-card__topline">
-<<<<<<< HEAD
-            <h3 class="collection-card__name">Magliette</h3>
-          </div>
-          <p class="collection-card__desc">
-Comfort tutto il giorno. Senza tirare.
-=======
             <h3 class="collection-card__name">Μπλουζάκια</h3>
           </div>
           <p class="collection-card__desc">
 Άνεση όλη μέρα. Χωρίς τράβηγμα.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
           </p>
         </div>
 
@@ -235,17 +203,10 @@ Comfort tutto il giorno. Senza tirare.
     </a>
 
     <!-- Card 2 -->
-<<<<<<< HEAD
-    <a class="collection-card" href="/it/product-category/boxer/">
-      <div class="collection-card__media">
-        <img
-          src="/it/wp-content/themes/noriks/img/noriks-boksarice.jpeg"
-=======
     <a class="collection-card" href="https://noriks.com/gr/product-category/mpoxer/">
       <div class="collection-card__media">
         <img
           src="/gr/wp-content/themes/noriks/img/noriks-boksarice.jpeg"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
           alt="V-neck t-shirt"
         />
       </div>
@@ -253,17 +214,10 @@ Comfort tutto il giorno. Senza tirare.
       <div class="collection-card__body">
         <div class="collection-card__text">
           <div class="collection-card__topline">
-<<<<<<< HEAD
-            <h3 class="collection-card__name">Boxer</h3>
-          </div>
-          <p class="collection-card__desc">
-   Morbidi. Traspiranti. Affidabili.
-=======
             <h3 class="collection-card__name">Μποξεράκια</h3>
           </div>
           <p class="collection-card__desc">
    Απαλά. Αναπνεύσιμα. Αξιόπιστα.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
           </p>
         </div>
@@ -273,17 +227,10 @@ Comfort tutto il giorno. Senza tirare.
     </a>
 
     <!-- Card 3 -->
-<<<<<<< HEAD
-    <a class="collection-card" href="/it/product-category/set/">
-      <div class="collection-card__media">
-        <img
-          src="/it/wp-content/themes/noriks/img/noriks-kompleti.jpeg"
-=======
     <a class="collection-card" href="https://noriks.com/gr/product-category/set/">
       <div class="collection-card__media">
         <img
           src="/gr/wp-content/themes/noriks/img/noriks-kompleti.jpeg"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
           alt="Long sleeve shirt"
         />
       </div>
@@ -291,19 +238,11 @@ Comfort tutto il giorno. Senza tirare.
       <div class="collection-card__body">
         <div class="collection-card__text">
           <div class="collection-card__topline">
-<<<<<<< HEAD
-            <h3 class="collection-card__name">Set</h3>
-       
-          </div>
-          <p class="collection-card__desc">
-Il miglior rapporto qualità-prezzo in un set.
-=======
             <h3 class="collection-card__name">Σετ</h3>
        
           </div>
           <p class="collection-card__desc">
 Η καλύτερη σχέση ποιότητας-τιμής σε σετ.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
           </p>
         </div>
 
@@ -311,19 +250,11 @@ Il miglior rapporto qualità-prezzo in un set.
       </div>
     </a>
     
-<<<<<<< HEAD
-    <!-- Card 3 -->
-    <a class="collection-card" href="/it/product-category/pacchetto-starter/">
-      <div class="collection-card__media">
-        <img
-          src="/it/wp-content/themes/noriks/img/starter-paket_.jpeg"
-=======
     <!-- Card 4 - Starter Pack -->
     <a class="collection-card" href="https://noriks.com/gr/shop/?yith_wcan=1&product_cat=paketo-ekkinisis&orderby=popularity">
       <div class="collection-card__media">
         <img
           src="/gr/wp-content/themes/noriks/img/starter-paket_.jpeg"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
           alt="Long sleeve shirt"
         />
       </div>
@@ -331,20 +262,12 @@ Il miglior rapporto qualità-prezzo in un set.
       <div class="collection-card__body">
         <div class="collection-card__text">
           <div class="collection-card__topline">
-<<<<<<< HEAD
-            <h3 class="collection-card__name">Pacchetto Starter</h3>
-=======
             <h3 class="collection-card__name">Πακέτο εκκίνησης</h3>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
            
            
           </div>
           <p class="collection-card__desc">
-<<<<<<< HEAD
-Prova NORIKS a un prezzo conveniente.
-=======
 Δοκιμάστε NORIKS πιο οικονομικά.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
           </p>
         </div>
@@ -736,13 +659,8 @@ a:hover {
       <?php echo get_field("homepage_section_2_t1"); ?>
     </h2>
 
-<<<<<<< HEAD
-    <a class="collections__cta" href="/it/shop">
-      Tutti i prodotti  <span aria-hidden="true">›</span>
-=======
     <a class="collections__cta" href="/gr/shop">
       Όλα τα προϊόντα  <span aria-hidden="true">›</span>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     </a>
   </div>
 
@@ -823,21 +741,13 @@ a:hover {
                   if ( $alt_output == false ):
 
                     $current_product_id = $product->get_id();
-<<<<<<< HEAD
-                    $is_boxers = has_term( array('bokserice','bokserice-sastavi-paket'), 'product_cat', $current_product_id );
-=======
                     $is_boxers = has_term( array('bokserice','bokserice-sastavi-paket', 'boxerky', 'mpoxerakia', 'boxers', 'boxerakia'), 'product_cat', $current_product_id );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
                     if ( $is_boxers ):
                       if ( has_term('black-friday', 'product_cat', $current_product_id ) ):
                         $topseler_text = "Black Friday ";
                       else:
-<<<<<<< HEAD
-                        $topseler_text = get_field("singlepp_priceper_before","options") . " " . $tmp_price . " " . "€ per boxer";
-=======
                         $topseler_text = get_field("singlepp_priceper_before","options") . " " . $tmp_price . " " . "€ po boksericama";
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                       endif;
                     else:
                       $topseler_text = get_field("singlepp_priceper_before","options") . " " . $tmp_price . " " . get_field("singlepp_priceper_after","options");

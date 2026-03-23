@@ -73,24 +73,14 @@ global $product;
         
           <div class="feature">
           
-<<<<<<< HEAD
-  <img src="/hr/wp-content/themes/noriks/img/cod_icon_.png" alt="Customer Support Icon" class="feature__icon info-icon">
-          <p class="feature__text">Pagamento alla consegna</p>
-=======
   <img src="/gr/wp-content/themes/noriks/img/cod_icon_.png" alt="Customer Support Icon" class="feature__icon info-icon">
           <p class="feature__text">Αντικαταβολή</p>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         </div>
         
         
         <div class="feature">
-<<<<<<< HEAD
-      <img src="https://noriks.com/hr/wp-content/uploads/2025/07/footer_icon1-1.png" alt="Shirt Icon" class="feature__icon info-icon">
-          <p class="feature__text">Prova 30 giorni, senza rischi</p>
-=======
       <img src="https://noriks.com/gr/wp-content/uploads/2025/07/footer_icon1-1.png" alt="Shirt Icon" class="feature__icon info-icon">
           <p class="feature__text">Δοκιμάστε 30 ημέρες, χωρίς ρίσκο</p>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         </div>
         
         
@@ -99,13 +89,8 @@ global $product;
         <div class="feature">
      
        
-<<<<<<< HEAD
-        <img src="https://noriks.com/hr/wp-content/uploads/2025/07/footer_icon3-1.png" alt="Shipping Icon" class="feature__icon info-icon">
-          <p class="feature__text">Spedizione gratuita per ordini superiori a 70 €</p>
-=======
         <img src="https://noriks.com/gr/wp-content/uploads/2025/07/footer_icon3-1.png" alt="Shipping Icon" class="feature__icon info-icon">
           <p class="feature__text">Δωρεάν αποστολή για παραγγελίες άνω των 70 €</p>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         </div>
 
     
@@ -121,11 +106,7 @@ global $product;
 <div class="shipping-box">
   <h2 id="shipping-window" class="shipping-title"></h2>
   <p class="shipping-sub">
-<<<<<<< HEAD
-    Ordina nelle prossime <span id="midnight-countdown" class="countdown"></span>
-=======
     Παραγγείλτε εντός <span id="midnight-countdown" class="countdown"></span>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
   </p>
 </div>
 
@@ -152,12 +133,7 @@ global $product;
 
 <script>
   (function () {
-<<<<<<< HEAD
-   const weekdays = ['domenica','lunedì','martedì','mercoledì','giovedì','venerdì','sabato'];
-
-=======
     const weekdays = ['Κυριακή','Δευτέρα','Τρίτη','Τετάρτη','Πέμπτη','Παρασκευή','Σάββατο'];
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
     // Helper to add business days (skip Saturday/Sunday)
     function addBusinessDays(date, days) {
@@ -175,24 +151,15 @@ global $product;
 
     // Get shipping days: today +2 business days, today +3 business days
     const today = new Date();
-<<<<<<< HEAD
-    const first  = addBusinessDays(today, 2);
-    const second = addBusinessDays(today, 3);
-=======
     const first  = addBusinessDays(today, 4);
     const second = addBusinessDays(today, 8);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
     function formatDayMonth(d) {
       return `${d.getDate()}.${d.getMonth()+1}.`; // e.g. 21.8.
     }
 
     const windowEl = document.getElementById('shipping-window');
-<<<<<<< HEAD
-    windowEl.textContent = `Consegna da giovedì ${weekdays[first.getDay()]}  ${formatDayMonth(first)} a ${weekdays[second.getDay()]}, ${formatDayMonth(second)}`;
-=======
     windowEl.textContent = `Παράδοση από ${weekdays[first.getDay()]}  ${formatDayMonth(first)} έως ${weekdays[second.getDay()]}, ${formatDayMonth(second)}`;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
     // Countdown to midnight
     const cdEl = document.getElementById('midnight-countdown');
@@ -231,19 +198,11 @@ global $product;
 
 $is_singles_boxers = has_term( 'singles-boxers', 'product_cat', $current_product_id );
 
-<<<<<<< HEAD
-$is_boxers = has_term( array( 'boxer','orto-boxer', 'bokserice-sastavi-paket' ), 'product_cat', $current_product_id ) && ! has_term( array( 'black-friday', 'majice-i-bokserice-paketi	' ), 'product_cat', $current_product_id );
-
-$is_carape = has_term( array( 'calzini', 'zimske-carape' ), 'product_cat', $current_product_id );
-
-$is_mixed_bundle = has_term( array( 'set', 'majice-i-bokserice-paketi	', 'orto-starter', 'orto-majica-bokserica' ), 'product_cat', $current_product_id );
-=======
 $is_boxers = has_term( array( 'mpoxer','orto-bokserice', 'bokserice-sastavi-paket', 'bokserice', 'mpoxerakia', 'boxers', 'boxerakia' ), 'product_cat', $current_product_id ) && ! has_term( array( 'black-friday', 'majice-i-bokserice-paketi' ), 'product_cat', $current_product_id );
 
 $is_carape = has_term( array( 'kaltses', 'zimske-carape', 'kaltses', 'socks' ), 'product_cat', $current_product_id );
 
 $is_mixed_bundle = has_term( array( 'set', 'sady', 'orto-starter', 'orto-majica-bokserica', 'set', 'seta', 'bundles', 'paketo-ekkinisis' ), 'product_cat', $current_product_id );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 ?>
 
@@ -290,208 +249,11 @@ $is_mixed_bundle = has_term( array( 'set', 'sady', 'orto-starter', 'orto-majica-
     flex: 1;
     gap: 8px;
     border-radius: 5px;
-<<<<<<< HEAD
-=======
-    background: #F4F4F4;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
-    padding: 16px;
-    font-size: 14px;
-    font-weight: 400;
-    color: #111213;
-    line-height: 1.2;
-    text-align: center;
-    }
-
-    .feature-card img {
-      width: 32px;
-      height: 32px;
-      margin-bottom: 0px;
-    }
-
-    .feature-card p {
-      margin: 0;
-      font-weight: 500;
-      font-size: 14px;
-      color: #222;
-       letter-spacing: -0.5px !important;
-    }
-  </style>
-  
- <?php endif; ?>
-
-
-<!--
-<div style="margin-bottom: 15px;" class="woocommerce-product-details__short-description">
-    
-    
-	<?php echo apply_filters( 'the_content', $product->get_description() );  ?>
-	
-	
-</div>
--->
-
-
-
- <!-- icons -->
- 
- <!--
- <div class="info-section">
-
-    <div class="info-box">
-     
-     
-     
-      
-
-     <img src="<?php echo get_field("singlepp_bottomicons_img1","options"); ?>" alt="" width="25" height="25">
-     <?php echo get_field("singlepp_bottomicons_t1","options"); ?>
-
-    
-     
-     
-    </div>
-    
-    
-    
-     <div class="info-box">
-    
-         <a href="tel:+38517776471" style="
-    color: #7b8a9b;
-    font-weight: 500;
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif; display: flex; align-items: center; text-decoration: none; ">
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="margin-right: 6px;    width: 17px;
-    height: 17px;" viewBox="0 0 16 16">
-    <path d="M3.654 1.328a.678.678 0 0 1 .737-.07l2.547 1.272a.678.678 0 0 1 .291.901L6.29 5.72a.678.678 0 0 0 .145.776l2.457 2.457a.678.678 0 0 0 .776.145l2.29-1.24a.678.678 0 0 1 .901.291l1.272 2.547a.678.678 0 0 1-.07.737l-1.175 1.769c-.46.692-1.232 1.043-2.036.964-2.322-.238-4.96-2.223-6.856-4.12C1.77 7.667-.214 5.03.024 2.707c.079-.804.272-1.577.964-2.036L3.654 1.33z"/>
-  </svg>
-  01 777 64 71
-</a>
-
-<a href="mailto:info@noriks.com" style="
-    color: #7b8a9b;
-    font-weight: 500;
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif; display: flex; align-items: center; text-decoration: none;">
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="margin-right: 6px;    width: 17px;
-    height: 17px;" viewBox="0 0 16 16">
-    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v.217L8 8.083 0 4.217V4zm0 1.383v6.234l5.803-3.122L0 5.383zM6.761 8.83 0 12.383V12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-.383l-6.761-3.553L8 9.917l-1.239-.653zM16 5.383l-5.803 3.112L16 11.617V5.383z"/>
-  </svg>
-  info@noriks.com
-</a>
-         
-   
-     </div>
-     
-
-    <div class="info-grid">
-      
-      
-      
-      
-      <div class="info-box">
-       <img src="<?php echo get_field("singlepp_bottomicons_img2","options"); ?>" alt=""  width="25" height="25">
-        <?php echo get_field("singlepp_bottomicons_t2","options"); ?>
-      </div>
-      <div class="info-box">
-  
-<img src="<?php echo get_field("singlepp_bottomicons_img3","options"); ?>" alt=""  width="25" height="25">
-<?php echo get_field("singlepp_bottomicons_t3","options"); ?>
-      </div>
-    </div>
-
-  </div>
-  -->
-  
-  <style>
-
-
-    .info-section {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      max-width: 800px;
-      margin: auto;
-      margin-bottom: 25px;
-    }
-    
-    .info-section img {
-      width: 25px;
-    }
-
-
-    .info-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background-color: #f5f6f8;
-      border-radius: 3px;
-      padding: 16px;
-      color: #7b8a9b;
-      font-weight: 500;
-      font-size: 14px;
-          font-family: 'Roboto', sans-serif; 
-      text-align: center;
-    }
-
-    .info-grid {
-      display: flex;
-      gap: 7px;
-    }
-
-    .info-grid .info-box {
-      flex: 1;
-    }
-
-    .info-box svg {
-      width: 24px;
-      height: 24px;
-      fill: #7b8a9b;
-    }
-  </style>
-
-
-
-
-
-
-
-
-
- <!-- icons -->
-
-
- <div class="accordion">
-
-
-    <!-- 1 - detajli -->
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <h3><?php echo get_field("singlepp_acc_h_1","options"); ?></h3>
-        <div class="toggle">+</div>
-      </div>
-      <div class="accordion-content">
-          
-         <?php if( !$is_boxers &&  !$is_carape &&   !$is_mixed_bundle ): ?>
-         
-         
-         
-        <?php echo get_field("singlepp_acc_t_1","options"); ?>
-        
-        
-        <?php elseif(  has_term( array( 'orto-starter', 'orto-majica-bokserica' ), 'product_cat', $current_product_id )  ): ?>
-        
-        
-        
-<<<<<<< HEAD
-                Le nostre magliette premium sono realizzate con una miscela di alta qualità composta dal 60% di cotone ring-spun e dal 40% di poliestere, garantendo un tessuto estremamente morbido e resistente alle pieghe. <br><br>I boxer NORIKS sono realizzati con una miscela di alta qualità composta dal 95% di modal e dal 5% di elastan, che assicura un tessuto estremamente morbido ed elastico, perfettamente aderente al corpo. L’elastico in vita è progettato per una vestibilità ottimale, offrendo comfort senza costrizioni e un aspetto impeccabile sotto gli abiti. <br>
-=======
               Τα premium μπλουζάκια μας είναι κατασκευασμένα από πρωτοκλασάτο μείγμα 60% βαμβακιού ring-spun και 40% πολυεστέρα, που εξασφαλίζει εξαιρετικά απαλό ύφασμα ανθεκτικό στις τσαλάκωσες.
 <br><br>
 Τα μποξεράκια NORIKS είναι κατασκευασμένα από πρωτοκλασάτο μείγμα 95% modal και 5% ελαστάνης, που εξασφαλίζει εξαιρετικά απαλό και ελαστικό ύφασμα που προσαρμόζεται τέλεια στο σώμα. Το ελαστικό λάστιχο είναι σχεδιασμένο για βέλτιστη εφαρμογή, παρέχοντας άνεση χωρίς σφίξιμο και τέλεια εμφάνιση κάτω από τα ρούχα.
 <br>
 
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         
         <?php else: ?>
         
@@ -510,17 +272,10 @@ $is_mixed_bundle = has_term( array( 'set', 'sady', 'orto-starter', 'orto-majica-
     
     
      
-<<<<<<< HEAD
-     <!-- 2 - slika tablica velicina -->
-     <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <h3>Guida alle taglie</h3>
-=======
      <!-- 2 - slika tablica velicina 
      <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAccordion(this)">
         <h3>Πίνακας μεγεθών</h3>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         <div class="toggle">+</div>
       </div>
       <div class="accordion-content">
@@ -528,11 +283,7 @@ $is_mixed_bundle = has_term( array( 'set', 'sady', 'orto-starter', 'orto-majica-
            <?php if( $is_boxers ): ?>
        
         
-<<<<<<< HEAD
-          <img src="https://noriks.com/it/wp-content/uploads/2026/02/boxers_size_it.png">
-=======
             <img src="https://noriks.com/gr/wp-content/uploads/2026/02/boxers_size_gr.png">
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
           
           
           
@@ -540,19 +291,6 @@ $is_mixed_bundle = has_term( array( 'set', 'sady', 'orto-starter', 'orto-majica-
         <?php elseif(  $is_carape ): ?>
         
         
-<<<<<<< HEAD
-                  <img src="https://noriks.com/it/wp-content/uploads/2026/02/Nogavice_tabela_velikosti_it.png">
-                  
-    <?php elseif(  $is_mixed_bundle ): ?>
-    
-     <img src="https://noriks.com/it/wp-content/uploads/2026/02/majice-tabela-velikost-it.png">
-<img src="https://noriks.com/it/wp-content/uploads/2026/02/boxers_size_it.png">
-        
-          <?php else: ?>
-      
-      
-       <img src="https://noriks.com/it/wp-content/uploads/2026/02/majice-tabela-velikost-it.png">
-=======
                   <img src="https://noriks.com/gr/wp-content/uploads/2026/02/Nogavice_tabela_velikosti_Gr.png">
                   
     <?php elseif(  $is_mixed_bundle ): ?>
@@ -566,17 +304,12 @@ $is_mixed_bundle = has_term( array( 'set', 'sady', 'orto-starter', 'orto-majica-
       
      <img src="https://noriks.com/gr/wp-content/uploads/2025/09/noriks_tablica_gr.jpg">
         
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         
             
         <?php endif; ?>
       </div>
     </div>
-<<<<<<< HEAD
-
-=======
 -->
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
     <!-- 3 - savjeti za pranje-->
     <div class="accordion-item">
@@ -593,11 +326,7 @@ $is_mixed_bundle = has_term( array( 'set', 'sady', 'orto-starter', 'orto-majica-
         
         
         
-<<<<<<< HEAD
-                        Lavare i colori insieme ai colori. Programma di lavaggio delicato in acqua fredda. Asciugare in piano o in asciugatrice a bassa temperatura. Non candeggiare.        
-=======
                          Perite boje s bojama.  Program za nježno pranje na hladnoj vodi.  Sušite ravno položeno ili u sušilici na niskoj temperaturi.  Ne izbjeljivati              
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         
         
           <?php else: ?>
@@ -614,32 +343,6 @@ $is_mixed_bundle = has_term( array( 'set', 'sady', 'orto-starter', 'orto-majica-
         <h3><?php echo get_field("singlepp_acc_h_3","options"); ?></h3>
         <div class="toggle">+</div>
       </div>
-<<<<<<< HEAD
-      <div class="accordion-content">
-       <p></p>
-       
-     Siamo così sicuri che NORIKS ti piacerà che hai <b data-stringify-type="bold">30 giorni</b> per il reso o la sostituzione gratuita.
-Niente burocrazia, niente stress – risolviamo tutto in pochi clic. </p>
-
-<p>
-    
-
-
-
-  <a href="mailto:info@noriks.com" style="display: flex; align-items: center; text-decoration: none; color: #333;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#333" style="margin-right: 6px;" viewBox="0 0 16 16">
-      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v.217L8 8.083 0 4.217V4zm0 1.383v6.234l5.803-3.122L0 5.383zM6.761 8.83 0 12.383V12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-.383l-6.761-3.553L8 9.917l-1.239-.653zM16 5.383l-5.803 3.112L16 11.617V5.383z"/>
-    </svg>
-    info@noriks.com
-  </a>
-</p>
-<p>
-    
-   Scrivici semplicemente un’email per richiedere la sostituzione e <b data-stringify-type="bold">ci occuperemo subito di tutto.</b></p>
-       
-       
-      </div>
-=======
     <div class="accordion-content">
   <p></p>
   Πιστεύουμε τόσο πολύ ότι θα σας αρέσει το NORIKS, που έχετε <b data-stringify-type="bold">30 ημέρες</b> για επιστροφή ή δωρεάν ανταλλαγή.
@@ -660,7 +363,6 @@ Niente burocrazia, niente stress – risolviamo tutto in pochi clic. </p>
   </p>
 </div>
 
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     </div>
 
 

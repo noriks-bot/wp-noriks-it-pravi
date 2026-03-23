@@ -1,10 +1,6 @@
 
 <?php
-<<<<<<< HEAD
-if (  has_term( array( 'pacchetto-starter','orto-starter' ), 'product_cat', get_the_id() )  )   :
-=======
 if (  has_term( array( 'startovaci-balicek','orto-starter', 'paketo-ekkinisis', 'starter-pack' ), 'product_cat', get_the_id() )  )   :
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 ?>
 
 
@@ -15,57 +11,6 @@ if (  has_term( array( 'startovaci-balicek','orto-starter', 'paketo-ekkinisis', 
     <!-- Left Video -->
     <div class="why-col">
       <div class="video-wrapper">
-<<<<<<< HEAD
-          <img style="" src="https://noriks.com/it/wp-content/uploads/2026/02/starter-1_it.png">
-      </div>
-    </div>
-
-    <!-- Right Content -->
-    <div class="why-col why-content">
-      <h2 style="color: #222; text-align:left; margin-left: 20px; font-family: 'Barlow', sans-serif; color:#222223;">
-PERCHÉ LE PERSONE SCELGONO IL PACCHETTO STARTER?
-      </h2>
-
-      <div style="margin-left: 20px;" class="why-point">
-        <p  style="    font-style: italic;
-    line-height: 1.2;"  ><strong>"L'ho preso perché non ero sicuro che mi sarebbe andato bene."
-
-
-</strong><span style="font-weight:normal;">Marco - Milano</span></p>
-        <p class="description">Molti clienti iniziano con il pacchetto starter perché vogliono prima verificare come veste NORIKS e come si indossa. Una maglietta e un boxer sono sufficienti per decidere senza un grande investimento.
-
-
-
-</p>
-      </div>
-
-      <div style="margin-left: 20px;" class="why-point">
-        <p  style="    font-style: italic;
-    line-height: 1.2;" ><strong>"Dopo la prima volta che l'ho indossato, ho subito ordinato di nuovo."
-
-
-
-</strong><span style="font-weight:normal;">Paolo - Roma</span></p>
-        <p class="description">Più del 95% dei clienti riordina dopo il pacchetto starter. Non perché lo avessero pianificato, ma perché già il primo giorno sentono la differenza nel taglio, nel comfort e nella qualità.
-
-</p>
-      </div>
-
-      <div style="margin-left: 20px;" class="why-point">
-        <p  style="    font-style: italic;
-    line-height: 1.2;"  ><strong>"Il materiale e il taglio mi hanno convinto."
-
-
-
-</strong><span style="font-weight:normal;">Antonio - Napoli</span></p>
-        <p class="description">Sia la maglietta che i boxer sono morbidi, leggeri e piacevoli sulla pelle. Il pacchetto starter è il motivo più comune per cui NORIKS diventa rapidamente parte del guardaroba quotidiano.
-
-
-
-</p>
-      </div>
-    </div>
-=======
           <img style="" src="https://noriks.com/gr/wp-content/uploads/2026/02/starter-1_Gr.png">
       </div>
     </div>
@@ -111,7 +56,6 @@ PERCHÉ LE PERSONE SCELGONO IL PACCHETTO STARTER?
     
     
     
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
   </div>
 </section>
@@ -124,74 +68,38 @@ PERCHÉ LE PERSONE SCELGONO IL PACCHETTO STARTER?
     <!-- Left Video -->
     <div class="why-col">
       <div class="video-wrapper">
-<<<<<<< HEAD
-           <img style="" src="https://noriks.com/it/wp-content/uploads/2026/02/starter-2_it.png">
-=======
            <img style="" src="https://noriks.com/gr/wp-content/uploads/2026/02/starter-2_gr.png">
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       </div>
     </div>
 
     <!-- Right Content -->
     <div class="why-col why-content">
       <h2 style="color: #222; text-align:left; margin-left: 20px; font-family: 'Barlow', sans-serif; color:#222223;">
-<<<<<<< HEAD
-LA COMBINAZIONE CHE INDOSSI OGNI GIORNO
-=======
 ΣΥΝΔΥΑΣΜΟΣ ΠΟΥ ΦΟΡΑΙΣ ΚΑΘΕ ΜΕΡΑ
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
       </h2>
 
       <div style="margin-left: 20px;" class="why-point">
-<<<<<<< HEAD
-        <p><strong>Progettato per il comfort tutto il giorno
-
-
-</strong></p>
-        <p class="description">Sia la maglietta che i boxer sono pensati per essere indossati dalla mattina alla sera, senza bisogno di aggiustarli e senza fastidi. Tutto rimane al suo posto, non stringe e permette libertà di movimento tutto il giorno.
-=======
         <p><strong>Σχεδιασμένα για ολοήμερη άνεση
 
 
 </strong></p>
         <p class="description">Το μπλουζάκι και τα μποξεράκια είναι φτιαγμένα για φόρεμα από το πρωί μέχρι το βράδυ, χωρίς ρυθμίσεις και δυσφορία. Όλα μένουν στη θέση τους, δεν σφίγγουν και επιτρέπουν ελεύθερη κίνηση όλη μέρα.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 
 </p>
       </div>
 
       <div style="margin-left: 20px;" class="why-point">
-<<<<<<< HEAD
-        <p><strong>Un taglio che lavora con il corpo
-
-
-</strong></p>
-        <p class="description">Il taglio della maglietta valorizza la parte superiore del corpo, mentre i boxer offrono spazio sufficiente e stabilità senza arrotolarsi. Il risultato è una sensazione sicura e rilassata e un aspetto curato in ogni situazione.
-=======
         <p><strong>Εφαρμογή που συνεργάζεται με το σώμα
 
 
 </strong></p>
         <p class="description">Η εφαρμογή του μπλουζακιού αναδεικνύει το πάνω μέρος του σώματος, ενώ τα μποξεράκια παρέχουν αρκετό χώρο και σταθερότητα χωρίς να ανεβαίνουν. Το αποτέλεσμα είναι μια σίγουρη, χαλαρή αίσθηση και περιποιημένη εμφάνιση σε κάθε περίσταση.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 </p>
       </div>
 
-<<<<<<< HEAD
-      <div style="margin-left: 20px;" class="why-point">
-        <p><strong>Qualità che senti subito
-
-
-</strong></p>
-        <p class="description">I materiali sono morbidi, traspiranti e piacevoli sulla pelle, senza perdere la forma dopo il lavaggio. Già dalla prima volta che li indossi, è chiaro perché questa combinazione diventa rapidamente parte del guardaroba quotidiano.
-
-
-</p>
-      </div>
-=======
    <div style="margin-left: 20px;" class="why-point">
   <p><strong>Ποιότητα που νιώθεις από την πρώτη στιγμή</strong></p>
   <p class="description">
@@ -202,7 +110,6 @@ LA COMBINAZIONE CHE INDOSSI OGNI GIORNO
       
       
       
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     </div>
 
   </div>
@@ -219,28 +126,13 @@ LA COMBINAZIONE CHE INDOSSI OGNI GIORNO
     <!-- Left Video -->
     <div class="why-col">
       <div class="video-wrapper">
-<<<<<<< HEAD
-          <img style="" src="https://noriks.com/it/wp-content/uploads/2026/02/starter-3_it.png">
-=======
           <img style="" src="https://noriks.com/gr/wp-content/uploads/2026/02/starter-3_gr.png">
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       </div>
     </div>
 
     <!-- Right Content -->
     <div class="why-col why-content">
       <h2 style="color: #222; text-align:left; margin-left: 20px; font-family: 'Barlow', sans-serif; color:#222223;">
-<<<<<<< HEAD
-L INIZIO PIÙ SEMPLICE E SICURO
-      </h2>
-
-      <div style="margin-left: 20px;" class="why-point">
-        <p><strong>Rischio minimo
-
-
-</strong></p>
-        <p class="description">Perché ti permette di conoscere la qualità senza un grande investimento. Invece di comprare più pezzi in anticipo, prendi una maglietta e un boxer - quanto basta per capire come vestono, come si indossano e com'è il materiale.
-=======
 Η ΠΙΟ ΕΥΚΟΛΗ ΚΑΙ ΑΣΦΑΛΗΣ ΑΡΧΗ
       </h2>
 
@@ -250,44 +142,27 @@ L INIZIO PIÙ SEMPLICE E SICURO
 
 </strong></p>
         <p class="description">Γιατί σας επιτρέπει να γνωρίσετε την ποιότητα χωρίς μεγάλη επένδυση. Αντί να αγοράσετε πολλά κομμάτια εκ των προτέρων, παίρνετε ένα μπλουζάκι και ένα μποξεράκι - ακριβώς αρκετά για να δείτε πώς εφαρμόζουν, πώς φοριούνται και ποιο είναι το υλικό.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 </p>
       </div>
 
       <div style="margin-left: 20px;" class="why-point">
-<<<<<<< HEAD
-        <p><strong>Il modo perfetto per iniziare
-
-
-</strong></p>
-        <p class="description">Il pacchetto starter è pensato come prima esperienza, non come scorta. È disponibile solo una volta per cliente e a un prezzo speciale, per rendere la decisione semplice e senza pensieri.
-=======
         <p><strong>Ο τέλειος τρόπος να ξεκινήσετε
 
 
 </strong></p>
         <p class="description">Το πακέτο εκκίνησης δημιουργήθηκε ως πρώτη εμπειρία, όχι ως απόθεμα. Είναι διαθέσιμο μόνο μία φορά ανά πελάτη σε ειδική τιμή, ώστε η απόφαση να είναι απλή και χωρίς δεύτερη σκέψη.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 
 </p>
       </div>
 
       <div style="margin-left: 20px;" class="why-point">
-<<<<<<< HEAD
-        <p><strong>Un'esperienza a cui torni
-
-
-</strong></p>
-        <p class="description">La maggior parte degli uomini poi resta con NORIKS, perché riconosce la differenza nel taglio, nel comfort e nella qualità. Ma il primo passo è proprio questo - rischio minimo, impressione più chiara.
-=======
         <p><strong>Μια εμπειρία στην οποία επιστρέφετε
 
 
 </strong></p>
         <p class="description">Οι περισσότεροι άνδρες μένουν στη NORIKS γιατί αναγνωρίζουν τη διαφορά στην εφαρμογή, την άνεση και την ποιότητα. Αλλά το πρώτο βήμα είναι ακριβώς αυτό - ελάχιστο ρίσκο, καθαρή εντύπωση.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 </p>
       </div>
     </div>
@@ -306,11 +181,7 @@ L INIZIO PIÙ SEMPLICE E SICURO
 
 
 <?php
-<<<<<<< HEAD
-if (  has_term( array( 'magliette', 'orto-magliette' ), 'product_cat', get_the_id() )  ||  has_term( 'set', 'product_cat', get_the_id() )) :
-=======
 if (  has_term( array( 'orto-majice', 'orto-majice', 'mplouzoakia', 't-shirts', 'mplouzoakia-mavro' ), 'product_cat', get_the_id() )  ||  has_term( array('sady', 'set', 'seta', 'bundles'), 'product_cat', get_the_id() )) :
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 ?>
 
 
@@ -326,11 +197,7 @@ if (  has_term( array( 'orto-majice', 'orto-majice', 'mplouzoakia', 't-shirts', 
         <video
           autoplay muted loop playsinline
           class="why-video">
-<<<<<<< HEAD
-          <source src="https://noriks.com/wp-content/uploads/2025/09/noriks_gif_en_2-1.mp4" type="video/mp4">
-=======
           <source src="https://noriks.com/gr/wp-content/uploads/2025/09/noriks_gif_gr_2-1.mp4" type="video/mp4">
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
           Your browser does not support the video tag.
         </video>
       </div>
@@ -425,166 +292,6 @@ if (  has_term( array( 'orto-majice', 'orto-majice', 'mplouzoakia', 't-shirts', 
 
 
 
-<<<<<<< HEAD
-=======
-
-
-<?php if( get_the_ID() == 3015 ): ?>
-  <section class="reviews-section">
-      
-      
-      
-    
-     <div class="container" style="width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;">
-         
-         <!--
-    <div class="reviews-rating">
-
-      <span style="color: #333;"><?php echo get_field("homepage_section_3_t1"); ?></span>
-    </div>
--->
-
-    <h2 class="collections__title" style="text-align: left;font-size: clamp(28px, 2.5vw, 40px);
-    margin-bottom: 13px;"><?php echo get_field("homepage_section_3_t2"); ?></h2>
-
-    <div class="reviews-grid">
-
-    <?php 
-    $bigreviews_reviews_fields = get_field("bigreviews_reviews_fields", "option");
-    
-    
-    $bigreviews_reviews_fields = array_intersect_key(
-    $bigreviews_reviews_fields,
-    array_flip([0, 1, 5])
-);
-    
-      $bigreviews_reviews_fields2 = get_field("bigreviews_reviews_fields_2", "option");
-    
-
-    //var_dump($header_nav);
-    ?>
-    
-
-      <?php if ($bigreviews_reviews_fields): ?>
-    <?php foreach ($bigreviews_reviews_fields as $item): ?>
-      <!-- Review 1 -->
-      <div class="review-card">
-        <img src="<?php echo $item['img']; ?>" alt="" class="review-image">
-        <div class="review-content">
-          <div class="review-meta">
-            <div class="review-name"><?php echo $item['name']; ?></div>
-            <div class="verified"><?php echo $item['t1']; ?></div>
-          </div>
-          <div class="review-text"><?php echo $item['t2']; ?></div>
-          <div class="review-product">
-            <img src="<?php echo $item['img2']; ?>" alt="Shirt Pack">
-            <a href="<?php echo $item['link']; ?>"><?php echo $item['t3']; ?></a>
-          </div>
-        </div>
-      </div>
-     <?php endforeach; ?>
-  <?php endif; ?>
-          <?php if ($bigreviews_reviews_fields2): ?>
-    <?php foreach ($bigreviews_reviews_fields2 as $item): ?>
-      <!-- Review 1 -->
-      <div class="review-card">
-        <img src="<?php echo $item['img']; ?>" alt="" class="review-image">
-        <div class="review-content">
-          <div class="review-meta">
-            <div class="review-name"><?php echo $item['name']; ?></div>
-            <div class="verified"><?php echo $item['t1']; ?></div>
-          </div>
-          <div class="review-text"><?php echo $item['t2']; ?></div>
-          <div class="review-product">
-            <img src="<?php echo $item['img2']; ?>" alt="Shirt Pack">
-            <a href="<?php echo $item['link']; ?>"><?php echo $item['t3']; ?></a>
-          </div>
-        </div>
-      </div>
-     <?php endforeach; ?>
-  <?php endif; ?>
-    
-    
-
-    </div>
-
- </div>
-  </section>
-  
-  <style>
-  .review-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    will-change: transform;
-    padding: 0 !important;
-  }
-
-  .review-card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    z-index: 2;
-  }
-  
-  
-  .reviews-section {
-    margin: 0 auto;
-    padding: 0 0 20px 0px;
-}
-
-.comparison-table-section {
-
-    padding-bottom:  20px;
-}
-</style>
-
-<?php endif; ?>
-
-
-
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
-<section class="why-section">
-  <div class="container why-container">
-
-    <!-- Left Video -->
-    <div class="why-col">
-      <div class="video-wrapper">
-          <img style="width: 100%;
-    aspect-ratio: 1/1;
-<<<<<<< HEAD
-    object-fit: cover;  " src="/hr/wp-content/themes/noriks/img/majice-3 (1).jpeg">
-      </div>
-    </div>
-
-    <!-- Right Content -->
-    <div class="why-col why-content">
-      <h2 style="color: #222; text-align:left; margin-left: 20px; font-family: 'Barlow', sans-serif; color:#222223;">
-        PERCHÉ QUESTA MAGLIETTA DIVENTERÀ IL TUO STANDARD?
-      </h2>
-
-      <div style="margin-left: 20px;" class="why-point">
-        <p><strong>Progettata per la vita reale
-</strong></p>
-        <p class="description">Questa maglietta è pensata per essere indossata tutto il giorno - dalla mattina alla sera. Non richiede aggiustamenti né pensieri, semplicemente veste bene in ogni situazione.
-</p>
-      </div>
-
-      <div style="margin-left: 20px;" class="why-point">
-        <p><strong>Un taglio che capisce il corpo
-</strong></p>
-        <p class="description">Il taglio è stato sviluppato per seguire la linea del corpo senza stringere e valorizzare ciò che conta. Il risultato è un aspetto curato e sicuro senza sensazione di disagio.
-</p>
-      </div>
-
-      <div style="margin-left: 20px;" class="why-point">
-        <p><strong>La differenza la senti già dalla prima volta
-</strong></p>
-        <p class="description">Il materiale è morbido, leggero e traspirante sulla pelle. Già dopo la prima volta che la indossi, è chiaro perché questa maglietta diventa rapidamente quella a cui ricorri più spesso.
-</p>
-      </div>
-    </div>
-=======
     object-fit: cover;  " src="/gr/wp-content/themes/noriks/img/majice-3 (1).jpeg">
       </div>
     </div>
@@ -620,7 +327,6 @@ if (  has_term( array( 'orto-majice', 'orto-majice', 'mplouzoakia', 't-shirts', 
     
     
     
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
   </div>
 </section>
@@ -638,11 +344,7 @@ if (  has_term( array( 'orto-majice', 'orto-majice', 'mplouzoakia', 't-shirts', 
 
 <!-- here we include new file BOXERIRICE-->
 
-<<<<<<< HEAD
-<?php if ( has_term( array( 'boxer', 'orto-boxer' ), 'product_cat', get_the_ID() )  && !has_term( 'black-friday', 'product_cat', get_the_ID() ) ): ?>
-=======
 <?php if ( has_term( array( 'orto-starter2', 'orto-bokserice', 'mpoxerakia', 'boxers', 'mpoxer' ), 'product_cat', get_the_ID() )  && !has_term( 'black-friday', 'product_cat', get_the_ID() ) ): ?>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 
 
@@ -683,25 +385,12 @@ endif;
 
     <!-- Left Video -->
     <div class="why-col">
-<<<<<<< HEAD
-       <img src="/hr/wp-content/uploads/2025/12/recreate_without_photo_equipment_98300wkq98yf4jbkroa5.jpg">
-=======
        <img src="/gr/wp-content/uploads/2025/12/recreate_without_photo_equipment_98300wkq98yf4jbkroa5.jpg">
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     </div>
 
     <!-- Right Content -->
     <div class="why-col why-content">
       <h2 style="color: #222; text-align:left; margin-left: 20px; font-family: 'Barlow', sans-serif; color:#222223;">
-<<<<<<< HEAD
-Taglio flessibile per cosce più robuste
-      </h2>
-
-      <div style="margin-left: 20px;" class="why-point">
-        <p><strong>Comfort tutto il giorno
-</strong></p>
-        <p class="description">Appositamente progettato per uomini con cosce più robuste. Il materiale elastico e flessibile offre il massimo comfort senza stringere o creare pressione fastidiosa in vita. L'intimo rimane al suo posto e non si arrotola, così puoi muoverti liberamente tutto il giorno.</p>
-=======
 Ευέλικτη εφαρμογή για γεμάτους μηρούς
       </h2>
 
@@ -709,7 +398,6 @@ Taglio flessibile per cosce più robuste
         <p><strong>Άνεση όλη μέρα
 </strong></p>
         <p class="description">Ειδικά σχεδιασμένα για άνδρες με πιο γεμάτους μηρούς. Το ελαστικό και εύκαμπτο υλικό παρέχει μέγιστη άνεση χωρίς σφίξιμο ή δυσάρεστη πίεση στη μέση. Το εσώρουχο μένει στη θέση του και δεν ανεβαίνει, ώστε να κινείστε ελεύθερα όλη μέρα.</p>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       </div>
 
 
@@ -733,26 +421,12 @@ Taglio flessibile per cosce più robuste
 
     <!-- Left Video -->
     <div class="why-col">
-<<<<<<< HEAD
-       <img src="https://noriks.com/it/wp-content/uploads/2026/02/prednosti-in-lastnosti2_it.png">
-=======
        <img src="https://noriks.com/gr/wp-content/uploads/2026/02/prednosti-in-lastnosti2_gr.png">
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     </div>
 
     <!-- Right Content -->
     <div class="why-col why-content">
       <h2 style="color: #222; text-align:left; margin-left: 20px; font-family: 'Barlow', sans-serif; color:#222223;">
-<<<<<<< HEAD
-      Meno usura e danni
-      </h2>
-
-      <div style="margin-left: 20px;" class="why-point">
-        <p><strong>Super resistenti 💪
-</strong></p>
-        <p class="description">"Dimentica l'intimo che si strappa velocemente.
-I boxer NORIKS sono realizzati con un materiale più resistente - durano più a lungo e ti risparmiano inutili viaggi al negozio."
-=======
       Λιγότερη φθορά και ζημιά
       </h2>
 
@@ -761,7 +435,6 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
 </strong></p>
         <p class="description">"Ξεχάστε τα εσώρουχα που σκίζονται γρήγορα.
 Τα σορτς NORIKS είναι κατασκευασμένα από πιο ανθεκτικό υλικό - διαρκούν περισσότερο και σας γλιτώνουν από περιττές επισκέψεις στα καταστήματα."
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 </p>
       </div>
 
@@ -770,15 +443,9 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
 
         <p class="description">
 
-<<<<<<< HEAD
-        ✅ Meno strappi <br/>
-        ✅ Meno sudorazione <br/>
-        ✅ Comfort tutto il giorno <br/>
-=======
        ✅ Λιγότερο σκίσιμο <br/>
 ✅ Λιγότερη εφίδρωση <br/>
 ✅ Άνεση όλη την ημέρα <br/>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
         </p>
       </div>
@@ -804,31 +471,18 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
     <div class="why-col">
        <img style="width: 100%;
     aspect-ratio: 1/1;
-<<<<<<< HEAD
-    object-fit: cover;  " src="/hr/wp-content/uploads/2025/12/create_same_style_studio_photo_with_younger_guy_30_years_normal_look_and_croatian_can_look_midldle__e99c86vy07c57mjd38f6.jpg">
-=======
     object-fit: cover;  " src="/gr/wp-content/uploads/2025/12/create_same_style_studio_photo_with_younger_guy_30_years_normal_look_and_croatian_can_look_midldle__e99c86vy07c57mjd38f6.jpg">
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     </div>
 
     <!-- Right Content -->
     <div class="why-col why-content">
       <h2 style="color: #222; text-align:left; margin-left: 20px; font-family: 'Barlow', sans-serif; color:#222223;">
-<<<<<<< HEAD
-      Spazio sufficiente per tutto
-      </h2>
-
-      <div style="margin-left: 20px;" class="why-point">
-        <p><strong>Signori, lasciate respirare le vostre parti intime!
-</strong></p>L'intimo NORIKS offre supporto tutto il giorno senza perdere la forma. Il materiale modal ultra morbido si allunga e veste perfettamente dove deve. Lo spazio per la vostra "attrezzatura" è più ampio e flessibile, così non vi sentirete costretti.</p>
-=======
       Αρκετός χώρος για τα πάντα
       </h2>
 
       <div style="margin-left: 20px;" class="why-point">
         <p><strong>Κύριοι, αφήστε την περιοχή σας να αναπνέει ελεύθερα!
 </strong></p>Τα εσώρουχα NORIKS παρέχουν υποστήριξη όλη μέρα χωρίς να χάνουν το σχήμα τους. Το ουράνια απαλό modal υλικό τεντώνεται και εφαρμόζει τέλεια εκεί που πρέπει. Ο χώρος για τον «εξοπλισμό» σας είναι ευρύτερος και πιο ευέλικτος, ώστε να μην νιώθετε στριμωγμένοι.</p>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       </div>
 
 
@@ -888,24 +542,14 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
 $products = array();
 
 // If current product is in category 'bokserice' → load all products from that category
-<<<<<<< HEAD
-if ( has_term( array( 'bokserice', 'orto-bokserice', 'bokserice-sastavi-paket' ), 'product_cat', get_the_ID() ) ) {
-
-    // Get all products from category 'bokserice'
-=======
 if ( has_term( array( 'mpoxer', 'orto-bokserice', 'bokserice-sastavi-paket', 'boxerky', 'mpoxerakia', 'boxers', 'boxerakia' ), 'product_cat', get_the_ID() ) ) {
 
     // Get all products from category 'bokserice' / boxers
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     $wc_products = wc_get_products( array(
         'limit'    => 8,
         'orderby'  => 'menu_order',
         'order'    => 'ASC',
-<<<<<<< HEAD
-        'category' => array( 'bokserice' )
-=======
         'category' => array( 'mpoxer' )
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     ) );
 
     if ( ! empty( $wc_products ) ) {
@@ -1186,11 +830,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <section style="display:block; max-width:1440px; margin:0 auto; padding-bottom:30px;" class="most-popular">
   <div class="container" style="padding-left:10px; padding-right:10px;">
-<<<<<<< HEAD
-    <h2 class="section-title" style="margin-bottom:20px;">Combinazioni pronte - semplici e veloci</h2>
-=======
     <h2 class="section-title" style="margin-bottom:20px;">Έτοιμοι συνδυασμοί - εύκολοι και γρήγοροι</h2>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
     <div class="products-grid slider-mobile">
       <?php foreach ($products as $index => $product): ?>
@@ -1272,17 +912,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if ($shirt_count != 1):
                   if ($alt_output == false):
-<<<<<<< HEAD
-                    $is_boxers = has_term( array( 'bokserice', 'orto-bokserice' , 'bokserice-sastavi-paket' ), 'product_cat', $current_product_id );
-
-                    if ($is_boxers):
-                      $topseler_text = get_field("singlepp_priceper_before","options") . " " . $tmp_price . " " . "€ per boxer";
-=======
                     $is_boxers = has_term( array( 'bokserice', 'orto-bokserice' , 'bokserice-sastavi-paket', 'boxerky', 'mpoxerakia', 'boxers', 'boxerakia' ), 'product_cat', $current_product_id );
 
                     if ($is_boxers):
                       $topseler_text = get_field("singlepp_priceper_before","options") . " " . $tmp_price . " " . "€ po boksericama";
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                     else:
                       $topseler_text = get_field("singlepp_priceper_before","options") . " " . $tmp_price . " " . get_field("singlepp_priceper_after","options");
                     endif;
@@ -1402,21 +1035,13 @@ document.addEventListener('DOMContentLoaded', function () {
       <!--<h4 style="" class="highlight"><?php echo get_field("singlepp_content_standard_reviews_t1","options"); ?></h4>-->
       <h1 style="color:black;     margin-bottom: 4px;">
 
-<<<<<<< HEAD
-          <?php if ( !has_term( array( 'bokserice', 'bokserice-sastavi-paket' ), 'product_cat', get_the_ID() ) ): ?>
-=======
           <?php if ( !has_term( array( 'bokserice', 'bokserice-sastavi-paket', 'boxerky', 'mpoxerakia', 'boxers', 'boxerakia' ), 'product_cat', get_the_ID() ) ): ?>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
           <?php echo get_field("singlepp_content_standard_reviews_t2","options"); ?>
 
           <?php else: ?>
 
-<<<<<<< HEAD
-          Non sei solo alla ricerca dei boxer perfetti.
-=======
           Nisi sam u potrazi za savršenim boksericama.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
           <?php endif; ?>
 
@@ -1487,29 +1112,17 @@ document.addEventListener('DOMContentLoaded', function () {
 <?php
   // ===== CONFIG: LANGUAGE & DATA =====
   $reviews_language = get_field("webshop_language", "options");
-<<<<<<< HEAD
-  if (!$reviews_language) { $reviews_language = "IT"; }
-
-  // Detect if current product belongs to bokserice group
-  $current_product_id = (function_exists('is_product') && is_product()) ? get_queried_object_id() : get_the_id();
-  $is_bokserice_page  = has_term( array( 'boxer','orto-bokserice', 'bokserice-sastavi-paket' ), 'product_cat', $current_product_id );
-=======
   if (!$reviews_language) { $reviews_language = "EN"; }
 
   // Detect if current product belongs to bokserice group
   $current_product_id = (function_exists('is_product') && is_product()) ? get_queried_object_id() : get_the_id();
   $is_bokserice_page  = has_term( array( 'boxerky','orto-bokserice', 'bokserice-sastavi-paket', 'bokserice', 'mpoxerakia', 'boxers', 'boxerakia' ), 'product_cat', $current_product_id );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
   // Include review pools
   if ( ! $is_bokserice_page )  {
     include get_stylesheet_directory() . '/auto_reviews/'.$reviews_language.'.php';
   } else {
-<<<<<<< HEAD
-    include get_stylesheet_directory() . '/auto_reviews/IT_bokserice.php';
-=======
     include get_stylesheet_directory() . '/auto_reviews/'.$reviews_language.'_bokserice.php';
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
   }
 
   include get_stylesheet_directory() . '/auto_reviews/'.$reviews_language.'-2.php';
@@ -1572,11 +1185,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       $is_bokserice = false;
       if ( $product_id ) {
-<<<<<<< HEAD
-          $is_bokserice = has_term( array( 'bokserice','orto-bokserice', 'bokserice-sastavi-paket' ), 'product_cat', $product_id );
-=======
           $is_bokserice = has_term( array( 'bokserice','orto-bokserice', 'bokserice-sastavi-paket', 'mpoxer', 'mpoxerakia', 'boxers', 'boxerakia' ), 'product_cat', $product_id );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       }
 
       $cache_key = $transient_key . ( $is_bokserice ? '_bokserice' : '_all' );
@@ -1597,21 +1206,13 @@ document.addEventListener('DOMContentLoaded', function () {
       ];
 
       if ( $is_bokserice ) {
-<<<<<<< HEAD
-          $args['category'] = [ 'bokserice' ];
-=======
           $args['category'] = [ 'mpoxer' ];
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       } else {
           $args['tax_query'] = [
               [
                   'taxonomy' => 'product_cat',
                   'field'    => 'slug',
-<<<<<<< HEAD
-                  'terms'    => [ 'bokserice' ],
-=======
                   'terms'    => [ 'mpoxer' ],
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                   'operator' => 'NOT IN',
               ],
           ];
@@ -1807,11 +1408,7 @@ function assign_unique_avatars_first_n(array $reviews, array $avatar_pool, strin
 
     $tz      = reviews_wp_tz();
     $today   = new DateTime('today', $tz);
-<<<<<<< HEAD
-    $today->modify('-7 days'); // newest review date = today - 7 days
-=======
      $today->modify('-7 days'); // newest review date = today - 7 days
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     $cutoff  = DateTime::createFromFormat('j.n.Y', $cutoff_date_string, $tz) ?: new DateTime('20.6.2025', $tz);
     if ($cutoff > $today) $cutoff = clone $today;
 
@@ -1902,34 +1499,20 @@ $auto_reviews_ship = assign_unique_avatars_first_n($auto_reviews_ship, $avatar_p
     <div class="reviews-tabs" style="display:flex;gap:18px;border-bottom:1px solid #cbc8c8;margin-bottom:18px;">
       <button type="button" class="reviews-tab is-active" data-tab="product"
         style="appearance:none;background:#00000008;border:1px solid #cbc8c8;border-bottom:0;padding:8px 14px;border-radius:0;font-weight:700;">
-<<<<<<< HEAD
-        <?php echo esc_html__('Recensioni prodotto', 'your-textdomain'); ?> (692)
-      </button>
-      <button type="button" class="reviews-tab" data-tab="shipping"
-        style="appearance:none;background:transparent;border:1px solid transparent;border-bottom:0;padding:8px 14px;border-radius:0;font-weight:700;">
-        <?php echo esc_html__('Recensioni spedizione', 'your-textdomain'); ?> (389)
-=======
         <?php echo esc_html__('Κριτικές προϊόντος', 'your-textdomain'); ?> (692)
       </button>
       <button type="button" class="reviews-tab" data-tab="shipping"
         style="appearance:none;background:transparent;border:1px solid transparent;border-bottom:0;padding:8px 14px;border-radius:0;font-weight:700;">
         <?php echo esc_html__('Κριτικές παράδοσης', 'your-textdomain'); ?> (389)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       </button>
     </div>
 
     <!-- PRODUCT GRID (default visible) -->
     <div class="reviews-grid" id="reviews-grid-product">
       <?php if (!empty($initial_product)) : foreach ($initial_product as $review) :
-<<<<<<< HEAD
-        $name  = $review['name'] ?? 'Anonimo';
-        $text  = $review['text'] ?? '';
-        $title = !empty($review['product_title']) ? $review['product_title'] : 'Una Maglietta Grigia';
-=======
         $name  = $review['name'] ?? 'Ανώνυμος';
         $text  = $review['text'] ?? '';
         $title = !empty($review['product_title']) ? $review['product_title'] : 'Jedna Siva Majica';
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $url   = !empty($review['product_url'])   ? $review['product_url']   : '#';
         $stars = '★★★★★';
         $date_display = $review['assigned_date'] ?? '';
@@ -1952,11 +1535,7 @@ $auto_reviews_ship = assign_unique_avatars_first_n($auto_reviews_ship, $avatar_p
               <div class="avatar">👤</div>
             <?php endif; ?>
             <div class="name"><?php echo esc_html($name); ?></div>
-<<<<<<< HEAD
-            <span class="verified"><?php _e('Verificato','your-textdomain'); ?></span>
-=======
             <span class="verified"><?php _e('Επιβεβαιωμένο','your-textdomain'); ?></span>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
           </div>
           <div class="content"><?php echo esc_html($text); ?></div>
         </article>
@@ -1966,15 +1545,9 @@ $auto_reviews_ship = assign_unique_avatars_first_n($auto_reviews_ship, $avatar_p
     <!-- SHIPPING GRID (hidden initially) -->
     <div class="reviews-grid" id="reviews-grid-shipping" style="display:none;">
       <?php if (!empty($initial_ship)) : foreach ($initial_ship as $review) :
-<<<<<<< HEAD
-        $name  = $review['name'] ?? 'Anonimo';
-        $text  = $review['text'] ?? '';
-        $title = !empty($review['product_title']) ? $review['product_title'] : 'Una Maglietta Grigia';
-=======
         $name  = $review['name'] ?? 'Ανώνυμος';
         $text  = $review['text'] ?? '';
         $title = !empty($review['product_title']) ? $review['product_title'] : 'Jedna Siva Majica';
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $url   = !empty($review['product_url'])   ? $review['product_url']   : '#';
         $stars = '★★★★★';
         $date_display = $review['assigned_date'] ?? '';
@@ -1999,11 +1572,7 @@ $auto_reviews_ship = assign_unique_avatars_first_n($auto_reviews_ship, $avatar_p
               <div class="avatar">👤</div>
             <?php endif; ?>
             <div class="name"><?php echo esc_html($name); ?></div>
-<<<<<<< HEAD
-            <span class="verified"><?php _e('Verificato','your-textdomain'); ?></span>
-=======
             <span class="verified"><?php _e('Επιβεβαιωμένο','your-textdomain'); ?></span>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
           </div>
           <?php if (!empty($review['headline'])) : ?>
             <div class="headline"><?php echo esc_html($review['headline']); ?></div>
@@ -2020,11 +1589,7 @@ $auto_reviews_ship = assign_unique_avatars_first_n($auto_reviews_ship, $avatar_p
     <div class="cta-button" style="background:transparent;padding:0;justify-content:left;">
       <a class="cta-button2 button button--xl"
          style="margin:0 auto;text-align:left;background:black;font-family:'Roboto',sans-serif;color:#fff;text-transform:none;font-size:15px;padding:10px 25px;"
-<<<<<<< HEAD
-         href="#">Carica altro</a>
-=======
          href="#">Načíst více</a>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     </div>
     <div id="reviews-loading" style="display:none;text-align:center;padding:15px;">
       <div class="loader"></div>
@@ -2086,13 +1651,8 @@ $auto_reviews_ship = assign_unique_avatars_first_n($auto_reviews_ship, $avatar_p
         article.className = 'review-card is-new';
 
         const url       = review.product_url   || '#';
-<<<<<<< HEAD
-        const title     = review.product_title || 'Una Maglietta Grigia';
-        const name      = review.name          || 'Anonimo';
-=======
         const title     = review.product_title || 'Jedna Siva Majica';
         const name      = review.name          || 'Ανώνυμος';
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         const text      = review.text          || '';
         const headline  = review.headline      || '';
         const date      = review.assigned_date || '';
@@ -2107,11 +1667,7 @@ $auto_reviews_ship = assign_unique_avatars_first_n($auto_reviews_ship, $avatar_p
           <div class="identity">
             ${avatarHtml(avatarUrl)}
             <div class="name">${esc(name)}</div>
-<<<<<<< HEAD
-            <span class="verified"><?php _e('Verificato','your-textdomain'); ?></span>
-=======
             <span class="verified"><?php _e('Επιβεβαιωμένο','your-textdomain'); ?></span>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
           </div>
           ${headline ? `<div class="headline">${esc(headline)}</div>` : ''}
           <div class="content">${esc(text)}</div>
@@ -2358,11 +1914,7 @@ $faq_list3 = get_field('faq_list_3', 'option');
 
 
 <section class="faq-section">
-<<<<<<< HEAD
-  <h2>Domande Frequenti (FAQ)</h2>
-=======
   <h2>Συχνές ερωτήσεις</h2>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 
    <!-- first faq container -->
