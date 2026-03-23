@@ -203,7 +203,7 @@ function noriks_upsell_modal_markup() {
         /* Side cart button overrides */
         .xoo-wsc-footer { padding-top:0 !important; padding-bottom:30px !important; }
         .xoo-wsc-ft-buttons-cont { display:flex !important; flex-direction:column !important; gap:8px !important; }
-        .xoo-wsc-ft-buttons-cont a.xoo-wsc-ft-btn-checkout { order:-1 !important; border-radius:4px !important; padding-top:22px !important; padding-bottom:22px !important; margin-top:0 !important; font-size:20px !important; }
+        .xoo-wsc-ft-buttons-cont a.xoo-wsc-ft-btn-checkout { order:-1 !important; background:#c00 !important; color:#fff !important; border:none !important; border-radius:4px !important; padding-top:22px !important; padding-bottom:22px !important; margin-top:0 !important; font-size:20px !important; font-weight:700 !important; }
         .xoo-wsc-ft-buttons-cont { margin-top:0 !important; padding-top:0 !important; }
         .xoo-wsc-ft-buttons-cont a.xoo-wsc-ft-btn-continue { background:#fff !important; color:#000 !important; border:1px solid #000 !important; border-radius:4px !important; padding-top:8px !important; padding-bottom:8px !important; font-size:75% !important; }
         .xoo-wsc-ft-buttons-cont a.xoo-wsc-ft-btn-continue:hover { background:#f5f5f5 !important; }
