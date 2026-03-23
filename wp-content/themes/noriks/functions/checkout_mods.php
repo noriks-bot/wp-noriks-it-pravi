@@ -13,70 +13,53 @@ add_action( 'wp_enqueue_scripts', function() {
 
     // Remove ALL registered styles except admin-bar
     global $wp_styles;
-    if ( ! empty( $wp_styles->registered ) ) {
-        foreach ( array_keys( $wp_styles->registered ) as $handle ) {
-            if ( $handle !== 'admin-bar' && $handle !== 'dashicons' ) {
-                wp_deregister_style( $handle );
-            }
-        }
-    }
+    // Styles — keep ALL (vigoshop CDN + WC + Stripe all needed)
 
-    // Remove ALL registered scripts except essential WC ones
-    global $wp_scripts;
-    $keep_scripts = array(
-        'jquery', 'jquery-core', 'jquery-migrate',
-        'wc-checkout', 'woocommerce', 'wc-country-select', 'wc-address-i18n',
-        'selectWoo', 'wc-jquery-blockui', 'wc-js-cookie',
-        'wp-hooks', 'wp-i18n',
-    );
-    if ( ! empty( $wp_scripts->registered ) ) {
-        foreach ( array_keys( $wp_scripts->registered ) as $handle ) {
-            if ( ! in_array( $handle, $keep_scripts, true ) ) {
-                wp_deregister_script( $handle );
-            }
-        }
-    }
+    // Scripts — keep ALL (payment gateways need their JS to render fields)
 
-    // Vigoshop CDN CSS — exact same files + order as /test-checkout/
+    // Vigoshop CSS — LOCAL copies (no CDN dependency)
+    $vendor = '/css/vendor/';
     $css = array(
-        'vigo-select2'           => 'https://vigoshop.hr/app/plugins/woocommerce/assets/css/select2.css',
-        'vigo-brands'            => 'https://vigoshop.hr/app/plugins/woocommerce/assets/css/brands.css',
-        'vigo-child'             => 'https://vigoshop.hr/app/themes/hsplus-child/style.css',
-        'vigo-app'               => 'https://vigoshop.hr/app/themes/hsplus/dist/app-bb7116ca22.css',
-        'vigo-swiper'            => 'https://vigoshop.hr/app/themes/hsplus/assets/plugins/swiper/swiper.min.css',
-        'vigo-brand'             => 'https://vigoshop.hr/app/themes/hsplus/dist/vigoshop-2809b8fc43.css',
-        'vigo-agent-kc'          => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/agent-kc/css/agent-kc-d24968c5d8.css',
-        'vigo-cart-warranty'     => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/cart-warranty/css/cart-warranty-294993db14.css',
-        'vigo-checkout-triggers' => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/checkout-extra-triggers/css/checkout-extra-triggers-8a82c39c7f.css',
-        'vigo-checkout-general'  => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/checkout-validation/css/custom-checkout-general-3ba2df51f0.css',
-        'vigo-checkout-hr'       => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/checkout-validation/css/custom-checkout-hr-708bf051cd.css',
-        'vigo-payment-notice'    => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/custom-payment-notice/css/custom-payment-notice-0baf6bff40.css',
-        'vigo-header'            => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/header/css/header-f98b75e0d2.css',
-        'vigo-shop-elements'     => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/homepage-shop-elements/css/general-shop-elements-a82fb8d5a2.css',
-        'vigo-payment-fixes'     => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/payment-methods-fixes/css/payment-methods-fixes-75bc076f0b.css',
-        'vigo-checkout-review'   => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/checkout-order-review/css/checkout-order-review-17423b66f5.css',
-        'vigo-checkout-upsell'   => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/checkout-upsell/css/checkout-upsell-49a595b20c.css',
-        'vigo-shipping'          => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/shipping-method/css/shipping-method-14ad2b0a1f.css',
-        'vigo-parcel'            => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/parcel-pickup/css/parcel-pickup-hr-8754cf5c08.css',
-        'vigo-parcel-buttons'    => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/parcel-pickup/css/extra-shipping-method-buttons-093d5c786e.css',
-        'vigo-pdf'               => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/pdf-products/css/pdf-products-2009e19a3b.css',
-        'vigo-pdf-special'       => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/pdf-products/css/pdf-special-offer-545e3ee266.css',
-        'vigo-terms'             => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/terms-and-conditions-link/css/terms-and-conditions-link-4d809e8b6d.css',
-        'vigo-email-checkbox'    => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/email-checkbox-subscription/css/email-checkbox-subscription-1def327263.css',
-        'vigo-free-shipping'     => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/free-shipping-above-quantity/css/free-shipping-above-quantity-02588a20ff.css',
-        'vigo-loader'            => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/loader/css/loader-c25fc35077.css',
-        'vigo-check-client'      => 'https://vigoshop.hr/app/plugins/core/resources/dist/css/check-client/css/check-client-8571deb0ef.css',
+        'vigo-select2'           => $vendor . 'select2.css',
+        'vigo-brands'            => $vendor . 'brands.css',
+        'vigo-child'             => $vendor . 'style.css',
+        'vigo-app'               => $vendor . 'app-bb7116ca22.css',
+        'vigo-swiper'            => $vendor . 'swiper.min.css',
+        'vigo-brand'             => $vendor . 'vigoshop-2809b8fc43.css',
+        'vigo-agent-kc'          => $vendor . 'agent-kc-d24968c5d8.css',
+        'vigo-cart-warranty'     => $vendor . 'cart-warranty-294993db14.css',
+        'vigo-checkout-triggers' => $vendor . 'checkout-extra-triggers-8a82c39c7f.css',
+        'vigo-checkout-general'  => $vendor . 'custom-checkout-general-3ba2df51f0.css',
+        'vigo-checkout-hr'       => $vendor . 'custom-checkout-hr-708bf051cd.css',
+        'vigo-payment-notice'    => $vendor . 'custom-payment-notice-0baf6bff40.css',
+        'vigo-header'            => $vendor . 'header-f98b75e0d2.css',
+        'vigo-shop-elements'     => $vendor . 'general-shop-elements-a82fb8d5a2.css',
+        'vigo-payment-fixes'     => $vendor . 'payment-methods-fixes-75bc076f0b.css',
+        'vigo-checkout-review'   => $vendor . 'checkout-order-review-17423b66f5.css',
+        'vigo-checkout-upsell'   => $vendor . 'checkout-upsell-49a595b20c.css',
+        'vigo-shipping'          => $vendor . 'shipping-method-14ad2b0a1f.css',
+        'vigo-parcel'            => $vendor . 'parcel-pickup-hr-8754cf5c08.css',
+        'vigo-parcel-buttons'    => $vendor . 'extra-shipping-method-buttons-093d5c786e.css',
+        'vigo-pdf'               => $vendor . 'pdf-products-2009e19a3b.css',
+        'vigo-pdf-special'       => $vendor . 'pdf-special-offer-545e3ee266.css',
+        'vigo-terms'             => $vendor . 'terms-and-conditions-link-4d809e8b6d.css',
+        'vigo-email-checkbox'    => $vendor . 'email-checkbox-subscription-1def327263.css',
+        'vigo-free-shipping'     => $vendor . 'free-shipping-above-quantity-02588a20ff.css',
+        'vigo-loader'            => $vendor . 'loader-c25fc35077.css',
+        'vigo-check-client'      => $vendor . 'check-client-8571deb0ef.css',
     );
 
+    $uri = get_template_directory_uri();
+    $dir = get_template_directory();
     $prev = array();
-    foreach ( $css as $handle => $url ) {
-        wp_enqueue_style( $handle, $url, $prev, null );
+    foreach ( $css as $handle => $path ) {
+        $file = $dir . $path;
+        $ver = file_exists( $file ) ? filemtime( $file ) : '1';
+        wp_enqueue_style( $handle, $uri . $path, $prev, $ver );
         $prev = array( $handle );
     }
 
     // Our checkout override CSS — LAST
-    $dir = get_template_directory();
-    $uri = get_template_directory_uri();
     $file = $dir . '/css/checkout.css';
     wp_enqueue_style( 'noriks-checkout', $uri . '/css/checkout.css', $prev, file_exists($file) ? md5_file($file) : '1' );
 
@@ -110,110 +93,7 @@ add_action( 'wp_footer', function() {
     if ( ! is_checkout() ) return;
     ?>
     <style id="noriks-checkout-overrides">
-    /* ===== PAYMENT: duplicate #payment vigoshop styles for #noriks-payment ===== */
-    /* Payment title — vigoshop CDN hides it, force show */
-    body.woocommerce-checkout h3.payment-title {
-      display: block !important;
-      font-size: 19.6px !important;
-      font-weight: 700 !important;
-      margin: 29.4px 0 14.7px !important;
-      color: #333 !important;
-    }
-    /* Payment methods list */
-    #noriks-payment .wc_payment_methods {
-      list-style: none !important;
-      padding: 0 !important;
-      margin: 0 0 21px !important;
-    }
-    /* Payment method items */
-    #noriks-payment .wc_payment_method {
-      list-style: none !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      border: 1px solid #d1dbe5 !important;
-      border-radius: 5px 5px 0 0 !important;
-    }
-    #noriks-payment .wc_payment_method + .wc_payment_method {
-      border-radius: 0 !important;
-      border-top: none !important;
-    }
-    #noriks-payment .wc_payment_method:last-child {
-      border-radius: 0 0 5px 5px !important;
-      border-bottom: 1px solid #d1dbe5 !important;
-    }
-    /* Selected payment = blue bg */
-    #noriks-payment .wc_payment_method:has(input:checked) {
-      background: #e8f3ff !important;
-    }
-    /* Radio inputs hidden (vigoshop uses label as the clickable area) */
-    #noriks-payment .wc_payment_method .input-radio {
-      display: none !important;
-    }
-    /* Payment labels — exact vigoshop computed styles */
-    #noriks-payment .wc_payment_method label {
-      display: flex !important;
-      align-items: center !important;
-      padding: 22.65px 16px !important;
-      margin: 0 !important;
-      font-size: 16px !important;
-      font-weight: 500 !important;
-      color: #333 !important;
-      line-height: 24px !important;
-      cursor: pointer !important;
-    }
-    #noriks-payment .wc_payment_method:has(input:checked) label {
-      font-weight: 700 !important;
-    }
-    /* Fee badges */
-    #noriks-payment .payment-fee-free {
-      display: block !important;
-      padding: 3px 10px !important;
-      margin: 2px 0 2px 8px !important;
-      border-radius: 5px !important;
-      background: #9ce79c !important;
-      color: #228b22 !important;
-      font-size: 14px !important;
-      font-weight: 500 !important;
-      text-align: center !important;
-      line-height: 21px !important;
-    }
-    #noriks-payment .payment-fee-not-free {
-      display: block !important;
-      padding: 3px 10px !important;
-      margin: 2px 0 2px 8px !important;
-      border-radius: 5px !important;
-      background: #e3e6e8 !important;
-      color: #5f6061 !important;
-      font-size: 14px !important;
-      font-weight: 500 !important;
-      text-align: center !important;
-      line-height: 21px !important;
-    }
-    /* Card icons */
-    #noriks-payment .sv-wc-payment-gateway-card-icons {
-      display: flex !important;
-      align-items: center !important;
-      margin-left: auto !important;
-      gap: 4px !important;
-    }
-    #noriks-payment .sv-wc-payment-gateway-icon {
-      width: 40px !important;
-      height: 25px !important;
-    }
-    /* COD icon */
-    #noriks-payment .hs-checkout__payment-method-cod-icon-container {
-      display: flex !important;
-      align-items: center !important;
-      margin-left: auto !important;
-    }
-    #noriks-payment .hs-checkout__payment-method-cod-icon {
-      height: 30px !important;
-    }
-    /* PayPal icon */
-    #noriks-payment .payment_method_braintree_paypal label img {
-      margin-left: auto !important;
-      height: 22px !important;
-    }
+    /* Payment methods — native WC rendering, no overrides */
 
     /* ===== ORDER SUMMARY ===== */
     .vigo-checkout-total .review-section-container {
@@ -435,10 +315,21 @@ add_action( 'wp_footer', function() {
     <script id="noriks-checkout-validation">
     jQuery(function($){
       var messages = {
-        required: '\u2715 Obavezna informacija',
-        billing_address_2: '\u2715 Ukoliko nemate kućni broj upišite BB',
+        required: '\u2715 Informazione obbligatoria',
+        billing_address_2: '\u2715 Se non hai un numero civico, scrivi SNC',
       };
       var submitted = false; /* only validate after first submit attempt */
+      /* Set submitted=true when WC native button is clicked */
+      $('form.checkout').on('checkout_place_order', function(){ submitted = true; });
+      $(document).on('click', '#place_order', function(){
+        submitted = true;
+        $(this).css('opacity','0.6').text('Elaborazione...');
+        $('form.checkout').css({'opacity':'0.4','pointer-events':'none','transition':'opacity 0.3s'});
+      });
+      $(document.body).on('checkout_error', function(){
+        $('#place_order').css('opacity','1').text('Ordina');
+        $('form.checkout').css({'opacity':'1','pointer-events':''});
+      });
 
       function showError($row, msg) {
         $row.removeClass('noriks-valid woocommerce-validated').addClass('noriks-invalid woocommerce-invalid');
@@ -496,6 +387,10 @@ add_action( 'wp_footer', function() {
         return true;
       }
 
+      /* blockUI — let WC use it natively (needed for payment method switching) */
+
+      /* Field descriptions handled by CSS ::after — immune to WC re-renders */
+
       /* Re-validate on input/change — clears error when value becomes valid */
       $(document).on('input', '.woocommerce-checkout .form-row input', function(){
         if (submitted) validateField(this);
@@ -523,31 +418,7 @@ add_action( 'wp_footer', function() {
         });
       });
 
-      /* Remove ALL existing click handlers on submit button, then bind ours */
-      var $btn = $('#noriks_place_order');
-      $btn.off('click');
-      /* Also clone-replace to remove handlers bound before .off() could run */
-      var $newBtn = $btn.clone(false);
-      $btn.replaceWith($newBtn);
-
-      /* Validate all on submit — first time sets submitted=true */
-      $newBtn.on('click', function(e){
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        submitted = true;
-        var allValid = true;
-        $('.woocommerce-checkout .form-row.validate-required').each(function(){
-          var input = $(this).find('input, select').first();
-          if (input.length && !validateField(input[0], true)) allValid = false;
-        });
-        if (!allValid) {
-          var first = $('.noriks-invalid:first');
-          if (first.length) $('html,body').animate({scrollTop: first.offset().top - 100}, 300);
-          return false;
-        }
-        /* All valid — trigger WC checkout submit */
-        $('#place_order').trigger('click');
-      });
+      /* WC native #place_order button handles submit */
     });
     </script>
     <?php
@@ -567,7 +438,7 @@ add_filter( 'body_class', function( $classes ) {
 });
 
 /**
- * WC checkout field config — match vigoshop HR layout
+ * WC checkout field config — match vigoshop IT layout
  */
 add_filter( 'woocommerce_checkout_fields', function( $fields ) {
     // Order — match vigoshop: name → address → phone → email
@@ -594,14 +465,17 @@ add_filter( 'woocommerce_checkout_fields', function( $fields ) {
     $fields['billing']['billing_postcode']['label'] = 'CAP';
     $fields['billing']['billing_postcode']['placeholder'] = 'CAP';
     $fields['billing']['billing_city']['label'] = 'Città';
-    $fields['billing']['billing_city']['placeholder'] = 'Seleziona la città';
+    $fields['billing']['billing_city']['placeholder'] = 'Seleziona città';
     $fields['billing']['billing_phone']['label'] = 'Telefono';
-    $fields['billing']['billing_phone']['placeholder'] = 'Broj mobilnog telefona';
-    $fields['billing']['billing_phone']['description'] = '<span class="desc-left">Primjer: 0912345678</span><span class="desc-right">Za pomoć s dostavom</span>';
-    $fields['billing']['billing_email']['label'] = 'E-mail adresa';
-    $fields['billing']['billing_email']['placeholder'] = 'E-mail adresa';
-    $fields['billing']['billing_email']['description'] = 'Per la conferma dell'ordine e il tracciamento della spedizione';
-    $fields['billing']['billing_email']['required'] = false;
+    $fields['billing']['billing_phone']['placeholder'] = 'Numero di cellulare';
+    $fields['billing']['billing_phone']['required'] = true;
+    /* Description injected via JS to survive update_checkout AJAX re-renders */
+    // $fields['billing']['billing_phone']['description'] = '...';
+    $fields['billing']['billing_email']['label'] = 'Indirizzo email';
+    $fields['billing']['billing_email']['placeholder'] = 'Indirizzo email';
+    /* Description injected via JS to survive update_checkout AJAX re-renders */
+    // $fields['billing']['billing_email']['description'] = 'Per la conferma dell\'ordine e il tracciamento della spedizione';
+    $fields['billing']['billing_email']['required'] = true;
     $fields['billing']['billing_country']['default'] = 'IT';
     unset( $fields['billing']['billing_company'] );
 
@@ -628,10 +502,12 @@ add_filter( 'woocommerce_checkout_fields', function( $fields ) {
  */
 add_filter( 'woocommerce_form_field_text', function( $field, $key ) {
     if ( $key === 'billing_last_name' ) {
-        $field .= '<div class="form-row form-row-wide col-xs-12">Inserisci l'indirizzo dove sarai <b>tra le 8:00 e le 16:00</b>.</div>';
+        $field .= '<div class="form-row form-row-wide col-xs-12">Inserisci l\'indirizzo dove sarai <b>tra le 8:00 e le 16:00</b>.</div>';
     }
     return $field;
 }, 10, 2 );
+
+/* Phone description handled by CSS ::after — immune to WC AJAX */
 
 /**
  * Billing title
@@ -657,12 +533,25 @@ add_filter( 'woocommerce_available_payment_gateways', function( $gw ) {
 add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
 
 /**
- * Disable coupons on checkout entirely
+ * COD fee — add 1.99€ surcharge when Cash on Delivery is selected
  */
-add_filter( 'woocommerce_coupons_enabled', function( $enabled ) {
-    if ( is_checkout() ) return false;
-    return $enabled;
+add_action( 'woocommerce_cart_calculate_fees', function( $cart ) {
+    if ( is_admin() && ! defined( 'DOING_AJAX' ) ) return;
+
+    $chosen_gateway = WC()->session->get( 'chosen_payment_method' );
+    if ( $chosen_gateway === 'cod' ) {
+        $cart->add_fee( 'Pagamento alla consegna', 1.99, false );
+    }
 });
+
+/**
+ * Update totals when payment method changes (AJAX)
+ */
+/* Removed: was causing infinite loop with Stripe — WC review-order template handles updates natively */
+
+/**
+ * Coupons enabled on checkout (was disabled, now re-enabled)
+ */
 
 /**
  * Remove info-banner from checkout page content
@@ -673,3 +562,98 @@ add_filter( 'the_content', function( $content ) {
     }
     return $content;
 }, 999 );
+
+/**
+ * Insert order summary before submit button (inside #payment)
+ * This hook fires on every AJAX update_checkout render
+ */
+add_action('woocommerce_review_order_before_submit', function(){
+    if ( wc_coupons_enabled() ) :
+    ?>
+    <div class="noriks-coupon-wrap" style="margin:12px 0 16px;">
+        <button type="button" id="noriks-coupon-btn" style="display:inline-flex;align-items:center;gap:5px;padding:10px 12px;background:#fff;border:1px solid #ddd;border-radius:4px;font-size:13px;color:#333;cursor:pointer;font-weight:500;line-height:1;" onclick="this.style.display='none';document.getElementById('noriks-coupon-expanded').style.display='flex';">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z'%3E%3C/path%3E%3Cline x1='7' y1='7' x2='7.01' y2='7'%3E%3C/line%3E%3C/svg%3E" style="width:14px;height:14px;vertical-align:middle;" /><span style="vertical-align:middle;">Inserisci codice coupon</span>
+        </button>
+        <div id="noriks-coupon-expanded" style="display:none;gap:8px;align-items:center;">
+            <input type="text" id="noriks_coupon_code" placeholder="Codice coupon" style="flex:1;padding:10px 14px;border:1px solid #ccc;border-radius:6px;font-size:14px;" />
+            <button type="button" style="padding:10px 20px;background:#000;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;" onclick="noriksApplyCoupon()">Applica</button>
+            <button type="button" style="padding:8px 10px;background:none;border:1px solid #ddd;border-radius:6px;font-size:14px;color:#999;cursor:pointer;line-height:1;" onclick="this.parentElement.style.display='none';document.getElementById('noriks-coupon-btn').style.display='inline-flex';">✕</button>
+        </div>
+        <div id="noriks-coupon-msg" style="display:none;margin-top:8px;padding:6px 10px;border-radius:4px;font-size:12px;"></div>
+    </div>
+    <script>
+    function noriksApplyCoupon(){
+        var code=document.getElementById('noriks_coupon_code').value.trim();
+        if(!code)return;
+        var msg=document.getElementById('noriks-coupon-msg');
+        var btn=event.target;btn.textContent='...';btn.disabled=true;
+        fetch('<?php echo esc_url(wc_get_checkout_url()); ?>?wc-ajax=apply_coupon',{
+            method:'POST',
+            body:new URLSearchParams({coupon_code:code,security:'<?php echo wp_create_nonce("apply-coupon"); ?>'}),
+            headers:{'Content-Type':'application/x-www-form-urlencoded'}
+        }).then(function(r){
+            var ok=r.ok;return r.text().then(function(html){return{ok:ok,html:html};});
+        }).then(function(res){
+            msg.style.display='block';
+            var isError=!res.ok||res.html.indexOf('error')!==-1||res.html.indexOf('ne postoji')!==-1||res.html.indexOf('nije valjan')!==-1||res.html.indexOf('removed')!==-1;
+            if(isError){
+                msg.style.background='#fde8e8';msg.style.color='#c00';
+                var txt=res.html.replace(/<[^>]*>/g,'').trim();
+                msg.innerHTML='❌ '+(txt||'Coupon non valido.');
+            }else{
+                msg.style.background='#e8fde8';msg.style.color='#080';
+                msg.innerHTML='✅ Coupon applicato con successo!';
+                document.getElementById('noriks_coupon_code').value='';
+                if(window.jQuery)jQuery('body').trigger('update_checkout');
+            }
+            btn.textContent='Applica';btn.disabled=false;
+        }).catch(function(){
+            msg.style.display='block';msg.style.background='#fde8e8';msg.style.color='#c00';
+            msg.textContent='Errore. Riprova.';btn.textContent='Applica';btn.disabled=false;
+        });
+    }
+    </script>
+    <?php
+    endif;
+    echo '<h3 class="place-order-title" style="display:block;margin:15px 0 10px;">Riepilogo ordine</h3>';
+    echo '<div class="vigo-checkout-total order-total shop_table" style="margin-bottom:20px;">';
+    woocommerce_order_review();
+    echo '</div>';
+});
+
+/**
+ * Copy ALL billing fields to shipping on checkout
+ * Ensures shipping address = billing address (name, address, phone, etc.)
+ */
+add_action('woocommerce_checkout_create_order', function($order, $data){
+    $fields = array('first_name','last_name','company','address_1','address_2','city','postcode','country','state','phone');
+    foreach ($fields as $f) {
+        $getter = 'get_billing_' . $f;
+        $setter = 'set_shipping_' . $f;
+        if (method_exists($order, $getter) && method_exists($order, $setter)) {
+            $order->$setter($order->$getter());
+        }
+    }
+}, 10, 2);
+
+/**
+ * Also populate shipping fields in $_POST so WC processes them
+ */
+add_filter('woocommerce_checkout_posted_data', function($data){
+    $fields = ['first_name','last_name','company','address_1','address_2','city','postcode','country','state','phone'];
+    foreach ($fields as $f) {
+        if (!empty($data['billing_'.$f]) && empty($data['shipping_'.$f])) {
+            $data['shipping_'.$f] = $data['billing_'.$f];
+        }
+    }
+    return $data;
+});
+
+/**
+ * Validate billing_address_2 (numero civico) is required
+ */
+add_action('woocommerce_checkout_process', function(){
+    if ( empty( $_POST['billing_address_2'] ) ) {
+        wc_add_notice( 'Inserisci il numero civico.', 'error' );
+    }
+});

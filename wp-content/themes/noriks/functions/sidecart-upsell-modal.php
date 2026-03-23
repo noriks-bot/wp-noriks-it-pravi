@@ -52,7 +52,8 @@ function noriks_ajax_add_to_cart() {
         wp_send_json_error(['message' => 'No product ID']);
     }
     
-    $cart_item_key = WC()->cart->add_to_cart($product_id, $quantity, $variation_id, $variations);
+    $cart_item_data = array( '_noriks_upsell' => 'sidecart_upsell' );
+    $cart_item_key = WC()->cart->add_to_cart($product_id, $quantity, $variation_id, $variations, $cart_item_data);
     
     if ($cart_item_key) {
         // Trigger the standard WC action so side cart picks it up
@@ -74,7 +75,7 @@ function noriks_ajax_add_to_cart() {
     } else {
         // Get WC notices for error message
         $notices = wc_get_notices('error');
-        $msg = !empty($notices) ? strip_tags($notices[0]['notice'] ?? $notices[0]) : 'Greška pri dodavanju';
+        $msg = !empty($notices) ? strip_tags($notices[0]['notice'] ?? $notices[0]) : 'Errore durante l\'aggiunta';
         wc_clear_notices();
         wp_send_json_error(['message' => $msg]);
     }
@@ -137,9 +138,30 @@ function noriks_get_product_variations() {
     ]);
 }
 
+// Helper: get variation data for a product (used by suggested-products template)
+function noriks_get_product_variation_data($product_id) {
+    $product = wc_get_product($product_id);
+    if (!$product || !$product->is_type('variable')) return null;
+    $attributes = [];
+    foreach ($product->get_variation_attributes() as $attr_name => $options) {
+        $terms = [];
+        foreach ($options as $option) {
+            $term = get_term_by('slug', $option, $attr_name);
+            $terms[] = ['slug' => $option, 'name' => $term ? $term->name : ucfirst($option)];
+        }
+        $attributes[] = ['name' => $attr_name, 'taxonomy' => 'attribute_' . sanitize_title($attr_name), 'label' => wc_attribute_label($attr_name), 'options' => $terms];
+    }
+    $variations = [];
+    foreach ($product->get_available_variations() as $v) {
+        $variations[] = ['variation_id' => $v['variation_id'], 'attributes' => $v['attributes'], 'price_html' => $v['price_html'], 'is_in_stock' => $v['is_in_stock'], 'image' => $v['image']['thumb_src'] ?? ''];
+    }
+    return ['product_id' => $product_id, 'product_name' => $product->get_name(), 'product_image' => wp_get_attachment_image_url($product->get_image_id(), 'medium'), 'price_html' => $product->get_price_html(), 'attributes' => $attributes, 'variations' => $variations];
+}
+
 // Enqueue modal CSS/JS
 add_action('wp_footer', 'noriks_upsell_modal_markup');
 function noriks_upsell_modal_markup() {
+    // All variation data is on each button via data-vdata — no preload needed
     ?>
     <!-- Noriks Upsell Modal -->
     <div id="noriks-upsell-modal" class="noriks-modal-overlay" style="display:none;">
@@ -156,7 +178,7 @@ function noriks_upsell_modal_markup() {
                     </div>
                 </div>
                 <div class="noriks-modal-qty-row">
-                    <span class="noriks-attr-label">KOLIČINA</span>
+                    <span class="noriks-attr-label">QUANTITÀ</span>
                     <select id="noriks-qty-val" class="noriks-qty-select">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -172,42 +194,40 @@ function noriks_upsell_modal_markup() {
                 </div>
                 <div id="noriks-modal-attributes" class="noriks-modal-attributes"></div>
                 <div id="noriks-modal-error" class="noriks-modal-error" style="display:none;">Seleziona tutte le opzioni</div>
-                <button id="noriks-modal-add" class="noriks-modal-add-btn">DODAJ U KOŠARICU</button>
+                <button id="noriks-modal-add" class="noriks-modal-add-btn">AGGIUNGI AL CARRELLO</button>
             </div>
-            <div id="noriks-modal-loading" class="noriks-modal-loading" style="display:none;">
-                <div class="noriks-spinner"></div>
-            </div>
+
         </div>
     </div>
     <style>
+        /* Side cart button overrides */
+        .xoo-wsc-footer { padding-top:0 !important; padding-bottom:30px !important; }
+        .xoo-wsc-ft-buttons-cont { display:flex !important; flex-direction:column !important; gap:8px !important; }
+        .xoo-wsc-ft-buttons-cont a.xoo-wsc-ft-btn-checkout { order:-1 !important; border-radius:4px !important; padding-top:22px !important; padding-bottom:22px !important; margin-top:0 !important; font-size:20px !important; }
+        .xoo-wsc-ft-buttons-cont { margin-top:0 !important; padding-top:0 !important; }
+        .xoo-wsc-ft-buttons-cont a.xoo-wsc-ft-btn-continue { background:#fff !important; color:#000 !important; border:1px solid #000 !important; border-radius:4px !important; padding-top:8px !important; padding-bottom:8px !important; font-size:75% !important; }
+        .xoo-wsc-ft-buttons-cont a.xoo-wsc-ft-btn-continue:hover { background:#f5f5f5 !important; }
+
         .noriks-modal-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.35);
+            background: rgba(0,0,0,0.5);
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
             z-index: 999999;
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: noriks-fade-in 0.2s ease;
-        }
-        @keyframes noriks-fade-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
         .noriks-modal {
             background: #fff;
-            border-radius: 10px;
+            border-radius: 4px;
             max-width: 420px;
             width: 94%;
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
             box-shadow: 0 10px 40px rgba(0,0,0,0.25);
-            animation: noriks-slide-up 0.25s ease;
-        }
-        @keyframes noriks-slide-up {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
         }
         .noriks-modal-close {
             position: absolute;
@@ -253,7 +273,7 @@ function noriks_upsell_modal_markup() {
         .noriks-modal-price {
             font-size: 16px;
             font-weight: 700;
-            color: #e53935;
+            color: #e22b26;
         }
         .noriks-modal-price del { color: #999; font-weight: 400; font-size: 14px; }
         .noriks-modal-price ins { text-decoration: none; }
@@ -346,70 +366,61 @@ function noriks_upsell_modal_markup() {
         }
         .noriks-modal-add-btn.added {
             background: #2e7d32;
+            color: #fff;
         }
         .noriks-modal-error {
-            color: #e53935;
+            color: #e22b26;
             font-size: 13px;
             margin-bottom: 10px;
             text-align: center;
         }
-        .noriks-modal-loading {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255,255,255,0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-        }
-        .noriks-spinner {
-            width: 36px; height: 36px;
-            border: 3px solid #eee;
-            border-top-color: #222;
-            border-radius: 50%;
-            animation: noriks-spin 0.6s linear infinite;
-        }
-        @keyframes noriks-spin {
-            to { transform: rotate(360deg); }
-        }
+
     </style>
     <script>
     (function($) {
         var modalData = {};
         var selectedAttrs = {};
+        // Variation data pre-loaded server-side — ZERO network requests
+        var variationCache = {};
 
-        // Open modal
+        // Open modal — read embedded data from button if available
         $(document).on('click', '.noriks-upsell-btn', function(e) {
             e.preventDefault();
             e.stopPropagation();
             var productId = $(this).data('product_id');
+            var vdata = $(this).data('vdata');
+            if (vdata && typeof vdata === 'object') {
+                variationCache[productId] = vdata;
+                variationCache[String(productId)] = vdata;
+            }
             openUpsellModal(productId);
         });
 
         function openUpsellModal(productId) {
             var $modal = $('#noriks-upsell-modal');
-            var $loading = $('#noriks-modal-loading');
-            
             selectedAttrs = {};
-            $modal.show();
-            $loading.show();
             $('#noriks-modal-error').hide();
             $('#noriks-qty-val').val(1);
 
+            // Try both string and number keys
+            var cached = variationCache[productId] || variationCache[String(productId)] || variationCache[Number(productId)];
+            if (cached) {
+                modalData = cached;
+                renderModal();
+                $modal.show();
+                return;
+            }
+
+            // Fallback: fetch THEN show (never show empty modal)
             $.post(woocommerce_params.ajax_url, {
                 action: 'get_product_variations',
                 product_id: productId
             }, function(res) {
-                $loading.hide();
-                if (!res.success) {
-                    $modal.hide();
-                    return;
-                }
+                if (!res.success) return;
                 modalData = res.data;
-                console.log('=== MODAL DATA ===');
-                console.log('Attributes:', JSON.stringify(modalData.attributes));
-                console.log('First variation:', JSON.stringify(modalData.variations[0]));
+                variationCache[productId] = res.data;
                 renderModal();
+                $modal.show();
             });
         }
 
@@ -436,7 +447,7 @@ function noriks_upsell_modal_markup() {
                 $attrs.append($group);
             });
 
-            $('#noriks-modal-add').text('DODAJ U KOŠARICU').removeClass('adding added');
+            $('#noriks-modal-add').text('AGGIUNGI AL CARRELLO').removeClass('adding added');
 
             // Auto-select first option for each attribute
             setTimeout(function() {
@@ -525,20 +536,17 @@ function noriks_upsell_modal_markup() {
             }
 
             var variation = findVariation();
-            console.log('Selected attrs:', JSON.stringify(selectedAttrs));
-            console.log('Variations:', JSON.stringify(modalData.variations.map(function(v){return v.attributes})));
-            console.log('Match:', variation);
             if (!variation) {
-                $('#noriks-modal-error').text('Ova kombinacija nije dostupna').show();
+                $('#noriks-modal-error').text('Questa combinazione non è disponibile').show();
                 return;
             }
 
             if (!variation.is_in_stock) {
-                $('#noriks-modal-error').text('Nema na zalihi').show();
+                $('#noriks-modal-error').text('Non disponibile').show();
                 return;
             }
 
-            $btn.addClass('adding').text('DODAJEM...');
+            $btn.addClass('adding').text('AGGIUNGO...');
 
             var qty = parseInt($('#noriks-qty-val').val()) || 1;
             var data = {
@@ -553,13 +561,11 @@ function noriks_upsell_modal_markup() {
                 data[key] = variation.attributes[key];
             }
 
-            console.log('=== ADD TO CART DATA ===', JSON.stringify(data));
 
             $.post(woocommerce_params.ajax_url, data, function(res) {
-                console.log('=== ADD TO CART RESPONSE ===', JSON.stringify(res));
                 
                 if (res.success !== false && res.fragments) {
-                    $btn.removeClass('adding').addClass('added').text('✓ DODANO!');
+                    $btn.removeClass('adding').addClass('added').text('✓ AGGIUNTO!');
                     
                     // Apply fragments to update side cart
                     $.each(res.fragments, function(key, value) {
@@ -572,19 +578,18 @@ function noriks_upsell_modal_markup() {
                         closeModal();
                     }, 800);
                 } else if (res.success === false) {
-                    $btn.removeClass('adding').text('DODAJ U KOŠARICU');
-                    var msg = (res.data && res.data.message) ? res.data.message : 'Greška pri dodavanju';
+                    $btn.removeClass('adding').text('AGGIUNGI AL CARRELLO');
+                    var msg = (res.data && res.data.message) ? res.data.message : 'Errore durante l\'aggiunta';
                     $('#noriks-modal-error').text(msg).show();
                 } else {
                     // Fallback: no fragments but no error either — refresh
-                    $btn.removeClass('adding').addClass('added').text('✓ DODANO!');
+                    $btn.removeClass('adding').addClass('added').text('✓ AGGIUNTO!');
                     $(document.body).trigger('wc_fragment_refresh');
                     setTimeout(closeModal, 800);
                 }
             }).fail(function(xhr) {
-                console.error('Add to cart failed:', xhr.responseText);
-                $btn.removeClass('adding').text('DODAJ U KOŠARICU');
-                $('#noriks-modal-error').text('Greška pri dodavanju').show();
+                $btn.removeClass('adding').text('AGGIUNGI AL CARRELLO');
+                $('#noriks-modal-error').text('Errore durante l\'aggiunta').show();
             });
         });
 
@@ -607,3 +612,12 @@ function noriks_upsell_modal_markup() {
     </script>
     <?php
 }
+
+/**
+ * Transfer sidecart upsell meta from cart item to order item
+ */
+add_action( 'woocommerce_checkout_create_order_line_item', function( $item, $cart_item_key, $values, $order ) {
+    if ( ! empty( $values['_noriks_upsell'] ) ) {
+        $item->add_meta_data( '_noriks_upsell', sanitize_text_field( $values['_noriks_upsell'] ), true );
+    }
+}, 10, 4 );
