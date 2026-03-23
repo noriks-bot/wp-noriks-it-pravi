@@ -832,7 +832,7 @@ body.woocommerce-order-received .woocommerce {
                     // Update item count in header by ID
                     var headerSpan = document.getElementById('ty-order-items-header');
                     if (headerSpan) {
-                        headerSpan.textContent = 'Articoli dell'ordine (' + d.data.item_count + ')';
+                        headerSpan.textContent = "Articoli dell'ordine (" + d.data.item_count + ')';
                     }
                     // Make sure section stays open
                     var section = document.getElementById('ty-order-items-section');
@@ -916,7 +916,7 @@ body.woocommerce-order-received .woocommerce {
                 })
                 .catch(function() {
                     addBtn.disabled = false;
-                    addBtn.textContent = 'AGGIUNGI ALL'ORDINE';
+                    addBtn.textContent = "AGGIUNGI ALL'ORDINE";
                 });
         });
     }
@@ -1049,7 +1049,7 @@ function removeUpsellItem(btn) {
                             if (itemsBody) itemsBody.innerHTML = d2.data.items_html;
                             var headerSpan = document.getElementById('ty-order-items-header');
                             if (headerSpan) {
-                                headerSpan.textContent = 'Articoli dell'ordine (' + d2.data.item_count + ')';
+                                headerSpan.textContent = "Articoli dell'ordine (" + d2.data.item_count + ')';
                             }
                         }
                     });
