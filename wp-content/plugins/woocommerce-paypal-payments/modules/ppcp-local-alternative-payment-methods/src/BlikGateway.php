@@ -13,10 +13,6 @@ use WooCommerce\PayPalCommerce\ApiClient\Endpoint\Orders;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\ExperienceContextBuilder;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\PurchaseUnitFactory;
 use WooCommerce\PayPalCommerce\Button\Exception\RuntimeException;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Settings\Data\Definition\PaymentMethodsDefinition;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\WcGateway\Gateway\PayPalGateway;
 use WooCommerce\PayPalCommerce\WcGateway\Gateway\TransactionUrlProvider;
 use WooCommerce\PayPalCommerce\WcGateway\Processor\RefundProcessor;
@@ -67,7 +63,6 @@ class BlikGateway extends WC_Payment_Gateway
     {
         $this->id = self::ID;
         $this->supports = array('refunds', 'products');
-<<<<<<< HEAD
         $this->method_title = __('Blik (via PayPal)', 'woocommerce-paypal-payments');
         $this->method_description = __('A widely used mobile payment method in Poland, allowing Polish customers to pay directly via their banking apps. Transactions are processed in PLN.', 'woocommerce-paypal-payments');
         $this->title = $this->get_option('title', __('Blik', 'woocommerce-paypal-payments'));
@@ -75,13 +70,6 @@ class BlikGateway extends WC_Payment_Gateway
         $this->icon = esc_url('https://www.paypalobjects.com/images/checkout/alternative_payments/paypal_blik_color.svg');
         $this->init_form_fields();
         $this->init_settings();
-=======
-        $this->init_apm_defaults();
-        $this->icon = esc_url('https://www.paypalobjects.com/images/checkout/alternative_payments/paypal_blik_color.svg');
-        $this->init_form_fields();
-        $this->init_settings();
-        $this->init_apm_settings();
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
         $this->orders_endpoint = $orders_endpoint;
         $this->purchase_unit_factory = $purchase_unit_factory;
@@ -158,25 +146,4 @@ class BlikGateway extends WC_Payment_Gateway
         $this->view_transaction_url = $this->transaction_url_provider->get_transaction_url_base($order);
         return parent::get_transaction_url($order);
     }
-<<<<<<< HEAD
-=======
-    /**
-     * Initialize APM gateway defaults from centralized definition.
-     */
-    private function init_apm_defaults(): void
-    {
-        $defaults = PaymentMethodsDefinition::get_apm_defaults()[self::ID];
-        $this->method_title = $defaults['method_title'];
-        $this->method_description = $defaults['method_description'];
-    }
-    /**
-     * Load saved settings and override defaults.
-     */
-    private function init_apm_settings(): void
-    {
-        $defaults = PaymentMethodsDefinition::get_apm_defaults()[self::ID];
-        $this->title = $this->get_option('title', $defaults['title']);
-        $this->description = $this->get_option('description', $defaults['description']);
-    }
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 }

@@ -84,11 +84,8 @@ class Guest {
 		// @reference https://wordpress.org/support/topic/soft-404-from-google-search-on-litespeed-cache-guest-vary-php/#post-16838583
 		header( 'X-Robots-Tag: noindex' );
 		header( 'X-LiteSpeed-Cache-Control: no-cache' );
-<<<<<<< HEAD
-=======
 		header( 'Cache-Control: no-store, no-cache, must-revalidate, max-age=0' );
 		header( 'Pragma: no-cache' );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 		if ( $this->always_guest() ) {
 			echo '[]';

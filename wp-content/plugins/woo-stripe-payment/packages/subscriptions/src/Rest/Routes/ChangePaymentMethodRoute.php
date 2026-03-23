@@ -2,9 +2,6 @@
 
 namespace PaymentPlugins\Stripe\WooCommerceSubscriptions\Rest\Routes;
 
-/**
- * @package PaymentPlugins\WooCommerceSubscriptions\Stripe
- */
 class ChangePaymentMethodRoute extends \WC_Stripe_Rest_Controller {
 
 	protected $namespace = 'subscriptions';

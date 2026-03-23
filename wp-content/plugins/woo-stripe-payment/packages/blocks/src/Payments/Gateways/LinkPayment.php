@@ -32,7 +32,7 @@ class LinkPayment extends AbstractStripePayment {
 	}
 
 	public function is_active() {
-		return \wc_string_to_bool( $this->get_setting( 'enabled', 'no' ) );
+		return $this->link->is_active();
 	}
 
 	public function add_stripe_params( $data ) {
@@ -45,11 +45,9 @@ class LinkPayment extends AbstractStripePayment {
 
 	public function get_payment_method_data() {
 		return [
-			'name'                   => $this->get_name(),
-			'gatewayId'              => $this->get_name(),
+			'name'                   => $this->name,
 			'features'               => $this->get_supported_features(),
 			'button'                 => [
-				'radius' => $this->get_setting( 'button_radius', 4 ) . 'px',
 				'height' => (int) $this->get_setting( 'button_height', 40 )
 			],
 			/*'launchLink'             => $this->link->is_autoload_enabled(),
@@ -86,6 +84,20 @@ class LinkPayment extends AbstractStripePayment {
 
 	public function set_payment_intent_controller( PaymentIntent $controller ) {
 		$this->payment_intent_ctrl = $controller;
+	}
+
+	public function get_endpoint_data() {
+		$data = new EndpointData();
+		$data->set_namespace( $this->get_name() );
+		$data->set_endpoint( CartSchema::IDENTIFIER );
+		$data->set_schema_type( ARRAY_A );
+		$data->set_data_callback( function () {
+			return [
+				'lineItems' => $this->payment_method->get_display_items_for_cart( WC()->cart ),
+			];
+		} );
+
+		return $data;
 	}
 
 }

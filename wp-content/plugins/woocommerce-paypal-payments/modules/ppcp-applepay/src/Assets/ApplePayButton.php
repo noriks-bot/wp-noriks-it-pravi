@@ -11,10 +11,6 @@ namespace WooCommerce\PayPalCommerce\Applepay\Assets;
 use Exception;
 use WooCommerce\PayPalCommerce\Vendor\Psr\Log\LoggerInterface;
 use WC_Cart;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\Button\Assets\ButtonInterface;
 use WooCommerce\PayPalCommerce\Button\Helper\CartProductsHelper;
 use WooCommerce\PayPalCommerce\WcGateway\Exception\NotFoundException;
@@ -83,16 +79,12 @@ class ApplePayButton implements ButtonInterface
      * @var string
      */
     private $version;
-<<<<<<< HEAD
     /**
      * The module URL.
      *
      * @var string
      */
     private $module_url;
-=======
-    private AssetGetter $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     /**
      * The data to send to the ApplePay button script.
      *
@@ -117,21 +109,13 @@ class ApplePayButton implements ButtonInterface
      * @param Settings                 $settings The settings.
      * @param LoggerInterface          $logger The logger.
      * @param OrderProcessor           $order_processor The Order processor.
-<<<<<<< HEAD
      * @param string                   $module_url The module URL.
-=======
-     * @param AssetGetter              $asset_getter
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @param string                   $version The module version.
      * @param DataToAppleButtonScripts $data The data to send to the ApplePay button script.
      * @param SettingsStatus           $settings_status The settings status helper.
      * @param CartProductsHelper       $cart_products The cart products helper.
      */
-<<<<<<< HEAD
     public function __construct(Settings $settings, LoggerInterface $logger, OrderProcessor $order_processor, string $module_url, string $version, \WooCommerce\PayPalCommerce\Applepay\Assets\DataToAppleButtonScripts $data, SettingsStatus $settings_status, CartProductsHelper $cart_products)
-=======
-    public function __construct(Settings $settings, LoggerInterface $logger, OrderProcessor $order_processor, AssetGetter $asset_getter, string $version, \WooCommerce\PayPalCommerce\Applepay\Assets\DataToAppleButtonScripts $data, SettingsStatus $settings_status, CartProductsHelper $cart_products)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     {
         $this->settings = $settings;
         $this->response_templates = new \WooCommerce\PayPalCommerce\Applepay\Assets\ResponsesToApple();
@@ -139,11 +123,7 @@ class ApplePayButton implements ButtonInterface
         $this->id = 'applepay';
         $this->method_title = __('Apple Pay', 'woocommerce-paypal-payments');
         $this->order_processor = $order_processor;
-<<<<<<< HEAD
         $this->module_url = $module_url;
-=======
-        $this->asset_getter = $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $this->version = $version;
         $this->script_data = $data;
         $this->settings_status = $settings_status;
@@ -329,13 +309,6 @@ class ApplePayButton implements ButtonInterface
             return;
         }
         $applepay_request_data_object->order_data($context);
-<<<<<<< HEAD
-=======
-        if ($applepay_request_data_object->has_errors()) {
-            $this->response_templates->response_with_data_errors($applepay_request_data_object->errors());
-            return;
-        }
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $this->update_posted_data($applepay_request_data_object);
         if ($context === 'product') {
             $cart_item_key = $this->prepare_cart($applepay_request_data_object);
@@ -489,11 +462,7 @@ class ApplePayButton implements ButtonInterface
                 WC()->session->set('chosen_shipping_methods', array($shipping_method_id));
             }
         }
-<<<<<<< HEAD
         $selected_shipping_method = $shipping_methods_array[0];
-=======
-        $selected_shipping_method = $shipping_methods_array[0] ?? array();
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         if ($shipping_method) {
             $selected_shipping_method = $shipping_method;
         }
@@ -533,12 +502,7 @@ class ApplePayButton implements ButtonInterface
     {
         $total = (float) $cart->get_total('edit');
         $total = round($total, 2);
-<<<<<<< HEAD
         return array('subtotal' => $cart->get_subtotal(), 'shipping' => array('amount' => $cart->needs_shipping() ? $cart->get_shipping_total() : null, 'label' => $cart->needs_shipping() ? $selected_shipping_method['label'] : null), 'shippingMethods' => $cart->needs_shipping() ? $shipping_methods_array : null, 'taxes' => $cart->get_total_tax(), 'total' => $total);
-=======
-        $discount_total = (float) $cart->get_discount_total();
-        return array('subtotal' => $cart->get_subtotal(), 'discount' => $discount_total > 0 ? array('amount' => $discount_total, 'label' => __('Discount', 'woocommerce-paypal-payments')) : null, 'shipping' => array('amount' => $cart->needs_shipping() ? $cart->get_shipping_total() : null, 'label' => $cart->needs_shipping() ? $selected_shipping_method['label'] ?? null : null), 'shippingMethods' => $cart->needs_shipping() ? $shipping_methods_array : null, 'taxes' => $cart->get_total_tax(), 'total' => $total);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
     /**
      * Calculates totals for the cart page with the given information
@@ -783,11 +747,7 @@ class ApplePayButton implements ButtonInterface
         if (!$this->is_enabled()) {
             return;
         }
-<<<<<<< HEAD
         wp_register_script('wc-ppcp-applepay', untrailingslashit($this->module_url) . '/assets/js/boot.js', array(), $this->version, \true);
-=======
-        wp_register_script('wc-ppcp-applepay', $this->asset_getter->get_asset_url('boot.js'), array(), $this->version, \true);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         wp_enqueue_script('wc-ppcp-applepay');
         $this->enqueue_styles();
         wp_localize_script('wc-ppcp-applepay', 'wc_ppcp_applepay', $this->script_data());
@@ -803,11 +763,7 @@ class ApplePayButton implements ButtonInterface
         if (!$this->is_enabled()) {
             return;
         }
-<<<<<<< HEAD
         wp_register_style('wc-ppcp-applepay', untrailingslashit($this->module_url) . '/assets/css/styles.css', array(), $this->version);
-=======
-        wp_register_style('wc-ppcp-applepay', $this->asset_getter->get_asset_url('styles.css'), array(), $this->version);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         wp_enqueue_style('wc-ppcp-applepay');
     }
     /**
@@ -815,11 +771,7 @@ class ApplePayButton implements ButtonInterface
      */
     public function enqueue_admin(): void
     {
-<<<<<<< HEAD
         wp_register_script('wc-ppcp-applepay-admin', untrailingslashit($this->module_url) . '/assets/js/boot-admin.js', array(), $this->version, \true);
-=======
-        wp_register_script('wc-ppcp-applepay-admin', $this->asset_getter->get_asset_url('boot-admin.js'), array(), $this->version, \true);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         wp_enqueue_script('wc-ppcp-applepay-admin');
         wp_localize_script('wc-ppcp-applepay-admin', 'wc_ppcp_applepay_admin', $this->script_data_for_admin());
     }
@@ -828,11 +780,7 @@ class ApplePayButton implements ButtonInterface
      */
     public function enqueue_admin_styles(): void
     {
-<<<<<<< HEAD
         wp_register_style('wc-ppcp-applepay-admin', untrailingslashit($this->module_url) . '/assets/css/styles.css', array(), $this->version);
-=======
-        wp_register_style('wc-ppcp-applepay-admin', $this->asset_getter->get_asset_url('styles.css'), array(), $this->version);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         wp_enqueue_style('wc-ppcp-applepay-admin');
     }
     /**

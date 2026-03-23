@@ -20,12 +20,9 @@ return function (string $root_dir): iterable {
     if (apply_filters('woocommerce.feature-flags.woocommerce_paypal_payments.googlepay_enabled', getenv('PCP_GOOGLEPAY_ENABLED') !== '0')) {
         $modules[] = (require "{$modules_dir}/ppcp-googlepay/module.php")();
     }
-<<<<<<< HEAD
     if (apply_filters('woocommerce.deprecated_flags.woocommerce_paypal_payments.saved_payment_checker_enabled', getenv('PCP_SAVED_PAYMENT_CHECKER_ENABLED') === '1')) {
         $modules[] = (require "{$modules_dir}/ppcp-saved-payment-checker/module.php")();
     }
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     if (apply_filters('woocommerce.feature-flags.woocommerce_paypal_payments.card_fields_enabled', getenv('PCP_CARD_FIELDS_ENABLED') !== '0')) {
         $modules[] = (require "{$modules_dir}/ppcp-card-fields/module.php")();
     }

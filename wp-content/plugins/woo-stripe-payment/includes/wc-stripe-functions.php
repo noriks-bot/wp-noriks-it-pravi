@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PaymentPlugins\Functions
- */
 
 defined( 'ABSPATH' ) || exit();
 
@@ -11,6 +8,7 @@ defined( 'ABSPATH' ) || exit();
  * @param array  $args
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  *          Wrapper for wc_get_template that returns Stripe specfic templates.
  */
 function wc_stripe_get_template( $template_name, $args = array() ) {
@@ -25,8 +23,9 @@ function wc_stripe_get_template( $template_name, $args = array() ) {
  * @param string $template_name
  * @param array  $args
  *
- * @return string
  * @since   3.0.0
+ * @return string
+ * @package Stripe/Functions
  */
 function wc_stripe_get_template_html( $template_name, $args = array() ) {
 	return wc_get_template_html( $template_name, $args, stripe_wc()->template_path(), stripe_wc()->default_template_path() );
@@ -36,6 +35,7 @@ function wc_stripe_get_template_html( $template_name, $args = array() ) {
  * Return true if WCS is active.
  *
  * @return boolean
+ * @package Stripe/Functions
  */
 function wcs_stripe_active() {
 	return function_exists( 'wcs_is_subscription' );
@@ -45,7 +45,7 @@ function wcs_stripe_active() {
  *
  * @param WC_Payment_Gateway_Stripe $gateway
  *
-
+ * @package Stripe/Functions
  */
 function wc_stripe_token_field( $gateway ) {
 	wc_stripe_hidden_field( $gateway->token_key, 'wc-stripe-token-field' );
@@ -55,7 +55,7 @@ function wc_stripe_token_field( $gateway ) {
  *
  * @param WC_Payment_Gateway_Stripe $gateway
  *
-
+ * @package Stripe/Functions
  */
 function wc_stripe_payment_intent_field( $gateway ) {
 	wc_stripe_hidden_field( $gateway->payment_intent_key, 'wc-stripe-payment-intent-field' );
@@ -67,7 +67,7 @@ function wc_stripe_payment_intent_field( $gateway ) {
  * @param string $class
  * @param string $value
  *
-
+ * @package Stripe/Functions
  */
 function wc_stripe_hidden_field( $id, $class = '', $value = '' ) {
 	printf( '<input type="hidden" class="%1$s" id="%2$s" name="%2$s" value="%3$s"/>', $class, esc_attr( $id ), esc_attr( $value ) );
@@ -77,6 +77,7 @@ function wc_stripe_hidden_field( $id, $class = '', $value = '' ) {
  * Return the mode for the plugin.
  *
  * @return string
+ * @package Stripe/Functions
  */
 function wc_stripe_mode() {
 	return apply_filters( 'wc_stripe_mode', stripe_wc()->api_settings->get_option( 'mode' ) );
@@ -93,6 +94,7 @@ function wc_stripe_test_mode() {
  * @param string $mode
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_get_secret_key( $mode = '' ) {
 	$mode = empty( $mode ) ? wc_stripe_mode() : $mode;
@@ -107,6 +109,7 @@ function wc_stripe_get_secret_key( $mode = '' ) {
  * @param string $mode
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_get_publishable_key( $mode = '' ) {
 	$mode = empty( $mode ) ? wc_stripe_mode() : $mode;
@@ -117,8 +120,9 @@ function wc_stripe_get_publishable_key( $mode = '' ) {
 /**
  * Return the merchant's Stripe account.
  *
- * @return string
  * @since   3.1.4
+ * @return string
+ * @package Stripe/Functions
  */
 function wc_stripe_get_account_id() {
 	return apply_filters( 'wc_stripe_get_account_id', stripe_wc()->api_settings->get_account_id() );
@@ -131,6 +135,7 @@ function wc_stripe_get_account_id() {
  * @param string $mode
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_get_customer_id( $user_id = '', $mode = '' ) {
 	$mode = empty( $mode ) ? wc_stripe_mode() : $mode;
@@ -157,6 +162,7 @@ function wc_stripe_get_customer_id( $user_id = '', $mode = '' ) {
  * @param int    $user_id
  * @param string $mode
  *
+ * @package Stripe/Functions
  */
 function wc_stripe_save_customer( $customer_id, $user_id, $mode = '' ) {
 	$mode = empty( $mode ) ? wc_stripe_mode() : $mode;
@@ -182,6 +188,7 @@ function wc_stripe_delete_customer( $user_id, $mode = '', $global = false ) {
  * @param WC_Payment_Token $token
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_woocommerce_payment_token_deleted( $token_id, $token ) {
 	if ( ! did_action( 'woocommerce_payment_gateways' ) ) {
@@ -202,6 +209,7 @@ function wc_stripe_woocommerce_payment_token_deleted( $token_id, $token ) {
  * @param string $message
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_log( $level, $message ) {
 	if ( stripe_wc()->api_settings->is_active( 'debug_log' ) ) {
@@ -215,6 +223,7 @@ function wc_stripe_log( $level, $message ) {
  * @param string $message
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_log_error( $message ) {
 	wc_stripe_log( WC_Log_Levels::ERROR, $message );
@@ -225,6 +234,7 @@ function wc_stripe_log_error( $message ) {
  * @param string $message
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_log_info( $message ) {
 	wc_stripe_log( WC_Log_Levels::INFO, $message );
@@ -237,6 +247,7 @@ function wc_stripe_log_info( $message ) {
  * @param WC_Order|int $order
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_order_mode( $order ) {
 	if ( ! is_object( $order ) ) {
@@ -251,14 +262,15 @@ function wc_stripe_order_mode( $order ) {
  * @param array $gateways
  *
  * @since   3.0.0
+ * @package Stripe\Functions
  */
 function wc_stripe_payment_gateways( $gateways ) {
 	return array_merge( $gateways, stripe_wc()->payment_gateways() );
 }
 
 /**
- * @return \WC_Payment_Gateway_Stripe[]
  * @since 3.3.51
+ * @return \WC_Payment_Gateway_Stripe[]
  */
 function wc_stripe_get_payment_gateways() {
 	return array_filter( WC()->payment_gateways()->payment_gateways(), function ( $gateway ) {
@@ -272,18 +284,10 @@ function wc_stripe_get_payment_gateways() {
  * @param int      $order_id
  * @param WC_Order $order
  *
+ * @package Stripe/Functions
  */
 function wc_stripe_order_cancelled( $order_id, $order ) {
-	/**
-	 * Filter to enable/disable the void of a cancelled order. This filter can be used, for example, to only
-	 * void the Stripe payment if the order is less than 30 days old.
-	 *
-	 * @param bool      $enabled
-	 * @param \WC_Order $order
-	 *
-	 * @since 3.3.94
-	 */
-	if ( apply_filters( 'wc_stripe_order_cancelled_enabled', stripe_wc()->advanced_settings->is_refund_cancel_enabled(), $order ) ) {
+	if ( stripe_wc()->advanced_settings->is_refund_cancel_enabled() ) {
 		$gateways = WC()->payment_gateways()->payment_gateways();
 		/**
 		 *
@@ -303,6 +307,7 @@ function wc_stripe_order_cancelled( $order_id, $order ) {
  * @param WC_Order $order
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_order_status_completed( $order_id, $order ) {
 	$gateways = WC()->payment_gateways()->payment_gateways();
@@ -321,10 +326,11 @@ function wc_stripe_order_status_completed( $order_id, $order ) {
 
 /**
  *
- * @param array $address
+ * @param   [] $address
  *
- * @throws Exception
  * @since   3.0.0
+ * @throws Exception
+ * @package Stripe/Functions
  */
 function wc_stripe_update_customer_location( $address ) {
 	// address validation for countries other than US is problematic when using responses from payment sources like
@@ -364,9 +370,10 @@ function wc_stripe_update_customer_location( $address ) {
 
 /**
  *
- * @param array $methods
+ * @param   [] $methods
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_update_shipping_methods( $methods ) {
 	$chosen_shipping_methods = WC()->session->get( 'chosen_shipping_methods', array() );
@@ -383,8 +390,9 @@ function wc_stripe_update_shipping_methods( $methods ) {
  *
  * @param array $packages
  *
- * @return boolean
  * @since   3.0.0
+ * @return boolean
+ * @package Stripe/Functions
  */
 function wc_stripe_shipping_address_serviceable( $packages = array() ) {
 	if ( $packages ) {
@@ -405,6 +413,7 @@ function wc_stripe_shipping_address_serviceable( $packages = array() ) {
  *
  * @since   3.0.0
  * @deprecated
+ * @package Stripe/Functions
  */
 function wc_stripe_get_display_items( $page = 'cart', $order = null ) {
 	wc_deprecated_function( 'wc_stripe_get_display_items', '3.1.0', 'WC_Payment_Gateway_Stripe::get_display_items()' );
@@ -417,9 +426,10 @@ function wc_stripe_get_display_items( $page = 'cart', $order = null ) {
  * @param WC_Order $order
  * @param array    $packages
  *
- * @return mixed
  * @since   3.0.0
+ * @return mixed
  * @deprecated
+ * @package Stripe/Functions
  */
 function wc_stripe_get_shipping_options( $order = null, $packages = array() ) {
 	$methods                 = array();
@@ -473,6 +483,7 @@ function wc_stripe_get_shipping_options( $order = null, $packages = array() ) {
 /**
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_set_checkout_error() {
 	add_action( 'woocommerce_after_template_part', 'wc_stripe_output_checkout_error' );
@@ -483,6 +494,7 @@ function wc_stripe_set_checkout_error() {
  * @param string $template_name
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_output_checkout_error( $template_name ) {
 	if ( $template_name === 'notices/error.php' && is_ajax() ) {
@@ -495,6 +507,7 @@ function wc_stripe_output_checkout_error( $template_name ) {
 /**
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_add_allowed_html( $tags, $context ) {
 	if ( $context === 'post' ) {
@@ -517,7 +530,7 @@ function wc_stripe_add_allowed_html( $tags, $context ) {
  * @param int     $post_id
  * @param WP_Post $post
  *
-
+ * @package Stripe/Functions
  */
 function wc_stripe_process_shop_subscription_meta( $post_id, $post ) {
 	$subscription = wcs_get_subscription( $post_id );
@@ -545,19 +558,14 @@ function wc_stripe_process_shop_subscription_meta( $post_id, $post ) {
  * @param WC_Payment_Gateway[] $gateways
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_available_payment_gateways( $gateways ) {
 	global $wp;
 	if ( is_add_payment_method_page() && ! isset( $wp->query_vars['payment-methods'] ) ) {
 		foreach ( $gateways as $gateway ) {
 			if ( $gateway instanceof WC_Payment_Gateway_Stripe ) {
-				if ( ! in_array( $gateway->id, array(
-					'stripe_cc',
-					'stripe_upm',
-					'stripe_sepa',
-					'stripe_ideal',
-					'stripe_ach'
-				) ) ) {
+				if ( ! in_array( $gateway->id, array( 'stripe_cc', 'stripe_upm', 'stripe_sepa', 'stripe_ideal', 'stripe_ach' ) ) ) {
 					unset( $gateways[ $gateway->id ] );
 				}
 			}
@@ -578,8 +586,9 @@ function wc_stripe_available_payment_gateways( $gateways ) {
 
 /**
  *
- * @return array
  * @since   3.0.0
+ * @return array
+ * @package Stripe/Functions
  */
 function wc_stripe_get_local_payment_params() {
 	global $wp;
@@ -603,8 +612,9 @@ function wc_stripe_get_local_payment_params() {
  *
  * @param array $gateways
  *
- * @return WC_Payment_Gateway[]
  * @since   3.0.0
+ * @return WC_Payment_Gateway[]
+ * @package Stripe/Functions
  */
 function wc_stripe_get_available_local_gateways( $gateways ) {
 	foreach ( $gateways as $gateway ) {
@@ -623,6 +633,7 @@ function wc_stripe_get_available_local_gateways( $gateways ) {
  * @param string|int $key
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_set_idempotency_key( $key ) {
 	global $wc_stripe_idempotency_key;
@@ -631,8 +642,9 @@ function wc_stripe_set_idempotency_key( $key ) {
 
 /**
  *
- * @return mixed
  * @since   3.0.0
+ * @return mixed
+ * @package Stripe/Functions
  */
 function wc_stripe_get_idempotency_key() {
 	global $wc_stripe_idempotency_key;
@@ -644,8 +656,9 @@ function wc_stripe_get_idempotency_key() {
  *
  * @param array $options
  *
- * @return array
  * @since   3.0.0
+ * @return array
+ * @package Stripe/Functions
  */
 function wc_stripe_api_options( $options ) {
 	$key = wc_stripe_get_idempotency_key();
@@ -665,6 +678,7 @@ function wc_stripe_api_options( $options ) {
  * @since   3.0.0
  * <br/><strong>3.1.7</strong> - default $order argument of null added to prevent errors when 3rd party plugins trigger
  * action woocommerce_payment_complete_order_status and don't pass three arguments.
+ * @package Stripe/Functions
  */
 function wc_stripe_payment_complete_order_status( $order_status, $order_id, $order = null ) {
 	if ( ( is_checkout() || wc_stripe_is_processing_webhook() ) && $order && $order->get_payment_method() ) {
@@ -688,8 +702,9 @@ function wc_stripe_payment_complete_order_status( $order_status, $order_id, $ord
  * @param string $currency
  * @param string $round
  *
- * @return number
  * @since   3.0.0
+ * @return number
+ * @package Stripe/Functions
  */
 function wc_stripe_add_number_precision( $value, $currency = '', $round = true ) {
 	if ( ! is_numeric( $value ) ) {
@@ -737,8 +752,9 @@ function wc_stripe_remove_number_precision( $value, $currency = '', $round = tru
 /**
  * Return an array of credit card forms.
  *
- * @return mixed
  * @since   3.0.0
+ * @return mixed
+ * @package Stripe/Functions
  */
 function wc_stripe_get_custom_forms() {
 	return apply_filters(
@@ -876,6 +892,7 @@ function wc_stripe_get_custom_forms() {
  * @param WC_Order $order
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_order_has_shipping_address( $order ) {
 	if ( method_exists( $order, 'has_shipping_address' ) ) {
@@ -888,6 +905,7 @@ function wc_stripe_order_has_shipping_address( $order ) {
 /**
  *
  * @since   3.0.0
+ * @package Stripe/Functions
  */
 function wc_stripe_display_prices_including_tax() {
 	$cart = WC()->cart;
@@ -905,6 +923,7 @@ function wc_stripe_display_prices_including_tax() {
  * Return true if the WC pre-orders plugin is active
  *
  * @since   3.0.1
+ * @package Stripe/Functions
  */
 function wc_stripe_pre_orders_active() {
 	return class_exists( 'WC_Pre_Orders' );
@@ -915,6 +934,7 @@ function wc_stripe_pre_orders_active() {
  * @param string $source_id
  *
  * @since   3.0.5
+ * @package Stripe/Functions
  */
 function wc_stripe_get_order_from_source_id( $source_id ) {
 	if ( \PaymentPlugins\Stripe\Utilities\FeaturesUtil::is_custom_order_tables_enabled() ) {
@@ -946,8 +966,9 @@ function wc_stripe_get_order_from_source_id( $source_id ) {
  *
  * @param string $transaction_id
  *
- * @return WC_Order|WC_Refund|boolean|WC_Order_Refund
  * @since   3.0.5
+ * @return WC_Order|WC_Refund|boolean|WC_Order_Refund
+ * @package Stripe/Functions
  */
 function wc_stripe_get_order_from_transaction( $transaction_id ) {
 	if ( \PaymentPlugins\Stripe\Utilities\FeaturesUtil::is_custom_order_tables_enabled() ) {
@@ -982,7 +1003,7 @@ function wc_stripe_get_order_from_transaction( $transaction_id ) {
  * @todo    Maybe empty cart silently so actions are not triggered that cause session data to be removed
  *       from 3rd party plugins.
  *
-
+ * @package Stripe/Functions
  */
 function wc_stripe_stash_cart( $cart, $product_cart = true ) {
 	$data         = WC()->session->get( 'wc_stripe_cart', array() );
@@ -1008,6 +1029,7 @@ function wc_stripe_stash_cart( $cart, $product_cart = true ) {
  * @param array   $params
  *
  * @since   3.0.6
+ * @package Stripe/Functions
  */
 function wc_stripe_stash_product_cart( $cart, $params = array() ) {
 	$data                   = WC()->session->get( 'wc_stripe_cart', array() );
@@ -1022,6 +1044,7 @@ function wc_stripe_stash_product_cart( $cart, $params = array() ) {
  * @param WC_Cart $cart
  *
  * @since   3.0.6
+ * @package Stripe/Functions
  */
 function wc_stripe_restore_cart( $cart ) {
 	$data                = WC()->session->get( 'wc_stripe_cart', array( 'cart' => array() ) );
@@ -1032,6 +1055,7 @@ function wc_stripe_restore_cart( $cart ) {
 /**
  *
  * @since   3.0.6
+ * @package Stripe/Functions
  */
 function wc_stripe_restore_cart_after_product_checkout() {
 	wc_stripe_restore_cart( WC()->cart );
@@ -1050,8 +1074,9 @@ function wc_stripe_restore_cart_after_product_checkout() {
  * @param int                $user_id
  * @param string             $gateway_id
  *
- * @return WC_Payment_Token[]
  * @since   3.1.0
+ * @return WC_Payment_Token[]
+ * @package Stripe/Functions
  */
 function wc_stripe_get_customer_payment_tokens( $tokens, $user_id, $gateway_id ) {
 	foreach ( $tokens as $idx => $token ) {
@@ -1070,8 +1095,9 @@ function wc_stripe_get_customer_payment_tokens( $tokens, $user_id, $gateway_id )
  *
  * @param array $labels
  *
- * @return string
  * @since   3.1.0
+ * @return string
+ * @package Stripe/Functions
  */
 function wc_stripe_credit_card_labels( $labels ) {
 	if ( ! isset( $labels['amex'] ) ) {
@@ -1085,6 +1111,7 @@ function wc_stripe_credit_card_labels( $labels ) {
  * Return an array of Stripe error messages.
  *
  * @since   3.1.1
+ * @package Stripe/Functions
  */
 function wc_stripe_get_error_messages() {
 	return apply_filters(
@@ -1185,8 +1212,9 @@ function wc_stripe_get_error_messages() {
  * Return an array of Stripe currencies where the value of each
  * currency is the curency multiplier.
  *
- * @return mixed
  * @since   3.1.2
+ * @return mixed
+ * @package Stripe/Functions
  */
 function wc_stripe_get_currencies() {
 	return apply_filters(
@@ -1228,6 +1256,7 @@ function wc_stripe_get_currencies() {
  * @param \Stripe\ApiResource $object
  *
  * @since   3.1.3
+ * @package Stripe/Functions
  */
 function wc_stripe_filter_order_id( $order_id, $object ) {
 	return apply_filters( 'wc_stripe_filter_order_id', $order_id, $object );
@@ -1237,7 +1266,7 @@ function wc_stripe_filter_order_id( $order_id, $object ) {
  * Removes order locks that have expired so the options table does not get cluttered with transients.
  *
  * @since    3.1.6
- * @package  PaymentPlugins\Functions
+ * @package  Stripe/Functions
  */
 function wc_stripe_remove_order_locks() {
 	global $wpdb;
@@ -1257,8 +1286,8 @@ function wc_stripe_remove_order_locks() {
 /**
  * Returns an array of checkout fields needed to complete an order.
  *
- * @return array
  * @since 3.1.8
+ * @return array
  */
 function wc_stripe_get_checkout_fields() {
 	global $wp;
@@ -1303,9 +1332,9 @@ function wc_stripe_get_checkout_fields() {
  * @param string $state
  * @param string $country
  *
+ * @since 3.2.1
  * @return string
  *
- * @since 3.2.1
  */
 function wc_stripe_filter_address_state( $state, $country ) {
 	$states = WC()->countries ? WC()->countries->get_states( $country ) : array();
@@ -1345,16 +1374,13 @@ function wc_stripe_get_current_page() {
 	if ( is_add_payment_method_page() ) {
 		return 'add_payment_method';
 	}
-	if ( is_shop() ) {
-		return 'shop';
-	}
 
 	return '';
 }
 
 /**
- * @return mixed|void
  * @since 3.3.14
+ * @return mixed|void
  */
 function wc_stripe_get_site_locale() {
 	if ( stripe_wc()->advanced_settings && stripe_wc()->advanced_settings->get_option( 'locale', 'auto' ) !== 'auto' ) {
@@ -1371,32 +1397,9 @@ function wc_stripe_get_site_locale() {
 }
 
 /**
- * @return bool
  * @since 3.3.60
+ * @return bool
  */
 function wc_stripe_is_processing_webhook() {
 	return defined( WC_Stripe_Constants::WOOCOMMERCE_STRIPE_PROCESSING_WEBHOOK );
-}
-
-/**
- * @param $handle
- *
- * @return mixed|string
- * @since 3.3.95
- */
-function wc_stripe_get_script_handle( $handle ) {
-	if ( ! defined( 'WC_VERSION' ) || version_compare( WC_VERSION, '10.3.0', '<' ) ) {
-		return $handle;
-	}
-	switch ( $handle ) {
-		case 'jquery-blockui':
-		case 'jquery-tiptip':
-		case 'jquery-payment':
-		case 'jquery-cookie':
-			$handle = 'wc-' . $handle;
-			break;
-		default:
-	}
-
-	return $handle;
 }

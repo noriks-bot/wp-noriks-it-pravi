@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<?php
-=======
 <?php 
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 /**
  * The Third Party integration with the WooCommerce plugin.
  *
@@ -82,18 +78,12 @@ class WooCommerce extends Base {
 		add_action('litespeed_control_finalize', [ $this, 'set_control' ]);
 		add_action('litespeed_tag_finalize', [ $this, 'set_tag' ]);
 
-<<<<<<< HEAD
-		// Purging a product on stock change should only occur during product purchase. This function will add the purging callback when an order is complete.
-		add_action('woocommerce_product_set_stock', [ $this, 'purge_product' ]);
-		add_action('woocommerce_variation_set_stock', [ $this, 'purge_product' ]); // #984479 Update variations stock
-=======
 		// Purge affected product caches when WooCommerce stock changes, including cancellation restocks.
 		add_action('woocommerce_product_set_stock', [ $this, 'purge_product' ]);
 		add_action('woocommerce_variation_set_stock', [ $this, 'purge_product' ]); // #984479 Update variations stock
 		add_action( 'woocommerce_product_set_stock_status', [ $this, 'purge_product_stock_status' ], 10, 3 );
 		add_action( 'woocommerce_variation_set_stock_status', [ $this, 'purge_product_stock_status' ], 10, 3 );
 		add_action( 'woocommerce_order_status_cancelled', [ $this, 'purge_cancelled_order_products' ], 20 );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 		add_action('comment_post', [ $this, 'add_review' ], 10, 3);
 
@@ -642,8 +632,6 @@ class WooCommerce extends Base {
 	}
 
 	/**
-<<<<<<< HEAD
-=======
 	 * Purge a product when WooCommerce stock status changes.
 	 *
 	 * Variation "Save changes" updates can trigger status-based hooks. Route those
@@ -706,7 +694,6 @@ class WooCommerce extends Base {
 	}
 
 	/**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * Purge a product page and related pages (based on settings) on checkout.
 	 *
 	 * @since 1.0.9
@@ -714,14 +701,6 @@ class WooCommerce extends Base {
 	 * @access public
 	 *
 	 * @param \WC_Product $product Product object.
-<<<<<<< HEAD
-	 * @return void
-	 */
-	public function purge_product( $product ) {
-		do_action( 'litespeed_debug', '[3rd] Woo Purge [pid] ' . $product->get_id() );
-
-		$do_purge = function ( $action, $debug = '' ) use ( $product ) {
-=======
 	 * @param bool        $stock_status_changed Whether this call is due to stock status transition.
 	 * @return void
 	 */
@@ -729,7 +708,6 @@ class WooCommerce extends Base {
 		do_action( 'litespeed_debug', '[3rd] Woo Purge [pid] ' . $product->get_id() );
 
 		$do_purge = function ( $action, $debug = '' ) use ( $product, $stock_status_changed ) {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			$config = apply_filters( 'litespeed_conf', self::O_UPDATE_INTERVAL );
 			if ( is_null( $config ) ) {
 				$config = self::O_PQS_CS;
@@ -740,17 +718,10 @@ class WooCommerce extends Base {
 				if ( $debug ) {
 					do_action( 'litespeed_debug', $debug );
 				}
-<<<<<<< HEAD
-			} elseif ( self::O_PQS_CS !== $config && $product->is_in_stock() ) {
-				do_action( 'litespeed_debug', '[3rd] Woo No purge needed [option] ' . $config );
-				return false;
-			} elseif ( self::O_PS_CN !== $config && ! $product->is_in_stock() ) {
-=======
 			} elseif ( ! $stock_status_changed && self::O_PQS_CS !== $config && $product->is_in_stock() ) {
 				do_action( 'litespeed_debug', '[3rd] Woo No purge needed [option] ' . $config );
 				return false;
 			} elseif ( self::O_PS_CN !== $config && ( $stock_status_changed || ! $product->is_in_stock() ) ) {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 				$action();
 				if ( $debug ) {
 					do_action( 'litespeed_debug', $debug );

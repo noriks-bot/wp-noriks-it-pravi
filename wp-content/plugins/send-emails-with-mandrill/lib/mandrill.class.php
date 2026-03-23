@@ -1,25 +1,21 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 class Mandrill_Exception extends Exception {}
 
 class Mandrill {
     const API_VERSION = '1.0';    
     const END_POINT = 'https://mandrillapp.com/api/';
     
-    public $api;
-    public $output;
+    var $api;
+    var $output;
     
     // PHP 5.0
     function __construct($api) {
-        if ( empty($api) ) throw new Mandrill_Exception(esc_html__('Invalid API key', 'send-emails-with-mandrill') );
+        if ( empty($api) ) throw new Mandrill_Exception(esc_html__('Invalid API key', 'wpmandrill') );
         try {
         
             $response = $this->request('users/ping2', array( 'key' => $api ) );        
-            if ( !isset($response['PING']) || $response['PING'] != 'PONG!' ) throw new Mandrill_Exception(esc_html__('Invalid API key', 'send-emails-with-mandrill'));
+            if ( !isset($response['PING']) || $response['PING'] != 'PONG!' ) throw new Mandrill_Exception(esc_html__('Invalid API key', 'wpmandrill'));
             
             $this->api = $api;
             
@@ -27,6 +23,9 @@ class Mandrill {
             throw new Mandrill_Exception(esc_html($e->getMessage()));
         }
     }
+    
+    // PHP 4.0
+    function Mandrill($api) { $this->__construct($api); }
     
     /**
 	 * Work horse. Every API call use this function to actually make the request to Mandrill's servers.
@@ -75,7 +74,7 @@ class Mandrill {
 				break;
 
 			default:
-				throw new Mandrill_Exception(esc_html__('Unknown request type', 'send-emails-with-mandrill'));
+				throw new Mandrill_Exception(esc_html__('Unknown request type', 'wpmandrill'));
 		}
 
 		$response_code  = $response['header']['http_code'];
@@ -90,15 +89,15 @@ class Mandrill {
 
 			case 'php':
 
-				$body = json_decode($body, true);
+				$body = unserialize($body);
 				break;
 		}		
 
 		if( 200 == $response_code ) {
 			return $body;
 		} else {
-			$code = isset($body['code']) ? esc_html($body['code']) : esc_html__('Unknown', 'send-emails-with-mandrill');
-			$message = isset($body['message']) ? esc_html($body['message']) : esc_html__('Unknown', 'send-emails-with-mandrill');
+			$code = isset($body['code']) ? esc_html($body['code']) : esc_html__('Unknown', 'wpmandrill');
+			$message = isset($body['message']) ? esc_html($body['message']) : esc_html__('Unknown', 'wpmandrill');
 
 			$response_code = esc_html($response_code);
 

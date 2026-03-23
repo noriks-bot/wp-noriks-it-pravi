@@ -3,7 +3,10 @@
 return array(
 	'desc'              => array(
 		'type'        => 'description',
-		'description' => sprintf( '<p>%s</p>', __( 'For US customers only.', 'woo-stripe-payment' ) )
+		'description' => sprintf( '<p>%s %s</p>', __( 'For US customers only.', 'woo-stripe-payment' ),
+			sprintf( __( 'Read through our %1$sdocumentation%2$s to configure ACH payments', 'woo-stripe-payment' ),
+				'<a target="_blank" href="https://docs.paymentplugins.com/wc-stripe/config/#/stripe_ach">',
+				'</a>' ) )
 	),
 	'enabled'           => array(
 		'title'       => __( 'Enabled', 'woo-stripe-payment' ),

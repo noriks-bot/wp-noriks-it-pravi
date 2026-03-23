@@ -9,10 +9,6 @@ declare (strict_types=1);
 namespace WooCommerce\PayPalCommerce\Settings\Data;
 
 use RuntimeException;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Settings\Data\Definition\FeaturesDefinition;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\Settings\Service\DataSanitizer;
 /**
  * Class SettingsModel
@@ -96,26 +92,15 @@ class SettingsModel extends \WooCommerce\PayPalCommerce\Settings\Data\AbstractDa
             // Boolean flags.
             'authorize_only' => \false,
             'capture_virtual_orders' => \false,
-<<<<<<< HEAD
             'save_paypal_and_venmo' => \false,
-=======
-            FeaturesDefinition::FEATURE_SAVE_PAYPAL_AND_VENMO => \false,
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
             'instant_payments_only' => \false,
             'enable_contact_module' => \true,
             'save_card_details' => \false,
             'enable_pay_now' => \false,
             'enable_logging' => \false,
             'stay_updated' => \true,
-<<<<<<< HEAD
             // Array of string values.
             'disabled_cards' => array(),
-=======
-            'payment_level_processing' => \true,
-            // Array of string values.
-            'disabled_cards' => array(),
-            'ships_from_postal_code' => '',
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         );
     }
     /**
@@ -262,27 +247,6 @@ class SettingsModel extends \WooCommerce\PayPalCommerce\Settings\Data\AbstractDa
         $this->data['three_d_secure'] = $this->sanitizer->sanitize_enum($setting, self::THREE_D_SECURE_OPTIONS);
     }
     /**
-<<<<<<< HEAD
-=======
-     * Gets the Ship-from ZIP code.
-     *
-     * @return string The Ship-from ZIP code.
-     */
-    public function get_ships_from_postal_code(): string
-    {
-        return !empty($this->data['ships_from_postal_code']) ? $this->data['ships_from_postal_code'] : get_option('woocommerce_store_postcode', '');
-    }
-    /**
-     * Sets the Ship-from ZIP code.
-     *
-     * @param string $zip_code The Ship-from ZIP code to set.
-     */
-    public function set_ships_from_postal_code(string $zip_code): void
-    {
-        $this->data['ships_from_postal_code'] = $this->sanitizer->sanitize_text($zip_code);
-    }
-    /**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * Gets the authorize only setting.
      *
      * @return bool True if authorize only is enabled, false otherwise.
@@ -325,11 +289,7 @@ class SettingsModel extends \WooCommerce\PayPalCommerce\Settings\Data\AbstractDa
      */
     public function get_save_paypal_and_venmo(): bool
     {
-<<<<<<< HEAD
         return $this->data['save_paypal_and_venmo'];
-=======
-        return $this->data[FeaturesDefinition::FEATURE_SAVE_PAYPAL_AND_VENMO];
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
     /**
      * Sets the save PayPal and Venmo setting.
@@ -338,11 +298,7 @@ class SettingsModel extends \WooCommerce\PayPalCommerce\Settings\Data\AbstractDa
      */
     public function set_save_paypal_and_venmo(bool $save): void
     {
-<<<<<<< HEAD
         $this->data['save_paypal_and_venmo'] = $this->sanitizer->sanitize_bool($save);
-=======
-        $this->data[FeaturesDefinition::FEATURE_SAVE_PAYPAL_AND_VENMO] = $this->sanitizer->sanitize_bool($save);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
     /**
      * Gets the instant payments only setting.
@@ -470,26 +426,4 @@ class SettingsModel extends \WooCommerce\PayPalCommerce\Settings\Data\AbstractDa
     {
         $this->data['stay_updated'] = $this->sanitizer->sanitize_bool($save);
     }
-<<<<<<< HEAD
-=======
-    /**
-     * Get payment level processing.
-     *
-     * @return bool
-     */
-    public function get_payment_level_processing(): bool
-    {
-        return (bool) $this->data['payment_level_processing'];
-    }
-    /**
-     * Set payment level processing.
-     *
-     * @param bool $save Whether to save the payment level processing.
-     * @return void
-     */
-    public function set_payment_level_processing(bool $save): void
-    {
-        $this->data['payment_level_processing'] = $this->sanitizer->sanitize_bool($save);
-    }
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 }

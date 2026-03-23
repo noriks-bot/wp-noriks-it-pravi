@@ -1,15 +1,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-<<<<<<< HEAD
-"Project-Id-Version: Loco Translate 2.8.1\n"
+"Project-Id-Version: Loco Translate 2.8.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/loco-translate/\n"
-"POT-Creation-Date: 2026-01-08 10:23+0000\n"
-=======
-"Project-Id-Version: Loco Translate 2.8.2\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/loco-translate/\n"
-"POT-Creation-Date: 2026-03-01 07:58+0000\n"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+"POT-Creation-Date: 2025-05-21 12:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -19,11 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-<<<<<<< HEAD
-"X-Loco-Version: 2.8.1; wp-6.9; php-8.3.27\n"
-=======
-"X-Loco-Version: 2.8.2; wp-6.9.1; php-8.3.27\n"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+"X-Loco-Version: 2.8.0; wp-6.8.1; php-8.4.5\n"
 "X-Domain: loco-translate"
 
 #. Author credit: (1) Product name (2) version number, (3) author name.
@@ -285,13 +275,6 @@ msgid ""
 "privacy notice</a>."
 msgstr ""
 
-<<<<<<< HEAD
-=======
-#: tpl/admin/config/settings.php:211
-msgid "Admins only"
-msgstr ""
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 #: src/admin/bundle/BaseController.php:102 tpl/admin/file/conf.php:58
 #: tpl/admin/file/move.php:26
 msgid "Advanced"
@@ -306,21 +289,17 @@ msgstr ""
 msgid "Advanced tab"
 msgstr ""
 
-#: src/mvc/AjaxRouter.php:166
+#: src/mvc/AjaxRouter.php:175
 msgid "Ajax controller returned empty JSON"
 msgstr ""
 
 #. Fatal error where %s represents an unexpected value
-#: src/mvc/AjaxRouter.php:161
+#: src/mvc/AjaxRouter.php:170
 #, php-format
 msgid "Ajax route not found: \"%s\""
 msgstr ""
 
-<<<<<<< HEAD
 #: src/admin/config/SettingsController.php:66
-=======
-#: src/admin/config/SettingsController.php:66 tpl/admin/config/settings.php:212
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 msgid "Allow"
 msgstr ""
 
@@ -328,11 +307,7 @@ msgstr ""
 msgid "Allow (with warning)"
 msgstr ""
 
-<<<<<<< HEAD
 #: tpl/admin/config/settings.php:216
-=======
-#: tpl/admin/config/settings.php:226
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 msgid "Allow full access to these roles"
 msgstr ""
 
@@ -530,7 +505,7 @@ msgid "Copy target translations from \"%s\""
 msgstr ""
 
 #. Page title for core WordPress translations
-#: src/mvc/AdminRouter.php:55
+#: src/mvc/AdminRouter.php:56
 msgid "Core translations &lsaquo; Loco"
 msgstr ""
 
@@ -559,8 +534,9 @@ msgstr ""
 msgid "Custom translations may not work without System translations installed"
 msgstr ""
 
-#: src/mvc/AdminRouter.php:76 src/error/Debug.php:19
+#: src/mvc/AdminRouter.php:77 src/error/Debug.php:19
 #: src/admin/config/DebugController.php:12
+#: src/admin/bundle/BaseController.php:107
 msgid "Debug"
 msgstr ""
 
@@ -601,20 +577,12 @@ msgstr ""
 msgid "Directory is writeable"
 msgstr ""
 
-<<<<<<< HEAD
 #: src/admin/config/SettingsController.php:68
-=======
-#: src/admin/config/SettingsController.php:68 tpl/admin/config/settings.php:210
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 msgid "Disallow"
 msgstr ""
 
 #: src/admin/file/EditController.php:132 src/admin/file/EditController.php:183
-<<<<<<< HEAD
 #: src/admin/bundle/LocaleController.php:138 tpl/admin/config/settings.php:234
-=======
-#: src/admin/bundle/LocaleController.php:138 tpl/admin/config/settings.php:244
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 #: tpl/admin/config/apis.php:167 tpl/admin/config/prefs.php:45
 #: tpl/admin/common/inc-fsconn.php:16 tpl/admin/common/inc-fsconn.php:41
 #: tpl/admin/errors/no-backups.php:22
@@ -625,11 +593,11 @@ msgstr ""
 msgid "Domain path"
 msgstr ""
 
-#: src/mvc/AjaxRouter.php:189
+#: src/mvc/AjaxRouter.php:198
 msgid "Download action not found"
 msgstr ""
 
-#: src/mvc/AjaxRouter.php:194
+#: src/mvc/AjaxRouter.php:203
 msgid "Download controller returned empty output"
 msgstr ""
 
@@ -1041,11 +1009,7 @@ msgstr ""
 msgid "Go to WordPress Core"
 msgstr ""
 
-<<<<<<< HEAD
 #: tpl/admin/config/settings.php:210
-=======
-#: tpl/admin/config/settings.php:220
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 msgid "Grant access to roles"
 msgstr ""
 
@@ -1057,7 +1021,7 @@ msgstr ""
 msgid "Help & support"
 msgstr ""
 
-#: src/mvc/AdminRouter.php:41
+#: src/mvc/AdminRouter.php:42
 msgid "Home"
 msgstr ""
 
@@ -1165,12 +1129,12 @@ msgstr ""
 msgid "Language header is \"%1$s\" but file name contains \"%2$s\""
 msgstr ""
 
-#: src/mvc/AdminRouter.php:58
+#: src/mvc/AdminRouter.php:59
 msgid "Languages"
 msgstr ""
 
 #. Page title for installed languages page
-#: src/mvc/AdminRouter.php:60
+#: src/mvc/AdminRouter.php:61
 msgid "Languages &lsaquo; Loco"
 msgstr ""
 
@@ -1222,7 +1186,7 @@ msgid ""
 msgstr ""
 
 #. Name of the plugin
-#: src/mvc/AdminRouter.php:36 src/hooks/AdminHooks.php:88
+#: src/mvc/AdminRouter.php:37 src/hooks/AdminHooks.php:88
 msgid "Loco Translate"
 msgstr ""
 
@@ -1251,7 +1215,7 @@ msgid "Loco was interrupted by output from %1$s:%2$u"
 msgstr ""
 
 #. Page title for plugin home screen
-#: src/mvc/AdminRouter.php:38
+#: src/mvc/AdminRouter.php:39
 msgid "Loco, Translation Management"
 msgstr ""
 
@@ -1449,7 +1413,7 @@ msgstr ""
 msgid "Overwrite existing translations"
 msgstr ""
 
-#: src/mvc/AdminRouter.php:240
+#: src/mvc/AdminRouter.php:243
 msgid "Page not found"
 msgstr ""
 
@@ -1489,7 +1453,7 @@ msgstr ""
 msgid "Plugin not found: %s"
 msgstr ""
 
-#: src/mvc/AdminRouter.php:65 src/admin/config/ApisController.php:69
+#: src/mvc/AdminRouter.php:66 src/admin/config/ApisController.php:69
 #: src/admin/config/PrefsController.php:42
 #: src/admin/config/VersionController.php:22
 #: src/admin/config/SettingsController.php:79 tpl/admin/help/tab-config.php:2
@@ -1497,11 +1461,11 @@ msgid "Plugin settings"
 msgstr ""
 
 #. Page title for plugin translations
-#: src/mvc/AdminRouter.php:50
+#: src/mvc/AdminRouter.php:51
 msgid "Plugin translations &lsaquo; Loco"
 msgstr ""
 
-#: src/mvc/AdminRouter.php:48 src/admin/Navigation.php:30
+#: src/mvc/AdminRouter.php:49 src/admin/Navigation.php:30
 #: src/admin/bundle/LocaleController.php:154
 msgid "Plugins"
 msgstr ""
@@ -1664,11 +1628,7 @@ msgstr ""
 msgid "Save credentials in session"
 msgstr ""
 
-<<<<<<< HEAD
 #: tpl/admin/config/settings.php:233 tpl/admin/config/apis.php:166
-=======
-#: tpl/admin/config/settings.php:243 tpl/admin/config/apis.php:166
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 #: tpl/admin/config/prefs.php:44
 msgid "Save settings"
 msgstr ""
@@ -1720,7 +1680,7 @@ msgstr ""
 msgid "Sets"
 msgstr ""
 
-#: src/mvc/AdminRouter.php:66 src/mvc/AdminRouter.php:71
+#: src/mvc/AdminRouter.php:67 src/mvc/AdminRouter.php:72
 #: tpl/ajax/modal-apis-empty.php:15 src/admin/file/EditController.php:182
 #: tpl/admin/common/inc-fsconn.php:18 tpl/admin/common/inc-fsconn.php:43
 #: tpl/admin/errors/no-backups.php:24
@@ -1755,11 +1715,7 @@ msgid ""
 msgstr ""
 
 #: tpl/admin/config/settings.php:31
-<<<<<<< HEAD
 msgid "Skip PHP files larger than:"
-=======
-msgid "Skip source files larger than:"
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 msgstr ""
 
 #: src/admin/init/InitPoController.php:223
@@ -1910,11 +1866,11 @@ msgid "the web server"
 msgstr ""
 
 #. Page title for theme translations
-#: src/mvc/AdminRouter.php:45
+#: src/mvc/AdminRouter.php:46
 msgid "Theme translations &lsaquo; Loco"
 msgstr ""
 
-#: src/mvc/AdminRouter.php:43 src/admin/Navigation.php:27
+#: src/mvc/AdminRouter.php:44 src/admin/Navigation.php:27
 #: src/admin/bundle/LocaleController.php:149
 msgid "Themes"
 msgstr ""
@@ -2194,7 +2150,7 @@ msgstr ""
 msgid "Useful links:"
 msgstr ""
 
-#: src/mvc/AdminRouter.php:70 src/admin/config/PrefsController.php:13
+#: src/mvc/AdminRouter.php:71 src/admin/config/PrefsController.php:13
 #: src/admin/config/BaseController.php:19
 msgid "User options"
 msgstr ""
@@ -2233,13 +2189,6 @@ msgstr ""
 msgid "View template"
 msgstr ""
 
-<<<<<<< HEAD
-=======
-#: tpl/admin/config/settings.php:207
-msgid "Viewing of referenced source code"
-msgstr ""
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 #: src/package/Header.php:93
 msgid "Visit official site"
 msgstr ""
@@ -2264,7 +2213,7 @@ msgstr ""
 msgid "What's this?"
 msgstr ""
 
-#: src/mvc/AdminRouter.php:53
+#: src/mvc/AdminRouter.php:54
 msgid "WordPress"
 msgstr ""
 

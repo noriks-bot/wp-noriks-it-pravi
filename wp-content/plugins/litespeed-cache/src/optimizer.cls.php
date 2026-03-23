@@ -164,8 +164,6 @@ class Optimizer extends Root {
 	}
 
 	/**
-<<<<<<< HEAD
-=======
 	 * Add font optimization to content provided.
 	 *
 	 * @param string $content Content to change
@@ -197,7 +195,6 @@ class Optimizer extends Root {
 	}
 
 	/**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * Load a single file
 	 *
 	 * @since  4.0
@@ -206,13 +203,7 @@ class Optimizer extends Root {
 		// CSS related features
 		if ($file_type == 'css') {
 			// Font optimize
-<<<<<<< HEAD
-			if ($this->_conf_css_font_display) {
-				$content = preg_replace('#(@font\-face\s*\{)#isU', '${1}font-display:swap;', $content);
-			}
-=======
 			$content = $this->optm_font_face( $content );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 			$content = preg_replace('/@charset[^;]+;\\s*/', '', $content);
 

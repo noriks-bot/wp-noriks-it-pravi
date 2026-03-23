@@ -8,7 +8,6 @@ defined( 'ABSPATH' ) || exit();
  *
  * @since 3.1.0
  * @author PaymentPlugins
- * @package PaymentPlugins\Admin
  *
  */
 class WC_Stripe_Admin_Notices {

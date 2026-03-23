@@ -25,6 +25,7 @@ if ( $feed_id ) {
         $utm_campaign                  = $feed->utm_campaign;
         $utm_enabled                   = $feed->utm_enabled;
         $utm_medium                    = $feed->utm_medium;
+        $utm_term                      = $feed->utm_term;
         $utm_content                   = $feed->utm_content;
         $total_product_orders_lookback = $feed->utm_total_product_orders_lookback;
 
@@ -40,6 +41,7 @@ if ( $feed_id ) {
     $utm_medium                    = 'cpc';
     $utm_campaign                  = $feed['projectname'] ?? '';
     $utm_enabled                   = true;
+    $utm_term                      = '';
     $utm_content                   = '';
     $total_product_orders_lookback = '';
 }
@@ -60,8 +62,8 @@ do_action( 'adt_before_product_feed_manage_page', 5, $project_hash, $feed );
         $admin_notice = new Admin_Notice(
             '<p>' . __('<strong>Google Analytics UTM codes:</strong><br/>Adding Google Analytics UTM codes is not mandatory, it will however enable you to get detailed insights into how your products are performing in Google Analytics reporting and allow you to tweak and tune your campaign making it more profitable. We strongly advise you to add the Google Analytics tracking. When enabled the plugin will append the Google Analytics UTM parameters to your landingpage URL\'s.', 'woo-product-feed-pro') . '</p>',
             'info',
-            false,
-            true
+            'html',
+            false
         );
         $admin_notice->run();
         ?>
@@ -74,7 +76,7 @@ do_action( 'adt_before_product_feed_manage_page', 5, $project_hash, $feed );
             
             <table class="woo-product-feed-pro-table">
                 <tr>
-                    <td style="width: 350px;"><span><?php esc_html_e( 'Enable Google Analytics tracking', 'woo-product-feed-pro' ); ?>: </span></td>
+                    <td><span><?php esc_html_e( 'Enable Google Analytics tracking', 'woo-product-feed-pro' ); ?>: </span></td>
                     <td>
                         <label class="woo-product-feed-pro-switch">
                             <input type="checkbox" name="utm_on" class="checkbox-field" <?php echo $utm_enabled ? 'checked' : ''; ?>>
@@ -95,6 +97,10 @@ do_action( 'adt_before_product_feed_manage_page', 5, $project_hash, $feed );
                     <td><input type="text" class="input-field" name="utm_campaign" value="<?php echo esc_attr( $utm_campaign ); ?>" /></td>
                 </tr>
                 <tr>
+                    <td><span><?php esc_html_e( 'Google Analytics campaign term (utm_term)', 'woo-product-feed-pro' ); ?>:</span></td>
+                    <td><input type="hidden" name="utm_term" value="id"><input type="text" class="input-field" value="[productId]" disabled/> <i>(<?php esc_html_e( 'dynamically added Product ID', 'woo-product-feed-pro' ); ?>)</i></td>
+                </tr>
+                <tr>
                     <td><span><?php esc_html_e( 'Google Analytics campaign content (utm_content)', 'woo-product-feed-pro' ); ?>:</span></td>
                     <td><input type="text" class="input-field" name="utm_content" value="<?php echo esc_attr( $utm_content ); ?>" /></td>
                 </tr>
@@ -102,24 +108,18 @@ do_action( 'adt_before_product_feed_manage_page', 5, $project_hash, $feed );
 
                 <tr>
                     <td colspan="2">
-                        <div class="adt-edit-feed-form-buttons adt-tw-flex adt-tw-gap-2 adt-tw-items-center">
-                        <?php if ( $edit_feed ) : ?>
-                                <input type="hidden" name="channel_hash" value="<?php echo esc_attr( $channel_hash ); ?>">
-                                <input type="hidden" name="project_update" id="project_update" value="yes">
-                                <input type="hidden" name="project_hash" value="<?php echo esc_attr( $project_hash ); ?>">
-                                <input type="hidden" name="woosea_page" value="analytics">
-                                <button type="submit" class="adt-button adt-button-sm adt-button-primary adt-tw-gap-2" id="savebutton">
-                                    <?php esc_attr_e( 'Save Changes', 'woo-product-feed-pro' ); ?>
-                                </button>
-                            <?php else : ?>
-                                <input type="hidden" name="channel_hash" value="<?php echo esc_attr( $channel_hash ); ?>">
-                                <input type="hidden" name="project_hash" value="<?php echo esc_attr( $project_hash ); ?>">
-                                <input type="hidden" name="woosea_page" value="analytics">
-                                <button type="submit" class="adt-button adt-button-sm adt-button-primary adt-tw-gap-2" id="savebutton">
-                                    <?php esc_attr_e( 'Generate Product Feed', 'woo-product-feed-pro' ); ?>
-                                </button>
-                            <?php endif; ?>
-                        </div>
+                       <?php if ( $edit_feed ) : ?>
+                            <input type="hidden" name="channel_hash" value="<?php echo esc_attr( $channel_hash ); ?>">
+                            <input type="hidden" name="project_update" id="project_update" value="yes">
+                            <input type="hidden" name="project_hash" value="<?php echo esc_attr( $project_hash ); ?>">
+                            <input type="hidden" name="woosea_page" value="analytics">
+                            <input type="submit" id="savebutton" value="<?php esc_attr_e( 'Save', 'woo-product-feed-pro' ); ?>">
+                        <?php else : ?>
+                            <input type="hidden" name="channel_hash" value="<?php echo esc_attr( $channel_hash ); ?>">
+                            <input type="hidden" name="project_hash" value="<?php echo esc_attr( $project_hash ); ?>">
+                            <input type="hidden" name="woosea_page" value="analytics">
+                            <input type="submit" id="savebutton" value="<?php esc_attr_e( 'Generate Product Feed', 'woo-product-feed-pro' ); ?>">
+                        <?php endif; ?>
                     </td>
                 </tr>
             </table>

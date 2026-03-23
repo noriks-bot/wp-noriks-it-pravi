@@ -18,10 +18,6 @@ use WooCommerce\PayPalCommerce\ApiClient\Exception\RuntimeException;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\ExperienceContextBuilder;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\PurchaseUnitFactory;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\ShippingPreferenceFactory;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\WcGateway\Helper\Environment;
 use WooCommerce\PayPalCommerce\WcGateway\Gateway\TransactionUrlProvider;
 use WooCommerce\PayPalCommerce\WcGateway\Processor\OrderMetaTrait;
@@ -51,15 +47,12 @@ class OXXOGateway extends WC_Payment_Gateway
      */
     protected $shipping_preference_factory;
     /**
-<<<<<<< HEAD
      * The URL to the module.
      *
      * @var string
      */
     private $module_url;
     /**
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * The transaction url provider.
      *
      * @var TransactionUrlProvider
@@ -124,29 +117,18 @@ class OXXOGateway extends WC_Payment_Gateway
      */
     public $icon;
     /**
-<<<<<<< HEAD
      * OXXOGateway constructor.
      *
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @param OrderEndpoint             $order_endpoint The order endpoint.
      * @param PurchaseUnitFactory       $purchase_unit_factory The purchase unit factory.
      * @param ShippingPreferenceFactory $shipping_preference_factory The shipping preference factory.
      * @param ExperienceContextBuilder  $experience_context_builder The ExperienceContextBuilder.
-<<<<<<< HEAD
      * @param string                    $module_url The URL to the module.
-=======
-     * @param AssetGetter               $asset_getter
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @param TransactionUrlProvider    $transaction_url_provider The transaction url provider.
      * @param Environment               $environment The environment.
      * @param LoggerInterface           $logger The logger.
      */
-<<<<<<< HEAD
     public function __construct(OrderEndpoint $order_endpoint, PurchaseUnitFactory $purchase_unit_factory, ShippingPreferenceFactory $shipping_preference_factory, ExperienceContextBuilder $experience_context_builder, string $module_url, TransactionUrlProvider $transaction_url_provider, Environment $environment, LoggerInterface $logger)
-=======
-    public function __construct(OrderEndpoint $order_endpoint, PurchaseUnitFactory $purchase_unit_factory, ShippingPreferenceFactory $shipping_preference_factory, ExperienceContextBuilder $experience_context_builder, AssetGetter $asset_getter, TransactionUrlProvider $transaction_url_provider, Environment $environment, LoggerInterface $logger)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     {
         $this->id = self::ID;
         $this->method_title = __('OXXO', 'woocommerce-paypal-payments');
@@ -160,14 +142,9 @@ class OXXOGateway extends WC_Payment_Gateway
         $this->purchase_unit_factory = $purchase_unit_factory;
         $this->shipping_preference_factory = $shipping_preference_factory;
         $this->experience_context_builder = $experience_context_builder;
-<<<<<<< HEAD
         $this->module_url = $module_url;
         $this->logger = $logger;
         $this->icon = esc_url($this->module_url) . 'assets/images/oxxo.svg';
-=======
-        $this->logger = $logger;
-        $this->icon = $asset_getter->get_static_asset_url('images/oxxo.svg');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $this->transaction_url_provider = $transaction_url_provider;
         $this->environment = $environment;
     }

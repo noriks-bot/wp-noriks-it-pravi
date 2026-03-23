@@ -399,10 +399,6 @@ class Activation extends Base {
 				self::O_OBJECT_DB_ID,
 				self::O_OBJECT_PERSISTENT,
 				self::O_OBJECT_ADMIN,
-<<<<<<< HEAD
-				self::O_OBJECT_TRANSIENTS,
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 				self::O_OBJECT_GLOBAL_GROUPS,
 				self::O_OBJECT_NON_PERSISTENT_GROUPS,
 			];

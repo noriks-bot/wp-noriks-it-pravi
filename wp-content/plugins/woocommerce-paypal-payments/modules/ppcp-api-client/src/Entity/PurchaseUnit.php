@@ -69,15 +69,6 @@ class PurchaseUnit
      */
     private $payments;
     /**
-<<<<<<< HEAD
-=======
-     * The supplementary data (Level 2/3 card processing).
-     *
-     * @var array|null
-     */
-    private $supplementary_data;
-    /**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * Whether the unit contains physical goods.
      *
      * @var bool
@@ -102,11 +93,7 @@ class PurchaseUnit
      * @param string        $soft_descriptor The soft descriptor.
      * @param Payments|null $payments The Payments.
      */
-<<<<<<< HEAD
     public function __construct(\WooCommerce\PayPalCommerce\ApiClient\Entity\Amount $amount, array $items = array(), ?\WooCommerce\PayPalCommerce\ApiClient\Entity\Shipping $shipping = null, string $reference_id = 'default', string $description = '', string $custom_id = '', string $invoice_id = '', string $soft_descriptor = '', ?\WooCommerce\PayPalCommerce\ApiClient\Entity\Payments $payments = null)
-=======
-    public function __construct(\WooCommerce\PayPalCommerce\ApiClient\Entity\Amount $amount, array $items = array(), ?\WooCommerce\PayPalCommerce\ApiClient\Entity\Shipping $shipping = null, string $reference_id = 'default', string $description = '', string $custom_id = '', string $invoice_id = '', string $soft_descriptor = '', ?\WooCommerce\PayPalCommerce\ApiClient\Entity\Payments $payments = null, ?array $supplementary_data = null)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     {
         $this->amount = $amount;
         $this->shipping = $shipping;
@@ -129,10 +116,6 @@ class PurchaseUnit
         $this->invoice_id = $invoice_id;
         $this->soft_descriptor = $soft_descriptor;
         $this->payments = $payments;
-<<<<<<< HEAD
-=======
-        $this->supplementary_data = $supplementary_data;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
     /**
      * Returns the amount.
@@ -244,18 +227,6 @@ class PurchaseUnit
         return $this->payments;
     }
     /**
-<<<<<<< HEAD
-=======
-     * Returns the supplementary data.
-     *
-     * @return array|null
-     */
-    public function supplementary_data(): ?array
-    {
-        return $this->supplementary_data;
-    }
-    /**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * Returns the Items.
      *
      * @return Item[]
@@ -301,12 +272,6 @@ class PurchaseUnit
         if ($this->soft_descriptor()) {
             $purchase_unit['soft_descriptor'] = $this->soft_descriptor();
         }
-<<<<<<< HEAD
-=======
-        if ($this->supplementary_data()) {
-            $purchase_unit['supplementary_data'] = $this->supplementary_data();
-        }
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $has_ditched_items_breakdown = \false;
         if ($sanitize_output && isset($this->sanitizer)) {
             $purchase_unit = $this->sanitizer->sanitize($purchase_unit, $allow_ditch_items);

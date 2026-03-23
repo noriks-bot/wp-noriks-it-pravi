@@ -44,9 +44,9 @@ class Loco_hooks_AdminHooks extends Loco_hooks_Hookable {
         // Ajax router will be called directly in tests
         // @codeCoverageIgnoreStart
         if( loco_doing_ajax() ){
-            $action = $_REQUEST['action'] ?? '';
+            $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
             // initialize Ajax router before hook fired so we can handle output buffering
-            if( isset($_REQUEST['route']) && str_starts_with($action,'loco_') ){
+            if( 'loco_' === substr($action,0,5)  && isset($_REQUEST['route']) ){
                 spl_autoload_register( [__CLASS__,'autoload_compat'] );
                 $this->router = new Loco_mvc_AjaxRouter;
                 Loco_package_Listener::create();
@@ -149,8 +149,10 @@ class Loco_hooks_AdminHooks extends Loco_hooks_Hookable {
 
     /**
      * pre_update_option_{$option} filter callback for $option = "active_plugins"
+     * @param array|null $value Active plugins
+     * @return array
      */
-    public function filter_pre_update_option_active_plugins( ?array $value = null ){
+    public function filter_pre_update_option_active_plugins( $value = null ){
         $this->purge_wp_cache();
         return $value;
     }
@@ -158,29 +160,12 @@ class Loco_hooks_AdminHooks extends Loco_hooks_Hookable {
 
     /**
      * pre_update_site_option_{$option} filter callback for $option = "active_sitewide_plugins"
+     * @param array|null $value Active sitewide plugins
+     * @return array
      */
-    public function filter_pre_update_site_option_active_sitewide_plugins( ?array $value = null ){
+    public function filter_pre_update_site_option_active_sitewide_plugins( $value = null ){
         $this->purge_wp_cache();
         return $value;
-    }
-
-
-    /**
-     * heartbeat_received filter callback 
-     */
-    public function filter_heartbeat_received( ?array $response = null, ?array $data = null ){
-        if( is_array($data) && array_key_exists('loco-translate',$data) ){
-            $nonces = $data['loco-translate']['nonces'] ?? [];
-            foreach( $nonces as $action => $value ){
-                // Refresh nonce if it's either expired, or in its second tick.
-                // Ajax controllers check user permissions before nonce is checked.
-                if( 1 !== wp_verify_nonce($value,$action) ){
-                    $nonces[$action] = wp_create_nonce($action);
-                }
-            }
-            $response['loco-translate']['nonces'] = $nonces;
-        }
-        return $response;
     }
 
 

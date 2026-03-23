@@ -4,27 +4,14 @@ namespace Yoast\WP\SEO\Integrations;
 
 use WP_HTML_Tag_Processor;
 use WPSEO_Replace_Vars;
-<<<<<<< HEAD
 use Yoast\WP\SEO\Conditionals\Front_End_Conditional;
 use Yoast\WP\SEO\Context\Meta_Tags_Context;
 use Yoast\WP\SEO\Helpers\Options_Helper;
-=======
-use Yoast\WP\SEO\Conditionals\Dynamic_Product_Permalinks_Conditional;
-use Yoast\WP\SEO\Conditionals\Front_End_Conditional;
-use Yoast\WP\SEO\Conditionals\WooCommerce_Version_Conditional;
-use Yoast\WP\SEO\Context\Meta_Tags_Context;
-use Yoast\WP\SEO\Helpers\Options_Helper;
-use Yoast\WP\SEO\Helpers\Permalink_Helper;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use Yoast\WP\SEO\Memoizers\Meta_Tags_Context_Memoizer;
 use Yoast\WP\SEO\Presenters\Abstract_Indexable_Presenter;
 use Yoast\WP\SEO\Presenters\Debug\Marker_Close_Presenter;
 use Yoast\WP\SEO\Presenters\Debug\Marker_Open_Presenter;
 use Yoast\WP\SEO\Presenters\Title_Presenter;
-<<<<<<< HEAD
-=======
-use Yoast\WP\SEO\Repositories\Indexable_Repository;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use Yoast\WP\SEO\Surfaces\Helpers_Surface;
 use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -55,16 +42,6 @@ class Front_End_Integration implements Integration_Interface {
 	protected $options;
 
 	/**
-<<<<<<< HEAD
-=======
-	 * Represents the permalink helper.
-	 *
-	 * @var Permalink_Helper
-	 */
-	protected $permalink_helper;
-
-	/**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * The helpers surface.
 	 *
 	 * @var Helpers_Surface
@@ -72,16 +49,6 @@ class Front_End_Integration implements Integration_Interface {
 	protected $helpers;
 
 	/**
-<<<<<<< HEAD
-=======
-	 * The indexable repository.
-	 *
-	 * @var Indexable_Repository
-	 */
-	protected $indexable_repository;
-
-	/**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * The replace vars helper.
 	 *
 	 * @var WPSEO_Replace_Vars
@@ -230,28 +197,17 @@ class Front_End_Integration implements Integration_Interface {
 	 *
 	 * @codeCoverageIgnore It sets dependencies.
 	 *
-<<<<<<< HEAD
 	 * @param Meta_Tags_Context_Memoizer $context_memoizer  The meta tags context memoizer.
 	 * @param ContainerInterface         $service_container The DI container.
 	 * @param Options_Helper             $options           The options helper.
 	 * @param Helpers_Surface            $helpers           The helpers surface.
 	 * @param WPSEO_Replace_Vars         $replace_vars      The replace vars helper.
-=======
-	 * @param Meta_Tags_Context_Memoizer $context_memoizer     The meta tags context memoizer.
-	 * @param ContainerInterface         $service_container    The DI container.
-	 * @param Options_Helper             $options              The options helper.
-	 * @param Helpers_Surface            $helpers              The helpers surface.
-	 * @param WPSEO_Replace_Vars         $replace_vars         The replace vars helper.
-	 * @param Indexable_Repository       $indexable_repository The indexable repository.
-	 * @param Permalink_Helper           $permalink_helper     The permalink helper.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 */
 	public function __construct(
 		Meta_Tags_Context_Memoizer $context_memoizer,
 		ContainerInterface $service_container,
 		Options_Helper $options,
 		Helpers_Surface $helpers,
-<<<<<<< HEAD
 		WPSEO_Replace_Vars $replace_vars
 	) {
 		$this->container        = $service_container;
@@ -259,19 +215,6 @@ class Front_End_Integration implements Integration_Interface {
 		$this->options          = $options;
 		$this->helpers          = $helpers;
 		$this->replace_vars     = $replace_vars;
-=======
-		WPSEO_Replace_Vars $replace_vars,
-		Indexable_Repository $indexable_repository,
-		Permalink_Helper $permalink_helper
-	) {
-		$this->container            = $service_container;
-		$this->context_memoizer     = $context_memoizer;
-		$this->options              = $options;
-		$this->helpers              = $helpers;
-		$this->replace_vars         = $replace_vars;
-		$this->indexable_repository = $indexable_repository;
-		$this->permalink_helper     = $permalink_helper;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	}
 
 	/**
@@ -295,10 +238,6 @@ class Front_End_Integration implements Integration_Interface {
 		\add_filter( 'wpseo_frontend_presenter_classes', [ $this, 'filter_robots_presenter' ] );
 
 		\add_action( 'wpseo_head', [ $this, 'present_head' ], -9999 );
-<<<<<<< HEAD
-=======
-		\add_action( 'wpseo_head', [ $this, 'update_outdated_permalink' ], -10000 );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 		\remove_action( 'wp_head', 'rel_canonical' );
 		\remove_action( 'wp_head', 'index_rel_link' );
@@ -333,51 +272,6 @@ class Front_End_Integration implements Integration_Interface {
 	}
 
 	/**
-<<<<<<< HEAD
-=======
-	 * Checks if the current entity has a permalink that has a mismatch
-	 * with the permalink stored in its indexable. If they differ, purges the indexable's
-	 * permalink so it will be recalculated in the same request.
-	 *
-	 * @return void
-	 */
-	public function update_outdated_permalink() {
-		$dynamic_permalinks_conditional = new Dynamic_Product_Permalinks_Conditional();
-		if ( ! $dynamic_permalinks_conditional->is_met() ) {
-			return;
-		}
-
-		$woocommerce_version_conditional = new WooCommerce_Version_Conditional();
-		if ( ! $woocommerce_version_conditional->is_met() ) {
-			return;
-		}
-
-		$context = $this->context_memoizer->for_current_page();
-
-		// We're adding this fix only for products because of the 10.5 Woo release. We might expand this for all cases in the future.
-		if ( $context->indexable->object_sub_type !== 'product' ) {
-			return;
-		}
-
-		$current_permalink   = $this->permalink_helper->get_permalink_for_post( $context->indexable->object_sub_type, $context->indexable->object_id );
-		$indexable_permalink = $context->indexable->permalink;
-
-		// Only purge if the permalinks differ.
-		if ( $current_permalink !== $indexable_permalink ) {
-			$this->indexable_repository->reset_permalink(
-				$context->indexable->object_type,
-				$context->indexable->object_sub_type,
-				$context->indexable->object_id
-			);
-
-			// Clear the memoizer caches so present_head() sees the updated indexable.
-			$this->context_memoizer->clear_for_current_page();
-			$this->context_memoizer->clear( $context->indexable );
-		}
-	}
-
-	/**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * Filters the next and prev links in the query loop block.
 	 *
 	 * @param string                   $html  The HTML output.

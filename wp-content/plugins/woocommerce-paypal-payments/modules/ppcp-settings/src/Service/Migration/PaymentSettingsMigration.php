@@ -16,10 +16,7 @@ use WooCommerce\PayPalCommerce\Settings\Data\PaymentSettings;
 use WooCommerce\PayPalCommerce\WcGateway\Gateway\CreditCardGateway;
 use WooCommerce\PayPalCommerce\WcGateway\Helper\CardPaymentsConfiguration;
 use WooCommerce\PayPalCommerce\WcGateway\Helper\DCCProductStatus;
-<<<<<<< HEAD
 use WooCommerce\PayPalCommerce\WcGateway\Settings\Settings;
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 /**
  * Class PaymentSettingsMigration
  *
@@ -28,14 +25,7 @@ use WooCommerce\PayPalCommerce\WcGateway\Settings\Settings;
 class PaymentSettingsMigration implements \WooCommerce\PayPalCommerce\Settings\Service\Migration\SettingsMigrationInterface
 {
     public const OPTION_NAME_BCDC_MIGRATION_OVERRIDE = 'woocommerce_paypal_payments_bcdc_migration_override';
-<<<<<<< HEAD
     protected Settings $settings;
-=======
-    /**
-     * @var array<string, mixed>
-     */
-    protected array $settings;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     protected PaymentSettings $payment_settings;
     protected DccApplies $dcc_applies;
     protected DCCProductStatus $dcc_status;
@@ -46,11 +36,7 @@ class PaymentSettingsMigration implements \WooCommerce\PayPalCommerce\Settings\S
      * @var array<string, array>
      */
     protected array $local_apms;
-<<<<<<< HEAD
     public function __construct(Settings $settings, PaymentSettings $payment_settings, DccApplies $dcc_applies, DCCProductStatus $dcc_status, CardPaymentsConfiguration $dcc_configuration, array $local_apms)
-=======
-    public function __construct(array $settings, PaymentSettings $payment_settings, DccApplies $dcc_applies, DCCProductStatus $dcc_status, CardPaymentsConfiguration $dcc_configuration, array $local_apms)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     {
         $this->settings = $settings;
         $this->payment_settings = $payment_settings;
@@ -61,7 +47,6 @@ class PaymentSettingsMigration implements \WooCommerce\PayPalCommerce\Settings\S
     }
     public function migrate(): void
     {
-<<<<<<< HEAD
         $allow_local_apm_gateways = $this->settings->has('allow_local_apm_gateways') && $this->settings->get('allow_local_apm_gateways');
         if ($this->settings->has('disable_funding')) {
             $disable_funding = (array) $this->settings->get('disable_funding');
@@ -69,14 +54,6 @@ class PaymentSettingsMigration implements \WooCommerce\PayPalCommerce\Settings\S
                 $this->payment_settings->toggle_method_state('venmo', \true);
             }
             if (!$allow_local_apm_gateways) {
-=======
-        if (isset($this->settings['disable_funding'])) {
-            $disable_funding = (array) $this->settings['disable_funding'];
-            if (!in_array('venmo', $disable_funding, \true)) {
-                $this->payment_settings->toggle_method_state('venmo', \true);
-            }
-            if (!empty($this->settings['allow_local_apm_gateways'])) {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                 foreach ($this->local_apms as $apm) {
                     if (!in_array($apm['id'], $disable_funding, \true)) {
                         $this->payment_settings->toggle_method_state($apm['id'], \true);
@@ -88,11 +65,7 @@ class PaymentSettingsMigration implements \WooCommerce\PayPalCommerce\Settings\S
             update_option(self::OPTION_NAME_BCDC_MIGRATION_OVERRIDE, \true);
         }
         foreach ($this->map() as $old_key => $method_name) {
-<<<<<<< HEAD
             if ($this->settings->has($old_key) && $this->settings->get($old_key)) {
-=======
-            if (!empty($this->settings[$old_key])) {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                 $this->payment_settings->toggle_method_state($method_name, \true);
             }
         }
@@ -126,11 +99,7 @@ class PaymentSettingsMigration implements \WooCommerce\PayPalCommerce\Settings\S
         if ($this->dcc_configuration->is_acdc_enabled()) {
             return \false;
         }
-<<<<<<< HEAD
         $disabled_funding = $this->settings->has('disable_funding') ? $this->settings->get('disable_funding') : array();
         return !in_array('card', $disabled_funding, \true);
-=======
-        return !in_array('card', $this->settings['disable_funding'] ?? array(), \true);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
 }

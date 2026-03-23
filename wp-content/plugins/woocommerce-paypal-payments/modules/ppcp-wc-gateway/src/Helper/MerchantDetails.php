@@ -14,7 +14,6 @@ namespace WooCommerce\PayPalCommerce\WcGateway\Helper;
 class MerchantDetails
 {
     /**
-<<<<<<< HEAD
      * Save tokenized PayPal and Venmo payment details, required for subscriptions and saving
      * payment methods in user account.
      */
@@ -37,8 +36,6 @@ class MerchantDetails
      */
     public const FEATURE_CONTACT_MODULE = 'contact_module';
     /**
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * The merchant's country according to PayPal, which might be different from
      * the WooCommerce country.
      *

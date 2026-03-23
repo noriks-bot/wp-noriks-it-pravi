@@ -167,33 +167,12 @@ class Meta_Tags_Context_Memoizer {
 	public function clear( $indexable = null ) {
 		if ( $indexable instanceof Indexable ) {
 			unset( $this->cache[ $indexable->id ] );
-<<<<<<< HEAD
-=======
-			$this->presentation_memoizer->clear( $indexable->id );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			return;
 		}
 		if ( $indexable !== null ) {
 			unset( $this->cache[ $indexable ] );
-<<<<<<< HEAD
 			return;
 		}
 		$this->cache = [];
-=======
-			$this->presentation_memoizer->clear( $indexable );
-			return;
-		}
-		$this->cache = [];
-		$this->presentation_memoizer->clear();
-	}
-
-	/**
-	 * Clears the memoization of the current page.
-	 *
-	 * @return void
-	 */
-	public function clear_for_current_page() {
-		unset( $this->cache['current_page'] );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	}
 }

@@ -93,11 +93,8 @@ class CompatModule implements ServiceModule, ExtendingModule, ExecutableModule
          * - Enable Pay Later Payment Method
          * - Add default messaging locations (product, cart, checkout) to existing selections
          *
-<<<<<<< HEAD
          * @todo Remove this auto-enablement logic after the next release
          *
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
          * @hook woocommerce_paypal_payments_gateway_migrate
          */
         add_action('woocommerce_paypal_payments_gateway_migrate', static function () use ($c) {

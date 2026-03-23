@@ -4,9 +4,6 @@ namespace PaymentPlugins\Stripe\WooCommercePreOrders;
 
 use PaymentPlugins\Stripe\WooCommercePreOrders\Controllers\PaymentIntent;
 
-/**
- * @package PaymentPlugins\WooCommercePreOrders\Stripe
- */
 class Package {
 
 	public static function init() {

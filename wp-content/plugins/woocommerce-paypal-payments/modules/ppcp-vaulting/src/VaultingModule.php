@@ -181,11 +181,7 @@ class VaultingModule implements ServiceModule, ExtendingModule, ExecutableModule
             }
             try {
                 do_action('woocommerce_paypal_payments_before_delete_payment_token', $token->get_token());
-<<<<<<< HEAD
                 $payment_token_endpoint = $container->get('api.endpoint.payment-token');
-=======
-                $payment_token_endpoint = $container->get('vault-v2.endpoint.payment-token');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                 $payment_token_endpoint->delete_token_by_id($token->get_token());
             } catch (RuntimeException $exception) {
                 wc_add_notice(__('Could not delete payment token. ', 'woocommerce-paypal-payments') . $exception->getMessage(), 'error');

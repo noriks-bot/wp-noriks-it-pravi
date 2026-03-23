@@ -1,7 +1,7 @@
 <?php
 /**
  * @version 3.3.5
- * @package PaymentPlugins\Templates
+ * @package Stripe/Templates
  */
 
 ?>

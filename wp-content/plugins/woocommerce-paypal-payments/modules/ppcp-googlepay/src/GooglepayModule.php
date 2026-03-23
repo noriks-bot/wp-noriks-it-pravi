@@ -16,10 +16,6 @@ use WooCommerce\PayPalCommerce\Button\Assets\SmartButtonInterface;
 use WooCommerce\PayPalCommerce\Googlepay\Endpoint\UpdatePaymentDataEndpoint;
 use WooCommerce\PayPalCommerce\Googlepay\Helper\ApmProductStatus;
 use WooCommerce\PayPalCommerce\Googlepay\Helper\AvailabilityNotice;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Settings\Data\Definition\FeaturesDefinition;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\Settings\SettingsModule;
 use WooCommerce\PayPalCommerce\Vendor\Inpsyde\Modularity\Module\ExecutableModule;
 use WooCommerce\PayPalCommerce\Vendor\Inpsyde\Modularity\Module\ExtendingModule;
@@ -180,11 +176,7 @@ class GooglepayModule implements ServiceModule, ExtendingModule, ExecutableModul
             $product_status = $c->get('googlepay.helpers.apm-product-status');
             assert($product_status instanceof ApmProductStatus);
             $google_pay_enabled = $product_status->is_active();
-<<<<<<< HEAD
             $features['google_pay'] = array('enabled' => $google_pay_enabled);
-=======
-            $features[FeaturesDefinition::FEATURE_GOOGLE_PAY] = array('enabled' => $google_pay_enabled);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
             return $features;
         });
         add_filter('ppcp_create_order_request_body_data', static function (array $data, string $payment_method, array $request) use ($c): array {

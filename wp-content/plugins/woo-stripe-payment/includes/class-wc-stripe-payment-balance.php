@@ -3,8 +3,8 @@
 defined( 'ABSPATH' ) || exit();
 
 /**
- * @since   3.1.3
- * @package PaymentPlugins\Classes
+ * @since 3.1.3
+ *
  * @property int    $fee
  * @property int    $net
  * @property int    $refunded

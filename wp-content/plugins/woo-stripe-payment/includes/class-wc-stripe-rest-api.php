@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit();
 /**
  *
  * @author  PaymentPlugins
- * @package PaymentPlugins\Classes
+ * @package Stripe/Classes
  * @property WC_Stripe_Rest_Controller $order_actions
  * @property WC_Stripe_Rest_Controller $cart
  * @property WC_Stripe_Rest_Controller $checkout

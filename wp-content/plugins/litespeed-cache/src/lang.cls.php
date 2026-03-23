@@ -140,10 +140,6 @@ class Lang extends Base {
 			self::O_OBJECT_NON_PERSISTENT_GROUPS => __( 'Do Not Cache Groups', 'litespeed-cache' ),
 			self::O_OBJECT_PERSISTENT           => __( 'Persistent Connection', 'litespeed-cache' ),
 			self::O_OBJECT_ADMIN                => __( 'Cache WP-Admin', 'litespeed-cache' ),
-<<<<<<< HEAD
-			self::O_OBJECT_TRANSIENTS           => __( 'Store Transients', 'litespeed-cache' ),
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 			self::O_PURGE_ON_UPGRADE    => __( 'Purge All On Upgrade', 'litespeed-cache' ),
 			self::O_PURGE_STALE         => __( 'Serve Stale', 'litespeed-cache' ),

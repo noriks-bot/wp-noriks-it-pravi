@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 Copyright 2015-2025 Your Inspiration Solutions (email : plugins@yithemes.com)
-=======
-Copyright 2015-2026 Your Inspiration Solutions (email : plugins@yithemes.com)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

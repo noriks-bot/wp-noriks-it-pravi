@@ -8,11 +8,6 @@
 declare (strict_types=1);
 namespace WooCommerce\PayPalCommerce\Onboarding;
 
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
-use WooCommerce\PayPalCommerce\Assets\AssetGetterFactory;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\Onboarding\Render\OnboardingOptionsRenderer;
 use WooCommerce\PayPalCommerce\Vendor\Psr\Container\ContainerInterface;
 use WooCommerce\PayPalCommerce\ApiClient\Helper\Cache;
@@ -106,19 +101,10 @@ return array(
     'onboarding.assets' => function (ContainerInterface $container): OnboardingAssets {
         $state = $container->get('onboarding.state');
         $login_seller_endpoint = $container->get('onboarding.endpoint.login-seller');
-<<<<<<< HEAD
         return new OnboardingAssets($container->get('onboarding.url'), $container->get('ppcp.asset-version'), $state, $container->get('settings.environment'), $login_seller_endpoint, $container->get('wcgateway.current-ppcp-settings-page-id'));
     },
     'onboarding.url' => static function (ContainerInterface $container): string {
         return plugins_url('/modules/ppcp-onboarding/', $container->get('ppcp.path-to-plugin-main-file'));
-=======
-        return new OnboardingAssets($container->get('onboarding.asset_getter'), $container->get('ppcp.asset-version'), $state, $container->get('settings.environment'), $login_seller_endpoint, $container->get('wcgateway.current-ppcp-settings-page-id'));
-    },
-    'onboarding.asset_getter' => static function (ContainerInterface $container): AssetGetter {
-        $factory = $container->get('assets.asset_getter_factory');
-        assert($factory instanceof AssetGetterFactory);
-        return $factory->for_module('ppcp-onboarding');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     },
     'onboarding.endpoint.login-seller' => static function (ContainerInterface $container): LoginSellerEndpoint {
         $request_data = $container->get('button.request-data');
@@ -152,11 +138,7 @@ return array(
         return new OnboardingRenderer($settings, $partner_referrals, $partner_referrals_sandbox, $partner_referrals_data, $signup_link_cache, $logger);
     },
     'onboarding.render-options' => static function (ContainerInterface $container): OnboardingOptionsRenderer {
-<<<<<<< HEAD
         return new OnboardingOptionsRenderer($container->get('onboarding.url'), $container->get('api.shop.country'), $container->get('wcgateway.settings'));
-=======
-        return new OnboardingOptionsRenderer($container->get('onboarding.asset_getter'), $container->get('api.shop.country'), $container->get('wcgateway.settings'));
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     },
     'onboarding.rest' => static function ($container): \WooCommerce\PayPalCommerce\Onboarding\OnboardingRESTController {
         return new \WooCommerce\PayPalCommerce\Onboarding\OnboardingRESTController($container);

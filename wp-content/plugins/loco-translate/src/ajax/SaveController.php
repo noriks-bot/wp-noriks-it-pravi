@@ -8,10 +8,9 @@ class Loco_ajax_SaveController extends Loco_ajax_common_BundleController {
      * {@inheritdoc}
      */
     public function render(){
-
+        
         $post = $this->validate();
-
-
+        
         // path parameter must not be empty
         $path = $post->path;
         if( ! $path ){

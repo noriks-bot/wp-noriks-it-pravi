@@ -9,7 +9,7 @@ function g(a, b) {
 return c("#loco-api-" + a).text(b);
 }
 function m(a) {
-const b = a.getId();
+var b = a.getId();
 a.key() ? a.verify(function(e) {
 e ? g(b, "OK ✓") : g(b, "FAILED").addClass("loco-danger");
 }) : g(b, d.l10n._("No API key"));

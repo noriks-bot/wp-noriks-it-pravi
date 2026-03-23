@@ -11,10 +11,6 @@ namespace WooCommerce\PayPalCommerce\AdminNotices\Renderer;
 use WooCommerce\PayPalCommerce\AdminNotices\Repository\RepositoryInterface;
 use WooCommerce\PayPalCommerce\AdminNotices\Endpoint\MuteMessageEndpoint;
 use WooCommerce\PayPalCommerce\AdminNotices\Entity\PersistentMessage;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 /**
  * Class Renderer
  */
@@ -26,16 +22,12 @@ class Renderer implements \WooCommerce\PayPalCommerce\AdminNotices\Renderer\Rend
      * @var RepositoryInterface
      */
     private $repository;
-<<<<<<< HEAD
     /**
      * Used to enqueue assets.
      *
      * @var string
      */
     private $module_url;
-=======
-    private AssetGetter $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     /**
      * Used to enqueue assets.
      *
@@ -49,7 +41,6 @@ class Renderer implements \WooCommerce\PayPalCommerce\AdminNotices\Renderer\Rend
      */
     private $can_mute_message = \false;
     /**
-<<<<<<< HEAD
      * Renderer constructor.
      *
      * @param RepositoryInterface $repository The message repository.
@@ -60,16 +51,6 @@ class Renderer implements \WooCommerce\PayPalCommerce\AdminNotices\Renderer\Rend
     {
         $this->repository = $repository;
         $this->module_url = untrailingslashit($module_url);
-=======
-     * @param RepositoryInterface $repository The message repository.
-     * @param AssetGetter         $asset_getter
-     * @param string              $version The module version.
-     */
-    public function __construct(RepositoryInterface $repository, AssetGetter $asset_getter, string $version)
-    {
-        $this->repository = $repository;
-        $this->asset_getter = $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $this->version = $version;
     }
     /**
@@ -104,13 +85,8 @@ class Renderer implements \WooCommerce\PayPalCommerce\AdminNotices\Renderer\Rend
         if (!$this->can_mute_message) {
             return;
         }
-<<<<<<< HEAD
         wp_register_style('wc-ppcp-admin-notice', $this->module_url . '/assets/css/styles.css', array(), $this->version);
         wp_register_script('wc-ppcp-admin-notice', $this->module_url . '/assets/js/boot-admin.js', array(), $this->version, \true);
-=======
-        wp_register_style('wc-ppcp-admin-notice', $this->asset_getter->get_asset_url('styles.css'), array(), $this->version);
-        wp_register_script('wc-ppcp-admin-notice', $this->asset_getter->get_asset_url('boot-admin.js'), array(), $this->version, \true);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         wp_localize_script('wc-ppcp-admin-notice', 'wc_admin_notices', $this->script_data_for_admin());
         wp_enqueue_style('wc-ppcp-admin-notice');
         wp_enqueue_script('wc-ppcp-admin-notice');

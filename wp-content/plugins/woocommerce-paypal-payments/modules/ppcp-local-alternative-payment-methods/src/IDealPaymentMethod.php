@@ -9,25 +9,17 @@ declare (strict_types=1);
 namespace WooCommerce\PayPalCommerce\LocalAlternativePaymentMethods;
 
 use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 /**
  * Class IDealPaymentMethod
  */
 class IDealPaymentMethod extends AbstractPaymentMethodType
 {
-<<<<<<< HEAD
     /**
      * The URL of this module.
      *
      * @var string
      */
     private $module_url;
-=======
-    private AssetGetter $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     /**
      * The assets version.
      *
@@ -41,7 +33,6 @@ class IDealPaymentMethod extends AbstractPaymentMethodType
      */
     private $gateway;
     /**
-<<<<<<< HEAD
      * IDealPaymentMethod constructor.
      *
      * @param string       $module_url The URL of this module.
@@ -51,15 +42,6 @@ class IDealPaymentMethod extends AbstractPaymentMethodType
     public function __construct(string $module_url, string $version, \WooCommerce\PayPalCommerce\LocalAlternativePaymentMethods\IDealGateway $gateway)
     {
         $this->module_url = $module_url;
-=======
-     * @param AssetGetter  $asset_getter
-     * @param string       $version The assets version.
-     * @param IDealGateway $gateway IDeal WC gateway.
-     */
-    public function __construct(AssetGetter $asset_getter, string $version, \WooCommerce\PayPalCommerce\LocalAlternativePaymentMethods\IDealGateway $gateway)
-    {
-        $this->asset_getter = $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $this->version = $version;
         $this->gateway = $gateway;
         $this->name = \WooCommerce\PayPalCommerce\LocalAlternativePaymentMethods\IDealGateway::ID;
@@ -82,11 +64,7 @@ class IDealPaymentMethod extends AbstractPaymentMethodType
      */
     public function get_payment_method_script_handles()
     {
-<<<<<<< HEAD
         wp_register_script('ppcp-ideal-payment-method', trailingslashit($this->module_url) . 'assets/js/ideal-payment-method.js', array(), $this->version, \true);
-=======
-        wp_register_script('ppcp-ideal-payment-method', $this->asset_getter->get_asset_url('ideal-payment-method.js'), array(), $this->version, \true);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         return array('ppcp-ideal-payment-method');
     }
     /**

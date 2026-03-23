@@ -184,10 +184,6 @@ class Base extends Root {
 	const O_OBJECT_LIFE                  = 'object-life';
 	const O_OBJECT_PERSISTENT            = 'object-persistent';
 	const O_OBJECT_ADMIN                 = 'object-admin';
-<<<<<<< HEAD
-	const O_OBJECT_TRANSIENTS            = 'object-transients';
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	const O_OBJECT_DB_ID                 = 'object-db_id';
 	const O_OBJECT_USER                  = 'object-user';
 	const O_OBJECT_PSWD                  = 'object-pswd';
@@ -291,13 +287,9 @@ class Base extends Root {
 	// -------------------------------------------------- ##
 	// --------------      OptimaX      ----------------- ##
 	// -------------------------------------------------- ##
-<<<<<<< HEAD
-	const O_OPTIMAX = 'optimax';
-=======
 	const O_OPTIMAX      = 'optimax';
 	const O_OPTIMAX_CRON = 'optimax-cron';
 	const O_OPTIMAX_EXC  = 'optimax-exc';
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 	const NETWORK_O_USE_PRIMARY = 'use_primary_settings';
 
@@ -494,10 +486,6 @@ class Base extends Root {
 		self::O_OBJECT_LIFE => 0,
 		self::O_OBJECT_PERSISTENT => false,
 		self::O_OBJECT_ADMIN => false,
-<<<<<<< HEAD
-		self::O_OBJECT_TRANSIENTS => false,
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		self::O_OBJECT_DB_ID => 0,
 		self::O_OBJECT_USER => '',
 		self::O_OBJECT_PSWD => '',
@@ -615,10 +603,6 @@ class Base extends Root {
 		self::O_OBJECT_LIFE => 0,
 		self::O_OBJECT_PERSISTENT => false,
 		self::O_OBJECT_ADMIN => false,
-<<<<<<< HEAD
-		self::O_OBJECT_TRANSIENTS => false,
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		self::O_OBJECT_DB_ID => 0,
 		self::O_OBJECT_USER => '',
 		self::O_OBJECT_PSWD => '',
@@ -652,8 +636,6 @@ class Base extends Root {
 	];
 
 	/**
-<<<<<<< HEAD
-=======
 	 * Cache for blog options to avoid repeated switch_to_blog calls.
 	 * Structure: [ blog_id => [ option_name => value, ... ], ... ]
 	 *
@@ -715,7 +697,6 @@ class Base extends Root {
 	}
 
 	/**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * Correct the option type.
 	 *
 	 * TODO: add similar network func
@@ -1093,8 +1074,6 @@ class Base extends Root {
 
 		return $server_vars;
 	}
-<<<<<<< HEAD
-=======
 
 	/**
 	 * Save CSS content (UCSS/CCSS) to file and register in DB.
@@ -1135,5 +1114,4 @@ class Base extends Root {
 
 		Purge::add( strtoupper( $type ) . '.' . md5( $queue_k ) );
 	}
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 }

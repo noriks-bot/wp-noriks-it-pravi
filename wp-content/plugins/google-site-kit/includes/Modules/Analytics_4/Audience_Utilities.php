@@ -197,6 +197,10 @@ class Audience_Utilities {
 	 * @return string The audience type.
 	 */
 	private function get_audience_type( $audience_slug ) {
+		if ( ! $audience_slug ) {
+			return 'USER_AUDIENCE';
+		}
+
 		switch ( $audience_slug ) {
 			case 'all-users':
 			case 'purchasers':
@@ -205,8 +209,6 @@ class Audience_Utilities {
 			case 'returning-visitors':
 				return 'SITE_KIT_AUDIENCE';
 		}
-
-		return 'USER_AUDIENCE';
 	}
 
 	/**

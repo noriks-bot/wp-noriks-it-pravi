@@ -141,11 +141,7 @@ add_action('woocommerce_before_add_to_cart_button', function() {
     ];
 
     echo '<div id="bundle-builder-qty" data-max="1">
-<<<<<<< HEAD
         <h3>Odaberite svoje boje</h3>
-=======
-        <h3>Επιλέξτε τα χρώματά σας</h3>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         <div class="bundle-grid">';
 
     foreach ($colors as $color => $image_url) {
@@ -163,11 +159,7 @@ add_action('woocommerce_before_add_to_cart_button', function() {
     }
 
     echo '</div>
-<<<<<<< HEAD
         <p class="remaining">Odabrano 0 of 0 komada</p>
-=======
-        <p class="remaining">Επιλέχθηκαν 0 από 0 τεμάχια</p>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         <input type="hidden" name="bundle_colors_json" id="bundle_colors_json" value="" />
     </div>';
 }, 20);

@@ -70,7 +70,8 @@ $is_pro_activated = isset($is_pro_activated) ? $is_pro_activated : false;
                                         if (empty($line)) {
                                             continue;
                                         }
-	                                    $column = str_getcsv($line, $csv_separator, '"', '\\');
+                                        $column = str_getcsv($line, $csv_separator);
+
                                         if ($i == 1) {
                                             $i++;
                                             continue;

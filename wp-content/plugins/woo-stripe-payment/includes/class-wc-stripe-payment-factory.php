@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit();
  *
  * @author PaymentPlugins
  * @since 3.1.1
- * @package PaymentPlugins\Classes
+ * @package Stripe/Classes
  *
  */
 class WC_Stripe_Payment_Factory {

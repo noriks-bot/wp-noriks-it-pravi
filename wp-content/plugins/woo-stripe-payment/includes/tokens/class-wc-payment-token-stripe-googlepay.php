@@ -8,7 +8,7 @@ if ( ! class_exists( 'WC_Payment_Token_Stripe_CC' ) ) {
 /**
  *
  * @author PaymentPlugins
- * @package PaymentPlugins\PaymentTokens
+ * @package Stripe/Tokens
  *
  */
 class WC_Payment_Token_Stripe_GooglePay extends WC_Payment_Token_Stripe_CC {

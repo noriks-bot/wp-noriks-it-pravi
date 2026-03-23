@@ -26,15 +26,12 @@ $litespeed_php_files = array(
 	'src/api.cls.php',
 	'src/avatar.cls.php',
 	'src/cdn.cls.php',
-<<<<<<< HEAD
-=======
 	'src/cloud-auth-callback.trait.php',
 	'src/cloud-auth-ip.trait.php',
 	'src/cloud-auth.trait.php',
 	'src/cloud-request.trait.php',
 	'src/cloud-node.trait.php',
 	'src/cloud-misc.trait.php',
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	'src/cloud.cls.php',
 	'src/conf.cls.php',
 	'src/control.cls.php',
@@ -53,12 +50,9 @@ $litespeed_php_files = array(
 	'src/gui.cls.php',
 	'src/health.cls.php',
 	'src/htaccess.cls.php',
-<<<<<<< HEAD
-=======
 	'src/img-optm-send.trait.php',
 	'src/img-optm-pull.trait.php',
 	'src/img-optm-manage.trait.php',
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	'src/img-optm.cls.php',
 	'src/import.cls.php',
 	'src/import.preset.cls.php',

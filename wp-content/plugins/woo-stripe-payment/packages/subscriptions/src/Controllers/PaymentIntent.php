@@ -5,9 +5,6 @@ namespace PaymentPlugins\Stripe\WooCommerceSubscriptions\Controllers;
 use PaymentPlugins\Stripe\RequestContext;
 use PaymentPlugins\Stripe\WooCommerceSubscriptions\FrontendRequests;
 
-/**
- * @package PaymentPlugins\WooCommerceSubscriptions\Stripe
- */
 class PaymentIntent {
 
 	private $request;

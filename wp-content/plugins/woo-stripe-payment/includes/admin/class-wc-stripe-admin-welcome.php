@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @package PaymentPlugins\Admin
- */
 class WC_Stripe_Admin_Welcome {
 
 	const PAYPAL_SLUG = 'pymntpl-paypal-woocommerce';

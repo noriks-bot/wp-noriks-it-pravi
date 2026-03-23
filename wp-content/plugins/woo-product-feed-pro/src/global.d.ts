@@ -1,7 +1,6 @@
 interface PFPObjInterface {
   pluginDirUrl: string;
-  isEliteActive?: boolean;
-  showEliteUpsellModal?: (id: string) => void;
+
   [key: string]: any;
 }
 

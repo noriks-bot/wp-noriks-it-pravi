@@ -268,24 +268,15 @@ class Utility extends Root {
 	 * @return array<string,string> Attributes.
 	 */
 	public static function parse_attr( $str ) {
-<<<<<<< HEAD
-		$attrs = [];
-		preg_match_all( '#([\w-]+)=(["\'])([^\2]*)\2#isU', $str, $matches, PREG_SET_ORDER );
-		foreach ( $matches as $match ) {
-			$attrs[ $match[1] ] = trim( $match[3] );
-=======
 		$attrs  = [];
 		$parsed = wp_kses_hair( $str, self::_kses_protocols() );
 		foreach ( $parsed as $name => $data ) {
 			$attrs[ $name ] = $data['value'];
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		}
 		return $attrs;
 	}
 
 	/**
-<<<<<<< HEAD
-=======
 	 * Remove an attribute from an HTML attribute string using wp_kses_hair.
 	 *
 	 * @since 7.8
@@ -336,7 +327,6 @@ class Utility extends Root {
 	}
 
 	/**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * Search for a hit within an array of strings/rules.
 	 *
 	 * Supports ^prefix, suffix$, ^exact$, and substring.
@@ -722,11 +712,7 @@ class Utility extends Root {
 			}
 
 			$built_arr       = array_merge( $query, [ Router::TYPE => $type ] );
-<<<<<<< HEAD
-			$parsed['query'] = http_build_query( $built_arr + (array) $append_arr );
-=======
 			$parsed['query'] = http_build_query( array_merge( $built_arr, (array) $append_arr ) );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			self::compatibility();
 			$url = http_build_url( $parsed ); // phpcs:ignore WordPress.WP.AlternativeFunctions.parse_url_parse_url
 			$url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );

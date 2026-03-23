@@ -391,7 +391,9 @@ final class Permissions {
 	 * @return array Array with a 'do_not_allow' element if checks fail, empty array if checks pass.
 	 */
 	private function check_dashboard_sharing_capability( $cap, $user_id, $args ) {
-		$module_slug = $args[0] ?? '';
+		if ( isset( $args[0] ) ) {
+			$module_slug = $args[0];
+		}
 
 		switch ( $cap ) {
 			case self::VIEW_SHARED_DASHBOARD:

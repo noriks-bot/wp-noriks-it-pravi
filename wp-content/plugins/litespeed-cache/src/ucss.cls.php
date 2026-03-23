@@ -412,11 +412,8 @@ class UCSS extends Base {
 	private function _save_con( $type, $css, $queue_k, $is_mobile, $is_webp ) {
 		// Add filters
 		$css = apply_filters('litespeed_' . $type, $css, $queue_k);
-<<<<<<< HEAD
-=======
 		// Sanitize: CSS must not contain HTML tags
 		$css = wp_strip_all_tags( $css );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		self::debug2('con: ', $css);
 
 		if ( '/*' === substr( $css, 0, 2 ) && '*/' === substr( $css, -2 ) ) {

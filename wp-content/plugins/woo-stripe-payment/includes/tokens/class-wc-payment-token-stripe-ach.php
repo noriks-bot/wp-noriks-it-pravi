@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit();
 /**
  *
  * @since   3.0.5
- * @package PaymentPlugins\PaymentTokens
+ * @package Stripe/Tokens
  * @author  Payment Plugins
  *
  */

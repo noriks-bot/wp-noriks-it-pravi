@@ -101,7 +101,9 @@ class User_Specific_Answers extends User_Setting {
 
 				$valid_values['values'] = $valid_answers;
 
-				$results[ $setting_key ] = $valid_values;
+				if ( ! empty( $valid_values ) ) {
+					$results[ $setting_key ] = $valid_values;
+				}
 			}
 
 			return $results;

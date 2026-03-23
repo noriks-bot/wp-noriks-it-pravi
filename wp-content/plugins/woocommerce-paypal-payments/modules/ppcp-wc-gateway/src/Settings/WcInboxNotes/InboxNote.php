@@ -17,16 +17,8 @@ class InboxNote implements \WooCommerce\PayPalCommerce\WcGateway\Settings\WcInbo
     protected string $name;
     protected string $status;
     protected bool $is_enabled;
-<<<<<<< HEAD
     protected \WooCommerce\PayPalCommerce\WcGateway\Settings\WcInboxNotes\InboxNoteActionInterface $action;
     public function __construct(string $title, string $content, string $type, string $name, string $status, bool $is_enabled, \WooCommerce\PayPalCommerce\WcGateway\Settings\WcInboxNotes\InboxNoteActionInterface $action)
-=======
-    /**
-     * @var InboxNoteActionInterface[]
-     */
-    protected array $actions;
-    public function __construct(string $title, string $content, string $type, string $name, string $status, bool $is_enabled, \WooCommerce\PayPalCommerce\WcGateway\Settings\WcInboxNotes\InboxNoteActionInterface ...$actions)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     {
         $this->title = $title;
         $this->content = $content;
@@ -34,11 +26,7 @@ class InboxNote implements \WooCommerce\PayPalCommerce\WcGateway\Settings\WcInbo
         $this->name = $name;
         $this->status = $status;
         $this->is_enabled = $is_enabled;
-<<<<<<< HEAD
         $this->action = $action;
-=======
-        $this->actions = $actions;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
     public function title(): string
     {
@@ -64,17 +52,8 @@ class InboxNote implements \WooCommerce\PayPalCommerce\WcGateway\Settings\WcInbo
     {
         return $this->is_enabled;
     }
-<<<<<<< HEAD
     public function action(): \WooCommerce\PayPalCommerce\WcGateway\Settings\WcInboxNotes\InboxNoteActionInterface
     {
         return $this->action;
-=======
-    /**
-     * @return InboxNoteActionInterface[]
-     */
-    public function actions(): array
-    {
-        return $this->actions;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
 }

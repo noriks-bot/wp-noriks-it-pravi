@@ -11,7 +11,6 @@
 namespace Google\Site_Kit\Core\Email_Reporting;
 
 use Google\Site_Kit\Context;
-use Google\Site_Kit\Core\Golinks\Golinks;
 use Google\Site_Kit\Core\User\Email_Reporting_Settings;
 use WP_Error;
 use WP_Post;
@@ -45,28 +44,16 @@ class Email_Template_Formatter {
 	private $section_builder;
 
 	/**
-	 * Golinks instance.
-	 *
-	 * @since 1.174.0
-	 *
-	 * @var Golinks
-	 */
-	private $golinks;
-
-	/**
 	 * Constructor.
 	 *
 	 * @since 1.170.0
-	 * @since 1.174.0 Added golinks dependency.
 	 *
 	 * @param Context                      $context         Plugin context.
 	 * @param Email_Report_Section_Builder $section_builder Section builder instance.
-	 * @param Golinks                      $golinks         Golinks instance.
 	 */
-	public function __construct( Context $context, Email_Report_Section_Builder $section_builder, Golinks $golinks ) {
+	public function __construct( Context $context, Email_Report_Section_Builder $section_builder ) {
 		$this->context         = $context;
 		$this->section_builder = $section_builder;
-		$this->golinks         = $golinks;
 	}
 
 	/**
@@ -135,7 +122,7 @@ class Email_Template_Formatter {
 			);
 		}
 
-		$sections_map = new Sections_Map( $this->context, $sections_payload, $this->golinks );
+		$sections_map = new Sections_Map( $this->context, $sections_payload );
 		if ( empty( $sections_map->get_sections() ) ) {
 			return new WP_Error(
 				'email_report_no_data',
@@ -311,10 +298,7 @@ class Email_Template_Formatter {
 	 * @return array Template data for simple email.
 	 */
 	public function prepare_simple_email_data( $subject, $preheader, $email_data = array() ) {
-		$site_domain        = $this->get_site_domain();
-		$dashboard_url      = $this->golinks->get_url( 'dashboard' );
-		$email_settings_url = $this->golinks->get_url( 'manage-subscription-email-reporting' );
-		$help_center_url    = add_query_arg( 'doc', 'get-support', 'https://sitekit.withgoogle.com/support/' );
+		$site_domain = $this->get_site_domain();
 
 		$data = array(
 			'subject'                => $subject,
@@ -326,90 +310,14 @@ class Email_Template_Formatter {
 			'learn_more_url'         => $email_data['learn_more_url'] ?? '',
 			'primary_call_to_action' => array(
 				'label' => $email_data['cta_label'] ?? __( 'Get your report', 'google-site-kit' ),
-				'url'   => $email_data['cta_url'] ?? $dashboard_url,
+				'url'   => $email_data['cta_url'] ?? admin_url( 'admin.php?page=googlesitekit-dashboard' ),
 			),
 			'footer'                 => array(
-				'copy'            => $email_data['footer_copy'] ?? '',
-				'unsubscribe_url' => $email_settings_url,
-				'links'           => array(
-					array(
-						'label' => __( 'Manage subscription', 'google-site-kit' ),
-						'url'   => $email_settings_url,
-					),
-					array(
-						'label' => __( 'Privacy Policy', 'google-site-kit' ),
-						'url'   => 'https://policies.google.com/privacy',
-					),
-					array(
-						'label' => __( 'Help center', 'google-site-kit' ),
-						'url'   => $help_center_url,
-					),
-				),
+				'copy' => $email_data['footer_copy'] ?? '',
 			),
 		);
 
 		return $data;
-	}
-
-	/**
-	 * Builds template data for the subscription confirmation email.
-	 *
-	 * @since 1.174.0
-	 *
-	 * @param string $frequency Frequency slug.
-	 * @return array Template data.
-	 */
-	public function prepare_subscription_confirmation_template_data( $frequency ) {
-		$site_domain        = $this->get_site_domain();
-		$frequency_label    = $this->get_frequency_label( $frequency );
-		$first_report_date  = $this->get_first_report_date_label( $frequency );
-		$dashboard_url      = $this->golinks->get_url( 'dashboard' );
-		$email_settings_url = $this->golinks->get_url( 'manage-subscription-email-reporting' );
-		$help_center_url    = add_query_arg( 'doc', 'get-support', 'https://sitekit.withgoogle.com/support/' );
-
-		return array(
-			'subject'                => sprintf(
-				/* translators: %s: Site domain. */
-				__( 'Success! You’re subscribed to Site Kit reports for %s', 'google-site-kit' ),
-				$site_domain
-			),
-			'preheader'              => __( 'Your subscription is confirmed and your first report is on the way.', 'google-site-kit' ),
-			'site'                   => array(
-				'domain' => $site_domain,
-				'url'    => $this->context->get_reference_site_url(),
-			),
-			'title'                  => Content_Map::get_title( 'subscription-confirmation' ),
-			'body'                   => Content_Map::get_body_with_args(
-				'subscription-confirmation',
-				array(
-					$frequency_label,
-					$first_report_date,
-				)
-			),
-			'learn_more_url'         => 'https://sitekit.withgoogle.com/documentation/email-reports/',
-			'primary_call_to_action' => array(
-				'label' => __( 'View dashboard', 'google-site-kit' ),
-				'url'   => $dashboard_url,
-			),
-			'footer'                 => array(
-				'copy'            => __( 'You received this email because you signed up to receive email reports from Site Kit. If you do not want to receive these emails in the future you can unsubscribe', 'google-site-kit' ),
-				'unsubscribe_url' => $email_settings_url,
-				'links'           => array(
-					array(
-						'label' => __( 'Manage subscription', 'google-site-kit' ),
-						'url'   => $email_settings_url,
-					),
-					array(
-						'label' => __( 'Privacy Policy', 'google-site-kit' ),
-						'url'   => 'https://policies.google.com/privacy',
-					),
-					array(
-						'label' => __( 'Help center', 'google-site-kit' ),
-						'url'   => $help_center_url,
-					),
-				),
-			),
-		);
 	}
 
 	/**
@@ -422,10 +330,6 @@ class Email_Template_Formatter {
 	 * @return array Template data.
 	 */
 	private function prepare_template_data( $frequency, $date_range ) {
-		$dashboard_url      = $this->golinks->get_url( 'dashboard' );
-		$email_settings_url = $this->golinks->get_url( 'manage-subscription-email-reporting' );
-		$help_center_url    = add_query_arg( 'doc', 'get-support', 'https://sitekit.withgoogle.com/support/' );
-
 		return array(
 			'subject'                => $this->build_subject( $frequency ),
 			'preheader'              => __( 'See the latest highlights from Site Kit.', 'google-site-kit' ),
@@ -439,15 +343,15 @@ class Email_Template_Formatter {
 			),
 			'primary_call_to_action' => array(
 				'label' => __( 'View dashboard', 'google-site-kit' ),
-				'url'   => $dashboard_url,
+				'url'   => admin_url( 'admin.php?page=googlesitekit-dashboard' ),
 			),
 			'footer'                 => array(
 				'copy'            => __( 'You received this email because you signed up to receive email reports from Site Kit. If you do not want to receive these emails in the future you can unsubscribe', 'google-site-kit' ), // The space and unsubscribe link are handled in the template.
-				'unsubscribe_url' => $email_settings_url,
+				'unsubscribe_url' => admin_url( 'admin.php?page=googlesitekit-settings#/admin-settings' ),
 				'links'           => array(
 					array(
 						'label' => __( 'Manage subscription', 'google-site-kit' ),
-						'url'   => $email_settings_url,
+						'url'   => admin_url( 'admin.php?page=googlesitekit-dashboard&email-reporting-panel=1' ),
 					),
 					array(
 						'label' => __( 'Privacy Policy', 'google-site-kit' ),
@@ -455,7 +359,7 @@ class Email_Template_Formatter {
 					),
 					array(
 						'label' => __( 'Help center', 'google-site-kit' ),
-						'url'   => $help_center_url,
+						'url'   => 'https://sitekit.withgoogle.com/documentation/troubleshooting/site-kit-support/',
 					),
 				),
 			),

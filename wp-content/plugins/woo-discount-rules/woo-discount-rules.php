@@ -4,22 +4,14 @@
  * Plugin URI: https://www.flycart.org
  * Description: Simple to complex discount rules for your WooCommerce store. Core package.
  * Author: Flycart
-<<<<<<< HEAD
  * Author URI: https://www.flycart.org
- * Version: 2.6.13
-=======
- * Version: 2.6.14
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+ * Version: 2.6.10
  * Slug: woo-discount-rules
  * Text Domain: woo-discount-rules
  * Domain Path: /i18n/languages/
  * Requires at least: 4.6.1
  * WC requires at least: 3.0
-<<<<<<< HEAD
- * WC tested up to: 10.2
-=======
- * WC tested up to: 10.5
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+ * WC tested up to: 9.9
  * License: GPLv2 or later
  * Requires Plugins: woocommerce
  */
@@ -41,11 +33,7 @@ add_action('before_woocommerce_init', function() {
  * Current version of our app
  */
 if (!defined('WDR_VERSION')) {
-<<<<<<< HEAD
-    define('WDR_VERSION', '2.6.13');
-=======
-    define('WDR_VERSION', '2.6.14');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+    define('WDR_VERSION', '2.6.10');
 }
 
 /**

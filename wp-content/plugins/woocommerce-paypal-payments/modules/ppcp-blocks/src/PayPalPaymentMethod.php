@@ -10,10 +10,6 @@ namespace WooCommerce\PayPalCommerce\Blocks;
 
 use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType;
 use WC_AJAX;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\Blocks\Endpoint\UpdateShippingEndpoint;
 use WooCommerce\PayPalCommerce\Button\Assets\SmartButtonInterface;
 use WooCommerce\PayPalCommerce\Session\Cancellation\CancelController;
@@ -28,16 +24,12 @@ use WooCommerce\PayPalCommerce\WcSubscriptions\Helper\SubscriptionHelper;
  */
 class PayPalPaymentMethod extends AbstractPaymentMethodType
 {
-<<<<<<< HEAD
     /**
      * The URL of this module.
      *
      * @var string
      */
     private $module_url;
-=======
-    private AssetGetter $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     /**
      * The assets version.
      *
@@ -123,13 +115,9 @@ class PayPalPaymentMethod extends AbstractPaymentMethodType
      */
     private $all_funding_sources;
     /**
-<<<<<<< HEAD
      * Assets constructor.
      *
      * @param string                        $module_url The url of this module.
-=======
-     * @param AssetGetter                   $asset_getter
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @param string                        $version    The assets version.
      * @param SmartButtonInterface|callable $smart_button The smart button script loading handler.
      * @param Settings                      $plugin_settings The settings.
@@ -145,17 +133,10 @@ class PayPalPaymentMethod extends AbstractPaymentMethodType
      * @param string                        $place_order_button_description The text for additional "Place order" description.
      * @param array                         $all_funding_sources All existing funding sources for PayPal buttons.
      */
-<<<<<<< HEAD
     public function __construct(string $module_url, string $version, $smart_button, Settings $plugin_settings, SettingsStatus $settings_status, PayPalGateway $gateway, bool $final_review_enabled, CancelView $cancellation_view, SessionHandler $session_handler, SubscriptionHelper $subscription_helper, bool $add_place_order_method, bool $use_place_order, string $place_order_button_text, string $place_order_button_description, array $all_funding_sources)
     {
         $this->name = PayPalGateway::ID;
         $this->module_url = $module_url;
-=======
-    public function __construct(AssetGetter $asset_getter, string $version, $smart_button, Settings $plugin_settings, SettingsStatus $settings_status, PayPalGateway $gateway, bool $final_review_enabled, CancelView $cancellation_view, SessionHandler $session_handler, SubscriptionHelper $subscription_helper, bool $add_place_order_method, bool $use_place_order, string $place_order_button_text, string $place_order_button_description, array $all_funding_sources)
-    {
-        $this->name = PayPalGateway::ID;
-        $this->asset_getter = $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $this->version = $version;
         $this->smart_button = $smart_button;
         $this->plugin_settings = $plugin_settings;
@@ -192,11 +173,7 @@ class PayPalPaymentMethod extends AbstractPaymentMethodType
      */
     public function get_payment_method_script_handles()
     {
-<<<<<<< HEAD
         wp_register_script('ppcp-checkout-block', trailingslashit($this->module_url) . 'assets/js/checkout-block.js', array(), $this->version, \true);
-=======
-        wp_register_script('ppcp-checkout-block', $this->asset_getter->get_asset_url('checkout-block.js'), array(), $this->version, \true);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         return array('ppcp-checkout-block');
     }
     /**

@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit();
 /**
  *
  * @author  PaymentPlugins
- * @package PaymentPlugins\Classes
+ * @package Stripe/Classes
  *
  */
 class WC_Stripe_Redirect_Handler {

@@ -2,9 +2,6 @@
 
 namespace PaymentPlugins\Stripe\WooCommerceSubscriptions;
 
-/**
- * @package PaymentPlugins\WooCommerceSubscriptions\Stripe
- */
 class RetryManager {
 
 	/**

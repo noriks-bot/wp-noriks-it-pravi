@@ -19,14 +19,9 @@ class Loco_gettext_Extraction {
 
     /**
      * Extra strings to be pushed into domains
-<<<<<<< HEAD
      * @var array
      */
     private $extras = [];
-=======
-     */
-    private array $extras = [];
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
     /**
      * List of files skipped due to memory limit
@@ -36,14 +31,9 @@ class Loco_gettext_Extraction {
 
     /**
      * Size in bytes of largest file encountered
-<<<<<<< HEAD
      * @var int
      */
     private $maxbytes = 0;
-=======
-     */
-    private int $maxbytes = 0;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 
     /**

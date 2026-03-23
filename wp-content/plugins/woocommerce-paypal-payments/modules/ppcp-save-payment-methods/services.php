@@ -8,11 +8,6 @@
 declare (strict_types=1);
 namespace WooCommerce\PayPalCommerce\SavePaymentMethods;
 
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
-use WooCommerce\PayPalCommerce\Assets\AssetGetterFactory;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\SavePaymentMethods\Endpoint\CreatePaymentToken;
 use WooCommerce\PayPalCommerce\SavePaymentMethods\Endpoint\CreateSetupToken;
 use WooCommerce\PayPalCommerce\SavePaymentMethods\Endpoint\CreatePaymentTokenForGuest;
@@ -33,11 +28,7 @@ return array(
         };
     },
     'save-payment-methods.helpers.save-payment-methods-applies' => static function (ContainerInterface $container): SavePaymentMethodsApplies {
-<<<<<<< HEAD
         return new SavePaymentMethodsApplies($container->get('save-payment-methods.supported-countries'), $container->get('api.shop.country'));
-=======
-        return new SavePaymentMethodsApplies($container->get('save-payment-methods.supported-countries'), $container->get('api.merchant.country'));
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     },
     'save-payment-methods.supported-countries' => static function (ContainerInterface $container): array {
         if (has_filter('woocommerce_paypal_payments_save_payment_methods_supported_country_currency_matrix')) {
@@ -45,15 +36,8 @@ return array(
         }
         return apply_filters('woocommerce_paypal_payments_save_payment_methods_supported_countries', array('AU', 'AT', 'BE', 'BG', 'CA', 'CN', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'HK', 'HU', 'IE', 'IT', 'LV', 'LI', 'LT', 'LU', 'MT', 'NO', 'NL', 'PL', 'PT', 'RO', 'SG', 'SK', 'SI', 'ES', 'SE', 'GB', 'US', 'YT', 'RE', 'GP', 'GF', 'MQ'));
     },
-<<<<<<< HEAD
     'save-payment-methods.module.url' => static function (ContainerInterface $container): string {
         return plugins_url('/modules/ppcp-save-payment-methods/', $container->get('ppcp.path-to-plugin-main-file'));
-=======
-    'save-payment-methods.asset_getter' => static function (ContainerInterface $container): AssetGetter {
-        $factory = $container->get('assets.asset_getter_factory');
-        assert($factory instanceof AssetGetterFactory);
-        return $factory->for_module('ppcp-save-payment-methods');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     },
     'save-payment-methods.endpoint.create-setup-token' => static function (ContainerInterface $container): CreateSetupToken {
         return new CreateSetupToken($container->get('button.request-data'), $container->get('api.endpoint.payment-method-tokens'));

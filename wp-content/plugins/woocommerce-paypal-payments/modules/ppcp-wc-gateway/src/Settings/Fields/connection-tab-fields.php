@@ -10,10 +10,6 @@ declare (strict_types=1);
 namespace WooCommerce\PayPalCommerce\WcGateway\Settings;
 
 use WooCommerce\PayPalCommerce\ApiClient\Helper\PurchaseUnitSanitizer;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\Onboarding\Render\OnboardingOptionsRenderer;
 use WooCommerce\PayPalCommerce\Vendor\Psr\Container\ContainerInterface;
 use WooCommerce\PayPalCommerce\ApiClient\Helper\DccApplies;
@@ -34,12 +30,7 @@ return function (ContainerInterface $container, array $fields): array {
     $is_shop_supports_dcc = $dcc_applies->for_country_currency() || $dcc_applies->for_wc_payments();
     $onboarding_options_renderer = $container->get('onboarding.render-options');
     assert($onboarding_options_renderer instanceof OnboardingOptionsRenderer);
-<<<<<<< HEAD
     $module_url = $container->get('wcgateway.url');
-=======
-    $asset_getter = $container->get('wcgateway.asset_getter');
-    assert($asset_getter instanceof AssetGetter);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     $display_manager = $container->get('wcgateway.display-manager');
     assert($display_manager instanceof DisplayManager);
     $onboarding_send_only_notice_renderer = $container->get('onboarding.render-send-only-notice');
@@ -53,16 +44,11 @@ return function (ContainerInterface $container, array $fields): array {
         'ppcp_onboarading_header' => array('type' => 'ppcp-text', 'classes' => array('ppcp-onboarding-element'), 'text' => '
 <div class="ppcp-onboarding-header">
 	<div class="ppcp-onboarding-header-left">
-<<<<<<< HEAD
 		<img alt="PayPal" src="' . esc_url($module_url) . 'assets/images/paypal.png"/>
-=======
-		<img alt="PayPal" src="' . $asset_getter->get_static_asset_url('images/paypal.png') . '"/>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		<h2>The all-in-one checkout solution</h2>
 	</div>
 	<div class="ppcp-onboarding-header-right">
 		<div class="ppcp-onboarding-header-paypal-logos">
-<<<<<<< HEAD
 			<a href="https://woo.com/document/woocommerce-paypal-payments/#standard-paypal-payments" target="_blank"><img alt="PayPal" src="' . esc_url($module_url) . 'assets/images/paypal-button.svg"/></a>
 			<a href="https://woo.com/document/woocommerce-paypal-payments/#pay-with-venmo" target="_blank"><img alt="Venmo" src="' . esc_url($module_url) . 'assets/images/venmo.svg"/></a>
 			<a href="https://woo.com/document/woocommerce-paypal-payments/#pay-later" target="_blank"><img alt="Pay Later" src="' . esc_url($module_url) . 'assets/images/paylater.svg"/></a>
@@ -78,23 +64,6 @@ return function (ContainerInterface $container, array $fields): array {
 		<div class="ppcp-onboarding-header-apm-logos">
 			<a href="https://woo.com/document/woocommerce-paypal-payments/#apple-pay" target="_blank"><img alt="Apple Pay" src="' . esc_url($module_url) . 'assets/images/button-Apple-Pay.png"/></a>
 			<a href="https://woo.com/document/woocommerce-paypal-payments/#google-pay" target="_blank"><img alt="Google Pay" src="' . esc_url($module_url) . 'assets/images/button-Google-Pay.png"/></a>
-=======
-			<a href="https://woo.com/document/woocommerce-paypal-payments/#standard-paypal-payments" target="_blank"><img alt="PayPal" src="' . $asset_getter->get_static_asset_url('images/paypal-button.svg') . '"/></a>
-			<a href="https://woo.com/document/woocommerce-paypal-payments/#pay-with-venmo" target="_blank"><img alt="Venmo" src="' . $asset_getter->get_static_asset_url('images/venmo.svg') . '"/></a>
-			<a href="https://woo.com/document/woocommerce-paypal-payments/#pay-later" target="_blank"><img alt="Pay Later" src="' . $asset_getter->get_static_asset_url('images/paylater.svg') . '"/></a>
-		</div>
-		<div class="ppcp-onboarding-header-cards">
-			<a href="https://woo.com/document/woocommerce-paypal-payments/#paypal-card-processing-acdc" target="_blank"><img alt="Visa" src="' . $asset_getter->get_static_asset_url('images/visa-dark.svg') . '"/></a>
-			<a href="https://woo.com/document/woocommerce-paypal-payments/#paypal-card-processing-acdc" target="_blank"><img alt="Mastercard" src="' . $asset_getter->get_static_asset_url('images/mastercard-dark.svg') . '"/></a>
-			<a href="https://woo.com/document/woocommerce-paypal-payments/#paypal-card-processing-acdc" target="_blank"><img alt="American Express" src="' . $asset_getter->get_static_asset_url('images/amex.svg') . '"/></a>
-			<a href="https://woo.com/document/woocommerce-paypal-payments/#paypal-card-processing-acdc" target="_blank"><img alt="Discover" src="' . $asset_getter->get_static_asset_url('images/discover.svg') . '"/></a>
-			<a href="https://woo.com/document/woocommerce-paypal-payments/#alternative-payment-methods" target="_blank"><img alt="iDEAL" src="' . $asset_getter->get_static_asset_url('images/ideal-dark.svg') . '"/></a>
-			<a href="https://woo.com/document/woocommerce-paypal-payments/#alternative-payment-methods" target="_blank"><img alt="BLIK" src="' . $asset_getter->get_static_asset_url('images/blik.svg') . '"/></a>
-		</div>
-		<div class="ppcp-onboarding-header-apm-logos">
-			<a href="https://woo.com/document/woocommerce-paypal-payments/#apple-pay" target="_blank"><img alt="Apple Pay" src="' . $asset_getter->get_static_asset_url('images/button-Apple-Pay.png') . '"/></a>
-			<a href="https://woo.com/document/woocommerce-paypal-payments/#google-pay" target="_blank"><img alt="Google Pay" src="' . $asset_getter->get_static_asset_url('images/button-Google-Pay.png') . '"/></a>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		</div>
 	</div>
 </div>', 'screens' => array(State::STATE_START, State::STATE_ONBOARDED), 'requirements' => array(), 'gateway' => \WooCommerce\PayPalCommerce\WcGateway\Settings\Settings::CONNECTION_TAB_ID),

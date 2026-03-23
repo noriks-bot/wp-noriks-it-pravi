@@ -6,8 +6,9 @@ class Loco_mvc_AdminRouter extends Loco_hooks_Hookable {
     
     /**
      * Current admin page controller
+     * @var Loco_mvc_AdminController
      */
-    private ?Loco_mvc_AdminController $ctrl = null;
+    private $ctrl;
 
 
     /**
@@ -30,7 +31,7 @@ class Loco_mvc_AdminRouter extends Loco_hooks_Hookable {
         // rendering hook for all menu items
         $render = [ $this, 'renderPage' ];
         
-        // main loco pages, hooking only if user has permission
+        // main loco pages, hooking only if has permission
         if( $user->has_cap($cap) ){
 
             $label = __('Loco Translate','loco-translate');
@@ -85,7 +86,8 @@ class Loco_mvc_AdminRouter extends Loco_hooks_Hookable {
      * @return void
      */
     public function on_current_screen( WP_Screen $screen ){
-        $this->initPage( $screen, $_GET['action']??'' );
+        $action = isset($_GET['action']) ? $_GET['action'] : null;
+        $this->initPage( $screen, $action );
     }
 
 
@@ -93,9 +95,10 @@ class Loco_mvc_AdminRouter extends Loco_hooks_Hookable {
      * Instantiate admin page controller from current screen.
      * This is called early (before renderPage) so controller can listen on other hooks.
      * 
+     * @param string $action
      * @return Loco_mvc_AdminController|null
      */
-    public function initPage( WP_Screen $screen, string $action = '' ){
+    public function initPage( WP_Screen $screen, $action = '' ){
         $class = null;
         $args =  [];
         // suppress error display when establishing Loco page
@@ -264,8 +267,9 @@ class Loco_mvc_AdminRouter extends Loco_hooks_Hookable {
      * @param string $route
      * @return string
      */
-    public static function generate( string $route, array $args = [] ){
+    public static function generate( $route, array $args = [] ){
         $url = null;
+        $page = null;
         $action = null;
         // empty action targets plugin root
         if( ! $route || 'loco' === $route ){
@@ -293,8 +297,8 @@ class Loco_mvc_AdminRouter extends Loco_hooks_Hookable {
             if( ! $class ){
                 throw new UnexpectedValueException( sprintf('Invalid admin route: %s', json_encode($route) ) );
             }
-            else if( ! class_exists($class) ){
-                throw new Loco_error_Exception('File not found for '.$class);
+            else {
+                class_exists($class,true); // <- autoloader will throw if not class found
             }
         }
         // if url found, it should contain the page

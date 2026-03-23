@@ -10,8 +10,6 @@
 
 namespace Google\Site_Kit\Core\Util;
 
-use Exception;
-
 /**
  * Class for custom URL parsing methods.
  *
@@ -70,7 +68,7 @@ class URL {
 			unset( $parts[ $key ] );
 		}
 
-		return _get_component_from_parsed_url_array( $parts, $component ); // @phpstan-ignore function.internal
+		return _get_component_from_parsed_url_array( $parts, $component );
 	}
 
 	/**

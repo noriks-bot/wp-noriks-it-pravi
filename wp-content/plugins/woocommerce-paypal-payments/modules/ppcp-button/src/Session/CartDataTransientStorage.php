@@ -23,14 +23,6 @@ class CartDataTransientStorage
         if (!set_transient($key, $cart_data->to_array(), $this->expiration)) {
             throw new Exception('set_transient failed.');
         }
-<<<<<<< HEAD
-=======
-        // Create reverse lookup by PayPal order ID if available.
-        $paypal_order_id = $cart_data->paypal_order_id();
-        if (!empty($paypal_order_id)) {
-            set_transient('ppcp_cart_by_order_' . $paypal_order_id, $key, $this->expiration);
-        }
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
     public function get(string $key): ?\WooCommerce\PayPalCommerce\Button\Session\CartData
     {
@@ -40,7 +32,6 @@ class CartDataTransientStorage
         }
         return \WooCommerce\PayPalCommerce\Button\Session\CartData::from_array($data, $key);
     }
-<<<<<<< HEAD
     public function remove(\WooCommerce\PayPalCommerce\Button\Session\CartData $cart_data): void
     {
         $key = $cart_data->key();
@@ -48,32 +39,5 @@ class CartDataTransientStorage
             return;
         }
         delete_transient($key);
-=======
-    /**
-     * Gets CartData by PayPal order ID.
-     *
-     * @param string $paypal_order_id The PayPal order ID.
-     * @return CartData|null The CartData if found, null otherwise.
-     */
-    public function get_by_paypal_order_id(string $paypal_order_id): ?\WooCommerce\PayPalCommerce\Button\Session\CartData
-    {
-        $cart_key = get_transient('ppcp_cart_by_order_' . $paypal_order_id);
-        if (empty($cart_key) || !is_string($cart_key)) {
-            return null;
-        }
-        return $this->get($cart_key);
-    }
-    public function remove(\WooCommerce\PayPalCommerce\Button\Session\CartData $cart_data): void
-    {
-        $key = $cart_data->key();
-        if (!empty($key)) {
-            delete_transient($key);
-        }
-        // Also delete reverse lookup by PayPal order ID.
-        $paypal_order_id = $cart_data->paypal_order_id();
-        if (!empty($paypal_order_id)) {
-            delete_transient('ppcp_cart_by_order_' . $paypal_order_id);
-        }
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
 }

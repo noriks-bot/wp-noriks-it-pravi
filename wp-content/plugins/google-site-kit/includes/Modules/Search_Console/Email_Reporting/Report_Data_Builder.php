@@ -472,6 +472,10 @@ class Report_Data_Builder {
 			$dimension_values[] = $entry['dimension_value'];
 		}
 
+		if ( empty( $labels ) ) {
+			return null;
+		}
+
 		return array(
 			'section_key'      => $section_key,
 			'title'            => '',

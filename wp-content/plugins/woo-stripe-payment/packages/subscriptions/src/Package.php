@@ -6,9 +6,6 @@ use PaymentPlugins\Stripe\WooCommerceSubscriptions\Controllers\ChangePaymentGate
 use PaymentPlugins\Stripe\WooCommerceSubscriptions\Controllers\OrderMetadata;
 use PaymentPlugins\Stripe\WooCommerceSubscriptions\Controllers\PaymentIntent;
 
-/**
- * @package PaymentPlugins\WooCommerceSubscriptions\Stripe
- */
 class Package {
 
 	public static function init() {

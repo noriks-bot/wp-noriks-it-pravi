@@ -8,17 +8,10 @@
 declare (strict_types=1);
 namespace WooCommerce\PayPalCommerce\Vaulting;
 
-<<<<<<< HEAD
 use WooCommerce\PayPalCommerce\ApiClient\Endpoint\PaymentTokenEndpoint;
 use WooCommerce\PayPalCommerce\ApiClient\Entity\PaymentToken;
 use WooCommerce\PayPalCommerce\ApiClient\Exception\RuntimeException;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\PaymentTokenFactory;
-=======
-use WooCommerce\PayPalCommerce\ApiClient\Entity\PaymentToken;
-use WooCommerce\PayPalCommerce\ApiClient\Exception\RuntimeException;
-use WooCommerce\PayPalCommerce\ApiClient\Factory\PaymentTokenFactory;
-use WooCommerce\PayPalCommerce\ApiClient\VaultV2\PaymentTokenEndpoint;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 /**
  * Class PaymentTokenRepository
  */

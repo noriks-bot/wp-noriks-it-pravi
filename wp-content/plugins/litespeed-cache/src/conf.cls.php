@@ -179,11 +179,7 @@ class Conf extends Base {
 				$options[ $k ] = self::get_option( $k, $v );
 			}
 
-<<<<<<< HEAD
-			// Correct value type
-=======
 			// Correct value type.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			$options[ $k ] = $this->type_casting( $options[ $k ], $k );
 		}
 

@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit();
 /**
  *
  * @author PaymentPlugins
- * @package PaymentPlugins\Abstract
+ * @package Stripe/Abstract
  *
  */
 abstract class WC_Stripe_Settings_API extends WC_Settings_API {

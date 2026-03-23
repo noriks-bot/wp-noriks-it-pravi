@@ -221,7 +221,6 @@ abstract class Base
             case 'equal_to':
                 $result = ($operand1 == $operand2);
                 break;
-<<<<<<< HEAD
             case 'not_equal_to';
                 $result = ($operand1 != $operand2);
                 break;
@@ -238,24 +237,6 @@ abstract class Base
                 $result = ($operand1 <= $operand2);
                 break;
             case 'in_range';
-=======
-	        case 'not_equal_to':
-                $result = ($operand1 != $operand2);
-                break;
-	        case 'greater_than':
-                $result = ($operand1 > $operand2);
-                break;
-	        case 'less_than':
-                $result = ($operand1 < $operand2);
-                break;
-	        case 'greater_than_or_equal':
-                $result = ($operand1 >= $operand2);
-                break;
-	        case 'less_than_or_equal':
-                $result = ($operand1 <= $operand2);
-                break;
-	        case 'in_range':
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                 if (!empty($operand2) && !empty($operand3)) {
                     $result = (($operand1 >= $operand2) && ($operand1 <= $operand3));
                 } elseif (!empty($operand2) && empty($operand3)) {
@@ -291,11 +272,7 @@ abstract class Base
                 }
                 break;
             default:
-<<<<<<< HEAD
             case 'in_list';
-=======
-	        case 'in_list':
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                 if (is_array($key) || is_object($key)) {
                     $key = (array)$key;
                     return array_intersect($key, $list);

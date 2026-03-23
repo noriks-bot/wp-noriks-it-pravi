@@ -67,7 +67,6 @@ namespace Stripe;
  * @property null|\Stripe\StripeObject $upi
  * @property null|\Stripe\StripeObject $us_bank_account
  * @property null|\Stripe\StripeObject $wechat_pay
- * @property null|\Stripe\StripeObject $zip
  */
 class PaymentMethodConfiguration extends ApiResource
 {

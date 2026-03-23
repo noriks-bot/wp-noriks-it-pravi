@@ -8,10 +8,6 @@
 declare (strict_types=1);
 namespace WooCommerce\PayPalCommerce\Webhooks\Status\Assets;
 
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\WcGateway\Helper\Environment;
 use WooCommerce\PayPalCommerce\Webhooks\Endpoint\ResubscribeEndpoint;
 use WooCommerce\PayPalCommerce\Webhooks\Endpoint\SimulateEndpoint;
@@ -22,16 +18,12 @@ use WooCommerce\PayPalCommerce\Webhooks\Status\WebhookSimulation;
  */
 class WebhooksStatusPageAssets
 {
-<<<<<<< HEAD
     /**
      * The URL to the module.
      *
      * @var string
      */
     private $module_url;
-=======
-    private AssetGetter $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     /**
      * The assets version.
      *
@@ -45,7 +37,6 @@ class WebhooksStatusPageAssets
      */
     private $environment;
     /**
-<<<<<<< HEAD
      * WebhooksStatusPageAssets constructor.
      *
      * @param string      $module_url  The URL to the module.
@@ -55,15 +46,6 @@ class WebhooksStatusPageAssets
     public function __construct(string $module_url, string $version, Environment $environment)
     {
         $this->module_url = untrailingslashit($module_url);
-=======
-     * @param AssetGetter $asset_getter
-     * @param string      $version     The assets version.
-     * @param Environment $environment The environment object.
-     */
-    public function __construct(AssetGetter $asset_getter, string $version, Environment $environment)
-    {
-        $this->asset_getter = $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $this->version = $version;
         $this->environment = $environment;
     }
@@ -74,13 +56,8 @@ class WebhooksStatusPageAssets
      */
     public function register(): void
     {
-<<<<<<< HEAD
         wp_register_style('ppcp-webhooks-status-page-style', untrailingslashit($this->module_url) . '/assets/css/status-page.css', array(), $this->version);
         wp_register_script('ppcp-webhooks-status-page', untrailingslashit($this->module_url) . '/assets/js/status-page.js', array(), $this->version, \true);
-=======
-        wp_register_style('ppcp-webhooks-status-page-style', $this->asset_getter->get_asset_url('status-page.css'), array(), $this->version);
-        wp_register_script('ppcp-webhooks-status-page', $this->asset_getter->get_asset_url('status-page.js'), array(), $this->version, \true);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         wp_localize_script('ppcp-webhooks-status-page', 'PayPalCommerceGatewayWebhooksStatus', $this->get_script_data());
     }
     /**

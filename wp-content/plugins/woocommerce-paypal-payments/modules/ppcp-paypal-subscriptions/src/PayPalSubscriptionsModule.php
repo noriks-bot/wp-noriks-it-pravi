@@ -17,10 +17,6 @@ use WC_Subscriptions_Product;
 use WooCommerce\PayPalCommerce\ApiClient\Endpoint\BillingSubscriptions;
 use WooCommerce\PayPalCommerce\ApiClient\Exception\PayPalApiException;
 use WooCommerce\PayPalCommerce\ApiClient\Exception\RuntimeException;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\WcGateway\Helper\Environment;
 use WooCommerce\PayPalCommerce\Vendor\Inpsyde\Modularity\Module\ExecutableModule;
 use WooCommerce\PayPalCommerce\Vendor\Inpsyde\Modularity\Module\ExtendingModule;
@@ -165,12 +161,6 @@ class PayPalSubscriptionsModule implements ServiceModule, ExtendingModule, Execu
              * @psalm-suppress MissingClosureParamType
              */
             static function ($passed_validation, $product_id) use ($c) {
-<<<<<<< HEAD
-=======
-                if (!WC()->cart) {
-                    return $passed_validation;
-                }
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                 if (WC()->cart->is_empty() || wcs_is_manual_renewal_enabled()) {
                     return $passed_validation;
                 }
@@ -434,14 +424,8 @@ class PayPalSubscriptionsModule implements ServiceModule, ExtendingModule, Execu
                 if (!in_array($hook, array('post.php', 'post-new.php'), \true) || $subscription_mode !== 'subscriptions_api') {
                     return;
                 }
-<<<<<<< HEAD
                 $module_url = $c->get('paypal-subscriptions.module.url');
                 wp_enqueue_script('ppcp-paypal-subscription', untrailingslashit($module_url) . '/assets/js/paypal-subscription.js', array('jquery'), $c->get('ppcp.asset-version'), \true);
-=======
-                $asset_getter = $c->get('paypal-subscriptions.asset_getter');
-                assert($asset_getter instanceof AssetGetter);
-                wp_enqueue_script('ppcp-paypal-subscription', $asset_getter->get_asset_url('paypal-subscription.js'), array('jquery'), $c->get('ppcp.asset-version'), \true);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                 wp_set_script_translations('ppcp-paypal-subscription', 'woocommerce-paypal-payments');
                 $product = wc_get_product();
                 if (!$product) {

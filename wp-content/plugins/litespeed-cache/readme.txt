@@ -4,11 +4,7 @@ Tags: caching, optimize, performance, pagespeed, seo, image optimize, object cac
 Requires at least: 5.3
 Requires PHP: 7.2
 Tested up to: 6.9
-<<<<<<< HEAD
-Stable tag: 7.7
-=======
 Stable tag: 7.8
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -261,8 +257,6 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
-<<<<<<< HEAD
-=======
 = 7.8 - Mar 3 2026 =
 * **Cloud** Changed Health service to run asynchronously.
 * **Object Cache** Dropped `Store Transients` option. Transients now always use Object Cache when available, preventing potential database bloat from expired transients not being cleared. (ravanh)
@@ -281,7 +275,6 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * **Misc** Added Apache rewrite rule support for security check. (PR#948)
 * **Misc** Split Cloud and Image Optimization classes into traits for better maintainability.
 
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 = 7.7 - Dec 16 2025 =
 * **Task** Increased default cron interval from 1 minute to 15 minutes.
 * **Conf** Enabled `litespeed_conf_load_option_{$option}` to allow modifying configuration values.

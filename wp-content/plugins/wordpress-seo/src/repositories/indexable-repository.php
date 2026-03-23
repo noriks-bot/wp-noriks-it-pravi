@@ -566,22 +566,12 @@ class Indexable_Repository {
 	/**
 	 * Resets the permalinks of the passed object type and subtype.
 	 *
-<<<<<<< HEAD
 	 * @param string|null $type    The type of the indexable. Can be null.
 	 * @param string|null $subtype The subtype. Can be null.
 	 *
 	 * @return int|bool The number of permalinks changed if the query was succesful. False otherwise.
 	 */
 	public function reset_permalink( $type = null, $subtype = null ) {
-=======
-	 * @param string|null $type      The type of the indexable. Can be null.
-	 * @param string|null $subtype   The subtype. Can be null.
-	 * @param int|null    $object_id The object ID. Can be null.
-	 *
-	 * @return int|bool The number of permalinks changed if the query was succesful. False otherwise.
-	 */
-	public function reset_permalink( $type = null, $subtype = null, $object_id = null ) {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		$query = $this->query()->set(
 			[
 				'permalink'      => null,
@@ -598,13 +588,6 @@ class Indexable_Repository {
 			$query->where( 'object_sub_type', $subtype );
 		}
 
-<<<<<<< HEAD
-=======
-		if ( $object_id !== null ) {
-			$query->where( 'object_id', $object_id );
-		}
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		return $query->update_many();
 	}
 

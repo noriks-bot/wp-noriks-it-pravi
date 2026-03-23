@@ -59,12 +59,9 @@ class Admin extends Root {
 	 * @return void
 	 */
 	public function admin_init() {
-<<<<<<< HEAD
-=======
 		// Hook to reset optimization data when image is replaced.
 		add_filter( 'wp_generate_attachment_metadata', [ $this, 'wp_generate_attachment_metadata' ], 10, 3 );
 
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		// Hook attachment upload auto optimization.
 		if ( $this->conf( Base::O_IMG_OPTM_AUTO ) ) {
 			add_filter( 'wp_update_attachment_metadata', [ $this, 'wp_update_attachment_metadata' ], 9999, 2 );
@@ -94,8 +91,6 @@ class Admin extends Root {
 	}
 
 	/**
-<<<<<<< HEAD
-=======
 	 * Handle attachment metadata generation.
 	 * Reset optimization data if this is a replaced image (has existing optimization records).
 	 *
@@ -124,7 +119,6 @@ class Admin extends Root {
 	}
 
 	/**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * Handle attachment metadata update.
 	 *
 	 * @since 4.0

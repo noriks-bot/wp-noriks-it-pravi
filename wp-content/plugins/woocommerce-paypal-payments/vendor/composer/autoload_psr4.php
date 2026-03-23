@@ -6,10 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-<<<<<<< HEAD
     'WpOop\\WordPress\\' => array($vendorDir . '/wp-oop/wordpress-interface/src'),
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     'WooCommerce\\WooCommerce\\Logging\\' => array($baseDir . '/modules/woocommerce-logging/src'),
     'WooCommerce\\PayPalCommerce\\Webhooks\\' => array($baseDir . '/modules/ppcp-webhooks/src'),
     'WooCommerce\\PayPalCommerce\\WcSubscriptions\\' => array($baseDir . '/modules/ppcp-wc-subscriptions/src'),
@@ -22,10 +19,7 @@ return array(
     'WooCommerce\\PayPalCommerce\\StatusReport\\' => array($baseDir . '/modules/ppcp-status-report/src'),
     'WooCommerce\\PayPalCommerce\\Settings\\' => array($baseDir . '/modules/ppcp-settings/src'),
     'WooCommerce\\PayPalCommerce\\Session\\' => array($baseDir . '/modules/ppcp-session/src'),
-<<<<<<< HEAD
     'WooCommerce\\PayPalCommerce\\SavedPaymentChecker\\' => array($baseDir . '/modules/ppcp-saved-payment-checker/src'),
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     'WooCommerce\\PayPalCommerce\\SavePaymentMethods\\' => array($baseDir . '/modules/ppcp-save-payment-methods/src'),
     'WooCommerce\\PayPalCommerce\\PayPalSubscriptions\\' => array($baseDir . '/modules/ppcp-paypal-subscriptions/src'),
     'WooCommerce\\PayPalCommerce\\PayLaterWCBlocks\\' => array($baseDir . '/modules/ppcp-paylater-wc-blocks/src'),
@@ -50,12 +44,9 @@ return array(
     'Wikimedia\\Composer\\Merge\\V2\\' => array($vendorDir . '/wikimedia/composer-merge-plugin/src'),
     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
     'Interop\\Container\\' => array($vendorDir . '/container-interop/service-provider/src'),
-<<<<<<< HEAD
     'Dhii\\Versions\\' => array($vendorDir . '/dhii/versions/src'),
     'Dhii\\Validation\\' => array($vendorDir . '/dhii/validation-interface/src'),
     'Dhii\\Util\\String\\' => array($vendorDir . '/dhii/human-readable-interface/src'),
     'Dhii\\Package\\' => array($vendorDir . '/dhii/package-interface/src'),
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     'Dhii\\Modular\\Module\\' => array($vendorDir . '/dhii/module-interface/src'),
 );

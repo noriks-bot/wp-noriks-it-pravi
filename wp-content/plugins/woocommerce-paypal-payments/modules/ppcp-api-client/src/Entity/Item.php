@@ -81,11 +81,6 @@ class Item
      * @var string|null
      */
     protected $cart_item_key;
-<<<<<<< HEAD
-=======
-    private ?int $product_id;
-    protected ?\WooCommerce\PayPalCommerce\ApiClient\Entity\Money $discount;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     /**
      * Item constructor.
      *
@@ -101,11 +96,7 @@ class Item
      * @param float      $tax_rate The tax rate.
      * @param ?string    $cart_item_key The cart key for this item.
      */
-<<<<<<< HEAD
     public function __construct(string $name, \WooCommerce\PayPalCommerce\ApiClient\Entity\Money $unit_amount, int $quantity, string $description = '', ?\WooCommerce\PayPalCommerce\ApiClient\Entity\Money $tax = null, string $sku = '', string $category = 'PHYSICAL_GOODS', string $url = '', string $image_url = '', float $tax_rate = 0, ?string $cart_item_key = null)
-=======
-    public function __construct(string $name, \WooCommerce\PayPalCommerce\ApiClient\Entity\Money $unit_amount, int $quantity, string $description = '', ?\WooCommerce\PayPalCommerce\ApiClient\Entity\Money $tax = null, string $sku = '', string $category = 'PHYSICAL_GOODS', string $url = '', string $image_url = '', float $tax_rate = 0, ?string $cart_item_key = null, ?int $product_id = null, ?\WooCommerce\PayPalCommerce\ApiClient\Entity\Money $discount = null)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     {
         $this->name = $name;
         $this->unit_amount = $unit_amount;
@@ -118,11 +109,6 @@ class Item
         $this->image_url = $image_url;
         $this->tax_rate = $tax_rate;
         $this->cart_item_key = $cart_item_key;
-<<<<<<< HEAD
-=======
-        $this->product_id = $product_id;
-        $this->discount = $discount;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
     /**
      * Returns the name of the item.
@@ -223,17 +209,6 @@ class Item
     {
         return $this->cart_item_key;
     }
-<<<<<<< HEAD
-=======
-    public function product_id(): ?int
-    {
-        return $this->product_id;
-    }
-    public function discount(): ?\WooCommerce\PayPalCommerce\ApiClient\Entity\Money
-    {
-        return $this->discount;
-    }
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     /**
      * Returns the object as array.
      *

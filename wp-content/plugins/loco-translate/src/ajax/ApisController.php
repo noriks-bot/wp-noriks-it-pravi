@@ -77,24 +77,19 @@ class Loco_ajax_ApisController extends Loco_mvc_AjaxController {
         if( has_filter($action) ){
             $targets = apply_filters( $action, [], $sources, $locale, $config );
         }
-        // Use built-in translation vendors if the unique hook isn't registered.
+        // Use built-in translators if hook hasn't registered one.
+        else if( 'deepl' === $hook && class_exists('Loco_api_DeepL') ){
+            $targets = Loco_api_DeepL::process( $sources, $locale, $config );
+        }
+        else if( 'openai' === $hook && class_exists('Loco_api_ChatGpt') ){
+            $targets = Loco_api_ChatGpt::process( $sources, $locale, $config );
+        }
         else {
-            $vendor = $config['vendor'] ?? $hook;
-            if( 'deepl' === $vendor ){
-                $targets = Loco_api_DeepL::process( $sources, $locale, $config );
-            }
-            else if( Loco_api_ChatGpt::supports($vendor) ){
-                $targets = Loco_api_ChatGpt::process( $sources, $locale, $config+['vendor'=>$hook] );
-            }
-            else {
-                throw new Loco_error_Exception('API not hooked. Use `add_filter('.var_export($action,1).',...)`');
-            }
+            throw new Loco_error_Exception('API not hooked. Use `add_filter('.var_export($action,1).',...)`');
         }
 
-        // a mid-batch failure that doesn't through an exception might throw the count off 
         if( count($targets) !== count($sources) ){
-            $name = $config['name'] ?? $hook;
-            Loco_error_AdminNotices::warn( sprintf('%s: Got %u translations for %u source strings', $name, count($targets), count($sources) ) );
+            Loco_error_AdminNotices::warn('Number of translations does not match number of source strings');
         }
     
         // Response data doesn't need anything except the translations

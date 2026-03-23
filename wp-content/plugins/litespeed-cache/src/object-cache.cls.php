@@ -79,16 +79,6 @@ class Object_Cache extends Root {
 	const O_OBJECT_ADMIN = 'object-admin';
 
 	/**
-<<<<<<< HEAD
-	 * Transients store flag.
-	 *
-	 * @var string
-	 */
-	const O_OBJECT_TRANSIENTS = 'object-transients';
-
-	/**
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * DB index for Redis.
 	 *
 	 * @var string
@@ -187,16 +177,6 @@ class Object_Cache extends Root {
 	private $_cfg_admin;
 
 	/**
-<<<<<<< HEAD
-	 * Store transients.
-	 *
-	 * @var bool
-	 */
-	private $_cfg_transients;
-
-	/**
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * Redis DB index.
 	 *
 	 * @var int
@@ -269,10 +249,6 @@ class Object_Cache extends Root {
 			$this->_cfg_life              = $cfg[ Base::O_OBJECT_LIFE ];
 			$this->_cfg_persistent        = $cfg[ Base::O_OBJECT_PERSISTENT ];
 			$this->_cfg_admin             = $cfg[ Base::O_OBJECT_ADMIN ];
-<<<<<<< HEAD
-			$this->_cfg_transients        = $cfg[ Base::O_OBJECT_TRANSIENTS ];
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			$this->_cfg_db                = $cfg[ Base::O_OBJECT_DB_ID ];
 			$this->_cfg_user              = $cfg[ Base::O_OBJECT_USER ];
 			$this->_cfg_pswd              = $cfg[ Base::O_OBJECT_PSWD ];
@@ -291,10 +267,6 @@ class Object_Cache extends Root {
 			$this->_cfg_life              = $this->conf( Base::O_OBJECT_LIFE );
 			$this->_cfg_persistent        = $this->conf( Base::O_OBJECT_PERSISTENT );
 			$this->_cfg_admin             = $this->conf( Base::O_OBJECT_ADMIN );
-<<<<<<< HEAD
-			$this->_cfg_transients        = $this->conf( Base::O_OBJECT_TRANSIENTS );
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			$this->_cfg_db                = $this->conf( Base::O_OBJECT_DB_ID );
 			$this->_cfg_user              = $this->conf( Base::O_OBJECT_USER );
 			$this->_cfg_pswd              = $this->conf( Base::O_OBJECT_PSWD );
@@ -317,10 +289,6 @@ class Object_Cache extends Root {
 				$this->_cfg_life              = ! empty( $cfg[ self::O_OBJECT_LIFE ] ) ? $cfg[ self::O_OBJECT_LIFE ] : $this->_default_life;
 				$this->_cfg_persistent        = ! empty( $cfg[ self::O_OBJECT_PERSISTENT ] ) ? $cfg[ self::O_OBJECT_PERSISTENT ] : false;
 				$this->_cfg_admin             = ! empty( $cfg[ self::O_OBJECT_ADMIN ] ) ? $cfg[ self::O_OBJECT_ADMIN ] : false;
-<<<<<<< HEAD
-				$this->_cfg_transients        = ! empty( $cfg[ self::O_OBJECT_TRANSIENTS ] ) ? $cfg[ self::O_OBJECT_TRANSIENTS ] : false;
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 				$this->_cfg_db                = ! empty( $cfg[ self::O_OBJECT_DB_ID ] ) ? $cfg[ self::O_OBJECT_DB_ID ] : 0;
 				$this->_cfg_user              = ! empty( $cfg[ self::O_OBJECT_USER ] ) ? $cfg[ self::O_OBJECT_USER ] : '';
 				$this->_cfg_pswd              = ! empty( $cfg[ self::O_OBJECT_PSWD ] ) ? $cfg[ self::O_OBJECT_PSWD ] : '';
@@ -371,22 +339,6 @@ class Object_Cache extends Root {
 	}
 
 	/**
-<<<<<<< HEAD
-	 * Get `Store Transients` setting value.
-	 *
-	 * @since  1.8.3
-	 * @access public
-	 *
-	 * @param string $group Group name.
-	 * @return bool
-	 */
-	public function store_transients( $group ) {
-		return $this->_cfg_transients && $this->_is_transients_group( $group );
-	}
-
-	/**
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * Check if the group belongs to transients or not.
 	 *
 	 * @since  1.8.3
@@ -503,11 +455,7 @@ class Object_Cache extends Root {
 
 		if ( ! class_exists( $this->_oc_driver ) || ! $this->_cfg_host ) {
 			$this->debug_oc( '_oc_driver cls non existed or _cfg_host missed: ' . $this->_oc_driver . ' [_cfg_host] ' . $this->_cfg_host . ':' . $this->_cfg_port );
-<<<<<<< HEAD
-			return null;
-=======
 			return false;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		}
 
 		if ( defined( 'LITESPEED_OC_FAILURE' ) ) {
@@ -677,22 +625,6 @@ class Object_Cache extends Root {
 	 * @since  1.8
 	 * @access public
 	 *
-<<<<<<< HEAD
-	 * @param string $key Cache key.
-	 * @return mixed|null
-	 */
-	public function get( $key ) {
-		if ( ! $this->_cfg_enabled ) {
-			return null;
-		}
-
-		if ( ! $this->_can_cache() ) {
-			return null;
-		}
-
-		if ( ! $this->_connect() ) {
-			return null;
-=======
 	 * @param string $key   Cache key.
 	 * @param string $group Optional. Cache group name.
 	 * @return mixed|false
@@ -708,7 +640,6 @@ class Object_Cache extends Root {
 
 		if ( ! $this->_connect() ) {
 			return false;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		}
 
 		$res = $this->_conn->get( $key );
@@ -725,19 +656,11 @@ class Object_Cache extends Root {
 	 * @param string $key    Cache key.
 	 * @param mixed  $data   Data to store.
 	 * @param int    $expire TTL seconds.
-<<<<<<< HEAD
-	 * @return bool|null
-	 */
-	public function set( $key, $data, $expire ) {
-		if ( ! $this->_cfg_enabled ) {
-			return null;
-=======
 	 * @return bool
 	 */
 	public function set( $key, $data, $expire ) {
 		if ( ! $this->_cfg_enabled ) {
 			return false;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		}
 
 		/**
@@ -745,19 +668,11 @@ class Object_Cache extends Root {
 		 * Bug found by Stan at Jan/10/2020
 		 */
 		// if ( ! $this->_can_cache() ) {
-<<<<<<< HEAD
-		// return null;
-		// }
-
-		if ( ! $this->_connect() ) {
-			return null;
-=======
 		// return false;
 		// }
 
 		if ( ! $this->_connect() ) {
 			return false;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		}
 
 		$ttl = $expire ? $expire : $this->_cfg_life;
@@ -784,11 +699,6 @@ class Object_Cache extends Root {
 	 * @since  1.8
 	 * @access private
 	 *
-<<<<<<< HEAD
-	 * @return bool
-	 */
-	private function _can_cache() {
-=======
 	 * @param string $group Optional. Cache group name.
 	 * @return bool
 	 */
@@ -797,7 +707,6 @@ class Object_Cache extends Root {
 		if ( $this->_is_transients_group( $group ) ) {
 			return true;
 		}
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		if ( ! $this->_cfg_admin && defined( 'WP_ADMIN' ) ) {
 			return false;
 		}
@@ -811,17 +720,6 @@ class Object_Cache extends Root {
 	 * @access public
 	 *
 	 * @param string $key Cache key.
-<<<<<<< HEAD
-	 * @return bool|null
-	 */
-	public function delete( $key ) {
-		if ( ! $this->_cfg_enabled ) {
-			return null;
-		}
-
-		if ( ! $this->_connect() ) {
-			return null;
-=======
 	 * @return bool
 	 */
 	public function delete( $key ) {
@@ -831,7 +729,6 @@ class Object_Cache extends Root {
 
 		if ( ! $this->_connect() ) {
 			return false;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		}
 
 		if ( 'Redis' === $this->_oc_driver ) {
@@ -849,28 +746,16 @@ class Object_Cache extends Root {
 	 * @since  1.8
 	 * @access public
 	 *
-<<<<<<< HEAD
-	 * @return bool|null
-=======
 	 * @return bool
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 */
 	public function flush() {
 		if ( ! $this->_cfg_enabled ) {
 			$this->debug_oc( 'bypass flushing' );
-<<<<<<< HEAD
-			return null;
-		}
-
-		if ( ! $this->_connect() ) {
-			return null;
-=======
 			return false;
 		}
 
 		if ( ! $this->_connect() ) {
 			return false;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		}
 
 		$this->debug_oc( 'flush!' );

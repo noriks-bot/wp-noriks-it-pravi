@@ -11,11 +11,6 @@ namespace WooCommerce\PayPalCommerce\Googlepay\Assets;
 use Exception;
 use WooCommerce\PayPalCommerce\Vendor\Psr\Log\LoggerInterface;
 use WC_Countries;
-<<<<<<< HEAD
-=======
-use WC_Product;
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\Button\Assets\ButtonInterface;
 use WooCommerce\PayPalCommerce\Button\Helper\Context;
 use WooCommerce\PayPalCommerce\Googlepay\Endpoint\UpdatePaymentDataEndpoint;
@@ -37,16 +32,12 @@ class Button implements ButtonInterface
      * @var Context $context
      */
     private Context $context;
-<<<<<<< HEAD
     /**
      * The URL to the module.
      *
      * @var string
      */
     private $module_url;
-=======
-    private AssetGetter $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     /**
      * The URL to the SDK.
      *
@@ -94,13 +85,9 @@ class Button implements ButtonInterface
      */
     private ?SettingsModel $new_settings;
     /**
-<<<<<<< HEAD
      * SmartButton constructor.
      *
      * @param string             $module_url The URL to the module.
-=======
-     * @param AssetGetter        $asset_getter
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @param string             $sdk_url The URL to the SDK.
      * @param string             $version The assets version.
      * @param SubscriptionHelper $subscription_helper The subscription helper.
@@ -111,15 +98,9 @@ class Button implements ButtonInterface
      * @param Context            $context Context data provider.
      * @param SettingsModel|null $new_settings The new settings model.
      */
-<<<<<<< HEAD
     public function __construct(string $module_url, string $sdk_url, string $version, SubscriptionHelper $subscription_helper, Settings $settings, Environment $environment, SettingsStatus $settings_status, LoggerInterface $logger, Context $context, SettingsModel $new_settings = null)
     {
         $this->module_url = $module_url;
-=======
-    public function __construct(AssetGetter $asset_getter, string $sdk_url, string $version, SubscriptionHelper $subscription_helper, Settings $settings, Environment $environment, SettingsStatus $settings_status, LoggerInterface $logger, Context $context, ?SettingsModel $new_settings = null)
-    {
-        $this->asset_getter = $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $this->sdk_url = $sdk_url;
         $this->version = $version;
         $this->subscription_helper = $subscription_helper;
@@ -341,11 +322,7 @@ class Button implements ButtonInterface
         if (!$this->is_enabled()) {
             return;
         }
-<<<<<<< HEAD
         wp_register_script('wc-ppcp-googlepay', untrailingslashit($this->module_url) . '/assets/js/boot.js', array(), $this->version, \true);
-=======
-        wp_register_script('wc-ppcp-googlepay', $this->asset_getter->get_asset_url('boot.js'), array(), $this->version, \true);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         wp_enqueue_script('wc-ppcp-googlepay');
         $this->enqueue_styles();
         wp_localize_script('wc-ppcp-googlepay', 'wc_ppcp_googlepay', $this->script_data());
@@ -358,11 +335,7 @@ class Button implements ButtonInterface
         if (!$this->is_enabled()) {
             return;
         }
-<<<<<<< HEAD
         wp_register_style('wc-ppcp-googlepay', untrailingslashit($this->module_url) . '/assets/css/styles.css', array(), $this->version);
-=======
-        wp_register_style('wc-ppcp-googlepay', $this->asset_getter->get_asset_url('styles.css'), array(), $this->version);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         wp_enqueue_style('wc-ppcp-googlepay');
     }
     /**
@@ -370,15 +343,9 @@ class Button implements ButtonInterface
      */
     public function enqueue_admin(): void
     {
-<<<<<<< HEAD
         wp_register_style('wc-ppcp-googlepay-admin', untrailingslashit($this->module_url) . '/assets/css/styles.css', array(), $this->version);
         wp_enqueue_style('wc-ppcp-googlepay-admin');
         wp_register_script('wc-ppcp-googlepay-admin', untrailingslashit($this->module_url) . '/assets/js/boot-admin.js', array(), $this->version, \true);
-=======
-        wp_register_style('wc-ppcp-googlepay-admin', $this->asset_getter->get_asset_url('styles.css'), array(), $this->version);
-        wp_enqueue_style('wc-ppcp-googlepay-admin');
-        wp_register_script('wc-ppcp-googlepay-admin', $this->asset_getter->get_asset_url('boot-admin.js'), array(), $this->version, \true);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         wp_enqueue_script('wc-ppcp-googlepay-admin');
         wp_localize_script('wc-ppcp-googlepay-admin', 'wc_ppcp_googlepay_admin', $this->script_data());
     }
@@ -391,7 +358,6 @@ class Button implements ButtonInterface
     public function script_data(): array
     {
         $use_shipping_form = $this->should_use_shipping();
-<<<<<<< HEAD
         // On the product page, only show the shipping form for physical products.
         $context = $this->context->context();
         if ($use_shipping_form && 'product' === $context) {
@@ -400,8 +366,6 @@ class Button implements ButtonInterface
                 $use_shipping_form = \false;
             }
         }
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $shipping = array('enabled' => $use_shipping_form, 'configured' => wc_shipping_enabled() && wc_get_shipping_method_count(\false, \true) > 0);
         if ($shipping['enabled']) {
             $shipping['countries'] = array_keys($this->wc_countries()->get_shipping_countries());
@@ -447,7 +411,6 @@ class Button implements ButtonInterface
     {
         return new WC_Countries();
     }
-<<<<<<< HEAD
     /**
      * Check if new settings model exist and if so check enable pay now setting,
      * if none of the above is true, check legacy settings for shipping enabled.
@@ -461,25 +424,5 @@ class Button implements ButtonInterface
             return \true;
         }
         return $this->settings->has('googlepay_button_shipping_enabled') && $this->settings->get('googlepay_button_shipping_enabled');
-=======
-    private function should_use_shipping(): bool
-    {
-        // Check if Pay Now is enabled in the new setting model, or if no new model, then check the legacy settings.
-        if (is_null($this->new_settings)) {
-            if (!$this->settings->has('googlepay_button_shipping_enabled') || !$this->settings->get('googlepay_button_shipping_enabled')) {
-                return \false;
-            }
-        } elseif (!$this->new_settings->get_enable_pay_now()) {
-            return \false;
-        }
-        $context = $this->context->context();
-        // On the product page, only show shipping if a physical product.
-        if ('product' === $context) {
-            $product = wc_get_product();
-            return $product instanceof WC_Product && !$product->is_downloadable() && !$product->is_virtual();
-        }
-        // On other pages, just check the cart.
-        return !is_null(WC()->cart) && WC()->cart->needs_shipping();
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
 }

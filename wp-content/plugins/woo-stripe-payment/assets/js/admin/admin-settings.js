@@ -89,7 +89,11 @@ class Settings {
             data: {_wpnonce: this.params.rest_nonce, hostname: window.location.hostname}
         }).done((response) => {
             this.unblock();
-            window.alert(response.messages.join('\n\n'));
+            if (response.code) {
+                window.alert(response.message);
+            } else {
+                window.alert(response.message);
+            }
         }).fail((xhr, textStatus, errorThrown) => {
             this.unblock();
             window.alert(errorThrown);

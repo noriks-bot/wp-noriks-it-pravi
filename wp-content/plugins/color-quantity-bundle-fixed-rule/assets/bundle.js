@@ -43,11 +43,7 @@ jQuery(function($) {
     function updateDisplay() {
         const total = totalItems();
         const allowed = getBundleQtyLimit();
-<<<<<<< HEAD
         remainingDisplay.text(`Odabrano ${total} of ${allowed} komada`);
-=======
-        remainingDisplay.text(`Επιλέχθηκαν ${total} από ${allowed} τεμάχια`);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         updateButtonState();
     }
 

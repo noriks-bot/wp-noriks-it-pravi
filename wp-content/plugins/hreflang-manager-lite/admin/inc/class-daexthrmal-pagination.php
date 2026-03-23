@@ -183,7 +183,7 @@ class Daexthrmal_Pagination {
 			echo '<div class="daexthrmal-crud-table-controls__pagination-paging-text">' .
 				esc_html( $this->current_page ) .
 				'&nbsp' .
-				esc_html__( 'of', 'hreflang-manager-lite' ) .
+				esc_html__( 'of' ) .
 				'&nbsp' .
 				esc_html( $last_page ) .
 				'</div>';

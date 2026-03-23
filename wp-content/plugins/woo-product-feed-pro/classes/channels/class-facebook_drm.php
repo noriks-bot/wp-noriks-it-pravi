@@ -18,6 +18,8 @@ class WooSEA_facebook_drm { // phpcs:ignore
      */
     public static function get_channel_attributes() {
 
+        $sitename = get_option( 'blogname' );
+
         $facebook_drm = array(
             'Basic fields'    => array(
                 'id'                      => array(
@@ -55,7 +57,6 @@ class WooSEA_facebook_drm { // phpcs:ignore
                     'feed_name'   => 'g:price',
                     'format'      => 'required',
                     'woo_suggest' => 'regular_price',
-                    'suffix'      => ' {{CURRENCY}}',
                 ),
                 'link'                    => array(
                     'name'        => 'link',
@@ -376,11 +377,6 @@ class WooSEA_facebook_drm { // phpcs:ignore
                 'compatible_devices'              => array(
                     'name'      => 'compatible_devices',
                     'feed_name' => 'compatible_devices',
-                    'format'    => 'optional',
-                ),
-                'video_url'                       => array(
-                    'name'      => 'video_url',
-                    'feed_name' => 'video_url',
                     'format'    => 'optional',
                 ),
                 'video_game_platform'             => array(

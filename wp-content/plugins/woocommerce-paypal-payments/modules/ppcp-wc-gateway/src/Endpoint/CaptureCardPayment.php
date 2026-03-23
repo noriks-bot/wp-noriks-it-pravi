@@ -15,10 +15,6 @@ use WC_Order;
 use WooCommerce\PayPalCommerce\ApiClient\Authentication\Bearer;
 use WooCommerce\PayPalCommerce\ApiClient\Endpoint\OrderEndpoint;
 use WooCommerce\PayPalCommerce\ApiClient\Endpoint\RequestTrait;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\ApiClient\Entity\Order;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\ApiClient\Entity\PurchaseUnit;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\OrderFactory;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\PurchaseUnitFactory;
@@ -26,12 +22,9 @@ use WooCommerce\PayPalCommerce\Session\SessionHandler;
 use WooCommerce\PayPalCommerce\WcGateway\Settings\Settings;
 use WooCommerce\PayPalCommerce\WcSubscriptions\Helper\RealTimeAccountUpdaterHelper;
 use WP_Error;
-<<<<<<< HEAD
 /**
  * Class CaptureCardPayment
  */
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 class CaptureCardPayment
 {
     use RequestTrait;
@@ -89,7 +82,6 @@ class CaptureCardPayment
      * @var LoggerInterface
      */
     private $logger;
-<<<<<<< HEAD
     /**
      * CaptureCardPayment constructor.
      *
@@ -103,8 +95,6 @@ class CaptureCardPayment
      * @param Settings                     $settings The settings.
      * @param LoggerInterface              $logger The logger.
      */
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     public function __construct(string $host, Bearer $bearer, OrderFactory $order_factory, PurchaseUnitFactory $purchase_unit_factory, OrderEndpoint $order_endpoint, SessionHandler $session_handler, RealTimeAccountUpdaterHelper $real_time_account_updater_helper, Settings $settings, LoggerInterface $logger)
     {
         $this->host = $host;
@@ -120,7 +110,6 @@ class CaptureCardPayment
     /**
      * Creates PayPal order from the given card vault id.
      *
-<<<<<<< HEAD
      * @param string   $vault_id Vault id.
      * @param string   $custom_id Custom id.
      * @param string   $invoice_id Invoice id.
@@ -132,14 +121,6 @@ class CaptureCardPayment
     {
         $intent = $this->settings->has('intent') && strtoupper((string) $this->settings->get('intent')) === 'AUTHORIZE' ? 'AUTHORIZE' : 'CAPTURE';
         $items = array($this->purchase_unit_factory->from_wc_cart());
-=======
-     * @throws RuntimeException When request fails.
-     */
-    public function create_order(string $vault_id, string $custom_id, string $invoice_id, WC_Order $wc_order): Order
-    {
-        $intent = $this->settings->has('intent') && strtoupper((string) $this->settings->get('intent')) === 'AUTHORIZE' ? 'AUTHORIZE' : 'CAPTURE';
-        $items = array($this->purchase_unit_factory->from_wc_cart(null, \false, $wc_order->get_payment_method()));
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         // phpcs:disable WordPress.Security.NonceVerification
         $pay_for_order = wc_clean(wp_unslash($_GET['pay_for_order'] ?? ''));
         $order_key = wc_clean(wp_unslash($_GET['key'] ?? ''));
@@ -158,13 +139,9 @@ class CaptureCardPayment
             throw new RuntimeException($response->get_error_message());
         }
         $decoded_response = json_decode($response['body']);
-<<<<<<< HEAD
         if (!isset($decoded_response->invoice_id)) {
             $decoded_response->invoice_id = $invoice_id;
         }
         return $decoded_response;
-=======
-        return $this->order_factory->from_paypal_response($decoded_response);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
 }

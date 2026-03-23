@@ -6,13 +6,14 @@ class Loco_mvc_AjaxRouter extends Loco_hooks_Hookable {
     
     /**
      * Current ajax controller
+     * @var Loco_mvc_AjaxController
      */
-    private ?Loco_mvc_AjaxController $ctrl = null;
+    private $ctrl;
 
     /**
-     * Buffer for collecting unintentional output
+     * @var Loco_output_Buffer
      */
-    private ?Loco_output_Buffer $buffer = null;
+    private $buffer;
 
     /**
      * Generate a GET request URL containing required routing parameters
@@ -20,10 +21,10 @@ class Loco_mvc_AjaxRouter extends Loco_hooks_Hookable {
      * @param array $args
      * @return string
      */
-    public static function generate( string $route, array $args = [] ){
+    public static function generate( $route, array $args = [] ){
         // validate route autoload if debugging
-        if( loco_debugging() && ! class_exists( self::routeToClass($route) ) ){
-            throw new Exception('Loco class not found for '.$route);
+        if( loco_debugging() ){
+            class_exists( self::routeToClass($route) );
         }
         $args +=  [
             'route' => $route,
@@ -48,19 +49,27 @@ class Loco_mvc_AjaxRouter extends Loco_hooks_Hookable {
      * early-ish hook that ensures controllers can initialize
      */
     public function on_init(){
-        $this->ctrl = null;
-        $class = self::routeToClass( $_REQUEST['route'] );
-        if( class_exists($class) ){
+        try {
+            $class = self::routeToClass( $_REQUEST['route'] );
+            // autoloader will throw error if controller class doesn't exist
             $this->ctrl = new $class;
             $this->ctrl->_init( $_REQUEST );
             // hook name compatible with AdminRouter, plus additional action for ajax hooks to set up
             do_action('loco_admin_init', $this->ctrl );
             do_action('loco_ajax_init', $this->ctrl );
         }
+        catch( Loco_error_Exception $e ){
+            $this->ctrl = null;
+            // throw $e; // <- debug
+        }
     }
 
     
-    private static function routeToClass( string $route ):string {
+    /**
+     * @param string $route
+     * @return string
+     */
+    private static function routeToClass( $route ){
         $route = explode( '-', $route );
         // convert route to class name, e.g. "foo-bar" => "Loco_ajax_foo_BarController"
         $key = count($route) - 1;
@@ -156,7 +165,7 @@ class Loco_mvc_AjaxRouter extends Loco_hooks_Hookable {
         try {
             // respond with deferred failure from initAjax
             if( ! $this->ctrl ){
-                $route = $_REQUEST['route'] ?? '';
+                $route = isset($_REQUEST['route']) ? $_REQUEST['route'] : '';
                 // translators: Fatal error where %s represents an unexpected value
                 throw new Loco_error_Exception( sprintf( __('Ajax route not found: "%s"','loco-translate'), $route ) );
             }

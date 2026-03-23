@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit();
  *
  * @since 3.1.2
  * @author PaymentPlugins
- * @package PaymentPlugins\Controllers
+ * @package Stripe/Controllers
  *
  */
 class WC_Stripe_Controller_Product_Data extends WC_Stripe_Rest_Controller {

@@ -9,10 +9,6 @@ declare (strict_types=1);
 namespace WooCommerce\PayPalCommerce\ApiClient\Factory;
 
 use WooCommerce\PayPalCommerce\ApiClient\Entity\ExperienceContext;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Settings\Data\Definition\FeaturesDefinition;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\WcGateway\Helper\MerchantDetails;
 /**
  * Class ContactPreferenceFactory
@@ -59,11 +55,7 @@ class ContactPreferenceFactory
         if (!$this->is_contact_module_active) {
             return ExperienceContext::CONTACT_PREFERENCE_NO_CONTACT_INFO;
         }
-<<<<<<< HEAD
         if (!$this->merchant_details->is_eligible_for(MerchantDetails::FEATURE_CONTACT_MODULE)) {
-=======
-        if (!$this->merchant_details->is_eligible_for(FeaturesDefinition::FEATURE_CONTACT_MODULE)) {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
             return ExperienceContext::CONTACT_PREFERENCE_NO_CONTACT_INFO;
         }
         return ExperienceContext::CONTACT_PREFERENCE_UPDATE_CONTACT_INFO;

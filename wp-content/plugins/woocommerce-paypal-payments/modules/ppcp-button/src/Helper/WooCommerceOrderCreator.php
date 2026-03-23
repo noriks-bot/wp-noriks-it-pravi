@@ -23,10 +23,6 @@ use WC_Tax;
 use WooCommerce\PayPalCommerce\ApiClient\Entity\Order;
 use WooCommerce\PayPalCommerce\ApiClient\Entity\Payer;
 use WooCommerce\PayPalCommerce\ApiClient\Entity\Shipping;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\ApiClient\Factory\PayerFactory;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\ApiClient\Factory\ShippingFactory;
 use WooCommerce\PayPalCommerce\Button\Session\CartData;
 use WooCommerce\PayPalCommerce\Button\Session\CartDataFactory;
@@ -60,39 +56,22 @@ class WooCommerceOrderCreator
     protected $subscription_helper;
     protected CartDataFactory $cart_data_factory;
     protected $shipping_factory;
-<<<<<<< HEAD
     public function __construct(FundingSourceRenderer $funding_source_renderer, SessionHandler $session_handler, SubscriptionHelper $subscription_helper, CartDataFactory $cart_data_factory, ShippingFactory $shipping_factory)
-=======
-    protected PayerFactory $payer_factory;
-    public function __construct(FundingSourceRenderer $funding_source_renderer, SessionHandler $session_handler, SubscriptionHelper $subscription_helper, CartDataFactory $cart_data_factory, ShippingFactory $shipping_factory, PayerFactory $payer_factory)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     {
         $this->funding_source_renderer = $funding_source_renderer;
         $this->session_handler = $session_handler;
         $this->subscription_helper = $subscription_helper;
         $this->cart_data_factory = $cart_data_factory;
         $this->shipping_factory = $shipping_factory;
-<<<<<<< HEAD
-=======
-        $this->payer_factory = $payer_factory;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
     /**
      * Creates WC order based on given PayPal order.
      *
      * @param Order            $order The PayPal order.
      * @param WC_Cart|CartData $cart The WC cart (converted into CartData).
-<<<<<<< HEAD
      * @throws RuntimeException If problem creating.
      */
     public function create_from_paypal_order(Order $order, $cart): WC_Order
-=======
-     * @param array|null       $paypal_data The PayPal Response Data.
-     *
-     * @throws RuntimeException If problem creating.
-     */
-    public function create_from_paypal_order(Order $order, $cart, ?array $paypal_data = null): WC_Order
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     {
         $cart_data = $cart;
         if ($cart_data instanceof WC_Cart) {
@@ -103,14 +82,9 @@ class WooCommerceOrderCreator
             throw new RuntimeException('Problem creating WC order.');
         }
         try {
-<<<<<<< HEAD
             $payer = $order->payer();
             $purchase_units = $order->purchase_units();
             $shipping = !empty($purchase_units) ? $purchase_units[0]->shipping() : null;
-=======
-            $payer = $this->get_payer($order, $paypal_data);
-            $shipping = $this->get_shipping($order, $paypal_data);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
             $this->configure_payment_source($wc_order);
             $this->configure_customer($wc_order, $cart_data);
             $this->configure_line_items($wc_order, $cart_data, $payer, $shipping);
@@ -244,10 +218,6 @@ class WooCommerceOrderCreator
      * Configures the payment source.
      *
      * @param WC_Order $wc_order The WC order.
-<<<<<<< HEAD
-=======
-     *
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @return void
      */
     protected function configure_payment_source(WC_Order $wc_order): void
@@ -278,10 +248,6 @@ class WooCommerceOrderCreator
      *
      * @param WC_Order $wc_order The WC order.
      * @param string[] $coupons The list of applied coupons.
-<<<<<<< HEAD
-=======
-     *
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @return void
      */
     protected function configure_coupons(WC_Order $wc_order, array $coupons): void
@@ -296,10 +262,6 @@ class WooCommerceOrderCreator
      * @param WC_Product            $product The Product.
      * @param WC_Order_Item_Product $item The line item.
      * @param float|string          $subtotal The subtotal.
-<<<<<<< HEAD
-=======
-     *
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @return void
      * @psalm-suppress InvalidScalarArgument
      */
@@ -314,10 +276,6 @@ class WooCommerceOrderCreator
      * Checks if the product with given ID is WC subscription.
      *
      * @param int $product_id The product ID.
-<<<<<<< HEAD
-=======
-     *
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @return bool true if the product is subscription, otherwise false.
      */
     protected function is_subscription(int $product_id): bool
@@ -332,10 +290,6 @@ class WooCommerceOrderCreator
      *
      * @param WC_Order $wc_order The WC order.
      * @param int      $product_id The product ID.
-<<<<<<< HEAD
-=======
-     *
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @return WC_Subscription The subscription order
      * @throws RuntimeException If problem creating.
      */
@@ -347,45 +301,4 @@ class WooCommerceOrderCreator
         }
         return $subscription;
     }
-<<<<<<< HEAD
-=======
-    /**
-     * Get the Payer from the PayPal order with fallback to the PayPal response data.
-     *
-     * @param Order      $order The PayPal Order.
-     * @param array|null $paypal_data The PayPal Response data.
-     *
-     * @return Payer|null The Payer object or null if no payer information is available.
-     */
-    private function get_payer(Order $order, ?array $paypal_data = null): ?Payer
-    {
-        $payer = $order->payer();
-        if (is_null($payer) && isset($paypal_data['payer'])) {
-            $payer_data = json_decode(wp_json_encode($paypal_data['payer']) ?: '');
-            $payer = $this->payer_factory->from_paypal_response($payer_data);
-        }
-        return $payer;
-    }
-    /**
-     * Get the Shipping information from the PayPal order with fallback to the PayPal response data.
-     *
-     * @param Order      $order The PayPal Order.
-     * @param array|null $paypal_data The PayPal Response data.
-     *
-     * @return Shipping|null The shipping object or null if no shipping information is available.
-     */
-    private function get_shipping(Order $order, ?array $paypal_data = null): ?Shipping
-    {
-        $purchase_units = $order->purchase_units();
-        $shipping = !empty($purchase_units) ? $purchase_units[0]->shipping() : null;
-        if ($shipping && is_null($shipping->address()) && isset($paypal_data['shipping_address'])) {
-            $paypal_data['shipping_address']['options'] = array_map(function ($option) {
-                return $option->to_array();
-            }, $shipping->options());
-            $shipping_address_data = json_decode(wp_json_encode($paypal_data['shipping_address']) ?: '');
-            $shipping = $this->shipping_factory->from_paypal_response($shipping_address_data);
-        }
-        return $shipping;
-    }
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 }

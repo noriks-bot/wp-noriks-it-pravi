@@ -123,17 +123,6 @@ class ReturnUrlEndpoint
             wp_safe_redirect(wc_get_checkout_url());
             exit;
         }
-<<<<<<< HEAD
-=======
-        if (!in_array($wc_order->get_status(), array('pending', 'on-hold'), \true)) {
-            $payment_gateway = $this->get_payment_gateway($wc_order->get_payment_method());
-            if ($payment_gateway) {
-                $this->session_handler->destroy_session_data();
-                wp_safe_redirect($payment_gateway->get_return_url($wc_order));
-                exit;
-            }
-        }
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $payment_gateway = $this->get_payment_gateway($wc_order->get_payment_method());
         if (!$payment_gateway) {
             wc_add_notice(__('Payment gateway is unavailable. Please try again or contact support.', 'woocommerce-paypal-payments'), 'error');

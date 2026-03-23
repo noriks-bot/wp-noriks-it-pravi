@@ -161,12 +161,6 @@ class CartProductsHelper
         }
         $variations = array();
         foreach ($post_variations as $key => $value) {
-<<<<<<< HEAD
-=======
-            if (!isset($value['name'], $value['value'])) {
-                continue;
-            }
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
             $variations[$value['name']] = $value['value'];
         }
         $variation_id = $this->product_data_store->find_matching_product_variation($product, $variations);

@@ -8,10 +8,6 @@
 declare (strict_types=1);
 namespace WooCommerce\PayPalCommerce\Onboarding\Render;
 
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\WcGateway\Settings\Settings;
 use WooCommerce\PayPalCommerce\WcGateway\Exception\NotFoundException;
 /**
@@ -19,16 +15,12 @@ use WooCommerce\PayPalCommerce\WcGateway\Exception\NotFoundException;
  */
 class OnboardingOptionsRenderer
 {
-<<<<<<< HEAD
     /**
      * The module url.
      *
      * @var string
      */
     private $module_url;
-=======
-    private AssetGetter $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     /**
      * 2-letter country code of the shop.
      *
@@ -42,7 +34,6 @@ class OnboardingOptionsRenderer
      */
     protected $settings;
     /**
-<<<<<<< HEAD
      * OnboardingOptionsRenderer constructor.
      *
      * @param string   $module_url The module url (for assets).
@@ -52,15 +43,6 @@ class OnboardingOptionsRenderer
     public function __construct(string $module_url, string $country, Settings $settings)
     {
         $this->module_url = $module_url;
-=======
-     * @param AssetGetter $asset_getter
-     * @param string      $country 2-letter country code of the shop.
-     * @param Settings    $settings The settings.
-     */
-    public function __construct(AssetGetter $asset_getter, string $country, Settings $settings)
-    {
-        $this->asset_getter = $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $this->country = $country;
         $this->settings = $settings;
     }
@@ -190,10 +172,6 @@ class OnboardingOptionsRenderer
      */
     private function get_screen_url(string $key): string
     {
-<<<<<<< HEAD
         return untrailingslashit($this->module_url) . "/assets/images/cards-screen-{$key}.png";
-=======
-        return $this->asset_getter->get_static_asset_url("images/cards-screen-{$key}.png");
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
 }

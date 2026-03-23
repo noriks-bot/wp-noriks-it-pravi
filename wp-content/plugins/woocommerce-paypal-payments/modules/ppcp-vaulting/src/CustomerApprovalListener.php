@@ -10,13 +10,8 @@ namespace WooCommerce\PayPalCommerce\Vaulting;
 
 use Exception;
 use WooCommerce\PayPalCommerce\Vendor\Psr\Log\LoggerInterface;
-<<<<<<< HEAD
 use WooCommerce\PayPalCommerce\ApiClient\Endpoint\PaymentTokenEndpoint;
 use WooCommerce\PayPalCommerce\ApiClient\Exception\AlreadyVaultedException;
-=======
-use WooCommerce\PayPalCommerce\ApiClient\Exception\AlreadyVaultedException;
-use WooCommerce\PayPalCommerce\ApiClient\VaultV2\PaymentTokenEndpoint;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\WcSubscriptions\FreeTrialHandlerTrait;
 /**
  * Class CustomerApprovalListener

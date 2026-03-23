@@ -8,10 +8,6 @@
 declare (strict_types=1);
 namespace WooCommerce\PayPalCommerce\WcGateway\Settings;
 
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 /**
  * Class HeaderRenderer
  */
@@ -24,7 +20,6 @@ class HeaderRenderer
      * @var string
      */
     private $page_id;
-<<<<<<< HEAD
     /**
      * The URL to the module.
      *
@@ -41,17 +36,6 @@ class HeaderRenderer
     {
         $this->page_id = $page_id;
         $this->module_url = $module_url;
-=======
-    private AssetGetter $asset_getter;
-    /**
-     * @param string      $page_id ID of the current PPCP gateway settings page, or empty if it is not such page.
-     * @param AssetGetter $asset_getter
-     */
-    public function __construct(string $page_id, AssetGetter $asset_getter)
-    {
-        $this->page_id = $page_id;
-        $this->asset_getter = $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
     /**
      * Whether the sections tab should be rendered.
@@ -72,11 +56,7 @@ class HeaderRenderer
         }
         return '
 			<div class="ppcp-settings-page-header">
-<<<<<<< HEAD
 				<img alt="PayPal" src="' . esc_url($this->module_url) . 'assets/images/paypal.png" style="max-height: 30px" />
-=======
-				<img alt="PayPal" src="' . $this->asset_getter->get_static_asset_url('images/paypal.png') . '" style="max-height: 30px" />
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 				<h4> <span class="ppcp-inline-only">-</span> ' . __('The all-in-one checkout solution for WooCommerce', 'woocommerce-paypal-payments') . '</h4>
 				<a class="button" target="_blank" href="https://woocommerce.com/document/woocommerce-paypal-payments/">' . __('Documentation', 'woocommerce-paypal-payments') . '</a>
 				<a class="button" target="_blank" href="https://woocommerce.com/document/woocommerce-paypal-payments/#get-help">' . __('Get Help', 'woocommerce-paypal-payments') . '</a>

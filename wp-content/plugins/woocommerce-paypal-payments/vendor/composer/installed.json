@@ -39,7 +39,6 @@
             "install-path": "..\/container-interop\/service-provider"
         },
         {
-<<<<<<< HEAD
             "name": "dhii\/human-readable-interface",
             "version": "v0.2.0-alpha1",
             "version_normalized": "0.2.0.0-alpha1",
@@ -98,8 +97,6 @@
             "install-path": "..\/dhii\/human-readable-interface"
         },
         {
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
             "name": "dhii\/module-interface",
             "version": "v0.3.0-alpha2",
             "version_normalized": "0.3.0.0-alpha2",
@@ -155,7 +152,6 @@
             "install-path": "..\/dhii\/module-interface"
         },
         {
-<<<<<<< HEAD
             "name": "dhii\/package-interface",
             "version": "v0.1.0-alpha4",
             "version_normalized": "0.1.0.0-alpha4",
@@ -311,8 +307,6 @@
             "install-path": "..\/dhii\/versions"
         },
         {
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
             "name": "psr\/container",
             "version": "1.1.2",
             "version_normalized": "1.1.2.0",
@@ -608,7 +602,6 @@
                 "source": "https:\/\/github.com\/wikimedia\/composer-merge-plugin\/tree\/v2.1.0"
             },
             "install-path": "..\/wikimedia\/composer-merge-plugin"
-<<<<<<< HEAD
         },
         {
             "name": "wp-oop\/wordpress-interface",
@@ -664,8 +657,6 @@
                 "source": "https:\/\/github.com\/wp-oop\/wordpress-interface\/tree\/v0.1.0-alpha2"
             },
             "install-path": "..\/wp-oop\/wordpress-interface"
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         }
     ],
     "dev": false,

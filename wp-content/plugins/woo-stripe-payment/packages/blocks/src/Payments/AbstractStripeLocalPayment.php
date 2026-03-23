@@ -25,8 +25,7 @@ abstract class AbstractStripeLocalPayment extends AbstractStripePayment {
 
 	public function get_payment_method_data() {
 		return array(
-			'name'                  => $this->get_name(),
-			'gatewayId'             => $this->get_name(),
+			'name'                  => $this->name,
 			'title'                 => $this->payment_method->get_title(),
 			'description'           => $this->payment_method->get_description(),
 			'icon'                  => $this->get_payment_method_icon(),

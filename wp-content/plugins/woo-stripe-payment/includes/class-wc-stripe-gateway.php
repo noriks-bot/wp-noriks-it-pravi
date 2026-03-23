@@ -8,7 +8,7 @@ require_once( WC_STRIPE_PLUGIN_FILE_PATH . 'includes/class-wc-stripe-api-operati
  * Gateway class that abstracts all API calls to Stripe.
  *
  * @author  Payment Plugins
- * @package PaymentPlugins\Classes
+ * @package Stripe/Classes
  *
  * @property \Stripe\Service\AccountLinkService                        $accountLinks
  * @property \Stripe\Service\AccountService                            $accounts
@@ -37,7 +37,6 @@ require_once( WC_STRIPE_PLUGIN_FILE_PATH . 'includes/class-wc-stripe-api-operati
  * @property \Stripe\Service\OrderService                              $orders
  * @property \Stripe\Service\PaymentIntentService                      $paymentIntents
  * @property \Stripe\Service\PaymentMethodService                      $paymentMethods
- * @property \Stripe\Service\PaymentMethodDomainService                $paymentMethodDomains
  * @property \Stripe\Service\PayoutService                             $payouts
  * @property \Stripe\Service\PlanService                               $plans
  * @property \Stripe\Service\PriceService                              $prices
@@ -113,8 +112,8 @@ class WC_Stripe_Gateway {
 	 * @param string $mode
 	 * @param string $secret_key
 	 *
-	 * @return WC_Stripe_Gateway
 	 * @since 3.1.0
+	 * @return WC_Stripe_Gateway
 	 */
 	public static function load( $mode = null, $secret_key = null, $config = array() ) {
 		$class = apply_filters( 'wc_stripe_gateway_class', 'WC_Stripe_Gateway' );
@@ -476,8 +475,8 @@ class WC_Stripe_Gateway {
 	/**
 	 * @param string|WC_Order $mode
 	 *
-	 * @return $this
 	 * @since 3.3.13
+	 * @return $this
 	 */
 	public function mode( $mode ) {
 		if ( $mode instanceof WC_Order ) {

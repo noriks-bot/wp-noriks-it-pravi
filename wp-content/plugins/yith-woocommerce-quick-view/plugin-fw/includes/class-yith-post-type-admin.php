@@ -341,11 +341,7 @@ if ( ! class_exists( 'YITH_Post_Type_Admin' ) ) {
 		public function maybe_render_blank_state( $which ) {
 			global $post_type;
 
-<<<<<<< HEAD
 			if ( $this->get_blank_state_params() && $post_type === $this->post_type && 'bottom' === $which ) {
-=======
-			if ( $this->get_blank_state_params() && $post_type === $this->post_type && 'top' === $which ) {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 				$counts  = (array) wp_count_posts( $post_type );
 				$trashed = $counts['trash'] ?? 0;
 				unset( $counts['auto-draft'] );
@@ -366,13 +362,8 @@ if ( ! class_exists( 'YITH_Post_Type_Admin' ) ) {
 				$selectors_to_hide = array(
 					'#posts-filter .wp-list-table',
 					'#posts-filter .yith-plugin-ui__wp-list-auto-h-scroll__wrapper',
-<<<<<<< HEAD
 					'#posts-filter .tablenav.top',
 					'.tablenav.bottom > *',
-=======
-					'.tablenav.top > *',
-					'.tablenav.bottom',
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 				);
 
 				if ( ! $trashed ) {
@@ -380,11 +371,7 @@ if ( ! class_exists( 'YITH_Post_Type_Admin' ) ) {
 				}
 
 				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-<<<<<<< HEAD
 				echo '<style type="text/css">' . implode( ', ', $selectors_to_hide ) . '{ display: none; } #posts-filter .tablenav.bottom { height: auto; display: block } </style>';
-=======
-				echo '<style type="text/css">' . implode( ', ', $selectors_to_hide ) . '{ display: none; } #posts-filter .tablenav.top { height: auto; display: block } </style>';
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			}
 		}
 

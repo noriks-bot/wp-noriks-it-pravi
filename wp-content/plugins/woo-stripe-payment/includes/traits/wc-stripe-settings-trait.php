@@ -4,10 +4,9 @@ defined( 'ABSPATH' ) || exit();
 
 /**
  *
- * @since   3.1.0
+ * @since  3.1.0
  *
- * @author  Payment Plugins
- * @package PaymentPlugins\Traits
+ * @author Payment Plugins
  */
 trait WC_Stripe_Settings_Trait {
 

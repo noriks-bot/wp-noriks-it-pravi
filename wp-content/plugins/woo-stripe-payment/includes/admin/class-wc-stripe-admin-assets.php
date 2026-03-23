@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit();
 
 /**
  *
- * @package PaymentPlugins\Admin
+ * @package Stripe/Admin
  */
 class WC_Stripe_Admin_Assets {
 
@@ -24,24 +24,24 @@ class WC_Stripe_Admin_Assets {
 		wp_register_script( 'wc-stripe-help-widget', $js_path . 'admin/help-widget.js', array( 'jquery' ), stripe_wc()->version(), true );
 
 		stripe_wc()->assets()->register_script( 'wc-stripe-admin-settings', 'assets/build/admin-settings.js', array(
-			wc_stripe_get_script_handle( 'jquery-blockui' ),
+			'jquery-blockui',
 			'wc-backbone-modal'
 		) );
 
 		wp_register_script( 'wc-stripe-meta-boxes-order', $js_path . 'admin/meta-boxes-order.js', array(
 			'jquery',
-			wc_stripe_get_script_handle( 'jquery-blockui' )
+			'jquery-blockui'
 		), stripe_wc()->version, true );
 		wp_register_script(
 			'wc-stripe-product-data',
 			$js_path . 'admin/meta-boxes-product-data.js',
 			array(
 				'jquery',
-				wc_stripe_get_script_handle( 'jquery-blockui' ),
+				'jquery-blockui',
 				'jquery-ui-sortable',
 				'jquery-ui-widget',
 				'jquery-ui-core',
-				wc_stripe_get_script_handle( 'jquery-tiptip' )
+				'jquery-tiptip',
 			),
 			stripe_wc()->version(),
 			true

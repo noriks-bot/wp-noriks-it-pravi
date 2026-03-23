@@ -5,9 +5,6 @@ namespace PaymentPlugins\Stripe\WooCommercePreOrders\Controllers;
 use PaymentPlugins\Stripe\RequestContext;
 use PaymentPlugins\Stripe\WooCommercePreOrders\FrontendRequests;
 
-/**
- * @package PaymentPlugins\WooCommercePreOrders\Stripe
- */
 class PaymentIntent {
 
 	private $request;

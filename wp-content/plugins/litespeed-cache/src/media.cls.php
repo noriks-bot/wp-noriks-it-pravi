@@ -21,11 +21,8 @@ class Media extends Root {
 
 	const LIB_FILE_IMG_LAZYLOAD = 'assets/js/lazyload.min.js';
 
-<<<<<<< HEAD
-=======
 	const TYPE_BATCH_RESCALE_ORI = 'batch_rescale_ori';
 
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	/**
 	 * Current page buffer content.
 	 *
@@ -190,8 +187,6 @@ class Media extends Root {
 	}
 
 	/**
-<<<<<<< HEAD
-=======
 	 * Route media actions.
 	 *
 	 * @since 7.7
@@ -303,7 +298,6 @@ class Media extends Root {
 	}
 
 	/**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * Add featured image and VPI preloads to head.
 	 *
 	 * @param string $content Current head HTML.
@@ -540,11 +534,7 @@ class Media extends Root {
 				$desc        = esc_attr__( 'Currently using original (unoptimized) version of file.', 'litespeed-cache' ) . '&#10;' . esc_attr__( 'Click to switch to optimized version.', 'litespeed-cache' );
 			}
 
-<<<<<<< HEAD
-			echo wp_kses_post(
-=======
 			echo wp_kses(
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 				GUI::pie_tiny(
 					$percent,
 					24,
@@ -554,12 +544,8 @@ class Media extends Root {
 						Utility::real_size( $size_meta['ori_saved'] )
 					),
 					'left'
-<<<<<<< HEAD
-				)
-=======
 				),
 				GUI::allowed_svg_tags()
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			);
 
 			printf(
@@ -583,11 +569,7 @@ class Media extends Root {
 				);
 			}
 		} elseif ( $size_meta && 0 === (int) $size_meta['ori_saved'] ) {
-<<<<<<< HEAD
-			echo wp_kses_post( GUI::pie_tiny( 0, 24, esc_html__( 'Congratulation! Your file was already optimized', 'litespeed-cache' ), 'left' ) );
-=======
 			echo wp_kses( GUI::pie_tiny( 0, 24, esc_html__( 'Congratulation! Your file was already optimized', 'litespeed-cache' ), 'left' ), GUI::allowed_svg_tags() );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			printf(
 				esc_html__( 'Orig %s', 'litespeed-cache' ),
 				'<span class="litespeed-desc">' . esc_html__( '(no savings)', 'litespeed-cache' ) . '</span>'
@@ -626,11 +608,7 @@ class Media extends Root {
 				$desc       .= '&#10;' . esc_attr__( 'Click to switch to optimized version.', 'litespeed-cache' );
 			}
 
-<<<<<<< HEAD
-			echo wp_kses_post(
-=======
 			echo wp_kses(
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 				GUI::pie_tiny(
 					$percent,
 					24,
@@ -640,12 +618,8 @@ class Media extends Root {
 						Utility::real_size( $size_meta_saved )
 					),
 					'left'
-<<<<<<< HEAD
-				)
-=======
 				),
 				GUI::allowed_svg_tags()
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			);
 			printf(
 				$is_avif ? esc_html__( 'AVIF saved %s', 'litespeed-cache' ) : esc_html__( 'WebP saved %s', 'litespeed-cache' ),
@@ -758,15 +732,12 @@ class Media extends Root {
 				}
 			}
 
-<<<<<<< HEAD
-=======
 			if ( preg_match( '/Macintosh.+Version\/([0-9.]+)/i', $ua, $matches ) ) {
 				if ( version_compare( $matches[1], '16.4', '>=' ) ) {
 					return true;
 				}
 			}
 
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			if ( preg_match( '/Firefox\/(\d+)/i', $ua, $matches ) ) {
 				if ( $matches[1] >= 65 ) {
 					return true;
@@ -1056,12 +1027,9 @@ class Media extends Root {
 			}
 		}
 
-<<<<<<< HEAD
-=======
 		$add_missing_sizes = ( defined( 'LITESPEED_GUEST_OPTM' ) || $this->conf( Base::O_MEDIA_ADD_MISSING_SIZES ) )
 			&& apply_filters( 'litespeed_media_add_missing_sizes', true );
 
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		preg_match_all( '#<img\s+([^>]+)/?>#isU', $content, $matches, PREG_SET_ORDER );
 		foreach ( $matches as $match ) {
 			$attrs = Utility::parse_attr( $match[1] );
@@ -1126,15 +1094,8 @@ class Media extends Root {
 			}
 
 			// Add missing dimensions.
-<<<<<<< HEAD
-			if ( defined( 'LITESPEED_GUEST_OPTM' ) || $this->conf( Base::O_MEDIA_ADD_MISSING_SIZES ) ) {
-				if ( ! apply_filters( 'litespeed_media_add_missing_sizes', true ) ) {
-					self::debug2( 'add_missing_sizes bypassed via litespeed_media_add_missing_sizes filter' );
-				} elseif ( empty( $attrs['width'] ) || 'auto' === $attrs['width'] || empty( $attrs['height'] ) || 'auto' === $attrs['height'] ) {
-=======
 			if ( $add_missing_sizes ) {
 				if ( empty( $attrs['width'] ) || 'auto' === $attrs['width'] || empty( $attrs['height'] ) || 'auto' === $attrs['height'] ) {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 					self::debug( '⚠️ Missing sizes for image [src] ' . $attrs['src'] );
 					$dimensions = $this->_detect_dimensions( $attrs['src'] );
 					if ( $dimensions ) {
@@ -1147,19 +1108,6 @@ class Media extends Root {
 							$ori_width = (int) ( ( $ori_width * (int) $attrs['height'] ) / max( 1, $ori_height ) );
 						}
 
-<<<<<<< HEAD
-						$attrs['width']  = $ori_width;
-						$attrs['height'] = $ori_height;
-						$new_html        = preg_replace( '#\s+(width|height)=(["\'])[^\2]*?\2#', '', $match[0] );
-						$new_html        = preg_replace(
-							'#<img\s+#i',
-							'<img width="' . Str::trim_quotes( $attrs['width'] ) . '" height="' . Str::trim_quotes( $attrs['height'] ) . '" ',
-							$new_html
-						);
-						self::debug( 'Add missing sizes ' . $attrs['width'] . 'x' . $attrs['height'] . ' to ' . $attrs['src'] );
-						$this->content = str_replace( $match[0], $new_html, $this->content );
-						$match[0]      = $new_html;
-=======
 						// Remove existing width/height, then append new values
 						$inner    = Utility::remove_attr( $match[1], 'width' );
 						$inner    = Utility::remove_attr( $inner, 'height' );
@@ -1169,7 +1117,6 @@ class Media extends Root {
 						$match[0]        = $new_html;
 						$attrs['width']  = $ori_width;
 						$attrs['height'] = $ori_height;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 					}
 				}
 			}
@@ -1477,15 +1424,6 @@ class Media extends Root {
 			self::debug2( 'No next generation format chosen in setting, bypassed' );
 			return false;
 		}
-<<<<<<< HEAD
-		self::debug2( $this->_sys_format . ' replacing: ' . substr( $url, 0, 200 ) );
-
-		if ( substr( $url, -5 ) === '.' . $this->_sys_format ) {
-			self::debug2( 'already ' . $this->_sys_format );
-			return false;
-		}
-
-=======
 
 		// Parse extension from URL path.
 		$url_path = wp_parse_url( $url, PHP_URL_PATH );
@@ -1498,7 +1436,6 @@ class Media extends Root {
 
 		self::debug2( $this->_sys_format . ' replacing: ' . substr( $url, 0, 200 ) . ' [.' . $postfix . ']' );
 
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		/**
 		 * WebP/AVIF API hook.
 		 * NOTE: As $url may contain query strings, check filters which may parse_url before appending format.

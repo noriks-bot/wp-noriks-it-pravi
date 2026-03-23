@@ -1,10 +1,6 @@
 jQuery(function($){
 
-<<<<<<< HEAD
   /* ---------- disable ATC on page load (as requested) ---------- */
-=======
-  /* ---------- disable ATC on page load (only once) ---------- */
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
   (function(){
     var $btn = $('.single_add_to_cart_button');
     if ($btn.length) {
@@ -22,23 +18,6 @@ jQuery(function($){
 
   function uid(){ return 'ibb-' + Math.random().toString(36).slice(2,8); }
 
-<<<<<<< HEAD
-=======
-  // Normalizers to make attribute key checks robust (diacritics, case, prefixes)
-  function norm(s){
-    return String(s || '')
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g,''); // strip diacritics (works for Greek tonos too)
-  }
-  function canonicalKey(key){
-    // remove WC prefixes and diacritics
-    // e.g. "attribute_Μέγεθος" -> "μεγεθος"
-    var k = norm(key).replace(/^pa_/, '').replace(/^attribute_/, '');
-    return k;
-  }
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
   function $btn($wrap){
     return $wrap.closest('form.cart').find('.single_add_to_cart_button, [name="add-to-cart"], [type="submit"][name="add-to-cart"]');
   }
@@ -55,15 +34,12 @@ jQuery(function($){
       .removeAttr('disabled');
   }
 
-<<<<<<< HEAD
   function allFilled($wrap){
     var wid = $wrap.attr('data-ibb-id');
     var cart = carts[wid] || [];
     return cart.length && cart.every(function(s){ return !!s.product_id; });
   }
 
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
   function pushHidden($wrap){
     var wid  = $wrap.attr('data-ibb-id');
     var cart = carts[wid] || [];
@@ -76,11 +52,7 @@ jQuery(function($){
     if($modal.hasClass('open')) return; // already open
     $modal.removeClass('closing').addClass('show').attr('aria-hidden','false');
     $('body').addClass('ibb-lock');
-<<<<<<< HEAD
     // force reflow to apply starting transform
-=======
-    // force reflow
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     // eslint-disable-next-line no-unused-expressions
     $modal[0].offsetHeight;
     $modal.addClass('open');
@@ -103,12 +75,8 @@ jQuery(function($){
         if(e.propertyName === 'transform'){ box.removeEventListener('transitionend', onEnd); finish(); }
       };
       box.addEventListener('transitionend', onEnd);
-<<<<<<< HEAD
       // Fallback
       setTimeout(finish, 550);
-=======
-      setTimeout(finish, 550); // fallback
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     } else {
       finish();
     }
@@ -135,19 +103,14 @@ jQuery(function($){
       var $msg = $card.find('.ibb-msg');
 
       if(slots.length){
-<<<<<<< HEAD
         var label = (slots.length === 1) ? 'Dodano u slot: ' : 'Dodano u slotove: ';
         $msg.text(label + slots.join(', '));
-=======
-        $msg.text('Προστέθηκε στη θέση: ' + slots.join(', '));
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       } else {
         $msg.empty();
       }
     });
   }
 
-<<<<<<< HEAD
   /* ---------- GRATIS slots parsing (1-based) ---------- */
   function parseGratisSet($wrap, totalSlots){
     var attr = String($wrap.attr('data-ibb-gratis-slots') || '').trim().toLowerCase();
@@ -190,12 +153,6 @@ jQuery(function($){
       gratisSet = parseGratisSet($wrap, total);
       $wrap.data('ibbGratisSet', gratisSet);
     }
-=======
-  /* ---------- render slots ---------- */
-  function refreshSlots($wrap){
-    var wid = $wrap.attr('data-ibb-id');
-    var cart = carts[wid] || [];
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
     $wrap.find('.ibb-slot').each(function(i){
       var s = cart[i] || emptySlot();
@@ -212,7 +169,6 @@ jQuery(function($){
         $('<span>', { class: 'ibb-slot-plus', text: '+', 'aria-hidden': 'true' }).appendTo($thumb);
       }
 
-<<<<<<< HEAD
       // Build slot attr content with optional GRATIS prefix
       var $attr = $slot.find('.ibb-slot-attr');
       $attr.empty();
@@ -222,13 +178,10 @@ jQuery(function($){
         $('<span>', { class: 'ibb-slot-attr-gratis', text: 'GRATIS' }).appendTo($attr);
       }
 
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       if(filled){
         var size = '';
         var attr = s.attr || {};
         for(var k in attr){
-<<<<<<< HEAD
           if(!Object.prototype.hasOwnProperty.call(attr, k)) continue;
           var key = (k+'').toLowerCase();
           if(key.indexOf('size')!==-1 || key.indexOf('velicina')!==-1 || key.indexOf('veličina')!==-1){
@@ -268,18 +221,6 @@ jQuery(function($){
         //
 
         
-=======
-          if(!attr.hasOwnProperty(k)) continue;
-          var ck = canonicalKey(k); // e.g. "attribute_Μέγεθος" -> "μεγεθος"
-          if (ck === 'μεγεθος' || ck === 'size') {
-            size = String(attr[k]).toUpperCase();
-            break;
-          }
-        }
-        $slot.find('.ibb-slot-attr').text(size || 'Επιλέξτε μπλουζάκι');
-      } else {
-        $slot.find('.ibb-slot-attr').text('Επιλέξτε μπλουζάκι');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       }
 
       $slot.find('.ibb-slot-price').html(filled ? (s.price_html || '') : '');
@@ -290,11 +231,7 @@ jQuery(function($){
           $('<button>', {
             type: 'button',
             class: 'ibb-slot-remove',
-<<<<<<< HEAD
             'aria-label': 'Remove',
-=======
-            'aria-label': 'Αφαίρεση',
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
             text: '×'
           }).appendTo($slot);
         }
@@ -315,10 +252,7 @@ jQuery(function($){
 
     if(filled){
       enableBtn($wrap);
-<<<<<<< HEAD
       // include slot data in event payload
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       $wrap.trigger('ibb:slotsFilled', [{ filledCount: slots.length, slots: slots }]);
     } else {
       disableBtn($wrap);
@@ -329,7 +263,6 @@ jQuery(function($){
     }
   }
 
-<<<<<<< HEAD
 
 
 function renderSteps($wrap, $modal, total, active) {
@@ -380,42 +313,6 @@ function renderSteps($wrap, $modal, total, active) {
         if(txt==='s'||val==='s'){ $sel.val($(this).val()); return false; }
       });
     });
-=======
-  function renderSteps($wrap,$modal,total,active){
-    var $steps = $modal.find('.ibb-steps').empty();
-    for(var i=0;i<total;i++){
-      var $p = $('<button type="button" class="ibb-step" role="tab"></button>')
-        .text('Μπλουζάκι ' + (i+1) + ' από ' + total)
-        .attr('data-index', i);
-      if(i===active) $p.addClass('is-active').attr('aria-selected','true');
-      $steps.append($p);
-    }
-    $modal.find('.ibb-step-num').text(active+1);
-  }
-
-  function preselectDefaultSizeS($scope){
-    // Look for both custom .ibb-attr controls and Woo's selects (attribute_*)
-    $scope
-      .find('.ibb-attr, select[name^="attribute_"], [data-attribute_name]')
-      .each(function(){
-        var $el = $(this);
-        var key =
-          $el.data('taxonomy') ||
-          $el.data('attribute_name') ||
-          $el.attr('name') || '';
-        var ck = canonicalKey(key); // "μεγεθος", "size", ...
-
-        if (ck !== 'μεγεθος' && ck !== 'size') return;
-
-        if ($el.is('select')) {
-          $el.find('option').each(function(){
-            var t = norm($(this).text()).trim();
-            var v = norm($(this).val()).trim();
-            if (t === 's' || v === 's') { $el.val($(this).val()).trigger('change'); return false; }
-          });
-        }
-      });
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
   }
 
   /* ---------- nav button disable ---------- */
@@ -447,25 +344,17 @@ function renderSteps($wrap, $modal, total, active) {
     var $btn = $('<button>', {
       type: 'button',
       class: 'ibb-modal__close-mobile',
-<<<<<<< HEAD
       'aria-label': 'Zatvori'
-=======
-      'aria-label': 'Κλείσιμο'
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }).html(`
       <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M20.0188 29.6438C21.044 28.6187 22.706 28.6187 23.7312 29.6438L35.875 41.7877L48.0188 29.6438C49.044 28.6187 50.706 28.6187 51.7312 29.6438C52.7563 30.669 52.7563 32.331 51.7312 33.3562L37.7312 47.3562C36.706 48.3813 35.044 48.3813 34.0188 47.3562L20.0188 33.3562C18.9937 32.331 18.9937 30.669 20.0188 29.6438Z" fill="#4A4A4A"></path>
       </svg>
     `);
 
-<<<<<<< HEAD
     // insert at the very top of header
     $head.prepend($btn);
 
     // hook click -> close
-=======
-    $head.prepend($btn);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     $modal.on('click', '.ibb-modal__close-mobile', function(){
       closeModal($modal);
     });
@@ -503,23 +392,16 @@ function renderSteps($wrap, $modal, total, active) {
     var $modal=$('.ibb-modal').first();
     if(!$modal.data('ibbAttached')){ $modal.appendTo('body').data('ibbAttached',true); }
 
-<<<<<<< HEAD
     // Inject mobile-only chevron close once
     ensureMobileClose($modal);
 
     // One-time: normalize titles (remove "Jedna " prefix)
-=======
-    ensureMobileClose($modal);
-
-    // One-time: normalize titles (remove any "Jedna " prefix in imported content)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     $modal.find('.ibb-card-title').each(function(){
       var $t = $(this);
       var txt = $t.text().trim();
       $t.text(txt.replace(/^Jedna\s+/i, ''));
     });
 
-<<<<<<< HEAD
     // hydrate cart state from DOM (prefilled slots supported)
     hydrateFromDOM($wrap);
 
@@ -528,13 +410,6 @@ function renderSteps($wrap, $modal, total, active) {
     enforceATC($wrap);
 
     // Keep ATC synced with Woo events
-=======
-    hydrateFromDOM($wrap);
-
-    refreshSlots($wrap);
-    enforceATC($wrap);
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     $(document.body).on('found_variation reset_data show_variation wc_fragment_refresh wc_fragments_refreshed', function(){
       enforceATC($wrap);
     });
@@ -548,31 +423,7 @@ function renderSteps($wrap, $modal, total, active) {
 
     var activeIndex=null;
 
-<<<<<<< HEAD
     // Combined renderer to minimize reflows
-=======
-    // Sync custom .variation-buttons (if present) with Woo select fields
-    $modal.on('click', '.variation-buttons [data-value]', function(){
-      var $b = $(this);
-      var group = $b.closest('.variation-buttons');
-      var attrName = group.data('attribute-name'); // e.g. "Μέγεθος" or a slug
-      var nameNorm = canonicalKey('attribute_' + attrName); // normalize to compare
-      // Try direct match first; else try normalized slug
-      var $select = $modal.find('select[name="attribute_' + attrName + '"]');
-      if (!$select.length) {
-        // fallback to normalized slug (e.g., transliterated "megethos")
-        $select = $modal.find('select').filter(function(){
-          return canonicalKey(this.name) === nameNorm;
-        }).first();
-      }
-      if ($select.length) {
-        $select.val($b.data('value')).trigger('change');
-        group.find('.variation-button').removeClass('active');
-        $b.addClass('active');
-      }
-    });
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     function renderStepUI(){
       renderSteps($wrap,$modal,slots,activeIndex);
       preselectDefaultSizeS($modal);
@@ -584,10 +435,7 @@ function renderSteps($wrap, $modal, total, active) {
       var $grid = $modal.find('.ibb-grid');
       var nextIndex = Math.max(0,Math.min(slots-1,Number(idx)||0));
 
-<<<<<<< HEAD
       // If modal is not open yet, just render and open
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       if(!$modal.hasClass('open')){
         activeIndex = nextIndex;
         renderStepUI();
@@ -595,12 +443,8 @@ function renderSteps($wrap, $modal, total, active) {
         return;
       }
 
-<<<<<<< HEAD
       // If already open, animate content only (no re-open)
       var duration = 200; // matches your CSS fade
-=======
-      var duration = 200;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       activeIndex = nextIndex;
 
       $grid.addClass('is-fading');
@@ -662,7 +506,6 @@ function renderSteps($wrap, $modal, total, active) {
 
       if(type==='variable'){
         var attrs={}; var ok=true;
-<<<<<<< HEAD
         $card.find('.ibb-attr').each(function(){
           var val=$(this).val(); var key=$(this).data('taxonomy');
           if(!val) ok=false; attrs[key]=val;
@@ -676,25 +519,6 @@ function renderSteps($wrap, $modal, total, active) {
           }
           finishSave({product_id:pid,variation_id:r.data.variation_id,attr:attrs,title:title,price_html:r.data.price||price,img:img});
         },'json').fail(function(){ $card.find('.ibb-msg').text('Server error.'); });
-=======
-        // Collect both custom .ibb-attr and Woo's attribute_* selects
-        $card.find('.ibb-attr, select[name^="attribute_"], [data-attribute_name]').each(function(){
-          var $f = $(this);
-          var val = $f.val();
-          var key = $f.data('taxonomy') || $f.data('attribute_name') || $f.attr('name');
-          if(!val) ok=false;
-          if(key) attrs[key] = val; // keep original key so WC AJAX resolves the variation
-        });
-        if(!ok){ $card.find('.ibb-msg').text('Επιλέξτε παραλλαγή.'); return; }
-
-        $.post(IBB.ajax,{action:'ibb_find_variation',nonce:IBB.nonce,product_id:pid,attributes:attrs},function(r){
-          if(!r||!r.success||!r.data||!r.data.variation_id){
-            $card.find('.ibb-msg').text(r&&r.data&&r.data.message?r.data.message:'Αυτή η παραλλαγή δεν είναι διαθέσιμη.');
-            return;
-          }
-          finishSave({product_id:pid,variation_id:r.data.variation_id,attr:attrs,title:title,price_html:r.data.price||price,img:img});
-        },'json').fail(function(){ $card.find('.ibb-msg').text('Σφάλμα διακομιστή.'); });
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
       } else {
         finishSave({product_id:pid,variation_id:0,attr:{},title:title,price_html:price,img:img});
@@ -708,19 +532,13 @@ function renderSteps($wrap, $modal, total, active) {
     var wid   = $(this).attr('data-ibb-id');
     var slots = (window.IBB && window.IBB.carts && window.IBB.carts[wid]) || [];
 
-<<<<<<< HEAD
     // Console logging of slot/cart content
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     console.log('Event:', e.type);
     console.log('Wrapper ID:', wid);
     console.log('Slots:', slots);
     if (data) console.log('Extra data:', data);
 
-<<<<<<< HEAD
     // Also mirror the ATC state change using your exact snippet style
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     var $btn = $('.single_add_to_cart_button');
     if ($btn.length) {
       if (e.type === 'ibb:slotsFilled') {

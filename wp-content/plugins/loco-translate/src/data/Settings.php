@@ -20,12 +20,7 @@
  * @property bool $jed_pretty Whether to pretty print JSON JED files
  * @property bool $jed_clean Whether to clean up redundant JSON files during compilation
  * @property bool $ajax_files Whether to submit PO data as concrete files (requires Blob support in Ajax)
-<<<<<<< HEAD
  * 
-=======
- * @property int $code_view Access level for source code snippet viewer (0:disabled, 1:admins only, 2:all users)
- *
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
  * @property string $deepl_api_key API key for DeepL Translator
  * @property string $google_api_key API key for Google Translate
  * @property string $lecto_api_key API key for Lecto Translation API
@@ -41,26 +36,16 @@ class Loco_data_Settings extends Loco_data_Serializable {
 
     /**
      * Global instance of this plugin's settings
-<<<<<<< HEAD
      * @var Loco_data_Settings
      */
     private static $current;
-=======
-     */
-    private static ?Loco_data_Settings $current = null;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 
     /**
      * Available options and their defaults
-<<<<<<< HEAD
      * @var array
      */
     private static $defaults =  [
-=======
-     */
-    private static array $defaults =  [
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         'version' => '',
         'gen_hash' => false,
         'use_fuzzy' => true,
@@ -79,10 +64,6 @@ class Loco_data_Settings extends Loco_data_Serializable {
         'jed_pretty' => false,
         'jed_clean' => false,
         'ajax_files' => true,
-<<<<<<< HEAD
-=======
-        'code_view' => 1,
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         'deepl_api_key' => '',
         'google_api_key' => '',
         'microsoft_api_key' => '',
@@ -251,21 +232,13 @@ class Loco_data_Settings extends Loco_data_Serializable {
      * @param string $default Optional default
      * @return string php, js, json, twig or $default
      */
-<<<<<<< HEAD
     public function ext2type( $ext, $default = 'php' ){
-=======
-    public function ext2type( string $ext, string $default = 'php' ):string {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $types = ['php'=>'php', 'js'=>'js', 'json'=>'json', 'twig'=>'twig'] // <- canonical
                + array_fill_keys( $this->php_alias, 'php')
                + array_fill_keys( $this->jsx_alias, 'js')
         ;
         $ext = strtolower($ext);
-<<<<<<< HEAD
         return isset($types[$ext]) ? $types[$ext] : $default;
-=======
-        return $types[ $ext ] ?? $default;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
    
 }

@@ -3,17 +3,12 @@
  * Plugin Name: YITH WooCommerce Quick View
  * Plugin URI: https://yithemes.com/themes/plugins/yith-woocommerce-quick-view
  * Description: The <code><strong>YITH WooCommerce Quick View</strong></code> plugin allows your customers to have a quick look about products. <a href="https://yithemes.com/" target="_blank">Get more plugins for your e-commerce shop on <strong>YITH</strong></a>.
-<<<<<<< HEAD
  * Version: 2.10.0
-=======
- * Version: 2.11.0
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
  * Author: YITH
  * Author URI: https://yithemes.com/
  * Text Domain: yith-woocommerce-quick-view
  * Domain Path: /languages/
  * Requires Plugins: woocommerce
-<<<<<<< HEAD
  * WC requires at least: 10.2
  * WC tested up to: 10.4
  *
@@ -23,17 +18,6 @@
  */
 
 /**  Copyright 2015-2025 Your Inspiration Solutions (email : plugins@yithemes.com)
-=======
- * WC requires at least: 10.3
- * WC tested up to: 10.5
- *
- * @author  YITH <plugins@yithemes.com>
- * @package YITH WooCommerce Quick View
- * @version 2.11.0
- */
-
-/**  Copyright 2015-2026 Your Inspiration Solutions (email : plugins@yithemes.com)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2, as
@@ -90,11 +74,7 @@ register_activation_hook( __FILE__, 'yith_plugin_registration_hook' );
 
 
 if ( ! defined( 'YITH_WCQV_VERSION' ) ) {
-<<<<<<< HEAD
 	define( 'YITH_WCQV_VERSION', '2.10.0' );
-=======
-	define( 'YITH_WCQV_VERSION', '2.11.0' );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 }
 
 if ( ! defined( 'YITH_WCQV_FREE_INIT' ) ) {

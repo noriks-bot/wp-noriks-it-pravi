@@ -17,10 +17,6 @@ use WooCommerce\PayPalCommerce\ApiClient\Endpoint\PaymentTokensEndpoint;
 use WooCommerce\PayPalCommerce\ApiClient\Entity\OrderStatus;
 use WooCommerce\PayPalCommerce\ApiClient\Entity\PaymentToken;
 use WooCommerce\PayPalCommerce\ApiClient\Exception\PayPalApiException;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\WcGateway\Helper\Environment;
 use WooCommerce\PayPalCommerce\Session\SessionHandler;
 use WooCommerce\PayPalCommerce\Vaulting\WooCommercePaymentTokens;
@@ -187,15 +183,12 @@ class PayPalGateway extends \WC_Payment_Gateway
      */
     private $wc_payment_tokens;
     /**
-<<<<<<< HEAD
      * The module URL
      *
      * @var string
      */
     private $module_url;
     /**
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * Whether settings module is enabled.
      *
      * @var bool
@@ -256,11 +249,8 @@ class PayPalGateway extends \WC_Payment_Gateway
      */
     public $order_button_text;
     /**
-<<<<<<< HEAD
      * PayPalGateway constructor.
      *
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @param SettingsRenderer         $settings_renderer The Settings Renderer.
      * @param FundingSourceRenderer    $funding_source_renderer The funding source renderer.
      * @param OrderProcessor           $order_processor The Order Processor.
@@ -281,17 +271,10 @@ class PayPalGateway extends \WC_Payment_Gateway
      * @param PaymentTokensEndpoint    $payment_tokens_endpoint Payment tokens endpoint.
      * @param bool                     $vault_v3_enabled Whether Vault v3 module is enabled.
      * @param WooCommercePaymentTokens $wc_payment_tokens WooCommerce payment tokens.
-<<<<<<< HEAD
      * @param string                   $module_url The module URL.
      * @param bool                     $admin_settings_enabled Whether settings module is enabled.
      */
     public function __construct(SettingsRenderer $settings_renderer, FundingSourceRenderer $funding_source_renderer, OrderProcessor $order_processor, ContainerInterface $config, SessionHandler $session_handler, RefundProcessor $refund_processor, bool $is_connected, \WooCommerce\PayPalCommerce\WcGateway\Gateway\TransactionUrlProvider $transaction_url_provider, SubscriptionHelper $subscription_helper, string $page_id, Environment $environment, PaymentTokenRepository $payment_token_repository, LoggerInterface $logger, string $api_shop_country, OrderEndpoint $order_endpoint, callable $paypal_checkout_url_factory, string $place_order_button_text, PaymentTokensEndpoint $payment_tokens_endpoint, bool $vault_v3_enabled, WooCommercePaymentTokens $wc_payment_tokens, string $module_url, bool $admin_settings_enabled)
-=======
-     * @param AssetGetter              $asset_getter
-     * @param bool                     $admin_settings_enabled Whether settings module is enabled.
-     */
-    public function __construct(SettingsRenderer $settings_renderer, FundingSourceRenderer $funding_source_renderer, OrderProcessor $order_processor, ContainerInterface $config, SessionHandler $session_handler, RefundProcessor $refund_processor, bool $is_connected, \WooCommerce\PayPalCommerce\WcGateway\Gateway\TransactionUrlProvider $transaction_url_provider, SubscriptionHelper $subscription_helper, string $page_id, Environment $environment, PaymentTokenRepository $payment_token_repository, LoggerInterface $logger, string $api_shop_country, OrderEndpoint $order_endpoint, callable $paypal_checkout_url_factory, string $place_order_button_text, PaymentTokensEndpoint $payment_tokens_endpoint, bool $vault_v3_enabled, WooCommercePaymentTokens $wc_payment_tokens, AssetGetter $asset_getter, bool $admin_settings_enabled)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     {
         $this->id = self::ID;
         $this->settings_renderer = $settings_renderer;
@@ -314,12 +297,8 @@ class PayPalGateway extends \WC_Payment_Gateway
         $this->payment_tokens_endpoint = $payment_tokens_endpoint;
         $this->vault_v3_enabled = $vault_v3_enabled;
         $this->wc_payment_tokens = $wc_payment_tokens;
-<<<<<<< HEAD
         $this->module_url = $module_url;
         $this->icon = apply_filters('woocommerce_paypal_payments_paypal_gateway_icon', esc_url($this->module_url) . 'assets/images/paypal.svg');
-=======
-        $this->icon = apply_filters('woocommerce_paypal_payments_paypal_gateway_icon', $asset_getter->get_static_asset_url('images/paypal.svg'));
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $this->admin_settings_enabled = $admin_settings_enabled;
         $default_support = array('products', 'refunds', 'tokenization', 'add_payment_method');
         $this->supports = array_merge($default_support, apply_filters('woocommerce_paypal_payments_paypal_gateway_supports', array()));
@@ -554,7 +533,6 @@ class PayPalGateway extends \WC_Payment_Gateway
             return $this->handle_payment_success($wc_order);
         }
         /**
-<<<<<<< HEAD
          * If customer has chosen change Subscription payment.
          */
         if ($this->subscription_helper->has_subscription($order_id) && $this->subscription_helper->is_subscription_change_payment()) {
@@ -572,8 +550,6 @@ class PayPalGateway extends \WC_Payment_Gateway
             }
         }
         /**
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
          * If the WC_Order is paid through the approved webhook.
          */
         //phpcs:disable WordPress.Security.NonceVerification.Recommended

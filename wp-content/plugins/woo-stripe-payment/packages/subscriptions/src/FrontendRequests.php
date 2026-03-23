@@ -4,9 +4,6 @@ namespace PaymentPlugins\Stripe\WooCommerceSubscriptions;
 
 use PaymentPlugins\Stripe\RequestContext;
 
-/**
- * @package PaymentPlugins\WooCommerceSubscriptions\Stripe
- */
 class FrontendRequests {
 
 	public function is_change_payment_method() {

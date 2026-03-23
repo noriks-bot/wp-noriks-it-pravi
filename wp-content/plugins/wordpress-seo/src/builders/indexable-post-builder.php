@@ -2,18 +2,11 @@
 
 namespace Yoast\WP\SEO\Builders;
 
-<<<<<<< HEAD
 use WP_Error;
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WP_Post;
 use Yoast\WP\SEO\Exceptions\Indexable\Post_Not_Built_Exception;
 use Yoast\WP\SEO\Exceptions\Indexable\Post_Not_Found_Exception;
 use Yoast\WP\SEO\Helpers\Meta_Helper;
-<<<<<<< HEAD
-=======
-use Yoast\WP\SEO\Helpers\Permalink_Helper;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use Yoast\WP\SEO\Helpers\Post_Helper;
 use Yoast\WP\SEO\Helpers\Post_Type_Helper;
 use Yoast\WP\SEO\Models\Indexable;
@@ -51,16 +44,6 @@ class Indexable_Post_Builder {
 	protected $post_type_helper;
 
 	/**
-<<<<<<< HEAD
-=======
-	 * The permalink helper.
-	 *
-	 * @var Permalink_Helper
-	 */
-	protected $permalink_helper;
-
-	/**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * Knows the latest version of the Indexable post builder type.
 	 *
 	 * @var int
@@ -81,30 +64,17 @@ class Indexable_Post_Builder {
 	 * @param Post_Type_Helper           $post_type_helper The post type helper.
 	 * @param Indexable_Builder_Versions $versions         The indexable builder versions.
 	 * @param Meta_Helper                $meta             The meta helper.
-<<<<<<< HEAD
-=======
-	 * @param Permalink_Helper           $permalink_helper The permalink helper.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 */
 	public function __construct(
 		Post_Helper $post_helper,
 		Post_Type_Helper $post_type_helper,
 		Indexable_Builder_Versions $versions,
-<<<<<<< HEAD
 		Meta_Helper $meta
-=======
-		Meta_Helper $meta,
-		Permalink_Helper $permalink_helper
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	) {
 		$this->post_helper      = $post_helper;
 		$this->post_type_helper = $post_type_helper;
 		$this->version          = $versions->get_latest_version_for_type( 'post' );
 		$this->meta             = $meta;
-<<<<<<< HEAD
-=======
-		$this->permalink_helper = $permalink_helper;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	}
 
 	/**
@@ -149,11 +119,7 @@ class Indexable_Post_Builder {
 		$indexable->object_id       = $post_id;
 		$indexable->object_type     = 'post';
 		$indexable->object_sub_type = $post->post_type;
-<<<<<<< HEAD
 		$indexable->permalink       = $this->get_permalink( $post->post_type, $post_id );
-=======
-		$indexable->permalink       = $this->permalink_helper->get_permalink_for_post( $post->post_type, $post_id );
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 		$indexable->primary_focus_keyword_score = $this->get_keyword_score(
 			$this->meta->get_value( 'focuskw', $post_id ),
@@ -212,7 +178,6 @@ class Indexable_Post_Builder {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Retrieves the permalink for a post with the given post type and ID.
 	 *
 	 * @param string $post_type The post type.
@@ -229,8 +194,6 @@ class Indexable_Post_Builder {
 	}
 
 	/**
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * Determines the value of is_public.
 	 *
 	 * @param Indexable $indexable The indexable.

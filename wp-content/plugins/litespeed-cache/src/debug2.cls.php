@@ -36,14 +36,9 @@ class Debug2 extends Root {
 	 */
 	private static $_prefix;
 
-<<<<<<< HEAD
-	const TYPE_CLEAR_LOG = 'clear_log';
-	const TYPE_BETA_TEST = 'beta_test';
-=======
 	const TYPE_CLEAR_LOG    = 'clear_log';
 	const TYPE_BETA_TEST    = 'beta_test';
 	const TYPE_DOWNLOAD_LOG = 'download_log';
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
 	const BETA_TEST_URL = 'beta_test_url';
 
@@ -655,8 +650,6 @@ class Debug2 extends Root {
 	}
 
 	/**
-<<<<<<< HEAD
-=======
 	 * Download a log file.
 	 *
 	 * @since 7.0
@@ -692,7 +685,6 @@ class Debug2 extends Root {
 	}
 
 	/**
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	 * Handle requests routed to this class.
 	 *
 	 * @since 1.6.6
@@ -711,13 +703,10 @@ class Debug2 extends Root {
             $this->beta_test();
 				break;
 
-<<<<<<< HEAD
-=======
 			case self::TYPE_DOWNLOAD_LOG:
             $this->_download_log();
 				return; // _download_log() calls exit, but return here for clarity
 
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			default:
 				break;
 		}

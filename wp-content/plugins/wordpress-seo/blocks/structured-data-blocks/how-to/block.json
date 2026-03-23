@@ -60,7 +60,6 @@
       "steps": [
         {
           "id": "how-to-step-example-1",
-<<<<<<< HEAD
           "name": [ ],
           "text": [ ]
         },
@@ -68,17 +67,6 @@
           "id": "how-to-step-example-2",
           "name": [ ],
           "text": [ ]
-=======
-          "name": "",
-          "text": "",
-          "images": []
-        },
-        {
-          "id": "how-to-step-example-2",
-          "name": "",
-          "text": "",
-          "images": []
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         }
       ]
     }

@@ -152,24 +152,12 @@ class AuthenticationManager
         if (empty($client_id)) {
             throw new RuntimeException('No client ID provided.');
         }
-<<<<<<< HEAD
         if (\false === preg_match('/^A[\w-]{79}$/', $client_secret)) {
-=======
-        // Exactly 80 alphanumeric, underscore, or hyphen characters.
-        if (1 !== preg_match('/^[\w-]{80}$/', $client_id)) {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
             throw new RuntimeException('Invalid client ID provided.');
         }
         if (empty($client_secret)) {
             throw new RuntimeException('No client secret provided.');
         }
-<<<<<<< HEAD
-=======
-        // Exactly 80 alphanumeric, underscore, or hyphen characters.
-        if (1 !== preg_match('/^[\w-]{80}$/', $client_secret)) {
-            throw new RuntimeException('Invalid client secret provided.');
-        }
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     }
     /**
      * Disconnects the current merchant, and then attempts to connect to a
@@ -354,17 +342,11 @@ class AuthenticationManager
             $order_response = $orders->order($order_id);
             $order_body = json_decode($order_response['body'], \false, 512, \JSON_THROW_ON_ERROR);
         } catch (JsonException $exception) {
-<<<<<<< HEAD
             // Cast JsonException to a RuntimeException.
             throw new RuntimeException('Could not decode JSON response: ' . $exception->getMessage());
         } catch (Throwable $exception) {
             // Cast any other Throwable to a RuntimeException.
             throw new RuntimeException($exception->getMessage());
-=======
-            throw new RuntimeException('Failed to retrieve payee details.', 0, $exception);
-        } catch (Throwable $exception) {
-            throw new RuntimeException('Failed to retrieve payee details.', 0, $exception);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         }
         $pu = $order_body->purchase_units[0];
         $payee = $pu->payee;

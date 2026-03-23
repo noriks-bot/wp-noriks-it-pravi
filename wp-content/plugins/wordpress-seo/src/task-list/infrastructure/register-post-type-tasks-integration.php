@@ -1,5 +1,4 @@
 <?php
-
 // phpcs:disable Yoast.NamingConventions.NamespaceName.TooLong -- Needed in the folder structure.
 namespace Yoast\WP\SEO\Task_List\Infrastructure;
 
@@ -54,8 +53,6 @@ class Register_Post_Type_Tasks_Integration implements Integration_Interface {
 	 * Sets the post type helper for the post type tasks.
 	 *
 	 * @required
-	 *
-	 * @codeCoverageIgnore - Is handled by DI-container.
 	 *
 	 * @param Post_Type_Helper $post_type_helper The post type helper.
 	 *

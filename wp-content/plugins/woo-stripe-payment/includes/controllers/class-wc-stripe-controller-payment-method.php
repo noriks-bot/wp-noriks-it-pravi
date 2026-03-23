@@ -3,7 +3,7 @@ defined( 'ABSPATH' ) || exit();
 
 /**
  *
- * @package PaymentPlugins\Controllers
+ * @package Stripe/Controllers
  * @author PaymentPlugins
  * @since 3.0.0
  *

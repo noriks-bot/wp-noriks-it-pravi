@@ -2,9 +2,6 @@
 
 namespace PaymentPlugins;
 
-/**
- * @package PaymentPlugins\Metaboxes
- */
 class WC_Stripe_Admin_Meta_Box_Product_Data {
 
 	private static $_gateways = array();

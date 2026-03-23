@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit();
 /**
  *
  * @since   3.0.0
- * @package PaymentPlugins\Gateways
+ * @package Stripe/Gateways
  * @author  User
  *
  */
@@ -104,15 +104,15 @@ class WC_Payment_Gateway_Stripe_CC extends WC_Payment_Gateway_Stripe {
 	public function get_card_form_options() {
 		$options = array(
 			'style'       => $this->get_form_style(),
-			'disableLink' => ! \wc_string_to_bool( $this->get_option( 'link_enabled', 'yes' ) )
+			'disableLink' => ! \PaymentPlugins\Stripe\Link\LinkIntegration::instance()->is_active()
 		);
 
 		return apply_filters( 'wc_stripe_cc_form_options', $options, $this );
 	}
 
 	/**
-	 * @return mixed|void
 	 * @since 3.3.0
+	 * @return mixed|void
 	 */
 	public function get_card_custom_field_options() {
 		$style   = $this->get_form_style();
@@ -273,8 +273,8 @@ class WC_Payment_Gateway_Stripe_CC extends WC_Payment_Gateway_Stripe {
 	}
 
 	/**
-	 * @return mixed|void
 	 * @since 3.3.32
+	 * @return mixed|void
 	 */
 	private function get_notice_css_selector() {
 		$location = $this->get_option( 'notice_location' );
@@ -330,10 +330,6 @@ class WC_Payment_Gateway_Stripe_CC extends WC_Payment_Gateway_Stripe {
 
 	public function get_save_payment_method_label() {
 		return __( 'Save Card', 'woo-stripe-payment' );
-	}
-
-	public function get_payment_element_options() {
-		return array( 'terms' => array( 'card' => stripe_wc()->advanced_settings->get_terms_display_rule() ) );
 	}
 
 }

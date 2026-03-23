@@ -307,8 +307,6 @@ $scaled_size = apply_filters( 'big_image_size_threshold', 2560, [], '', 0 ) . 'p
 						🚨
 						<?php esc_html_e( 'This is irreversible.', 'litespeed-cache' ); ?>
 					</font>
-<<<<<<< HEAD
-=======
 
 					<?php
 				/*
@@ -322,13 +320,8 @@ $scaled_size = apply_filters( 'big_image_size_threshold', 2560, [], '', 0 ) . 'p
 				 * </a>
 				 */
 				?>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 				</div>
 			</td>
 		</tr>
 	</tbody>
-<<<<<<< HEAD
 </table>
-=======
-</table>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f

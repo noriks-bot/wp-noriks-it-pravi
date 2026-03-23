@@ -44,16 +44,17 @@ class Plain_Text_Formatter {
 	 * Formats a simple email as plain text.
 	 *
 	 * Simple emails share a common structure with customizable content.
+	 * The preheader is used as the main message body in plain text format.
 	 *
 	 * @since 1.173.0
 	 *
-	 * @param array $data The simple email data containing site, title, learn_more_url,
-	 *                    primary_call_to_action, body, and footer.
+	 * @param array $data The simple email data containing site, preheader, learn_more_url,
+	 *                    primary_call_to_action, and footer.
 	 * @return string Formatted plain text email.
 	 */
 	public static function format_simple_email( $data ) {
 		$site_domain    = $data['site']['domain'] ?? '';
-		$title          = wp_strip_all_tags( $data['title'] ?? '' );
+		$preheader      = $data['preheader'] ?? '';
 		$learn_more_url = $data['learn_more_url'] ?? '';
 		$cta            = $data['primary_call_to_action'] ?? array();
 		$footer_copy    = $data['footer']['copy'] ?? '';
@@ -64,13 +65,9 @@ class Plain_Text_Formatter {
 			'',
 			$site_domain,
 			'',
+			$preheader,
+			'',
 		);
-
-		// Title.
-		if ( ! empty( $title ) ) {
-			$lines[] = $title;
-			$lines[] = '';
-		}
 
 		// Body paragraphs (strip any HTML tags for plain text output).
 		foreach ( (array) $body as $paragraph ) {
@@ -93,9 +90,6 @@ class Plain_Text_Formatter {
 			$lines[] = self::format_link( $label, $cta['url'] );
 			$lines[] = '';
 		}
-
-		$lines[] = str_repeat( '-', 50 );
-		$lines[] = '';
 
 		// Footer copy.
 		if ( ! empty( $footer_copy ) ) {

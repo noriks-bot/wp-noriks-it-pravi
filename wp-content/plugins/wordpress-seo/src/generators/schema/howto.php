@@ -121,16 +121,6 @@ class HowTo extends Abstract_Schema_Piece {
 	 * @return void
 	 */
 	private function add_step_description( &$schema_step, $json_text ) {
-<<<<<<< HEAD
-=======
-		// Decode HTML entities.
-		$json_text = \html_entity_decode( $json_text );
-		// Remove the image from the text if it exists. Search and replace the img tag.
-		$json_text = \preg_replace( '/<img[^>]+>/i', '', $json_text );
-		// Trim whitespace.
-		$json_text = \trim( $json_text );
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		$schema_step['itemListElement'] = [
 			[
 				'@type' => 'HowToDirection',
@@ -148,19 +138,7 @@ class HowTo extends Abstract_Schema_Piece {
 	 * @return void
 	 */
 	private function add_step_image( &$schema_step, $step ) {
-<<<<<<< HEAD
 		if ( isset( $step['text'] ) && \is_array( $step['text'] ) ) {
-=======
-		if ( isset( $step['images'] ) && \is_array( $step['images'] ) ) {
-			foreach ( $step['images'] as $image ) {
-				if ( isset( $image['type'] ) && $image['type'] === 'img' ) {
-					$schema_step['image'] = $this->get_image_schema( \esc_url( $image['props']['src'] ) );
-				}
-			}
-		}
-		elseif ( isset( $step['text'] ) && \is_array( $step['text'] ) ) {
-			// Backwards compatibility for older How-To blocks.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			foreach ( $step['text'] as $line ) {
 				if ( \is_array( $line ) && isset( $line['type'] ) && $line['type'] === 'img' ) {
 					$schema_step['image'] = $this->get_image_schema( \esc_url( $line['props']['src'] ) );

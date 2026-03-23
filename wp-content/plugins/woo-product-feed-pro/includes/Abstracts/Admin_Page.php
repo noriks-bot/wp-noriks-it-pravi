@@ -116,14 +116,6 @@ abstract class Admin_Page extends Abstract_Class {
     protected $template;
 
     /**
-     * Holds the admin page template arguments.
-     *
-     * @since 13.4.7
-     * @var array
-     */
-    protected $template_args;
-
-    /**
      * Initialize the admin page.
      *
      * @since 13.4.4
@@ -227,7 +219,7 @@ abstract class Admin_Page extends Abstract_Class {
      */
     public function load_admin_page() {
 
-        Helper::locate_admin_template( $this->template, true, true, $this->template_args );
+        Helper::locate_admin_template( $this->template, true );
     }
 
     /**

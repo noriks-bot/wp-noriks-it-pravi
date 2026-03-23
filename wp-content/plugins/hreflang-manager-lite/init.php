@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Hreflang Manager
  * Description: Set language and regional URL for better SEO performance. (Lite Version)
- * Version: 1.16
+ * Version: 1.13
  * Author: DAEXT
  * Author URI: https://daext.com
  * Text Domain: hreflang-manager-lite
@@ -29,11 +29,6 @@ add_action( 'plugins_loaded', array( 'Daexthrmal_Rest', 'get_instance' ) );
 // Public.
 require_once plugin_dir_path( __FILE__ ) . 'public/class-daexthrmal-public.php';
 add_action( 'plugins_loaded', array( 'Daexthrmal_Public', 'get_instance' ) );
-
-// Perform the Gutenberg related activities only if Gutenberg is present.
-if ( function_exists( 'register_block_type' ) ) {
-	require_once plugin_dir_path( __FILE__ ) . 'blocks/src/init.php';
-}
 
 // Admin.
 if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {

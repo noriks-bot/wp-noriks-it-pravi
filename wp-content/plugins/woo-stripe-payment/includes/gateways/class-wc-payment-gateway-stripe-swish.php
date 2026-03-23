@@ -7,7 +7,7 @@ if ( ! class_exists( 'WC_Payment_Gateway_Stripe_Local_Payment' ) ) {
 
 /**
  *
- * @package PaymentPlugins\Gateways
+ * @package Stripe/Gateways
  * @author  PaymentPlugins
  *
  */

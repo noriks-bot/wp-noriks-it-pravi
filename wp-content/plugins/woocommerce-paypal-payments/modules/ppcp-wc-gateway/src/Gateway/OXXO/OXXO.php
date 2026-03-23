@@ -13,10 +13,6 @@ use WooCommerce\PayPalCommerce\Vendor\Psr\Log\LoggerInterface;
 use WC_Order;
 use WooCommerce\PayPalCommerce\ApiClient\Endpoint\OrderEndpoint;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\CaptureFactory;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\Button\Exception\RuntimeException;
 use WooCommerce\PayPalCommerce\WcGateway\Gateway\PayPalGateway;
 use WooCommerce\PayPalCommerce\WcGateway\Helper\CheckoutHelper;
@@ -32,16 +28,12 @@ class OXXO
      * @var CheckoutHelper
      */
     protected $checkout_helper;
-<<<<<<< HEAD
     /**
      * The module URL.
      *
      * @var string
      */
     protected $module_url;
-=======
-    private AssetGetter $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     /**
      * The asset version.
      *
@@ -67,31 +59,19 @@ class OXXO
      */
     protected $capture_factory;
     /**
-<<<<<<< HEAD
      * OXXO constructor
      *
      * @param CheckoutHelper  $checkout_helper The checkout helper.
      * @param string          $module_url The module URL.
-=======
-     * @param CheckoutHelper  $checkout_helper The checkout helper.
-     * @param AssetGetter     $asset_getter
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @param string          $asset_version The asset version.
      * @param OrderEndpoint   $order_endpoint The order endpoint.
      * @param LoggerInterface $logger The logger.
      * @param CaptureFactory  $capture_factory The capture factory.
      */
-<<<<<<< HEAD
     public function __construct(CheckoutHelper $checkout_helper, string $module_url, string $asset_version, OrderEndpoint $order_endpoint, LoggerInterface $logger, CaptureFactory $capture_factory)
     {
         $this->checkout_helper = $checkout_helper;
         $this->module_url = $module_url;
-=======
-    public function __construct(CheckoutHelper $checkout_helper, AssetGetter $asset_getter, string $asset_version, OrderEndpoint $order_endpoint, LoggerInterface $logger, CaptureFactory $capture_factory)
-    {
-        $this->checkout_helper = $checkout_helper;
-        $this->asset_getter = $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $this->asset_version = $asset_version;
         $this->order_endpoint = $order_endpoint;
         $this->logger = $logger;
@@ -256,11 +236,7 @@ class OXXO
         $gateway_settings = get_option('woocommerce_ppcp-oxxo-gateway_settings');
         $gateway_enabled = $gateway_settings['enabled'] ?? '';
         if ($gateway_enabled === 'yes' && is_checkout()) {
-<<<<<<< HEAD
             wp_enqueue_script('ppcp-oxxo', trailingslashit($this->module_url) . 'assets/js/oxxo.js', array(), $this->asset_version, \true);
-=======
-            wp_enqueue_script('ppcp-oxxo', $this->asset_getter->get_asset_url('oxxo.js'), array(), $this->asset_version, \true);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         }
     }
 }

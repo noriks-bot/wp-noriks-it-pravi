@@ -38,7 +38,6 @@ class Disconnected_Reason extends User_Setting {
 	 */
 	public function register() {
 		parent::register();
-		// The delete method returns a boolean but actions expect a void return, so we ignore it here.
-		add_action( 'googlesitekit_authorize_user', array( $this, 'delete' ) ); // @phpstan-ignore return.void
+		add_action( 'googlesitekit_authorize_user', array( $this, 'delete' ) );
 	}
 }

@@ -4,19 +4,15 @@ defined( 'ABSPATH' ) || exit();
 
 /**
  *
- * @since   3.1.0
- * @author  Payment Plugins
- * @package PaymentPlugins\Classes
+ * @since  3.1.0
+ * @author Payment Plugins
  *
  */
 class WC_Stripe_Gateway_Conversion {
 
 	public static function init() {
 		add_filter( 'woocommerce_order_get_payment_method', array( __CLASS__, 'convert_payment_method' ), 10, 2 );
-		add_filter( 'woocommerce_subscription_get_payment_method', array(
-			__CLASS__,
-			'convert_payment_method'
-		), 10, 2 );
+		add_filter( 'woocommerce_subscription_get_payment_method', array( __CLASS__, 'convert_payment_method' ), 10, 2 );
 	}
 
 	/**
@@ -28,7 +24,6 @@ class WC_Stripe_Gateway_Conversion {
 		$payment_method = $current_payment_method;
 		switch ( $current_payment_method ) {
 			case 'stripe':
-			case 'cpsw_stripe':
 			case 'fkwcs_stripe':
 				$payment_method = 'stripe_cc';
 				break;

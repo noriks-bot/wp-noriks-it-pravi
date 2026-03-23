@@ -22,10 +22,6 @@ use WooCommerce\PayPalCommerce\ApiClient\Helper\ReferenceTransactionStatus;
 use WooCommerce\PayPalCommerce\ApiClient\Helper\Cache;
 use WooCommerce\PayPalCommerce\ApiClient\Helper\DccApplies;
 use WooCommerce\PayPalCommerce\LocalAlternativePaymentMethods\LocalApmProductStatus;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Settings\Data\Definition\FeaturesDefinition;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\Vendor\Inpsyde\Modularity\Module\ExecutableModule;
 use WooCommerce\PayPalCommerce\Vendor\Inpsyde\Modularity\Module\ExtendingModule;
 use WooCommerce\PayPalCommerce\Vendor\Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
@@ -163,11 +159,7 @@ class WCGatewayModule implements ServiceModule, ExtendingModule, ExecutableModul
             if (!is_admin() || wp_doing_ajax()) {
                 return;
             }
-<<<<<<< HEAD
             if (!$c->has('wcgateway.url')) {
-=======
-            if (!$c->has('wcgateway.asset_getter')) {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                 return;
             }
             $settings_status = $c->get('wcgateway.settings.status');
@@ -176,11 +168,7 @@ class WCGatewayModule implements ServiceModule, ExtendingModule, ExecutableModul
             assert($settings instanceof Settings);
             $dcc_configuration = $c->get('wcgateway.configuration.card-configuration');
             assert($dcc_configuration instanceof CardPaymentsConfiguration);
-<<<<<<< HEAD
             $assets = new SettingsPageAssets($c->get('wcgateway.url'), $c->get('ppcp.asset-version'), $c->get('wc-subscriptions.helper'), $c->get('button.client_id_for_admin'), $c->get('api.shop.currency.getter'), $c->get('api.shop.country'), $c->get('settings.environment'), $settings_status->is_pay_later_button_enabled(), $settings->has('disable_funding') ? $settings->get('disable_funding') : array(), $c->get('wcgateway.settings.funding-sources'), $c->get('wcgateway.is-ppcp-settings-page'), $dcc_configuration->is_enabled(), $c->get('api.reference-transaction-status'), $c->get('wcgateway.is-ppcp-settings-payment-methods-page'));
-=======
-            $assets = new SettingsPageAssets($c->get('wcgateway.asset_getter'), $c->get('ppcp.asset-version'), $c->get('wc-subscriptions.helper'), $c->get('button.client_id_for_admin'), $c->get('api.shop.currency.getter'), $c->get('api.shop.country'), $c->get('settings.environment'), $settings_status->is_pay_later_button_enabled(), $settings->has('disable_funding') ? $settings->get('disable_funding') : array(), $c->get('wcgateway.settings.funding-sources'), $c->get('wcgateway.is-ppcp-settings-page'), $dcc_configuration->is_enabled(), $c->get('api.reference-transaction-status'), $c->get('wcgateway.is-ppcp-settings-payment-methods-page'));
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
             $assets->register_assets();
         });
         add_filter(Repository::NOTICES_FILTER, static function ($notices) use ($c): array {
@@ -271,11 +259,7 @@ class WCGatewayModule implements ServiceModule, ExtendingModule, ExecutableModul
             $pui_status = $c->get('wcgateway.pay-upon-invoice-product-status');
             assert($pui_status instanceof PayUponInvoiceProductStatus);
             $pui_status->is_active();
-<<<<<<< HEAD
         });
-=======
-        }, 20);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         add_action('wp_loaded', function () use ($c) {
             if ('DE' === $c->get('api.shop.country')) {
                 $c->get('wcgateway.pay-upon-invoice')->init();
@@ -414,7 +398,6 @@ class WCGatewayModule implements ServiceModule, ExtendingModule, ExecutableModul
             assert($pwc_product_status instanceof PWCProductStatus);
             $contact_module_check = $c->get('wcgateway.contact-module.eligibility.check');
             assert(is_callable($contact_module_check));
-<<<<<<< HEAD
             $features['save_paypal_and_venmo'] = array('enabled' => $reference_transaction_status->reference_transaction_enabled());
             $features['advanced_credit_and_debit_cards'] = array('enabled' => $dcc_product_status->is_active() && $dcc_applies->for_country_currency());
             $features['alternative_payment_methods'] = array('enabled' => $apms_product_status->is_active());
@@ -425,18 +408,6 @@ class WCGatewayModule implements ServiceModule, ExtendingModule, ExecutableModul
             $features['installments'] = array('enabled' => $installments_product_status->is_active());
             $features['pwc'] = array('enabled' => $pwc_product_status->is_active());
             $features['contact_module'] = array('enabled' => $contact_module_check());
-=======
-            $save_payment_methods_check = $c->get('save-payment-methods.eligibility.check');
-            assert(is_callable($save_payment_methods_check));
-            $features[FeaturesDefinition::FEATURE_SAVE_PAYPAL_AND_VENMO] = array('enabled' => $reference_transaction_status->reference_transaction_enabled() && $save_payment_methods_check());
-            $features[FeaturesDefinition::FEATURE_ADVANCED_CREDIT_AND_DEBIT_CARDS] = array('enabled' => $dcc_product_status->is_active() && $dcc_applies->for_country_currency());
-            $features[FeaturesDefinition::FEATURE_ALTERNATIVE_PAYMENT_METHODS] = array('enabled' => $apms_product_status->is_active());
-            // When local APMs are available, then PayLater messaging is also available.
-            $features[FeaturesDefinition::FEATURE_PAY_LATER_MESSAGING] = array('enabled' => $features[FeaturesDefinition::FEATURE_ALTERNATIVE_PAYMENT_METHODS]['enabled']);
-            $features[FeaturesDefinition::FEATURE_INSTALLMENTS] = array('enabled' => $installments_product_status->is_active());
-            $features[FeaturesDefinition::FEATURE_PAY_WITH_CRYPTO] = array('enabled' => $pwc_product_status->is_active());
-            $features[FeaturesDefinition::FEATURE_CONTACT_MODULE] = array('enabled' => $contact_module_check());
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
             return $features;
         });
         add_action('rest_api_init', static function () use ($c) {

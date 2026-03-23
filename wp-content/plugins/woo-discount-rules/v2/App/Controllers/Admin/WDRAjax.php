@@ -760,8 +760,7 @@ class WDRAjax extends Base
             $positions['rule_count'] = $update['count'];
             $positions['input'] = $this->input;
             $positions['site_languages'] = (new DiscountRules)->getAvailableLanguages();
-	        $positions['recommended_addon'] = (new DiscountRules)->getRecommendedAddon();
-	        if ($positions['limit'] != 'all') {
+            if ($positions['limit'] != 'all') {
                 $positions['total_count'] = ceil($positions['rule_count'] / $positions['limit']);
             }
             $template_helper = self::$template_helper;

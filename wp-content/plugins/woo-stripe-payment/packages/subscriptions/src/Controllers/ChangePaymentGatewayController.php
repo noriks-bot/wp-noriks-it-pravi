@@ -4,9 +4,6 @@ namespace PaymentPlugins\Stripe\WooCommerceSubscriptions\Controllers;
 
 use PaymentPlugins\Stripe\Utilities\PaymentMethodUtils;
 
-/**
- * @package PaymentPlugins\WooCommerceSubscriptions\Stripe
- */
 class ChangePaymentGatewayController {
 
 	private $token;

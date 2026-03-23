@@ -40,10 +40,7 @@ const handleHashChange = (e) => {
         getData('bucket')?.swal?.hide();
         setData('paymentIntent', obj.payment_intent);
         history.pushState({}, '', window.location.pathname + window.location.search);
-        stripe.confirmPayment({
-            clientSecret: obj.client_secret,
-            redirect: 'if_required',
-        }).then(response => {
+        stripe.confirmCardPayment(obj.client_secret).then(response => {
             if (response.error) {
                 // display message
                 resetPaymentProcess();

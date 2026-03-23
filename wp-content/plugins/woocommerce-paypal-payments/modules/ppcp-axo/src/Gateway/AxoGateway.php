@@ -62,15 +62,12 @@ class AxoGateway extends WC_Payment_Gateway
      */
     protected CardPaymentsConfiguration $dcc_configuration;
     /**
-<<<<<<< HEAD
      * The WcGateway module URL.
      *
      * @var string
      */
     protected $wcgateway_module_url;
     /**
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * The processor for orders.
      *
      * @var OrderProcessor
@@ -137,18 +134,12 @@ class AxoGateway extends WC_Payment_Gateway
      */
     protected $settings_model;
     /**
-<<<<<<< HEAD
      * AXOGateway constructor.
      *
      * @param SettingsRenderer          $settings_renderer           The settings renderer.
      * @param ContainerInterface        $ppcp_settings               The settings.
      * @param CardPaymentsConfiguration $dcc_configuration           The DCC Gateway configuration.
      * @param string                    $wcgateway_module_url        The WcGateway module URL.
-=======
-     * @param SettingsRenderer          $settings_renderer           The settings renderer.
-     * @param ContainerInterface        $ppcp_settings               The settings.
-     * @param CardPaymentsConfiguration $dcc_configuration           The DCC Gateway configuration.
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @param SessionHandler            $session_handler             The Session Handler.
      * @param OrderProcessor            $order_processor             The Order processor.
      * @param array                     $card_icons                  The card icons.
@@ -161,20 +152,13 @@ class AxoGateway extends WC_Payment_Gateway
      * @param ExperienceContextBuilder  $experience_context_builder  The experience context builder.
      * @param SettingsModel             $settings_model              The settings model.
      */
-<<<<<<< HEAD
     public function __construct(SettingsRenderer $settings_renderer, ContainerInterface $ppcp_settings, CardPaymentsConfiguration $dcc_configuration, string $wcgateway_module_url, SessionHandler $session_handler, OrderProcessor $order_processor, array $card_icons, OrderEndpoint $order_endpoint, PurchaseUnitFactory $purchase_unit_factory, ShippingPreferenceFactory $shipping_preference_factory, TransactionUrlProvider $transaction_url_provider, Environment $environment, LoggerInterface $logger, ExperienceContextBuilder $experience_context_builder, SettingsModel $settings_model)
-=======
-    public function __construct(SettingsRenderer $settings_renderer, ContainerInterface $ppcp_settings, CardPaymentsConfiguration $dcc_configuration, SessionHandler $session_handler, OrderProcessor $order_processor, array $card_icons, OrderEndpoint $order_endpoint, PurchaseUnitFactory $purchase_unit_factory, ShippingPreferenceFactory $shipping_preference_factory, TransactionUrlProvider $transaction_url_provider, Environment $environment, LoggerInterface $logger, ExperienceContextBuilder $experience_context_builder, SettingsModel $settings_model)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     {
         $this->id = self::ID;
         $this->settings_renderer = $settings_renderer;
         $this->ppcp_settings = $ppcp_settings;
         $this->dcc_configuration = $dcc_configuration;
-<<<<<<< HEAD
         $this->wcgateway_module_url = $wcgateway_module_url;
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $this->session_handler = $session_handler;
         $this->order_processor = $order_processor;
         $this->card_icons = $card_icons;

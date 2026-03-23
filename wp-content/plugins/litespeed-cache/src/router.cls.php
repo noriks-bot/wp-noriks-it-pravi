@@ -42,10 +42,7 @@ class Router extends Base {
 	const ACTION_CDN_CLOUDFLARE        = 'CDN\Cloudflare';
 	const ACTION_ADMIN_DISPLAY         = 'admin_display';
 	const ACTION_GUEST                 = 'guest';
-<<<<<<< HEAD
-=======
 	const ACTION_MEDIA                 = 'media';
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 	const ACTION_TMP_DISABLE          = 'tmp_disable';
 
 	// List all handlers here
@@ -65,10 +62,7 @@ class Router extends Base {
 		self::ACTION_GUEST,
 		self::ACTION_HEALTH,
 		self::ACTION_IMG_OPTM,
-<<<<<<< HEAD
-=======
 		self::ACTION_MEDIA,
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 		self::ACTION_PRESET,
 		self::ACTION_IMPORT,
 		self::ACTION_PLACEHOLDER,
@@ -643,10 +637,7 @@ class Router extends Base {
 			case self::ACTION_PLACEHOLDER:
 			case self::ACTION_AVATAR:
 			case self::ACTION_IMG_OPTM:
-<<<<<<< HEAD
-=======
 			case self::ACTION_MEDIA:
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 			case self::ACTION_CLOUD:
 			case self::ACTION_CDN_CLOUDFLARE:
 			case self::ACTION_CRAWLER:

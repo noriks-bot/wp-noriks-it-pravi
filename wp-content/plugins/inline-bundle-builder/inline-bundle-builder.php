@@ -1,24 +1,14 @@
 <?php
 /**
-<<<<<<< HEAD
  * Plugin Name: Inline Bundle Builder
  * Description: Build a bundle in a responsive modal. Saves each slot as numbered meta (e.g., "1: Crna Majica - S") in orders. Cart/checkout shows the same lines without a label.
  * Version:     3.2.0
-=======
- * Plugin Name: Inline Bundle Builder (GR)
- * Description: Δημιούργησε πακέτο σε responsive modal. Αποθηκεύει κάθε θέση ως αριθμημένο meta (π.χ. "1: Μαύρο μπλουζάκι - L") στην παραγγελία. Στον κάδο/ταμείο εμφανίζονται οι ίδιες γραμμές χωρίς ετικέτα.
- * Version:     3.1.2-gr
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
  * Author:      You
  */
 
 if (!defined('ABSPATH')) exit;
 
-<<<<<<< HEAD
 class IBB_Plugin_SimpleMeta {
-=======
-class IBB_Plugin_SimpleMeta_GR {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 
     public function __construct() {
         add_shortcode('inline_bundle_builder', [$this, 'shortcode']);
@@ -37,18 +27,13 @@ class IBB_Plugin_SimpleMeta_GR {
      * Shortcode (enqueues assets ONLY when rendered)
      * ------------------------------------------------*/
     /**
-<<<<<<< HEAD
      * Usage: echo do_shortcode('[inline_bundle_builder products="504,505,506" slots="3" gratis_slots="1,3,5"]');
      * - `gratis_slots` is optional. If provided, the specified 1-based slot numbers will render the GRATIS badge.
-=======
-     * Usage: echo do_shortcode('[inline_bundle_builder products="504,505,506" slots="3"]');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      */
     public function shortcode($atts) {
         if (!class_exists('WooCommerce')) return '';
 
         $a = shortcode_atts([
-<<<<<<< HEAD
             'products'     => '',
             'slots'        => 3,
             'gratis_slots' => '', // NEW: control GRATIS badge purely via data attribute (e.g., "3" or "1,3,5" or "1-3" or "all")
@@ -65,21 +50,6 @@ class IBB_Plugin_SimpleMeta_GR {
         wp_enqueue_script('ibb-script', plugins_url('ibb.js?ds34343ddsds',  __FILE__), ['jquery'], '3.2.0', true);
 
         // Hide the stray ":" dt in variation blocks (mini cart / cart / checkout / XOO side cart)
-=======
-            'products' => '',
-            'slots'    => 3,
-        ], $atts);
-
-        $ids   = array_filter(array_map('absint', explode(',', $a['products'])));
-        $slots = max(1, absint($a['slots']));
-        if (!$ids) return '<em>Δεν έχουν οριστεί προϊόντα.</em>';
-
-        // Enqueue assets only when shortcode renders
-        wp_enqueue_style ('ibb-style', plugins_url('ibb.css', __FILE__), [], '3.1.2-gr');
-        wp_enqueue_script('ibb-script', plugins_url('ibb.js',  __FILE__), ['jquery'], '3.1.2-gr', true);
-
-        // Hide the stray ":" dt in variation blocks
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $ibb_inline_css = '
           .widget_shopping_cart .variation dt.variation-,
           .woocommerce-mini-cart .variation dt.variation-,
@@ -99,7 +69,6 @@ class IBB_Plugin_SimpleMeta_GR {
             'nonce' => wp_create_nonce('ibb'),
         ]);
 
-<<<<<<< HEAD
         // Add an inline script that:
         // - Disables ATC only when a .ibb-wrapper exists
         // - Ensures the hidden ibb_cart_data field exists in the Woo form
@@ -114,17 +83,6 @@ jQuery(function($){
   if (!\$form.length) \$form = $('form.cart').first();
 
   // Disable ATC on load (only here) — NEVER touch buttons inside the YITH Quick View container
-=======
-        // Minimal inline helper that ensures hidden ibb_cart_data exists & stays synced
-        $inline_js = <<<JS
-jQuery(function(\$){
-  var \$wrap = \$('.ibb-wrapper').first();
-  if (!\$wrap.length) return;
-
-  var \$form = \$wrap.closest('form.cart');
-  if (!\$form.length) \$form = \$('form.cart').first();
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
   var \$btn = \$form.find('.single_add_to_cart_button');
   if (\$btn.length && !\$form.closest('#yith-quick-view-content').length) {
     \$btn.prop('disabled', true).addClass('ibb-disabled');
@@ -133,17 +91,12 @@ jQuery(function(\$){
   function ensureHidden(){
     var \$field = \$form.find('input.ibb-cart-data[name="ibb_cart_data"]');
     if(!\$field.length){
-<<<<<<< HEAD
       \$field = $('<input type="hidden" name="ibb_cart_data" class="ibb-cart-data" value="[]">');
-=======
-      \$field = \$('<input type="hidden" name="ibb_cart_data" class="ibb-cart-data" value="[]">');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
       \$form.append(\$field);
     }
     return \$field;
   }
 
-<<<<<<< HEAD
   function getSlotsJSON(){
     try{
       if (window.IBB && window.IBB.carts){
@@ -182,37 +135,11 @@ jQuery(function(\$){
   $(document).on('click', '.ibb-add, .ibb-slot-remove', function(){ setTimeout(syncHidden, 0); });
 
   // resync just before submit
-=======
-  function syncHidden(){
-    var data='[]';
-    try{
-      if (window.IBB && window.IBB.carts){
-        var wid = \$wrap.attr('data-ibb-id');
-        if (wid && window.IBB.carts[wid]) data = JSON.stringify(window.IBB.carts[wid]);
-      }
-    }catch(e){}
-    ensureHidden().val(data);
-  }
-
-  syncHidden();
-  \$(document).on('ibb:slotsFilled ibb:slotsNotFilled', '.ibb-wrapper', function(e){
-    syncHidden();
-    if (!\$btn.length) return;
-    if (e.type === 'ibb:slotsFilled'){
-      \$btn.prop('disabled', false).removeClass('ibb-disabled');
-    } else if (!\$form.closest('#yith-quick-view-content').length) {
-      \$btn.prop('disabled', true).addClass('ibb-disabled');
-    }
-  });
-
-  \$(document).on('click', '.ibb-add, .ibb-slot-remove', function(){ setTimeout(syncHidden, 0); });
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
   \$form.on('submit', syncHidden);
 });
 JS;
         wp_add_inline_script('ibb-script', $inline_js, 'after');
 
-<<<<<<< HEAD
         /* === ADDED: block CSS/JS inside YITH Quick View modal (no button changes) === */
         $qv_block_js = <<<JS
 jQuery(function($){
@@ -269,8 +196,6 @@ JS;
         wp_add_inline_script('ibb-script', $qv_block_js, 'after');
         /* === /ADDED ============================================================ */
 
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         // Build product cards for modal
         $cards = [];
         foreach ($ids as $pid) {
@@ -289,7 +214,6 @@ JS;
             if ($p->is_type('variable')) {
                 $vattrs = $p->get_variation_attributes();
                 foreach ($vattrs as $tax_raw => $options) {
-<<<<<<< HEAD
                     $tax_norm = str_replace('attribute_', '', $tax_raw);
                     if (strpos($tax_norm, 'pa_') === 0) $tax_norm = substr($tax_norm, 3);
 
@@ -297,14 +221,6 @@ JS;
                     $opts  = [];
                     foreach ((array)$options as $opt) {
                         $term = taxonomy_exists($tax_norm) ? get_term_by('slug', $opt, $tax_norm) : null;
-=======
-                    $tax_norm = str_replace('attribute_', '', $tax_raw); // may still include pa_
-                    $label = wc_attribute_label($tax_norm) ?: wc_attribute_label($tax_raw) ?: 'Επιλογή';
-                    $opts  = [];
-                    foreach ((array)$options as $opt) {
-                        $tax_for_terms = taxonomy_exists($tax_norm) ? $tax_norm : (taxonomy_exists('pa_' . $tax_norm) ? 'pa_' . $tax_norm : $tax_norm);
-                        $term = taxonomy_exists($tax_for_terms) ? get_term_by('slug', $opt, $tax_for_terms) : null;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                         $opts[] = [
                             'value' => $term ? $term->slug : (string)$opt,
                             'label' => $term ? $term->name : (string)$opt,
@@ -312,11 +228,7 @@ JS;
                     }
                     $c['attrs'][] = [
                         'raw'   => $tax_raw,
-<<<<<<< HEAD
                         'norm'  => $tax_norm,
-=======
-                        'norm'  => ltrim($tax_norm, '_'),
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                         'label' => $label,
                         'opts'  => $opts,
                     ];
@@ -335,7 +247,6 @@ JS;
         }
 
         ob_start(); ?>
-<<<<<<< HEAD
         <div class="ibb-wrapper"
              data-slots="<?php echo esc_attr($slots); ?>"
              <?php if ($gratis_attr !== ''): ?>
@@ -379,17 +290,6 @@ JS;
                           <?php endif; ?>
                      
                     </span>
-=======
-        <div class="ibb-wrapper" data-slots="<?php echo esc_attr($slots); ?>">
-          <div class="ibb-slots">
-            <?php for ($i=0; $i<$slots; $i++): ?>
-              <div class="ibb-slot-wrap">
-                <div class="ibb-slot-header"><?php echo sprintf(esc_html__('Επιλέξτε μπλουζάκι %1$d από %2$d', 'ibb'), $i+1, $slots); ?></div>
-                <div class="ibb-slot is-empty" data-index="<?php echo $i; ?>" tabindex="0">
-                  <div class="ibb-slot-thumb"><span class="ibb-slot-plus" aria-hidden="true">+</span></div>
-                  <div class="ibb-slot-info">
-                    <span class="ibb-slot-attr"><?php esc_html_e('Επιλέξτε μπλουζάκι','ibb'); ?></span>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                     <span class="ibb-slot-price" hidden></span>
                   </div>
                 </div>
@@ -397,15 +297,9 @@ JS;
             <?php endfor; ?>
           </div>
 
-<<<<<<< HEAD
           <!-- Modal scaffold (your ibb.js handles its behavior) -->
           <div class="ibb-modal" aria-hidden="true">
             <div class="ibb-modal__box" role="dialog" aria-modal="true" aria-label="Bundle builder">
-=======
-          <!-- Modal scaffold (handled by ibb.js) -->
-          <div class="ibb-modal" aria-hidden="true">
-            <div class="ibb-modal__box" role="dialog" aria-modal="true" aria-label="Δημιουργία πακέτου">
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
               <div class="ibb-modal__head">
                 <div class="ibb-steps-nav">
                   <button type="button" class="ibb-nav ibb-prev">‹</button>
@@ -414,7 +308,6 @@ JS;
                 </div>
                 <button type="button" class="ibb-modal__close">×</button>
                 <div class="ibb-titlebar">
-<<<<<<< HEAD
                   <h2 class="ibb-heading">Odaberi <span class="ibb-step-num">1</span> 
                   
                    <?php if( $is_boxers ): ?>
@@ -433,14 +326,6 @@ JS;
                      <?php endif; ?>     
                     
                   </p>
-=======
-                  <h2 class="ibb-heading"><?php esc_html_e('Επιλέξτε', 'ibb'); ?> <span class="ibb-step-num">1</span> <?php esc_html_e('μπλουζάκι', 'ibb'); ?></h2>
-                  <?php if ($bundle_price): ?>
-                    <p class="ibb-sub">
-                      <?php printf(esc_html__('Προσθέστε %1$d μπλουζάκια και πάρτε το πακέτο με %2$s', 'ibb'), $slots, $bundle_price); ?>
-                    </p>
-                  <?php endif; ?>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                 </div>
               </div>
               <div class="ibb-modal__body">
@@ -456,22 +341,14 @@ JS;
                             <select class="ibb-attr"
                               data-taxonomy="<?php echo esc_attr($a['norm']); ?>"
                               data-taxonomy-raw="<?php echo esc_attr('attribute_' . $a['norm']); ?>">
-<<<<<<< HEAD
                               <option value=""><?php echo esc_html__('Vyberte variantu', 'ibb'); ?></option>
-=======
-                              <option value=""><?php echo esc_html__('Επιλέξτε παραλλαγή', 'ibb'); ?></option>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                               <?php foreach ($a['opts'] as $o): ?>
                                 <option value="<?php echo esc_attr($o['value']); ?>"><?php echo esc_html($o['label']); ?></option>
                               <?php endforeach; ?>
                             </select>
                           <?php endforeach; ?>
                         <?php endif; ?>
-<<<<<<< HEAD
                         <button type="button" class="ibb-add"><?php esc_html_e('Dodaj u paket','ibb'); ?></button>
-=======
-                        <button type="button" class="ibb-add"><?php esc_html_e('Προσθήκη στο πακέτο','ibb'); ?></button>
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
                         <div class="ibb-msg" aria-live="polite"></div>
                       </div>
                     </div>
@@ -500,41 +377,17 @@ JS;
             wp_send_json_error(['message' => 'Invalid product']);
         }
 
-<<<<<<< HEAD
         $attrs = [];
         foreach ($attrs_in as $k => $v) {
             $k = sanitize_title($k);
             $attrs['attribute_' . $k] = wc_clean($v);
-=======
-        // Map incoming keys to Woo's expected "attribute_{taxonomy}" keys,
-        // fixing cases where the client already sent "attribute_*".
-        $attrs = [];
-        foreach ($attrs_in as $k => $v) {
-            $k = sanitize_title($k); // e.g. "attribute_Μέγεθος" -> "attribute_megethos"
-            if (strpos($k, 'attribute_') === 0) {
-                $k = substr($k, 10);
-            }
-            if (strpos($k, 'pa_') === 0) {
-                $k = substr($k, 3);
-            }
-
-            // Registered taxonomies are usually transliterated, e.g. pa_megethos
-            $tax = taxonomy_exists('pa_' . $k) ? 'pa_' . $k : $k;
-            $v_clean = taxonomy_exists($tax) ? sanitize_title($v) : wc_clean($v);
-
-            $attrs['attribute_' . $tax] = $v_clean;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         }
 
         $ds = new WC_Product_Data_Store_CPT();
         $variation_id = $ds->find_matching_product_variation($product, $attrs);
 
         if (!$variation_id) {
-<<<<<<< HEAD
             wp_send_json_error(['message' => 'This option is unavailable.']);
-=======
-            wp_send_json_error(['message' => 'Η παραλλαγή δεν είναι διαθέσιμη.']);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         }
 
         $vp = wc_get_product($variation_id);
@@ -547,67 +400,6 @@ JS;
     /* -------------------------------------------------
      * Helpers
      * ------------------------------------------------*/
-<<<<<<< HEAD
-=======
-
-    // Normalize keys: trim, remove diacritics, lowercase, strip Woo prefixes.
-    private function canon_key($k) : string {
-        $k = is_string($k) ? trim($k) : '';
-        if (function_exists('remove_accents')) {
-            $k = remove_accents($k); // removes tonos; keeps Greek letters unaccented
-        }
-        $k = strtolower($k);
-        $k = preg_replace('~^(attribute_|pa_)~', '', $k);
-        return $k; // e.g. "μεγεθος", "megethos", "size"
-    }
-
-    // Detect keys that mean "size" in Greek/English/transliterated.
-    private function is_size_key($k) : bool {
-        $ck = $this->canon_key($k);         // "μεγεθος" | "megethos" | "size"
-        $ck_slug = sanitize_title($ck);     // "megethos" | "size"
-        if (preg_match('~(μεγεθ|size)~u', $ck)) return true;         // Greek label or "size"
-        if (preg_match('~(megeth|size)~', $ck_slug)) return true;    // transliterated slug
-        return false;
-    }
-
-    // Get size value from the slot; if missing, read from the WC variation attributes.
-    private function get_size_from_slot(array $slot) : string {
-        // 1) Try the provided attrs (human labels like "Μέγεθος")
-        if (!empty($slot['attr']) && is_array($slot['attr'])) {
-            foreach ($slot['attr'] as $k => $v) {
-                $val = is_scalar($v) ? (string)$v : '';
-                if ($val !== '' && $this->is_size_key($k)) {
-                    return $val;
-                }
-            }
-        }
-
-        // 2) Fallback: read from the actual WC variation attributes
-        $vid = isset($slot['variation_id']) ? absint($slot['variation_id']) : 0;
-        if ($vid) {
-            $vp = wc_get_product($vid);
-            if ($vp instanceof WC_Product_Variation) {
-                $vattrs = $vp->get_attributes(); // e.g. ['attribute_pa_megethos' => 's']
-                foreach ($vattrs as $vk => $vslug) {
-                    if ($this->is_size_key($vk)) {
-                        // If taxonomy, convert slug to human term name
-                        $tax = str_replace('attribute_', '', (string)$vk); // 'pa_megethos'
-                        if (taxonomy_exists($tax)) {
-                            $term = get_term_by('slug', (string)$vslug, $tax);
-                            if ($term && !is_wp_error($term)) {
-                                return (string)$term->name;
-                            }
-                        }
-                        // Custom attribute – return raw
-                        return is_scalar($vslug) ? (string)$vslug : '';
-                    }
-                }
-            }
-        }
-        return '';
-    }
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     private function parse_slots_from_post() : array {
         if (empty($_POST['ibb_cart_data'])) return [];
         $raw   = wp_unslash($_POST['ibb_cart_data']);
@@ -615,7 +407,6 @@ JS;
         return is_array($slots) ? $slots : [];
     }
 
-<<<<<<< HEAD
     private function slot_line(array $slot) : string {
         $title = !empty($slot['title']) ? trim((string)$slot['title']) : '';
         $size  = '';
@@ -627,27 +418,6 @@ JS;
                 }
             }
         }
-=======
-    // Build the visible line for each slot (title + size if found).
-    private function slot_line(array $slot) : string {
-        $title = !empty($slot['title']) ? trim((string)$slot['title']) : '';
-        $size  = $this->get_size_from_slot($slot);
-
-        // FINAL fallback: if size still empty, use the first attribute value we see
-        if ($size === '' && !empty($slot['attr']) && is_array($slot['attr'])) {
-            foreach ($slot['attr'] as $k => $v) {
-                if ($v !== '' && is_scalar($v)) {
-                    $size = (string)$v;
-                    break;
-                }
-            }
-        }
-
-        if ($size !== '') {
-            $size = function_exists('mb_strtoupper') ? mb_strtoupper($size, 'UTF-8') : strtoupper($size);
-        }
-
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         return trim($title . ($size ? " - $size" : ''));
     }
 
@@ -688,16 +458,9 @@ JS;
             foreach ($lines as $i => $line) {
                 $numbered[] = ($i+1) . ': ' . $line;
             }
-<<<<<<< HEAD
             $value = implode('<br>', array_map('esc_html', $numbered));
 
             // name=false -> Woo prints only the value (no dt) — CSS above also hides stray labels
-=======
-            $escaped = array_map('esc_html', $numbered);
-            $value = implode('<br>', $escaped);
-
-            // name=false -> Woo prints only the value (no dt)
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
             $item_data[] = ['name' => false, 'display' => $value];
         }
         return $item_data;
@@ -717,8 +480,4 @@ JS;
     }
 }
 
-<<<<<<< HEAD
 new IBB_Plugin_SimpleMeta();
-=======
-new IBB_Plugin_SimpleMeta_GR();
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f

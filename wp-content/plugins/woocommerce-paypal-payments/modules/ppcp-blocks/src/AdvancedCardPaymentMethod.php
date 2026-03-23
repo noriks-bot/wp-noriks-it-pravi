@@ -9,10 +9,6 @@ declare (strict_types=1);
 namespace WooCommerce\PayPalCommerce\Blocks;
 
 use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\Assets\AssetGetter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\Button\Assets\SmartButtonInterface;
 use WooCommerce\PayPalCommerce\WcGateway\Gateway\CreditCardGateway;
 use WooCommerce\PayPalCommerce\WcGateway\Helper\CardPaymentsConfiguration;
@@ -22,16 +18,12 @@ use WooCommerce\PayPalCommerce\WcGateway\Settings\Settings;
  */
 class AdvancedCardPaymentMethod extends AbstractPaymentMethodType
 {
-<<<<<<< HEAD
     /**
      * The URL of this module.
      *
      * @var string
      */
     private $module_url;
-=======
-    private AssetGetter $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     /**
      * The assets version.
      *
@@ -58,28 +50,17 @@ class AdvancedCardPaymentMethod extends AbstractPaymentMethodType
     protected $plugin_settings;
     protected CardPaymentsConfiguration $card_payments_configuration;
     /**
-<<<<<<< HEAD
      * @param string                        $module_url
-=======
-     * @param AssetGetter                   $asset_getter
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
      * @param string                        $version The assets version.
      * @param CreditCardGateway             $gateway
      * @param SmartButtonInterface|callable $smart_button The smart button script loading handler.
      * @param Settings                      $settings
      * @param CardPaymentsConfiguration     $card_payments_configuration
      */
-<<<<<<< HEAD
     public function __construct(string $module_url, string $version, CreditCardGateway $gateway, $smart_button, Settings $settings, CardPaymentsConfiguration $card_payments_configuration)
     {
         $this->name = CreditCardGateway::ID;
         $this->module_url = $module_url;
-=======
-    public function __construct(AssetGetter $asset_getter, string $version, CreditCardGateway $gateway, $smart_button, Settings $settings, CardPaymentsConfiguration $card_payments_configuration)
-    {
-        $this->name = CreditCardGateway::ID;
-        $this->asset_getter = $asset_getter;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         $this->version = $version;
         $this->gateway = $gateway;
         $this->smart_button = $smart_button;
@@ -104,11 +85,7 @@ class AdvancedCardPaymentMethod extends AbstractPaymentMethodType
      */
     public function get_payment_method_script_handles()
     {
-<<<<<<< HEAD
         wp_register_script('ppcp-advanced-card-checkout-block', trailingslashit($this->module_url) . 'assets/js/advanced-card-checkout-block.js', array('wp-i18n'), $this->version, \true);
-=======
-        wp_register_script('ppcp-advanced-card-checkout-block', $this->asset_getter->get_asset_url('advanced-card-checkout-block.js'), array('wp-i18n'), $this->version, \true);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         wp_set_script_translations('ppcp-advanced-card-checkout-block', 'woocommerce-paypal-payments');
         return array('ppcp-advanced-card-checkout-block');
     }

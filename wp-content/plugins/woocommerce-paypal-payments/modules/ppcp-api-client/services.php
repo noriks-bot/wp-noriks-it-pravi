@@ -25,10 +25,7 @@ use WooCommerce\PayPalCommerce\ApiClient\Endpoint\PartnerReferrals;
 use WooCommerce\PayPalCommerce\ApiClient\Endpoint\PartnersEndpoint;
 use WooCommerce\PayPalCommerce\ApiClient\Endpoint\PaymentMethodTokensEndpoint;
 use WooCommerce\PayPalCommerce\ApiClient\Endpoint\PaymentsEndpoint;
-<<<<<<< HEAD
 use WooCommerce\PayPalCommerce\ApiClient\Endpoint\PaymentTokenEndpoint;
-=======
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\ApiClient\Endpoint\PaymentTokensEndpoint;
 use WooCommerce\PayPalCommerce\ApiClient\Endpoint\WebhookEndpoint;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\AddressFactory;
@@ -56,26 +53,16 @@ use WooCommerce\PayPalCommerce\ApiClient\Factory\ProductFactory;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\PurchaseUnitFactory;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\RefundFactory;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\RefundPayerFactory;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\ApiClient\Factory\ReturnUrlFactory;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\ApiClient\Factory\SellerPayableBreakdownFactory;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\SellerReceivableBreakdownFactory;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\SellerStatusFactory;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\ShippingFactory;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\ShippingOptionFactory;
-<<<<<<< HEAD
 use WooCommerce\PayPalCommerce\ApiClient\Factory\ReturnUrlFactory;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\ShippingPreferenceFactory;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\WebhookEventFactory;
 use WooCommerce\PayPalCommerce\ApiClient\Factory\WebhookFactory;
 use WooCommerce\PayPalCommerce\ApiClient\Helper\ReferenceTransactionStatus;
-=======
-use WooCommerce\PayPalCommerce\ApiClient\Factory\ShippingPreferenceFactory;
-use WooCommerce\PayPalCommerce\ApiClient\Factory\WebhookEventFactory;
-use WooCommerce\PayPalCommerce\ApiClient\Factory\WebhookFactory;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\ApiClient\Helper\Cache;
 use WooCommerce\PayPalCommerce\ApiClient\Helper\CurrencyGetter;
 use WooCommerce\PayPalCommerce\ApiClient\Helper\DccApplies;
@@ -83,22 +70,11 @@ use WooCommerce\PayPalCommerce\ApiClient\Helper\FailureRegistry;
 use WooCommerce\PayPalCommerce\ApiClient\Helper\OrderHelper;
 use WooCommerce\PayPalCommerce\ApiClient\Helper\OrderTransient;
 use WooCommerce\PayPalCommerce\ApiClient\Helper\PartnerAttribution;
-<<<<<<< HEAD
 use WooCommerce\PayPalCommerce\ApiClient\Helper\PurchaseUnitSanitizer;
-=======
-use WooCommerce\PayPalCommerce\ApiClient\Helper\PaymentLevelEligibility;
-use WooCommerce\PayPalCommerce\ApiClient\Helper\PaymentLevelHelper;
-use WooCommerce\PayPalCommerce\ApiClient\Helper\PurchaseUnitSanitizer;
-use WooCommerce\PayPalCommerce\ApiClient\Helper\ReferenceTransactionStatus;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\ApiClient\Repository\CustomerRepository;
 use WooCommerce\PayPalCommerce\ApiClient\Repository\OrderRepository;
 use WooCommerce\PayPalCommerce\ApiClient\Repository\PartnerReferralsData;
 use WooCommerce\PayPalCommerce\ApiClient\Repository\PayeeRepository;
-<<<<<<< HEAD
-=======
-use WooCommerce\PayPalCommerce\ApiClient\VaultV2\PaymentTokenEndpoint;
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 use WooCommerce\PayPalCommerce\Common\Pattern\SingletonDecorator;
 use WooCommerce\PayPalCommerce\Session\SessionHandler;
 use WooCommerce\PayPalCommerce\Settings\Data\SettingsModel;
@@ -159,11 +135,7 @@ return array(
     'api.factory.sellerstatus' => static function (ContainerInterface $container): SellerStatusFactory {
         return new SellerStatusFactory();
     },
-<<<<<<< HEAD
     'api.endpoint.payment-token' => static function (ContainerInterface $container): PaymentTokenEndpoint {
-=======
-    'vault-v2.endpoint.payment-token' => static function (ContainerInterface $container): PaymentTokenEndpoint {
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         return new PaymentTokenEndpoint($container->get('api.host'), $container->get('api.bearer'), $container->get('api.factory.payment-token'), $container->get('api.factory.payment-token-action-links'), $container->get('woocommerce.logger.woocommerce'), $container->get('api.repository.customer'));
     },
     'api.endpoint.payment-tokens' => static function (ContainerInterface $container): PaymentTokensEndpoint {
@@ -281,11 +253,7 @@ return array(
         $prefix = $container->get('api.prefix');
         $soft_descriptor = $container->get('wcgateway.soft-descriptor');
         $sanitizer = $container->get('api.helper.purchase-unit-sanitizer');
-<<<<<<< HEAD
         return new PurchaseUnitFactory($amount_factory, $item_factory, $shipping_factory, $payments_factory, $prefix, $soft_descriptor, $sanitizer);
-=======
-        return new PurchaseUnitFactory($amount_factory, $item_factory, $shipping_factory, $payments_factory, $container->get('api.helpers.paymentLevelHelper'), $container->get('api.helpers.paymentLevelEligibility'), $container->get('settings.settings-provider'), $prefix, $soft_descriptor, $sanitizer);
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     },
     'api.factory.patch-collection-factory' => static function (ContainerInterface $container): PatchCollectionFactory {
         return new PatchCollectionFactory();
@@ -370,11 +338,7 @@ return array(
         return new CardAuthenticationResultFactory();
     },
     'api.helpers.dccapplies' => static function (ContainerInterface $container): DccApplies {
-<<<<<<< HEAD
         return new DccApplies($container->get('api.dcc-supported-country-currency-matrix'), $container->get('api.dcc-supported-country-card-matrix'), $container->get('api.shop.currency.getter'), $container->get('api.shop.country'));
-=======
-        return new DccApplies($container->get('api.dcc-supported-country-currency-matrix'), $container->get('api.dcc-supported-country-card-matrix'), $container->get('api.shop.currency.getter'), $container->get('api.merchant.country'));
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     },
     'api.shop.currency.getter' => static function (ContainerInterface $container): CurrencyGetter {
         return new CurrencyGetter();
@@ -470,7 +434,6 @@ return array(
     'api.psd2-countries' => static function (ContainerInterface $container): array {
         return array('AT', 'BE', 'BG', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GB', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE');
     },
-<<<<<<< HEAD
     'api.paylater.is-canada-released' => static function (ContainerInterface $container): bool {
         // Check if current date is after November 12th, 2025 (Expected PayPal release date).
         // @todo Remove this logic after the next release.
@@ -485,10 +448,6 @@ return array(
         if ($container->get('api.paylater.is-canada-released')) {
             $default_countries[] = 'CA';
         }
-=======
-    'api.paylater-countries' => static function (ContainerInterface $container): array {
-        $default_countries = array('US', 'DE', 'GB', 'FR', 'AU', 'IT', 'ES', 'CA');
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
         return apply_filters('woocommerce_paypal_payments_supported_paylater_countries', $default_countries);
     },
     'api.order-helper' => static function (ContainerInterface $container): OrderHelper {
@@ -596,20 +555,4 @@ return array(
     'api.helper.partner-attribution' => static function (ContainerInterface $container): PartnerAttribution {
         return new PartnerAttribution('ppcp_bn_code', array(InstallationPathEnum::CORE_PROFILER => 'WooPPCP_Ecom_PS_CoreProfiler', InstallationPathEnum::PAYMENT_SETTINGS => 'WooPPCP_Ecom_PS_CoreProfiler'), PPCP_PAYPAL_BN_CODE);
     },
-<<<<<<< HEAD
-=======
-    /**
-     * If connected, return the PayPal Onboarded merchant country.
-     * Fallback to WooCommerce Store Country otherwise.
-     */
-    'api.merchant.country' => static function (ContainerInterface $container): string {
-        return $container->get('settings.flag.is-connected') ? $container->get('settings.data.general')->get_merchant_country() : $container->get('api.shop.country');
-    },
-    'api.helpers.paymentLevelHelper' => static function (ContainerInterface $container): PaymentLevelHelper {
-        return new PaymentLevelHelper($container->get('settings.settings-provider'));
-    },
-    'api.helpers.paymentLevelEligibility' => static function (ContainerInterface $container): PaymentLevelEligibility {
-        return new PaymentLevelEligibility($container->get('api.merchant.country'), $container->get('api.shop.currency.getter'));
-    },
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
 );
