@@ -407,3 +407,8 @@ body.woocommerce-checkout .noriks-order-summary .review-product-info div {
 
 /* More space between total and Naruči button */
 .noriks-order-summary .vigo-checkout-total__sum { margin-bottom: 10px !important; }
+
+/* IT: show Provincia (state) field */
+p#billing_state_field {
+  display: block !important;
+}

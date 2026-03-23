@@ -477,6 +477,9 @@ add_filter( 'woocommerce_checkout_fields', function( $fields ) {
     // $fields['billing']['billing_email']['description'] = 'Per la conferma dell\'ordine e il tracciamento della spedizione';
     $fields['billing']['billing_email']['required'] = true;
     $fields['billing']['billing_country']['default'] = 'IT';
+    $fields['billing']['billing_state']['required'] = true;
+    $fields['billing']['billing_state']['label'] = 'Provincia';
+    $fields['billing']['billing_state']['placeholder'] = 'Seleziona provincia';
     unset( $fields['billing']['billing_company'] );
 
     // Vigoshop CSS classes
