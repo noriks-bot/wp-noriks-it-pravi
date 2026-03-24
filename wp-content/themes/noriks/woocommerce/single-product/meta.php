@@ -73,13 +73,13 @@ global $product;
         
           <div class="feature">
           
-  <img src="/gr/wp-content/themes/noriks/img/cod_icon_.png" alt="Customer Support Icon" class="feature__icon info-icon">
+  <img src="<?php echo get_template_directory_uri(); ?>/img/cod_icon_.png" alt="Customer Support Icon" class="feature__icon info-icon">
           <p class="feature__text">Αντικαταβολή</p>
         </div>
         
         
         <div class="feature">
-      <img src="https://noriks.com/gr/wp-content/uploads/2025/07/footer_icon1-1.png" alt="Shirt Icon" class="feature__icon info-icon">
+      <img src="https://noriks.com/hr/wp-content/uploads/2025/07/footer_icon1-1.png" alt="Shirt Icon" class="feature__icon info-icon">
           <p class="feature__text">Δοκιμάστε 30 ημέρες, χωρίς ρίσκο</p>
         </div>
         
@@ -89,7 +89,7 @@ global $product;
         <div class="feature">
      
        
-        <img src="https://noriks.com/gr/wp-content/uploads/2025/07/footer_icon3-1.png" alt="Shipping Icon" class="feature__icon info-icon">
+        <img src="https://noriks.com/hr/wp-content/uploads/2025/07/footer_icon3-1.png" alt="Shipping Icon" class="feature__icon info-icon">
           <p class="feature__text">Δωρεάν αποστολή για παραγγελίες άνω των 70 €</p>
         </div>
 
@@ -283,7 +283,7 @@ $is_mixed_bundle = has_term( array( 'set', 'sady', 'orto-starter', 'orto-majica-
            <?php if( $is_boxers ): ?>
        
         
-            <img src="https://noriks.com/gr/wp-content/uploads/2026/02/boxers_size_gr.png">
+            <img src="https://noriks.com/hr/wp-content/uploads/2026/02/boxers_size_gr.png">
           
           
           
@@ -291,18 +291,18 @@ $is_mixed_bundle = has_term( array( 'set', 'sady', 'orto-starter', 'orto-majica-
         <?php elseif(  $is_carape ): ?>
         
         
-                  <img src="https://noriks.com/gr/wp-content/uploads/2026/02/Nogavice_tabela_velikosti_Gr.png">
+                  <img src="https://noriks.com/hr/wp-content/uploads/2026/02/Nogavice_tabela_velikosti_Gr.png">
                   
     <?php elseif(  $is_mixed_bundle ): ?>
     
-     <img src="https://noriks.com/gr/wp-content/uploads/2025/09/noriks_tablica_gr.jpg">
+     <img src="https://noriks.com/hr/wp-content/uploads/2025/09/noriks_tablica_gr.jpg">
         
-         <img src="https://noriks.com/gr/wp-content/uploads/2026/02/boxers_size_gr.png">
+         <img src="https://noriks.com/hr/wp-content/uploads/2026/02/boxers_size_gr.png">
           
           <?php else: ?>
       
       
-     <img src="https://noriks.com/gr/wp-content/uploads/2025/09/noriks_tablica_gr.jpg">
+     <img src="https://noriks.com/hr/wp-content/uploads/2025/09/noriks_tablica_gr.jpg">
         
         
             
