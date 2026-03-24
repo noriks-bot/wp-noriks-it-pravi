@@ -628,7 +628,7 @@ add_action('woocommerce_review_order_before_submit', function(){
     </script>
     <?php
     endif;
-    echo '<h3 class="place-order-title" style="display:block;margin:15px 0 10px;">Riepilogo dell'ordine</h3>';
+    echo '<h3 class="place-order-title" style="display:block;margin:15px 0 10px;">Riepilogo dell\'ordine</h3>';
     echo '<div class="vigo-checkout-total order-total shop_table" style="margin-bottom:20px;">';
     woocommerce_order_review();
     echo '</div>';
