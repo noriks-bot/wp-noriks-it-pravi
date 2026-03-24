@@ -453,3 +453,26 @@ p#billing_state_field > label {
   overflow: visible !important;
   width: auto !important;
 }
+
+/* IT: Provincia dropdown styling when open */
+p#billing_state_field .select2-container--open .select2-selection--single {
+  border-color: #c9c9c9 !important;
+}
+.select2-container--default .select2-dropdown {
+  border: 1.5px solid #c9c9c9 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  height: 45px !important;
+  min-height: 45px !important;
+  border: 1.5px solid #c9c9c9 !important;
+  border-radius: 4px !important;
+  font-size: 16px !important;
+  padding: 8px 12px !important;
+  box-sizing: border-box !important;
+}
+.select2-container--default .select2-results__option {
+  padding: 12px 15px !important;
+  font-size: 16px !important;
+}
