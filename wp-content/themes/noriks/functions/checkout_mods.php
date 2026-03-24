@@ -464,16 +464,16 @@ add_filter( 'woocommerce_checkout_fields', function( $fields ) {
     $fields['billing']['billing_first_name']['placeholder'] = 'Nome';
     $fields['billing']['billing_last_name']['label'] = 'Cognome';
     $fields['billing']['billing_last_name']['placeholder'] = 'Cognome';
-    $fields['billing']['billing_address_1']['label'] = 'Via';
-    $fields['billing']['billing_address_1']['placeholder'] = 'Via';
-    $fields['billing']['billing_address_2']['label'] = 'Numero civico';
-    $fields['billing']['billing_address_2']['placeholder'] = 'Numero civico';
+    $fields['billing']['billing_address_1']['label'] = 'Via/Piazza';
+    $fields['billing']['billing_address_1']['placeholder'] = 'Via/Piazza';
+    $fields['billing']['billing_address_2']['label'] = 'Numero Civico';
+    $fields['billing']['billing_address_2']['placeholder'] = 'Numero Civico';
     $fields['billing']['billing_address_2']['required'] = true;
     $fields['billing']['billing_postcode']['label'] = 'CAP';
     $fields['billing']['billing_postcode']['placeholder'] = 'CAP';
     $fields['billing']['billing_city']['label'] = 'Città';
     $fields['billing']['billing_city']['placeholder'] = 'Seleziona città';
-    $fields['billing']['billing_phone']['label'] = 'Telefono';
+    $fields['billing']['billing_phone']['label'] = 'Numero di cellulare';
     $fields['billing']['billing_phone']['placeholder'] = 'Numero di cellulare';
     $fields['billing']['billing_phone']['required'] = true;
     /* Description injected via JS to survive update_checkout AJAX re-renders */
@@ -486,7 +486,7 @@ add_filter( 'woocommerce_checkout_fields', function( $fields ) {
     $fields['billing']['billing_country']['default'] = 'IT';
     $fields['billing']['billing_state']['required'] = true;
     $fields['billing']['billing_state']['label'] = 'Provincia';
-    $fields['billing']['billing_state']['placeholder'] = 'Seleziona provincia';
+    $fields['billing']['billing_state']['placeholder'] = 'SELEZIONARE PROVINCIA';
     unset( $fields['billing']['billing_company'] );
 
     // Vigoshop CSS classes
@@ -512,7 +512,7 @@ add_filter( 'woocommerce_checkout_fields', function( $fields ) {
  */
 add_filter( 'woocommerce_form_field_text', function( $field, $key ) {
     if ( $key === 'billing_last_name' ) {
-        $field .= '<div class="form-row form-row-wide col-xs-12">Inserisci l\'indirizzo dove sarai <b>tra le 8:00 e le 16:00</b>.</div>';
+        $field .= '<div class="form-row form-row-wide col-xs-12">Inserisci l\'indirizzo dove sarai <b>tra le 8:00 e le 18:00</b>.</div>';
     }
     return $field;
 }, 10, 2 );
@@ -523,7 +523,7 @@ add_filter( 'woocommerce_form_field_text', function( $field, $key ) {
  * Billing title
  */
 add_action( 'woocommerce_before_checkout_billing_form', function() {
-    echo '<h3 class="checkout-billing-title">Pagamento e Spedizione</h3>';
+    echo '<h3 class="checkout-billing-title">Fatturazione & spedizione</h3>';
 });
 
 add_filter( 'default_checkout_billing_country', function() { return 'IT'; });

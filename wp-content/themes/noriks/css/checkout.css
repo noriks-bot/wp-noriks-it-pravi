@@ -252,7 +252,7 @@ body.woocommerce-checkout #payment .payment_box fieldset {
   position: relative !important;
 }
 #billing_phone_field::after {
-  content: 'Esempio: 3912345678' !important;
+  content: 'Esempio: 3123456789' !important;
   position: absolute !important;
   left: 0 !important;
   bottom: -20px !important;
@@ -261,7 +261,7 @@ body.woocommerce-checkout #payment .payment_box fieldset {
   line-height: 1.4 !important;
 }
 #billing_phone_field::before {
-  content: 'Per assistenza con la consegna' !important;
+  content: 'Per favorire la spedizione' !important;
   position: absolute !important;
   right: 0 !important;
   bottom: -20px !important;

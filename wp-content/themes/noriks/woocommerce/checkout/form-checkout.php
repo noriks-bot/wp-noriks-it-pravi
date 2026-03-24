@@ -32,7 +32,7 @@ if ( WC()->cart->is_empty() ) return;
 
         <!-- SHIPPING -->
         <div id="custom_shipping">
-          <h3>Spedizione</h3>
+          <h3>Consegna</h3>
           <ul class="shipping_method_custom">
             <li class="standard-shipping shipping-tab">
               <input name="shipping_method[0]" data-index="0" id="shipping_method_0_standard_custom"
@@ -45,7 +45,7 @@ if ( WC()->cart->is_empty() ) return;
                   </div>
                   <div class="inner-wrapper-img">
                     <span class="shipping_method_delivery_price tag tag--red">
-                      <span class="woocommerce-Price-amount amount"><bdi>2,99<span class="woocommerce-Price-currencySymbol">&euro;</span></bdi></span>
+                      <span class="woocommerce-Price-amount amount"><bdi>3,49<span class="woocommerce-Price-currencySymbol">&euro;</span></bdi></span>
                     </span>
                     <span class="delivery_img"><img decoding="async" class="corriere_espresso standard" src="https://images.vigo-shop.com/general/curriers/gls.png"/></span>
                   </div>
@@ -55,7 +55,7 @@ if ( WC()->cart->is_empty() ) return;
           </ul>
           <div class="delivery-from-eu-warehouse">
             <img decoding="async" class="delivery-from-eu-warehouse__icon" src="https://images.vigo-shop.com/general/flags/eu-warehouse.svg">
-            <span class="delivery-from-eu-warehouse__text">Magazzino nell'UE</span>
+            <span class="delivery-from-eu-warehouse__text">Magazzino nell UE</span>
           </div>
         </div>
 
