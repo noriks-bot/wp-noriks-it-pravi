@@ -385,13 +385,11 @@ body.woocommerce-checkout .noriks-order-summary .review-product-info div {
   }
 }
 
-
 /* PayPal reCaptcha container — no margin */
 #ppcp-recaptcha-v2-container { margin: 0 !important; }
 
 /* Shipping section — no bottom margin */
 #custom_shipping { margin-bottom: 0 !important; }
-
 
 /* All free shipping badges — same green */
 .noriks-order-summary .shipping_order_review .review-addons-price span {
@@ -407,87 +405,40 @@ body.woocommerce-checkout .noriks-order-summary .review-product-info div {
 /* More space between total and Naruči button */
 .noriks-order-summary .vigo-checkout-total__sum { margin-bottom: 10px !important; }
 
-
-
-
 /* IT: Provincia select — match input height, no label overlap */
 
 
-/* IT: Provincia field — match other checkout inputs */
+/* IT: Provincia select2 — clean, no offset */
 p#billing_state_field {
   display: block !important;
   visibility: visible !important;
+  clear: both !important;
+  width: 100% !important;
   margin-bottom: 12px !important;
+  position: relative !important;
+}
+p#billing_state_field > label {
+  display: none !important;
 }
 p#billing_state_field .select2-container {
   width: 100% !important;
 }
-p#billing_state_field .select2-container .select2-selection--single {
+p#billing_state_field .select2-selection--single {
   height: 60px !important;
-  min-height: 60px !important;
   border: 1.5px solid #c9c9c9 !important;
   border-radius: 4px !important;
   box-shadow: inset 1px 1px 3px 0 rgba(0,0,0,0.25) !important;
   background-color: #fff !important;
-  padding: 0 !important;
 }
-p#billing_state_field .select2-container .select2-selection--single .select2-selection__rendered {
+p#billing_state_field .select2-selection__rendered {
   line-height: 60px !important;
   padding-left: 1em !important;
-  color: #000 !important;
   font-size: 16px !important;
+  color: #000 !important;
 }
-p#billing_state_field .select2-container .select2-selection--single .select2-selection__arrow {
+p#billing_state_field .select2-selection__arrow {
   height: 60px !important;
 }
-p#billing_state_field > label {
-  display: block !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  color: #5f6061 !important;
-  padding: 0 0 4px 0 !important;
-  position: static !important;
-  opacity: 1 !important;
-  transform: none !important;
-  pointer-events: auto !important;
-  overflow: visible !important;
-  width: auto !important;
-}
-
-/* IT: Provincia dropdown styling when open */
-p#billing_state_field .select2-container--open .select2-selection--single {
-  border-color: #c9c9c9 !important;
-}
-.select2-container--default .select2-dropdown {
-  border: 1.5px solid #c9c9c9 !important;
-  border-radius: 4px !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
-}
-.select2-container--default .select2-search--dropdown .select2-search__field {
-  height: 45px !important;
-  min-height: 45px !important;
-  border: 1.5px solid #c9c9c9 !important;
-  border-radius: 4px !important;
-  font-size: 16px !important;
-  padding: 8px 12px !important;
-  box-sizing: border-box !important;
-}
-.select2-container--default .select2-results__option {
-  padding: 12px 15px !important;
-  font-size: 16px !important;
-}
-
-/* IT: Provincia dropdown position — flush with input */
-p#billing_state_field .select2-container--default.select2-container--open .select2-dropdown {
-  margin-top: -2px !important;
-  margin-left: 0 !important;
-  width: 100% !important;
-  left: 0 !important;
-}
-p#billing_state_field .select2-container {
-  position: relative !important;
-}
-p#billing_state_field .select2-dropdown {
-  left: 0 !important;
-  width: 100% !important;
+p#billing_state_field .select2-selection__placeholder {
+  color: #777 !important;
 }
