@@ -329,6 +329,13 @@ add_action( 'wp_footer', function() {
       $(document.body).on('checkout_error', function(){
         $('#place_order').css('opacity','1').text('Ordina');
         $('form.checkout').css({'opacity':'1','pointer-events':''});
+        /* Validate all fields after WC returns error */
+        $('.woocommerce-checkout .form-row.validate-required').each(function(){
+          var input = $(this).find('input, select, textarea').first();
+          if (input.length) validateField(input[0], true);
+        });
+        var first = $('.noriks-invalid:first');
+        if (first.length) $('html,body').animate({scrollTop: first.offset().top - 100}, 300);
       });
 
       function showError($row, msg) {

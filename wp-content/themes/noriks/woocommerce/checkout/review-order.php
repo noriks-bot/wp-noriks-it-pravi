@@ -32,7 +32,14 @@ defined( 'ABSPATH' ) || exit;
       <!-- Shipping -->
       <div class="c--darkgray review-section-container review-addons shipping_order_review">
         <div class="review-addons-title"><div>Corriere espresso</div></div>
-        <div class="review-addons-price review-sale-price" id="noriks-shipping-price"><span style="display:inline-block;padding:3px 10px;border-radius:5px;background:#9ce79c;color:#228b22;font-size:14px;font-weight:500;">Gratuito</span></div>
+                <div class="review-addons-price review-sale-price" id="noriks-shipping-price"><?php
+          $shipping_total = (float) WC()->cart->get_shipping_total();
+          if ( $shipping_total > 0 ) {
+            echo '<span style="display:inline-block;padding:3px 10px;border-radius:5px;background:#e3e6e8;color:#5f6061;font-size:14px;font-weight:500;">' . number_format($shipping_total, 2, ',', '.') . '€</span>';
+          } else {
+            echo '<span style="display:inline-block;padding:3px 10px;border-radius:5px;background:#9ce79c;color:#228b22;font-size:14px;font-weight:500;">Gratuito</span>';
+          }
+        ?></div>
       </div>
 
       <!-- Coupon discounts -->
