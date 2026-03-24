@@ -405,11 +405,8 @@ body.woocommerce-checkout .noriks-order-summary .review-product-info div {
 /* More space between total and Naruči button */
 .noriks-order-summary .vigo-checkout-total__sum { margin-bottom: 10px !important; }
 
-/* IT: Provincia select — match input height, no label overlap */
 
-
-
-/* IT: Provincia — native select (no select2) */
+/* IT: Provincia field visible */
 p#billing_state_field {
   display: block !important;
   visibility: visible !important;
@@ -418,28 +415,32 @@ p#billing_state_field {
   margin-bottom: 12px !important;
 }
 p#billing_state_field > label {
-  display: none !important;
-}
-p#billing_state_field .select2-container {
-  display: none !important;
-}
-p#billing_state_field select {
   display: block !important;
-  width: 100% !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #5f6061 !important;
+  margin-bottom: 5px !important;
+  position: static !important;
+  opacity: 1 !important;
+  transform: none !important;
+  overflow: visible !important;
+  width: auto !important;
+  pointer-events: auto !important;
+  white-space: normal !important;
+  padding: 0 !important;
+}
+p#billing_state_field .select2-container .select2-selection--single {
   height: 60px !important;
-  min-height: 60px !important;
-  padding: 0 1em !important;
-  font-size: 16px !important;
-  color: #000 !important;
   border: 1.5px solid #c9c9c9 !important;
   border-radius: 4px !important;
   box-shadow: inset 1px 1px 3px 0 rgba(0,0,0,0.25) !important;
   background-color: #fff !important;
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  appearance: none !important;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") !important;
-  background-repeat: no-repeat !important;
-  background-position: right 12px center !important;
-  background-size: 20px !important;
+}
+p#billing_state_field .select2-selection__rendered {
+  line-height: 60px !important;
+  padding-left: 1em !important;
+  font-size: 16px !important;
+}
+p#billing_state_field .select2-selection__arrow {
+  height: 60px !important;
 }
