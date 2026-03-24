@@ -451,8 +451,8 @@ add_filter( 'woocommerce_checkout_fields', function( $fields ) {
     // Order — match vigoshop: name → address → phone → email
     $fields['billing']['billing_phone']['priority']       = 10;
     $fields['billing']['billing_email']['priority']       = 20;
-    $fields['billing']['billing_first_name']['priority']  = 40;
-    $fields['billing']['billing_last_name']['priority']   = 30;
+    $fields['billing']['billing_first_name']['priority']  = 30;
+    $fields['billing']['billing_last_name']['priority']   = 40;
     $fields['billing']['billing_address_1']['priority']   = 50;
     $fields['billing']['billing_address_2']['priority']   = 60;
     $fields['billing']['billing_postcode']['priority']    = 70;
@@ -487,10 +487,7 @@ add_filter( 'woocommerce_checkout_fields', function( $fields ) {
     $fields['billing']['billing_state']['required'] = true;
     $fields['billing']['billing_state']['label'] = 'Provincia';
     $fields['billing']['billing_state']['placeholder'] = 'SELEZIONARE PROVINCIA';
-    $fields['billing']['billing_company']['priority'] = 25;
-    $fields['billing']['billing_company']['label'] = 'Nome sul campanello/Nome attività';
-    $fields['billing']['billing_company']['placeholder'] = 'Nome sul campanello/Nome attività (opzionale)';
-    $fields['billing']['billing_company']['required'] = false;
+    unset( $fields['billing']['billing_company'] );
 
     // Vigoshop CSS classes
     $fields['billing']['billing_first_name']['class'] = array('form-row','form-row-first','form-group','col-xs-12','validate-required');
