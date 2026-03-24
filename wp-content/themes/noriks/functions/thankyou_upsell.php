@@ -294,7 +294,7 @@ function noriks_handle_add_upsell() {
     $bokserice_prices = array( 1 => 7.99, 3 => 19.99, 5 => 29.99 );
     $majice_prices    = array( 1 => 12.99, 3 => 29.99, 6 => 39.99 );
     $name = strtolower($product->get_name());
-    $is_majice = strpos(\$name, 'magliett') !== false || strpos($name, 'majic') !== false;
+    $is_majice = strpos($name, 'magliett') !== false || strpos($name, 'majic') !== false;
     $qty_prices = $is_majice ? $majice_prices : $bokserice_prices;
     $total_price = isset( $qty_prices[$quantity] ) ? $qty_prices[$quantity] : $active_price;
     $upsell_price = $total_price / $quantity;
