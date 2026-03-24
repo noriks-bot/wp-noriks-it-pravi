@@ -67,7 +67,7 @@ if ( WC()->cart->is_empty() ) return;
 
         <!-- VAT -->
         <div id="hs-vat-tax-checkout-prompt">
-          <span class="tax-and-vat-checkout-claims">Nessun costo doganale aggiuntivo</span>
+          <span class="tax-and-vat-checkout-claims">Nessun costo extra per le dogane</span>
           <span class="tax-and-vat-checkout-claims">IVA inclusa nel prezzo</span>
         </div>
 
@@ -92,18 +92,18 @@ if ( WC()->cart->is_empty() ) return;
     <img decoding="async" src="https://images.vigo-shop.com/general/guarantee_money_back/satisfaction_icon_it.png">
   </div>
   <div class="flex__item--autosize f--m checkout-warranty__text">
-    <strong>Acquista senza preoccupazioni </strong><br>Rimborso possibile entro 90 giorni
+    <strong>Acquisti senza preoccupazioni </strong><br>Rimborso possibile entro 90 giorni
   </div>
 </div>
 
 <!-- Terms -->
 <div class="agreed_terms_txt">
-  <span class="policy-agreement-obligation">Cliccando sul pulsante <strong>Ordina</strong> accetto l'ordine con obbligo di pagamento.</span><br>
+  <span class="policy-agreement-obligation">Cliccando sul pulsante <strong>Acquista</strong> accetto di effettuare un ordine con l'obbligo di pagamento.</span><br>
   <div class="terms-checkbox-and-links">
     <label class="checkbox">
       <input type="checkbox" class="input-checkbox" name="agree_to_checkout_terms" id="agree_to_terms_checkbox" value="1">
     </label>
-    Ho letto e accetto <a href="#" id="terms_conditions_link">le Condizioni generali di vendita</a> e <a href="#" id="withdrawal_policy_link">il diritto di recesso</a>.
+    Ho letto e accetto <a href="#" id="terms_conditions_link">i Termini e condizioni di vendita</a> e <a href="#" id="withdrawal_policy_link">il diritto sul recesso dall'acquisto</a>.
   </div>
 </div>
 
