@@ -415,3 +415,29 @@ p#billing_state_field.form-row {
   display: block !important;
   visibility: visible !important;
 }
+
+/* IT: Provincia select field styling */
+p#billing_state_field {
+  margin-bottom: 12px !important;
+}
+p#billing_state_field select {
+  min-height: 60px !important;
+  padding: 20px 1em 0.5em !important;
+  font-size: 18px !important;
+  border: 1.5px solid #c9c9c9 !important;
+  border-radius: 4px !important;
+  box-shadow: inset 1px 1px 3px 0 rgba(0,0,0,0.25) !important;
+  width: 100% !important;
+  background-color: #fff !important;
+}
+p#billing_state_field.field--not-empty > label {
+  opacity: 1 !important;
+  transform: none !important;
+}
+p#billing_state_field > label {
+  font-size: 13px !important;
+  padding: 11px 18px 0 !important;
+  position: absolute !important;
+  z-index: 1000 !important;
+  pointer-events: none !important;
+}
