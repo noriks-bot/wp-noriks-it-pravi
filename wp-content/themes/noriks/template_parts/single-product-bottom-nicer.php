@@ -292,7 +292,7 @@ if (  has_term( array( 'orto-majice', 'orto-majice', 'mplouzoakia', 't-shirts', 
 
 
 
-    object-fit: cover;  " src="/gr/wp-content/themes/noriks/img/majice-3 (1).jpeg">
+    object-fit: cover;  " src="<?php echo get_template_directory_uri(); ?>/img/majice-3 (1).jpeg">
       </div>
     </div>
 

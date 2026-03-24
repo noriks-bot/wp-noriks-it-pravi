@@ -337,7 +337,7 @@ get_header();
             <div class="icon-with-content__icons icon-with-content__icons--desktop-1-column icon-with-content__icons--mobile-1-column animate-item animate-item--child index-0">
               <div class="icons-with-text__icon-item icons-with-text__icon-item--next-to-text icons-with-text__icon-item--left">
                 <div class="icons-with-text__icon__icon icons-with-text__icon__icon--xl color-accent-1">
-                  <img src="/hr/wp-content/themes/noriks/lander2/images/gempages_536398955643143058-880f0a01-7171-44b4-834b-385dce4e8368.png" role="presentation" height="auto" width="auto" loading="lazy">
+                  <img src="<?php echo get_template_directory_uri(); ?>/lander2/images/gempages_536398955643143058-880f0a01-7171-44b4-834b-385dce4e8368.png" role="presentation" height="auto" width="auto" loading="lazy">
                 </div>
                 <div class="icons-with-text__icon__text">
                   <h3 class="icons-with-text__icon__title h3">
@@ -393,7 +393,7 @@ get_header();
               <div style="width: 50%;" class="image-with-text__media-item image-with-text__media-item--medium image-with-text__media-item--middle image-with-text__media--mobile-full grid__item">
                 
                 <div  class="image-with-text__media image-with-text__media--adapt color-scheme-template--19454951555210__multirow_Rmp8Af " style="">
-                  <img src="/hr/wp-content/themes/noriks/lander2/images/gempages_536398955643143058-f477c7b9-95b0-4a1f-810c-6d4b997d367a.jpg" alt="" width="1500" height="1500" loading="lazy">
+                  <img src="<?php echo get_template_directory_uri(); ?>/lander2/images/gempages_536398955643143058-f477c7b9-95b0-4a1f-810c-6d4b997d367a.jpg" alt="" width="1500" height="1500" loading="lazy">
                 </div>
                 
                 
@@ -420,7 +420,7 @@ get_header();
             <div class="image-with-text__grid grid grid--gapless grid--1-col grid--2-col-tablet image-with-text__grid--reverse">
               <div  style="width: 50%;" class="image-with-text__media-item image-with-text__media-item--medium image-with-text__media-item--middle image-with-text__media--mobile-full grid__item">
                 <div class="image-with-text__media image-with-text__media--adapt color-scheme-template--19454951555210__multirow_Rmp8Af color-custom gradient global-media-settings media" style="padding-bottom: 100.0%;">
-                  <img src="/hr/wp-content/themes/noriks/lander2/images/giphy.gif" alt=""width="1500" height="1500" loading="lazy" sizes="(min-width: 1400px) 650px,
+                  <img src="<?php echo get_template_directory_uri(); ?>/lander2/images/giphy.gif" alt=""width="1500" height="1500" loading="lazy" sizes="(min-width: 1400px) 650px,
                   (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)">
                 </div>
               </div>
@@ -450,7 +450,7 @@ get_header();
             <div class="image-with-text__grid grid grid--gapless grid--1-col grid--2-col-tablet">
               <div style="width: 50%;" class="image-with-text__media-item image-with-text__media-item--medium image-with-text__media-item--middle image-with-text__media--mobile-full grid__item">
                 <div class="image-with-text__media image-with-text__media--adapt color-scheme-template--19454951555210__multirow_Rmp8Af color-custom gradient global-media-settings media" style="padding-bottom: 100.0%;">
-                  <img src="/hr/wp-content/themes/noriks/lander2/images/gempages_536398955643143058-ca3ba9de-c742-4d6f-b147-48db13fb3a15.webp" alt=""  width="1500" height="1500" loading="lazy" sizes="(min-width: 1400px) 650px,
+                  <img src="<?php echo get_template_directory_uri(); ?>/lander2/images/gempages_536398955643143058-ca3ba9de-c742-4d6f-b147-48db13fb3a15.webp" alt=""  width="1500" height="1500" loading="lazy" sizes="(min-width: 1400px) 650px,
                   (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)">
                 </div>
               </div>
@@ -597,7 +597,7 @@ get_header();
              
               <div style="width: 50%;" class="image-with-text__media-item image-with-text__media-item--medium image-with-text__media-item--middle image-with-text__media--mobile-full grid__item">
                 <div class="image-with-text__media image-with-text__media--adapt color-scheme-template--19454951555210__multirow_BXHadv color-custom gradient global-media-settings media" style="padding-bottom: 100.0%;">
-                  <img src="/hr/wp-content/themes/noriks/lander2/images/image (3).png" alt=""  width="1500" height="1500" loading="lazy" sizes="(min-width: 1400px) 650px,
+                  <img src="<?php echo get_template_directory_uri(); ?>/lander2/images/image (3).png" alt=""  width="1500" height="1500" loading="lazy" sizes="(min-width: 1400px) 650px,
                   (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)">
                 </div>
               </div>
@@ -627,7 +627,7 @@ get_header();
               
               <div style="width: 50%;"  class="image-with-text__media-item image-with-text__media-item--medium image-with-text__media-item--middle image-with-text__media--mobile-full grid__item">
                 <div class="image-with-text__media image-with-text__media--adapt color-scheme-template--19454951555210__multirow_BXHadv color-custom gradient global-media-settings media" style="padding-bottom: 100.0%;">
-                  <img src="/hr/wp-content/themes/noriks/lander2/images/giphy_1.gif" alt="" width="1500" height="1500" loading="lazy" sizes="(min-width: 1400px) 650px,
+                  <img src="<?php echo get_template_directory_uri(); ?>/lander2/images/giphy_1.gif" alt="" width="1500" height="1500" loading="lazy" sizes="(min-width: 1400px) 650px,
                   (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)">
                 </div>
               </div>
@@ -653,7 +653,7 @@ get_header();
               
               <div style="width: 50%;" class="image-with-text__media-item image-with-text__media-item--medium image-with-text__media-item--middle image-with-text__media--mobile-full grid__item">
                 <div class="image-with-text__media image-with-text__media--adapt color-scheme-template--19454951555210__multirow_BXHadv color-custom gradient global-media-settings media" style="padding-bottom: 100.0%;">
-                  <img src="/hr/wp-content/themes/noriks/lander2/images/gempages_536398955643143058-43566ca1-bee1-4dfc-bd6e-7637a46aa32d.webp" alt=""  width="1500" height="1500" loading="lazy" sizes="(min-width: 1400px) 650px,
+                  <img src="<?php echo get_template_directory_uri(); ?>/lander2/images/gempages_536398955643143058-43566ca1-bee1-4dfc-bd6e-7637a46aa32d.webp" alt=""  width="1500" height="1500" loading="lazy" sizes="(min-width: 1400px) 650px,
                   (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)">
                 </div>
               </div>
@@ -687,7 +687,7 @@ get_header();
               
               <div style="width: 50%;" class="image-with-text__media-item image-with-text__media-item--medium image-with-text__media-item--middle image-with-text__media--mobile-full grid__item">
                 <div class="image-with-text__media image-with-text__media--adapt color-scheme-template--19454951555210__multirow_BXHadv color-custom gradient global-media-settings media" style="padding-bottom: 124.6875%;">
-                  <img src="/hr/wp-content/themes/noriks/lander2/images/noriks_boxers_gif_1.gif" alt="" width="1500" height="1870" loading="lazy" sizes="(min-width: 1400px) 650px,
+                  <img src="<?php echo get_template_directory_uri(); ?>/lander2/images/noriks_boxers_gif_1.gif" alt="" width="1500" height="1870" loading="lazy" sizes="(min-width: 1400px) 650px,
                   (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)">
                 </div>
               </div>
@@ -717,7 +717,7 @@ get_header();
               
               <div style="width: 50%;" class="image-with-text__media-item image-with-text__media-item--medium image-with-text__media-item--middle image-with-text__media--mobile-full grid__item">
                 <div class="image-with-text__media image-with-text__media--adapt color-scheme-template--19454951555210__multirow_BXHadv color-custom gradient global-media-settings media" style="padding-bottom: 100.0%;">
-                  <img src="/hr/wp-content/themes/noriks/lander2/images/noriks_boxers_gif_2.gif" alt=""  width="1500" height="1500" loading="lazy" sizes="(min-width: 1400px) 650px,
+                  <img src="<?php echo get_template_directory_uri(); ?>/lander2/images/noriks_boxers_gif_2.gif" alt=""  width="1500" height="1500" loading="lazy" sizes="(min-width: 1400px) 650px,
                   (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)">
                 </div>
               </div>
@@ -764,7 +764,7 @@ get_header();
               
               <div style="width: 50%;" class="image-with-text__media-item image-with-text__media-item--medium image-with-text__media-item--middle image-with-text__media--mobile-full grid__item">
                 <div class="image-with-text__media image-with-text__media--adapt color-scheme-template--19454951555210__multirow_BXHadv color-custom gradient global-media-settings media" style="padding-bottom: 125.0%;">
-                  <img src="/hr/wp-content/themes/noriks/lander2/images/giphy_3.gif" alt=""  width="1500" height="1875" loading="lazy" sizes="(min-width: 1400px) 650px,
+                  <img src="<?php echo get_template_directory_uri(); ?>/lander2/images/giphy_3.gif" alt=""  width="1500" height="1875" loading="lazy" sizes="(min-width: 1400px) 650px,
                   (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)">
                 </div>
               </div>
@@ -886,7 +886,7 @@ Individualni rezultati mogu se razlikovati. </em>
                     <div class="splide__slide__container">
                       <div class="image-slide animate-item animate-item--child" style="--index: 0;">
                         <div class="image-slide__image media media--transparent ratio" style="--ratio-percent: 177.77777777777777%">
-                          <img src="/hr/wp-content/themes/noriks/lander2/images/gif_levo.gif" alt=""  height="768.0" loading="lazy" sizes="(min-width: 1400px)
+                          <img src="<?php echo get_template_directory_uri(); ?>/lander2/images/gif_levo.gif" alt=""  height="768.0" loading="lazy" sizes="(min-width: 1400px)
                             433px, (min-width: 768px)
                               calc(100vw / 3)
                             ,  calc(100vw / 2) 
@@ -899,7 +899,7 @@ Individualni rezultati mogu se razlikovati. </em>
                     <div class="splide__slide__container">
                       <div class="image-slide animate-item animate-item--child" style="--index: 1;">
                         <div class="image-slide__image media media--transparent ratio" style="--ratio-percent: 177.77777777777777%">
-                          <img src="/hr/wp-content/themes/noriks/lander2/images/gif_na_sredini.gif" alt="" height="768.0" loading="lazy" sizes="(min-width: 1400px)
+                          <img src="<?php echo get_template_directory_uri(); ?>/lander2/images/gif_na_sredini.gif" alt="" height="768.0" loading="lazy" sizes="(min-width: 1400px)
                             433px, (min-width: 768px)
                               calc(100vw / 3)
                             ,  calc(100vw / 2) 
@@ -912,7 +912,7 @@ Individualni rezultati mogu se razlikovati. </em>
                     <div class="splide__slide__container">
                       <div class="image-slide animate-item animate-item--child" style="--index: 2;">
                         <div class="image-slide__image media media--transparent ratio" style="--ratio-percent: 176.74418604651163%">
-                          <img src="/hr/wp-content/themes/noriks/lander2/images/gif_desno.gif" alt=""  height="760.0" loading="lazy" sizes="(min-width: 1400px)
+                          <img src="<?php echo get_template_directory_uri(); ?>/lander2/images/gif_desno.gif" alt=""  height="760.0" loading="lazy" sizes="(min-width: 1400px)
                             433px, (min-width: 768px)
                               calc(100vw / 3)
                             ,  calc(100vw / 2) 
