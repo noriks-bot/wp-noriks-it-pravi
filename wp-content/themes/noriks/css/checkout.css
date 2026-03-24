@@ -60,7 +60,6 @@ body.woocommerce-checkout a.post-edit-link {
 
 /* ===== HIDE WC FIELDS WE DON'T NEED ===== */
 body.woocommerce-checkout p#billing_country_field,
-body.woocommerce-checkout p#billing_state_field,
 body.woocommerce-checkout #kl_newsletter_checkbox_field,
 body.woocommerce-checkout #hsplus_accepts_marketing_field,
 body.woocommerce-checkout .woocommerce-additional-fields > h3,
