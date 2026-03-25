@@ -73,14 +73,14 @@ global $product;
         
           <div class="feature">
           
-  <img src="<?php echo get_template_directory_uri(); ?>/img/cod_icon_.png" alt="Customer Support Icon" class="feature__icon info-icon">
+  <img src="https://noriks.com/hr/wp-content/themes/noriks/img/cod_icon_.png" alt="Customer Support Icon" class="feature__icon info-icon">
           <p class="feature__text">Pagamento alla consegna</p>
         </div>
         
         
         <div class="feature">
       <img src="https://noriks.com/hr/wp-content/uploads/2025/07/footer_icon1-1.png" alt="Shirt Icon" class="feature__icon info-icon">
-          <p class="feature__text">Prova 30 giorni, senza rischio</p>
+          <p class="feature__text">Prova 30 giorni, senza rischi</p>
         </div>
         
         
@@ -106,7 +106,7 @@ global $product;
 <div class="shipping-box">
   <h2 id="shipping-window" class="shipping-title"></h2>
   <p class="shipping-sub">
-    Ordina entro <span id="midnight-countdown" class="countdown"></span>
+    Ordina nelle prossime <span id="midnight-countdown" class="countdown"></span>
   </p>
 </div>
 
@@ -133,7 +133,8 @@ global $product;
 
 <script>
   (function () {
-    const weekdays = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+   const weekdays = ['domenica','lunedì','martedì','mercoledì','giovedì','venerdì','sabato'];
+
 
     // Helper to add business days (skip Saturday/Sunday)
     function addBusinessDays(date, days) {
@@ -159,7 +160,7 @@ global $product;
     }
 
     const windowEl = document.getElementById('shipping-window');
-    windowEl.textContent = `Consegna da ${weekdays[first.getDay()]}  ${formatDayMonth(first)} a ${weekdays[second.getDay()]}, ${formatDayMonth(second)}`;
+    windowEl.textContent = `Consegna da giovedì ${weekdays[first.getDay()]}  ${formatDayMonth(first)} a ${weekdays[second.getDay()]}, ${formatDayMonth(second)}`;
 
     // Countdown to midnight
     const cdEl = document.getElementById('midnight-countdown');
@@ -249,7 +250,9 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
     flex: 1;
     gap: 8px;
     border-radius: 5px;
+=======
     background: #F4F4F4;
+>>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
     padding: 16px;
     font-size: 14px;
     font-weight: 400;
@@ -439,7 +442,8 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
         
         
         
-                Le nostre magliette premium sono realizzate con un misto di alta qualità di 60% cotone ring-spun e 40% poliestere, garantendo un tessuto estremamente morbido e resistente alle pieghe. <br><br>I boxer NORIKS sono realizzati con un misto premium di 95% modal e 5% elastan, garantendo un tessuto estremamente morbido ed elastico che si adatta perfettamente al corpo. La fascia elastica è progettata per una vestibilità ottimale, offrendo comfort senza costrizioni. <br>
+<<<<<<< HEAD
+                Le nostre magliette premium sono realizzate con una miscela di alta qualità composta dal 60% di cotone ring-spun e dal 40% di poliestere, garantendo un tessuto estremamente morbido e resistente alle pieghe. <br><br>I boxer NORIKS sono realizzati con una miscela di alta qualità composta dal 95% di modal e dal 5% di elastan, che assicura un tessuto estremamente morbido ed elastico, perfettamente aderente al corpo. L’elastico in vita è progettato per una vestibilità ottimale, offrendo comfort senza costrizioni e un aspetto impeccabile sotto gli abiti. <br>
         
         <?php else: ?>
         
@@ -461,7 +465,7 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
      <!-- 2 - slika tablica velicina -->
      <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAccordion(this)">
-        <h3>Tabella delle taglie</h3>
+        <h3>Guida alle taglie</h3>
         <div class="toggle">+</div>
       </div>
       <div class="accordion-content">
@@ -510,7 +514,7 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
         
         
         
-                         Lavare i colori con i colori. Programma delicato a bassa temperatura. Asciugare steso o in asciugatrice a bassa temperatura. Non candeggiare.              
+                        Lavare i colori insieme ai colori. Programma di lavaggio delicato in acqua fredda. Asciugare in piano o in asciugatrice a bassa temperatura. Non candeggiare.        
         
         
           <?php else: ?>
@@ -529,8 +533,9 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
       </div>
       <div class="accordion-content">
        <p></p>
-       Crediamo così tanto che ti piacerà NORIKS che hai <b data-stringify-type="bold">30 giorni</b> per il reso o il cambio gratuito.
-Senza burocrazia, senza stress – risolviamo in pochi clic. </p>
+       
+     Siamo così sicuri che NORIKS ti piacerà che hai <b data-stringify-type="bold">30 giorni</b> per il reso o la sostituzione gratuita.
+Niente burocrazia, niente stress – risolviamo tutto in pochi clic. </p>
 
 <p>
     
@@ -544,7 +549,9 @@ Senza burocrazia, senza stress – risolviamo in pochi clic. </p>
     info@noriks.com
   </a>
 </p>
-<p>Samo nam napiši mail da želiš zamjenu i <b data-stringify-type="bold">odmah ćemo sve srediti.</b></p>
+<p>
+    
+   Scrivici semplicemente un’email per richiedere la sostituzione e <b data-stringify-type="bold">ci occuperemo subito di tutto.</b></p>
        
        
       </div>
