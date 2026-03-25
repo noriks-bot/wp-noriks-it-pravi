@@ -88,7 +88,7 @@ $(this).append('<div class="qty-btn-group"><button type="button" class="qty-btn 
     
     
     <!-- !!!!!!     COUNTDOWN    TIMER   !!! --!>
-                <!-- CARRELLO – AVVISO DI PRENOTAZIONE -->
+                <!-- KOŠARICA – OBAVIJEST O REZERVACIJI -->
                 <div class="wc-reserve-note" id="wc-reserve-note" role="status" aria-live="polite">
                   <span class="wc-reserve-note__icon" aria-hidden="true">
                     <!-- ikona "i" -->
@@ -99,8 +99,8 @@ $(this).append('<div class="qty-btn-group"><button type="button" class="qty-btn 
                     </svg>
                   </span>
                   <span class="wc-reserve-note__text">
-                    Παρακαλώ βιαστείτε! Κάποιος μόλις παρήγγειλε ένα από τα προϊόντα στο καλάθι σας. 
-                    Η κράτηση ισχύει για <strong id="wc-reserve-timer">10:00</strong> λεπτά.
+                    Molimo, požuri! Netko je upravo naručio jedan od proizvoda u tvojoj košarici. 
+                    Rezervacija vrijedi još samo <strong id="wc-reserve-timer">10:00</strong> minuta.
                   </span>
                 </div>
                 
@@ -373,7 +373,7 @@ $(this).append('<div class="qty-btn-group"><button type="button" class="qty-btn 
  */
 
 
-$TRIGGER_CATEGORY_SLUGS = array( 'bokserice', 'boxers', 'singles-boxers', 'orto-bokserice', 'majice-i-bokserice-paketi', 'black-friday', 'boxerky', 'mpoxerakia', 'boxerakia' );
+$TRIGGER_CATEGORY_SLUGS = array( 'bokserice', 'boxers', 'singles-boxers', 'orto-bokserice', 'majice-i-bokserice-paketi', 'black-friday' );
 
 $UPSELL_ID_CAT  = 4154;  // ID1 (when category match)
 $UPSELL_ID_ELSE = 4162;  // ID2 (when NO category match) <-- change 999 to your real product id
@@ -479,7 +479,7 @@ $img_id     = $display_obj->get_image_id();
 $upsell_img = $img_id ? wp_get_attachment_image_url( $img_id, 'woocommerce_thumbnail' ) : wc_placeholder_img_src('woocommerce_thumbnail');
 
 $desc = wp_strip_all_tags( $display_obj->get_short_description() );
-if ( ! $desc ) $desc = 'Εξαιρετική προσθήκη στην παραγγελία σας.';
+if ( ! $desc ) $desc = 'Odličen dodatek k tvoji narudžbi.';
 
 $price_pill = wp_strip_all_tags( wc_price( $display_obj->get_price() ) );
 
@@ -875,11 +875,11 @@ img.emoji {
 
         <div class="upsell-actions">
           <button type="button" class="upsell-add-btn" id="upsell-add-btn">
-            <span id="upsell-btn-text"><?php echo $upsell_in_cart ? 'ΠΡΟΣΤΕΘΗΚΕ' : 'Προσθήκη στο καλάθι'; ?></span>
+            <span id="upsell-btn-text"><?php echo $upsell_in_cart ? 'DODANO' : 'Dodaj u košaricu'; ?></span>
           </button>
 
           <button type="button" class="upsell-remove-btn" id="upsell-remove-btn" <?php echo $upsell_in_cart ? '' : 'style="display:none"'; ?>>
-        ️ <span>Αφαίρεση</span>
+        ️ <span>Odstrani</span>
           </button>
         </div>
 
@@ -888,7 +888,7 @@ img.emoji {
 
     <div class="upsell-loader" aria-hidden="true">
       <div class="upsell-loader__dots"><span></span><span></span><span></span></div>
-      <div class="upsell-loader__text">Επεξεργασία…</div>
+      <div class="upsell-loader__text">Obrađujem…</div>
     </div>
   </div>
 
@@ -958,7 +958,7 @@ img.emoji {
       if (removeBtn) removeBtn.style.display = isAdded ? 'inline-flex' : 'none';
 
       setOptionsDisabled(isAdded);
-      if (btnText) btnText.textContent = isAdded ? 'ΠΡΟΣΤΕΘΗΚΕ' : 'Προσθήκη στο καλάθι';
+      if (btnText) btnText.textContent = isAdded ? 'DODANO' : 'Dodaj u košaricu';
     }
 
     function clearAttrHiddenInputs(){
@@ -1155,7 +1155,7 @@ img.emoji {
 
           if (type === 'variable') {
             if (!hasAllRequiredSelections()) {
-              alert('Επιλέξτε όλες τις επιλογές (π.χ. μέγεθος) πριν προσθέσετε.');
+              alert('Odaberi sve opcije (npr. veličinu) prije dodavanja.');
               checkbox.checked = false;
               syncAddedUI(false);
               setBusy(false);
@@ -1220,7 +1220,7 @@ img.emoji {
         }
 
         if (!removeUrl) {
-          alert('Δεν μπορώ να αφαιρέσω το προϊόν (δεν μπορώ να βρω το σύνδεσμο αφαίρεσης στο καλάθι).');
+          alert('Ne mogu ukloniti proizvod (ne mogu pronaći remove link u košarici).');
           checkbox.checked = true;
           syncAddedUI(true);
           setBusy(false);
@@ -1256,7 +1256,7 @@ img.emoji {
 
       } catch(e){
         console.error(e);
-        alert('Κάτι πήγε στραβά. Ελέγξτε DevTools → Network.');
+        alert('Nešto je pošlo po zlu. Pogledaj DevTools → Network.');
         checkbox.checked = !checkbox.checked;
         syncAddedUI();
         setBusy(false);

@@ -88,7 +88,7 @@ $(this).append('<div class="qty-btn-group"><button type="button" class="qty-btn 
     
     
     <!-- !!!!!!     COUNTDOWN    TIMER   !!! --!>
-                <!-- CARRELLO – AVVISO DI PRENOTAZIONE -->
+                <!-- KOŠARICA – OBAVIJEST O REZERVACIJI -->
                 <div class="wc-reserve-note" id="wc-reserve-note" role="status" aria-live="polite">
                   <span class="wc-reserve-note__icon" aria-hidden="true">
                     <!-- ikona "i" -->
@@ -99,8 +99,7 @@ $(this).append('<div class="qty-btn-group"><button type="button" class="qty-btn 
                     </svg>
                   </span>
                   <span class="wc-reserve-note__text">
-                    Παρακαλώ βιαστείτε! Κάποιος μόλις παρήγγειλε ένα από τα προϊόντα στο καλάθι σας. 
-                    La prenotazione è valida solo per altri <strong id="wc-reserve-timer">10:00</strong> minuti.
+                   Affrettati! Qualcuno ha appena ordinato uno dei prodotti nel tuo carrello. La prenotazione è valida ancora per <strong id="wc-reserve-timer">10:00</strong> minuti.
                   </span>
                 </div>
                 

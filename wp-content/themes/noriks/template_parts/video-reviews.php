@@ -1,6 +1,6 @@
 
 <section class="new-video-rewies">
-  <h2 class="new-video-rewies__title">Δείτε πώς οι άλλοι λατρεύουν τα NORIKS μποξεράκια τους</h2>
+  <h2 class="new-video-rewies__title">Guarda come altri adorano i loro boxer NORIKS</h2>
 
   <div class="new-video-rewies__slider">
 
