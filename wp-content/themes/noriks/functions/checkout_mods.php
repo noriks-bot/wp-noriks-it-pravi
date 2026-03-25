@@ -426,6 +426,22 @@ add_action( 'wp_footer', function() {
       });
 
       /* WC native #place_order button handles submit */
+
+      /* Fix Provincia select2 dropdown position */
+      $(document).ready(function(){
+        var $state = $('#billing_state');
+        if ($state.length && $.fn.select2) {
+          $state.select2('destroy');
+          $state.select2({ dropdownParent: $('#billing_state_field'), width: '100%' });
+        }
+        $(document.body).on('updated_checkout', function(){
+          var $s = $('#billing_state');
+          if ($s.length && $.fn.select2) {
+            try { $s.select2('destroy'); } catch(e){}
+            $s.select2({ dropdownParent: $('#billing_state_field'), width: '100%' });
+          }
+        });
+      });
     });
     </script>
     <?php
