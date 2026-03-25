@@ -292,6 +292,14 @@ if (  has_term( array( 'orto-majice', 'orto-majice', 'mplouzoakia', 't-shirts', 
 
 
 
+<section class="why-section">
+  <div class="container why-container">
+
+    <!-- Left Video -->
+    <div class="why-col">
+      <div class="video-wrapper">
+          <img style="width: 100%;       
+    aspect-ratio: 1/1; 
     object-fit: cover;  " src="<?php echo get_template_directory_uri(); ?>/img/majice-3 (1).jpeg">
       </div>
     </div>
