@@ -469,7 +469,7 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
            <?php if( $is_boxers ): ?>
        
         
-          <img src="https://noriks.com/hr/wp-content/uploads/2025/12/boxers_size.jpg">
+          <img src="https://noriks.com/it/wp-content/uploads/2026/02/boxers_size_it.png">
           
           
           
@@ -477,17 +477,17 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
         <?php elseif(  $is_carape ): ?>
         
         
-                  <img src="https://noriks.com/hr/wp-content/uploads/2025/11/Nogavice_tabela_velikosti.jpg">
+                  <img src="https://noriks.com/it/wp-content/uploads/2026/02/Nogavice_tabela_velikosti_it.png">
                   
     <?php elseif(  $is_mixed_bundle ): ?>
     
-     <img src="https://noriks.com/hr/wp-content/uploads/2025/08/Izdelek-brez-naslova-8-1-e1755177806475.png">
-<img src="https://noriks.com/hr/wp-content/uploads/2025/12/boxers_size.jpg">
+     <img src="https://noriks.com/it/wp-content/uploads/2026/02/majice-tabela-velikost-it.png">
+<img src="https://noriks.com/it/wp-content/uploads/2026/02/boxers_size_it.png">
         
           <?php else: ?>
       
       
-       <img src="https://noriks.com/hr/wp-content/uploads/2025/08/Izdelek-brez-naslova-8-1-e1755177806475.png">
+       <img src="https://noriks.com/it/wp-content/uploads/2026/02/majice-tabela-velikost-it.png">
         
             
         <?php endif; ?>
