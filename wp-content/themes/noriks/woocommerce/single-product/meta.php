@@ -74,13 +74,13 @@ global $product;
           <div class="feature">
           
   <img src="<?php echo get_template_directory_uri(); ?>/img/cod_icon_.png" alt="Customer Support Icon" class="feature__icon info-icon">
-          <p class="feature__text">Plaćanje i pouzećem</p>
+          <p class="feature__text">Pagamento alla consegna</p>
         </div>
         
         
         <div class="feature">
       <img src="https://noriks.com/hr/wp-content/uploads/2025/07/footer_icon1-1.png" alt="Shirt Icon" class="feature__icon info-icon">
-          <p class="feature__text">Isprobajte 30 dana, bez rizika</p>
+          <p class="feature__text">Prova 30 giorni, senza rischio</p>
         </div>
         
         
@@ -90,7 +90,7 @@ global $product;
      
        
         <img src="https://noriks.com/hr/wp-content/uploads/2025/07/footer_icon3-1.png" alt="Shipping Icon" class="feature__icon info-icon">
-          <p class="feature__text">Besplatna dostava za narudžbe iznad 70 €</p>
+          <p class="feature__text">Spedizione gratuita per ordini superiori a 70 €</p>
         </div>
 
     
@@ -106,7 +106,7 @@ global $product;
 <div class="shipping-box">
   <h2 id="shipping-window" class="shipping-title"></h2>
   <p class="shipping-sub">
-    Naručite u sljedećih <span id="midnight-countdown" class="countdown"></span>
+    Ordina entro <span id="midnight-countdown" class="countdown"></span>
   </p>
 </div>
 
@@ -159,7 +159,7 @@ global $product;
     }
 
     const windowEl = document.getElementById('shipping-window');
-    windowEl.textContent = `Dostava od ${weekdays[first.getDay()]}  ${formatDayMonth(first)} do ${weekdays[second.getDay()]}, ${formatDayMonth(second)}`;
+    windowEl.textContent = `Consegna da ${weekdays[first.getDay()]}  ${formatDayMonth(first)} a ${weekdays[second.getDay()]}, ${formatDayMonth(second)}`;
 
     // Countdown to midnight
     const cdEl = document.getElementById('midnight-countdown');
