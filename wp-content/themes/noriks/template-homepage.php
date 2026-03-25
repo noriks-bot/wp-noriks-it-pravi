@@ -38,7 +38,7 @@ get_header(); ?>
   <div class="hero__media" aria-hidden="true">
     <!-- Replace with your image -->
     <img
-      src="<?php echo get_template_directory_uri(); ?>/img/noriks-hero.jpeg"
+      src="/hr/wp-content/themes/noriks/img/noriks-hero.jpeg"
       alt=""
     />
   </div>
@@ -46,10 +46,10 @@ get_header(); ?>
   <div class="hero__overlay" aria-hidden="true"></div>
 
   <div class="hero__content">
-    <!--<p class="hero__eyebrow">ΝΕΟ: NORIKS </p>-->
-    <h1 class="hero__title">Το μπλουζάκι που λύνει όλα τα προβλήματα.</h1>
+    <!--<p class="hero__eyebrow">NOVO: NORIKS </p>-->
+    <h1 class="hero__title">La maglietta che risolve tutti i problemi.</h1>
 
-    <a class="hero__btn" href="/gr/shop">ΑΓΟΡΑΣΤΕ ΤΩΡΑ</a>
+    <a class="hero__btn" href="/it/shop">ACQUISTA ORA</a>
   </div>
 </section>
 
@@ -171,16 +171,16 @@ get_header(); ?>
   
   <section class="collections">
   <div class="collections__header">
-    <h2 class="collections__title">Αγοράστε ανά συλλογή</h2>
+    <h2 class="collections__title">Acquista per collezione</h2>
 
-    <a class="collections__cta" href="/gr/shop">
-      Όλα τα προϊόντα <span aria-hidden="true">›</span>
+    <a class="collections__cta" href="/it/shop">
+      Tutti i prodotti <span aria-hidden="true">›</span>
     </a>
   </div>
 
   <div class="collections__grid">
     <!-- Card 1 -->
-    <a class="collection-card" href="https://noriks.com/gr/product-category/mplouzoakia/">
+    <a class="collection-card" href="/it/product-category/magliette/">
       <div class="collection-card__media">
         <img
           src="<?php echo get_template_directory_uri(); ?>/img/noriks-majice.jpeg"
@@ -191,10 +191,10 @@ get_header(); ?>
       <div class="collection-card__body">
         <div class="collection-card__text">
           <div class="collection-card__topline">
-            <h3 class="collection-card__name">Μπλουζάκια</h3>
+            <h3 class="collection-card__name">Magliette</h3>
           </div>
           <p class="collection-card__desc">
-Άνεση όλη μέρα. Χωρίς τράβηγμα.
+Comfort tutto il giorno. Senza tirare.
           </p>
         </div>
 
@@ -203,7 +203,7 @@ get_header(); ?>
     </a>
 
     <!-- Card 2 -->
-    <a class="collection-card" href="https://noriks.com/gr/product-category/mpoxer/">
+    <a class="collection-card" href="/it/product-category/boxer/">
       <div class="collection-card__media">
         <img
           src="<?php echo get_template_directory_uri(); ?>/img/noriks-boksarice.jpeg"
@@ -214,10 +214,10 @@ get_header(); ?>
       <div class="collection-card__body">
         <div class="collection-card__text">
           <div class="collection-card__topline">
-            <h3 class="collection-card__name">Μποξεράκια</h3>
+            <h3 class="collection-card__name">Boxer</h3>
           </div>
           <p class="collection-card__desc">
-   Απαλά. Αναπνεύσιμα. Αξιόπιστα.
+   Morbidi. Traspiranti. Affidabili.
 
           </p>
         </div>
@@ -227,7 +227,7 @@ get_header(); ?>
     </a>
 
     <!-- Card 3 -->
-    <a class="collection-card" href="https://noriks.com/gr/product-category/set/">
+    <a class="collection-card" href="/it/product-category/set/">
       <div class="collection-card__media">
         <img
           src="<?php echo get_template_directory_uri(); ?>/img/noriks-kompleti.jpeg"
@@ -238,11 +238,11 @@ get_header(); ?>
       <div class="collection-card__body">
         <div class="collection-card__text">
           <div class="collection-card__topline">
-            <h3 class="collection-card__name">Σετ</h3>
+            <h3 class="collection-card__name">Set</h3>
        
           </div>
           <p class="collection-card__desc">
-Η καλύτερη σχέση ποιότητας-τιμής σε σετ.
+Il miglior rapporto qualità-prezzo in un set.
           </p>
         </div>
 
@@ -250,8 +250,8 @@ get_header(); ?>
       </div>
     </a>
     
-    <!-- Card 4 - Starter Pack -->
-    <a class="collection-card" href="https://noriks.com/gr/shop/?yith_wcan=1&product_cat=paketo-ekkinisis&orderby=popularity">
+    <!-- Card 3 -->
+    <a class="collection-card" href="/it/product-category/pacchetto-starter/">
       <div class="collection-card__media">
         <img
           src="<?php echo get_template_directory_uri(); ?>/img/starter-paket_.jpeg"
@@ -262,12 +262,12 @@ get_header(); ?>
       <div class="collection-card__body">
         <div class="collection-card__text">
           <div class="collection-card__topline">
-            <h3 class="collection-card__name">Πακέτο εκκίνησης</h3>
+            <h3 class="collection-card__name">Pacchetto Starter</h3>
            
            
           </div>
           <p class="collection-card__desc">
-Δοκιμάστε NORIKS πιο οικονομικά.
+Prova NORIKS a un prezzo conveniente.
 
           </p>
         </div>
@@ -659,8 +659,8 @@ a:hover {
       <?php echo get_field("homepage_section_2_t1"); ?>
     </h2>
 
-    <a class="collections__cta" href="/gr/shop">
-      Όλα τα προϊόντα  <span aria-hidden="true">›</span>
+    <a class="collections__cta" href="/it/shop">
+      Tutti i prodotti  <span aria-hidden="true">›</span>
     </a>
   </div>
 
@@ -741,13 +741,13 @@ a:hover {
                   if ( $alt_output == false ):
 
                     $current_product_id = $product->get_id();
-                    $is_boxers = has_term( array('bokserice','bokserice-sastavi-paket', 'boxerky', 'mpoxerakia', 'boxers', 'boxerakia'), 'product_cat', $current_product_id );
+                    $is_boxers = has_term( array('bokserice','bokserice-sastavi-paket'), 'product_cat', $current_product_id );
 
                     if ( $is_boxers ):
                       if ( has_term('black-friday', 'product_cat', $current_product_id ) ):
                         $topseler_text = "Black Friday ";
                       else:
-                        $topseler_text = get_field("singlepp_priceper_before","options") . " " . $tmp_price . " " . "€ po boksericama";
+                        $topseler_text = get_field("singlepp_priceper_before","options") . " " . $tmp_price . " " . "€ per boxer";
                       endif;
                     else:
                       $topseler_text = get_field("singlepp_priceper_before","options") . " " . $tmp_price . " " . get_field("singlepp_priceper_after","options");
