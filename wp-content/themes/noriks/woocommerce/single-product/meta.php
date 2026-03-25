@@ -469,7 +469,7 @@ $is_mixed_bundle = has_term( array( 'black-friday', 'majice-i-bokserice-paketi	'
            <?php if( $is_boxers ): ?>
        
         
-          <img src="/hr/wp-content/uploads/2025/12/boxers_size.jpg">
+          <img src="https://noriks.com/hr/wp-content/uploads/2025/12/boxers_size.jpg">
           
           
           
@@ -477,12 +477,12 @@ $is_mixed_bundle = has_term( array( 'black-friday', 'majice-i-bokserice-paketi	'
         <?php elseif(  $is_carape ): ?>
         
         
-                  <img src="/hr/wp-content/uploads/2025/11/Nogavice_tabela_velikosti.jpg">
+                  <img src="https://noriks.com/hr/wp-content/uploads/2025/11/Nogavice_tabela_velikosti.jpg">
                   
     <?php elseif(  $is_mixed_bundle ): ?>
     
      <img src="https://noriks.com/hr/wp-content/uploads/2025/08/Izdelek-brez-naslova-8-1-e1755177806475.png">
-<img src="/hr/wp-content/uploads/2025/12/boxers_size.jpg">
+<img src="https://noriks.com/hr/wp-content/uploads/2025/12/boxers_size.jpg">
         
           <?php else: ?>
       
