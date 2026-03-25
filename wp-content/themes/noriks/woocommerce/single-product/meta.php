@@ -133,7 +133,7 @@ global $product;
 
 <script>
   (function () {
-    const weekdays = ['nedjelja','ponedjeljak','utorak','srijeda','četvrtak','petak','subota'];
+    const weekdays = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
 
     // Helper to add business days (skip Saturday/Sunday)
     function addBusinessDays(date, days) {
@@ -439,7 +439,7 @@ $is_mixed_bundle = has_term( array( 'black-friday', 'majice-i-bokserice-paketi	'
         
         
         
-                Naše premium majice izrađene su od vrhunske mješavine 60% prstenasto predenog pamuka i 40% poliestera, što osigurava izuzetno mekanu tkaninu otpornu na gužvanje.  <br><br>NORIKS bokserice izrađene su od vrhunske mješavine 95% modala i 5% elastana, što osigurava izuzetno mekanu i elastičnu tkaninu koja se savršeno prilagođava tijelu. Elastičan pojas dizajniran je za optimalno pristajanje, pružajući udobnost bez stezanja i savršen izgled ispod odjeć   <br>
+                Le nostre magliette premium sono realizzate con un misto di alta qualità di 60% cotone ring-spun e 40% poliestere, garantendo un tessuto estremamente morbido e resistente alle pieghe. <br><br>I boxer NORIKS sono realizzati con un misto premium di 95% modal e 5% elastan, garantendo un tessuto estremamente morbido ed elastico che si adatta perfettamente al corpo. La fascia elastica è progettata per una vestibilità ottimale, offrendo comfort senza costrizioni. <br>
         
         <?php else: ?>
         
@@ -461,7 +461,7 @@ $is_mixed_bundle = has_term( array( 'black-friday', 'majice-i-bokserice-paketi	'
      <!-- 2 - slika tablica velicina -->
      <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAccordion(this)">
-        <h3>Tablice veličina</h3>
+        <h3>Tabella delle taglie</h3>
         <div class="toggle">+</div>
       </div>
       <div class="accordion-content">
@@ -510,7 +510,7 @@ $is_mixed_bundle = has_term( array( 'black-friday', 'majice-i-bokserice-paketi	'
         
         
         
-                         Perite boje s bojama.  Program za nježno pranje na hladnoj vodi.  Sušite ravno položeno ili u sušilici na niskoj temperaturi.  Ne izbjeljivati              
+                         Lavare i colori con i colori. Programma delicato a bassa temperatura. Asciugare steso o in asciugatrice a bassa temperatura. Non candeggiare.              
         
         
           <?php else: ?>
@@ -529,8 +529,8 @@ $is_mixed_bundle = has_term( array( 'black-friday', 'majice-i-bokserice-paketi	'
       </div>
       <div class="accordion-content">
        <p></p>
-       Toliko vjerujemo da će ti se NORIKS svidjeti da imaš <b data-stringify-type="bold">30 dana</b> za povrat ili besplatnu zamjenu.
-Bez papirologije, bez stresa – riješimo u par klikova. </p>
+       Crediamo così tanto che ti piacerà NORIKS che hai <b data-stringify-type="bold">30 giorni</b> per il reso o il cambio gratuito.
+Senza burocrazia, senza stress – risolviamo in pochi clic. </p>
 
 <p>
     

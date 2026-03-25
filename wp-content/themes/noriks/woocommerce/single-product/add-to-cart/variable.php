@@ -42,7 +42,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 					
 				//	var_dump($attribute_name);
 						
-						if ( $attribute_name == 'Choose your size' ||  $attribute_name == 'Size' || $attribute_name == 'Velikost'  || $attribute_name == 'Velikost trička' || $attribute_name == 'Μέγεθος' || $attribute_name == 'Επιλέξτε μέγεθος' )     {
+						if ( $attribute_name == 'Choose your size' ||  $attribute_name == 'Size' || $attribute_name == 'Velikost'  || $attribute_name == 'Velikost trička' || $attribute_name == 'Μέγεθος' || $attribute_name == 'Taglia' || $attribute_name == 'Επιλέξτε μέγεθος' )     {
 						    
 						    
 						    

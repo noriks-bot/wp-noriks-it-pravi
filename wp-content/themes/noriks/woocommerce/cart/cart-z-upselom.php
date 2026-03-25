@@ -88,7 +88,7 @@ $(this).append('<div class="qty-btn-group"><button type="button" class="qty-btn 
     
     
     <!-- !!!!!!     COUNTDOWN    TIMER   !!! --!>
-                <!-- KOŠARICA – OBAVIJEST O REZERVACIJI -->
+                <!-- CARRELLO – AVVISO DI PRENOTAZIONE -->
                 <div class="wc-reserve-note" id="wc-reserve-note" role="status" aria-live="polite">
                   <span class="wc-reserve-note__icon" aria-hidden="true">
                     <!-- ikona "i" -->
