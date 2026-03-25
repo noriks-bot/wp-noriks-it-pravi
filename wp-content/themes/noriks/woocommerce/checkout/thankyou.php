@@ -515,7 +515,7 @@ body.woocommerce-order-received .woocommerce {
                             $chk = $is_mid ? ' checked' : '';
                         ?>
                         <label class="ty-qty-btn<?php echo $cls; ?>" style="flex:1;text-align:center;padding:10px 0;border:2px solid <?php echo $border; ?>;border-radius:4px;font-weight:700;font-size:14px;cursor:pointer;background:<?php echo $bg; ?>;color:#000;">
-                            <input type="radio" name="ty_qty" value="<?php echo $q; ?>"<?php echo $chk; ?> style="display:none;"> <?php echo $q; ?>x kom
+                            <input type="radio" name="ty_qty" value="<?php echo $q; ?>"<?php echo $chk; ?> style="display:none;"> <?php echo $q; ?>x pz
                         </label>
                         <?php endforeach; ?>
                     </div>
