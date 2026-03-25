@@ -385,11 +385,13 @@ body.woocommerce-checkout .noriks-order-summary .review-product-info div {
   }
 }
 
+
 /* PayPal reCaptcha container — no margin */
 #ppcp-recaptcha-v2-container { margin: 0 !important; }
 
 /* Shipping section — no bottom margin */
 #custom_shipping { margin-bottom: 0 !important; }
+
 
 /* All free shipping badges — same green */
 .noriks-order-summary .shipping_order_review .review-addons-price span {
@@ -406,41 +408,48 @@ body.woocommerce-checkout .noriks-order-summary .review-product-info div {
 .noriks-order-summary .vigo-checkout-total__sum { margin-bottom: 10px !important; }
 
 
-/* IT: Provincia field visible */
+
+
+/* IT: Provincia select — match input height, no label overlap */
+
+
+/* IT: Provincia field — match other checkout inputs */
 p#billing_state_field {
   display: block !important;
   visibility: visible !important;
-  clear: both !important;
-  width: 100% !important;
   margin-bottom: 12px !important;
+}
+p#billing_state_field .select2-container {
+  width: 100% !important;
+}
+p#billing_state_field .select2-container .select2-selection--single {
+  height: 60px !important;
+  min-height: 60px !important;
+  border: 1.5px solid #c9c9c9 !important;
+  border-radius: 4px !important;
+  box-shadow: inset 1px 1px 3px 0 rgba(0,0,0,0.25) !important;
+  background-color: #fff !important;
+  padding: 0 !important;
+}
+p#billing_state_field .select2-container .select2-selection--single .select2-selection__rendered {
+  line-height: 60px !important;
+  padding-left: 1em !important;
+  color: #000 !important;
+  font-size: 16px !important;
+}
+p#billing_state_field .select2-container .select2-selection--single .select2-selection__arrow {
+  height: 60px !important;
 }
 p#billing_state_field > label {
   display: block !important;
   font-size: 13px !important;
   font-weight: 500 !important;
   color: #5f6061 !important;
-  margin-bottom: 5px !important;
+  padding: 0 0 4px 0 !important;
   position: static !important;
   opacity: 1 !important;
   transform: none !important;
+  pointer-events: auto !important;
   overflow: visible !important;
   width: auto !important;
-  pointer-events: auto !important;
-  white-space: normal !important;
-  padding: 0 !important;
-}
-p#billing_state_field .select2-container .select2-selection--single {
-  height: 60px !important;
-  border: 1.5px solid #c9c9c9 !important;
-  border-radius: 4px !important;
-  box-shadow: inset 1px 1px 3px 0 rgba(0,0,0,0.25) !important;
-  background-color: #fff !important;
-}
-p#billing_state_field .select2-selection__rendered {
-  line-height: 60px !important;
-  padding-left: 1em !important;
-  font-size: 16px !important;
-}
-p#billing_state_field .select2-selection__arrow {
-  height: 60px !important;
 }
