@@ -413,3 +413,12 @@ p#billing_state_field { display: block !important; }
 #billing_state_field .select2-selection { height: 59px; }
 #billing_state_field .select2-selection .select2-selection__rendered { line-height: 59px; }
 #billing_state_field .select2-selection .select2-selection__arrow { height: 59px; }
+
+/* IT: Provincia dropdown — z-index above payment + remove gap */
+p#billing_state_field {
+  position: relative !important;
+  z-index: 10 !important;
+}
+p#billing_state_field .select2-container--open {
+  z-index: 1000 !important;
+}
