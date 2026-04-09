@@ -53,15 +53,29 @@ function noriks_set_cod_primary_hold( $order_id ) {
 
     $order->update_status( 'primary-hold', 'Upsell window: 5 min hold for post-purchase offers.' );
 
-    // Schedule auto-transition to processing after 5 minutes
+    // Schedule auto-transition to processing after 5 minutes.
+    // Use Action Scheduler when available because it is more reliable than plain WP-Cron.
     if ( ! wp_next_scheduled( 'noriks_primary_hold_to_processing', array( $order_id ) ) ) {
         wp_schedule_single_event( time() + 300, 'noriks_primary_hold_to_processing', array( $order_id ) );
+    }
+
+    if ( function_exists( 'as_next_scheduled_action' ) && function_exists( 'as_schedule_single_action' ) ) {
+        if ( ! as_next_scheduled_action( 'noriks_primary_hold_to_processing', array( 'order_id' => $order_id ), 'noriks-primary-hold' ) ) {
+            as_schedule_single_action( time() + 300, 'noriks_primary_hold_to_processing', array( 'order_id' => $order_id ), 'noriks-primary-hold' );
+        }
     }
 }
 
 // Auto-transition: primary-hold → processing after 5 min
 add_action( 'noriks_primary_hold_to_processing', 'noriks_transition_to_processing' );
 function noriks_transition_to_processing( $order_id ) {
+    if ( is_array( $order_id ) ) {
+        $order_id = isset( $order_id['order_id'] ) ? absint( $order_id['order_id'] ) : 0;
+    }
+
+    $order_id = absint( $order_id );
+    if ( ! $order_id ) return;
+
     $order = wc_get_order( $order_id );
     if ( ! $order ) return;
 
@@ -72,12 +86,41 @@ function noriks_transition_to_processing( $order_id ) {
 }
 
 
-// ─── FAILSAFE: sweep stuck primary-hold orders on every page load ────────
-// wp_cron depends on page visits — this catches any orders that slipped through
+// ─── FAILSAFE: scheduled background sweep for stuck primary-hold orders ───
 
-add_action( 'init', 'noriks_failsafe_primary_hold_sweep' );
+add_filter( 'cron_schedules', 'noriks_add_five_minute_cron_schedule' );
+function noriks_add_five_minute_cron_schedule( $schedules ) {
+    if ( ! isset( $schedules['noriks_every_five_minutes'] ) ) {
+        $schedules['noriks_every_five_minutes'] = array(
+            'interval' => 300,
+            'display'  => __( 'Every 5 Minutes', 'textdomain' ),
+        );
+    }
+
+    return $schedules;
+}
+
+add_action( 'init', 'noriks_schedule_primary_hold_failsafe_cron' );
+function noriks_schedule_primary_hold_failsafe_cron() {
+    if ( wp_next_scheduled( 'noriks_primary_hold_failsafe_cron' ) ) {
+        if ( function_exists( 'as_next_scheduled_action' ) && function_exists( 'as_schedule_recurring_action' ) && ! as_next_scheduled_action( 'noriks_primary_hold_failsafe_cron', array(), 'noriks-primary-hold' ) ) {
+            as_schedule_recurring_action( time() + 300, 300, 'noriks_primary_hold_failsafe_cron', array(), 'noriks-primary-hold' );
+        }
+        return;
+    }
+
+    wp_schedule_event( time() + 300, 'noriks_every_five_minutes', 'noriks_primary_hold_failsafe_cron' );
+
+    if ( function_exists( 'as_next_scheduled_action' ) && function_exists( 'as_schedule_recurring_action' ) ) {
+        if ( ! as_next_scheduled_action( 'noriks_primary_hold_failsafe_cron', array(), 'noriks-primary-hold' ) ) {
+            as_schedule_recurring_action( time() + 300, 300, 'noriks_primary_hold_failsafe_cron', array(), 'noriks-primary-hold' );
+        }
+    }
+}
+
+add_action( 'noriks_primary_hold_failsafe_cron', 'noriks_failsafe_primary_hold_sweep' );
 function noriks_failsafe_primary_hold_sweep() {
-    // Only run once per minute (transient lock)
+    // Only run once per minute in case multiple cron runners overlap.
     if ( get_transient( 'noriks_ph_sweep_lock' ) ) return;
     set_transient( 'noriks_ph_sweep_lock', 1, 60 );
 
@@ -92,16 +135,9 @@ function noriks_failsafe_primary_hold_sweep() {
     }
 }
 
+// ─── FAILSAFE 2: if an overdue primary-hold order is manually saved, resolve it ───
 
-// ─── FAILSAFE 2: WooCommerce order list hook (catches admin visits) ──────
-
-add_action( 'woocommerce_order_list_table_prepare_items_query_args', 'noriks_failsafe_on_admin_orders' );
 add_action( 'woocommerce_before_order_object_save', 'noriks_failsafe_on_order_save' );
-
-function noriks_failsafe_on_admin_orders( $args ) {
-    noriks_failsafe_primary_hold_sweep();
-    return $args;
-}
 
 function noriks_failsafe_on_order_save( $order ) {
     // When any order is saved, also check for stuck primary-holds
@@ -205,12 +241,12 @@ function noriks_remove_upsell() {
 
     // Only allow removing upsell items
     if ( $item->get_meta( '_noriks_upsell' ) !== 'thank you upsell' ) {
-        wp_send_json_error( 'È possibile rimuovere solo i prodotti upsell' );
+        wp_send_json_error( 'Μόνο τα upsell προϊόντα μπορούν να αφαιρεθούν' );
     }
 
     // Only allow while in primary-hold
     if ( $order->get_status() !== 'primary-hold' ) {
-        wp_send_json_error( 'Il tempo per le modifiche è scaduto' );
+        wp_send_json_error( 'Ο χρόνος τροποποιήσεων έχει λήξει' );
     }
 
     $product_name = $item->get_name();
@@ -218,9 +254,9 @@ function noriks_remove_upsell() {
     $order->calculate_totals();
     $order->save();
 
-    $order->add_order_note( sprintf( 'Upsell rimosso: %s', $product_name ) );
+    $order->add_order_note( sprintf( 'Upsell αφαιρέθηκε: %s', $product_name ) );
 
-    wp_send_json_success( array( 'message' => 'Rimosso' ) );
+    wp_send_json_success( array( 'message' => 'Αφαιρέθηκε' ) );
 }
 
 
@@ -236,29 +272,29 @@ function noriks_handle_add_upsell() {
     $nonce        = $_POST['nonce'] ?? '';
 
     if ( ! wp_verify_nonce( $nonce, 'noriks_upsell_' . $order_id ) ) {
-        wp_send_json_error( 'Richiesta non valida' );
+        wp_send_json_error( 'Μη έγκυρο αίτημα' );
     }
 
     $order = wc_get_order( $order_id );
-    if ( ! $order ) wp_send_json_error( 'Ordine non trovato' );
+    if ( ! $order ) wp_send_json_error( 'Η παραγγελία δεν βρέθηκε' );
 
     // Only allow upsell on COD orders in primary-hold
     if ( $order->get_payment_method() !== 'cod' ) {
-        wp_send_json_error( 'Upsell disponibile solo per pagamento alla consegna' );
+        wp_send_json_error( 'Upsell διαθέσιμο μόνο για αντικαταβολή' );
     }
     if ( $order->get_status() !== 'primary-hold' ) {
-        wp_send_json_error( 'Il tempo per aggiungere è scaduto' );
+        wp_send_json_error( 'Ο χρόνος προσθήκης έχει λήξει' );
     }
 
     // Time limit: 5 min from order creation (safety check)
     $created = $order->get_date_created();
     if ( $created && ( time() - $created->getTimestamp() ) > 330 ) { // 5.5 min grace
-        wp_send_json_error( 'Il tempo per aggiungere è scaduto' );
+        wp_send_json_error( 'Ο χρόνος προσθήκης έχει λήξει' );
     }
 
     // Get the actual product (variation or simple)
     $product = $variation_id ? wc_get_product( $variation_id ) : wc_get_product( $product_id );
-    if ( ! $product ) wp_send_json_error( 'Prodotto non trovato' );
+    if ( ! $product ) wp_send_json_error( 'Το προϊόν δεν βρέθηκε' );
 
     // Duplicate check
     $check_product_id = $variation_id ? $product_id : $product->get_id();
@@ -267,7 +303,7 @@ function noriks_handle_add_upsell() {
         $item_variation_id = $item->get_variation_id();
         if ( $item_product_id == $check_product_id || ( $variation_id && $item_variation_id == $variation_id ) ) {
             if ( $item->get_meta( '_noriks_upsell' ) ) {
-                wp_send_json_error( 'Hai già aggiunto questo prodotto' );
+                wp_send_json_error( 'Έχετε ήδη προσθέσει αυτό το προϊόν' );
             }
         }
     }
@@ -286,7 +322,7 @@ function noriks_handle_add_upsell() {
         $active_price = (float) $product->get_regular_price();
     }
     if ( ! $active_price ) {
-        wp_send_json_error( 'Prezzo del prodotto non disponibile' );
+        wp_send_json_error( 'Η τιμή του προϊόντος δεν είναι διαθέσιμη' );
     }
 
     $quantity = max( 1, absint( $_POST['quantity'] ?? 3 ) );
@@ -294,7 +330,7 @@ function noriks_handle_add_upsell() {
     $bokserice_prices = array( 1 => 7.99, 3 => 19.99, 5 => 29.99 );
     $majice_prices    = array( 1 => 12.99, 3 => 29.99, 6 => 39.99 );
     $name = strtolower($product->get_name());
-    $is_majice = strpos($name, 'magliett') !== false || strpos($name, 'majic') !== false;
+    $is_majice = strpos($name, 'μπλουζ') !== false || strpos($name, 'mplouzoakia') !== false || strpos($name, 'majic') !== false;
     $qty_prices = $is_majice ? $majice_prices : $bokserice_prices;
     $total_price = isset( $qty_prices[$quantity] ) ? $qty_prices[$quantity] : $active_price;
     $upsell_price = $total_price / $quantity;
@@ -305,7 +341,7 @@ function noriks_handle_add_upsell() {
         'total'    => $upsell_price * $quantity,
     ));
 
-    if ( ! $item_id ) wp_send_json_error( 'Errore durante l\'aggiunta' );
+    if ( ! $item_id ) wp_send_json_error( 'Σφάλμα κατά την προσθήκη' );
 
     // Mark as upsell
     $item = $order->get_item( $item_id );
@@ -318,7 +354,7 @@ function noriks_handle_add_upsell() {
 
     $order->add_order_note(
         sprintf(
-            'Thank you upsell: %s aggiunto con 50%% di sconto — prezzo promozionale: %s, prezzo upsell: %s',
+            'Thank you upsell: %s προστέθηκε με 50%% έκπτωση — τιμή προσφοράς: %s, τιμή upsell: %s',
             $product->get_name(),
             wc_price( $active_price ),
             wc_price( $upsell_price )
@@ -326,7 +362,7 @@ function noriks_handle_add_upsell() {
     );
 
     wp_send_json_success( array(
-        'message'      => 'Aggiunto',
+        'message'      => 'Προστέθηκε',
         'product_name' => $product->get_name(),
         'upsell_price' => $upsell_price,
         'total'        => $order->get_formatted_order_total(),
