@@ -67,6 +67,28 @@ function noriks_get_abandoned_carts($request) {
 
 
 
+// Bulk cleanup abandoned carts that have orders
+add_action('rest_api_init', function() {
+    register_rest_route('noriks/v1', '/abandoned-carts/cleanup', array(
+        'methods' => 'POST',
+        'callback' => function($req) {
+            global $wpdb;
+            $table = $wpdb->prefix . 'cartflows_ca_cart_abandonment';
+            $body = json_decode($req->get_body(), true);
+            $ids = array_map('intval', $body['ids'] ?? []);
+            if (empty($ids)) return new WP_REST_Response(['error' => 'No IDs'], 400);
+            $cleaned = 0;
+            foreach ($ids as $id) {
+                if ($wpdb->update($table, ['order_status' => 'completed'], ['id' => $id, 'order_status' => 'abandoned'])) $cleaned++;
+            }
+            return new WP_REST_Response(['cleaned' => $cleaned, 'total' => count($ids)], 200);
+        },
+        'permission_callback' => function() {
+            return isset($_GET['key']) && $_GET['key'] === 'n0r1k5-c4rt-4cc355';
+        }
+    ));
+});
+
 
 /*
 add_action('init', function () {

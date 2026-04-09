@@ -296,7 +296,7 @@ if (  has_term( array( 'magliette', 'orto-magliette' ), 'product_cat', get_the_i
 
 
 
-=======
+
 
 
 <?php if( get_the_ID() == 3015 ): ?>
@@ -413,7 +413,7 @@ if (  has_term( array( 'magliette', 'orto-magliette' ), 'product_cat', get_the_i
 
 
 
->>>>>>> 65cb868516d40f3fcbaffd3799194a6a5a8cbd7f
+
 <section class="why-section">
   <div class="container why-container">
 
@@ -422,7 +422,6 @@ if (  has_term( array( 'magliette', 'orto-magliette' ), 'product_cat', get_the_i
       <div class="video-wrapper">
           <img style="width: 100%;
     aspect-ratio: 1/1;
-<<<<<<< HEAD
     object-fit: cover;  " src="https://noriks.com/hr/wp-content/themes/noriks/img/majice-3 (1).jpeg">
       </div>
     </div>

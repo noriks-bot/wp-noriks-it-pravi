@@ -150,7 +150,7 @@
     
     style="margin-top: 70px;margin-bottom: 70px;"
     
-      src="https://noriks.com/it/wp-content/uploads/2026/02/majice-tabela-velikost-it.png"
+      src="https://noriks.com/it/wp-content/uploads/2026/04/it_majice.jpeg"
       alt="Size Guide">
       
       <?php endif; ?>
