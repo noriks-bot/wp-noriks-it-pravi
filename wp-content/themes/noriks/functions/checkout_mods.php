@@ -548,6 +548,16 @@ add_action( 'woocommerce_before_checkout_billing_form', function() {
 add_filter( 'default_checkout_billing_country', function() { return 'IT'; });
 add_filter( 'woocommerce_order_button_text', function() { return 'Acquista'; });
 
+/* Force address_2 required in IT locale (WC defaults it to optional) */
+add_filter( 'woocommerce_get_country_locale', function( $locale ) {
+    $locale['IT']['address_2'] = array(
+        'required' => true,
+        'label'    => 'Numero Civico',
+        'placeholder' => 'Numero Civico',
+    );
+    return $locale;
+});
+
 /**
  * Payment gateway order: COD → Stripe → PayPal
  */
