@@ -444,6 +444,12 @@ add_action( 'wp_footer', function() {
         });
       });
 
+      /* Sync shipping price: copy from review-order (AJAX-rendered) to top shipping badge */
+      $(document.body).on('updated_checkout', function(){
+        var price = $('#noriks-shipping-price').html();
+        if (price) $('.shipping_method_delivery_price').html(price);
+      });
+
       /* WC native #place_order button handles submit */
     });
     </script>
