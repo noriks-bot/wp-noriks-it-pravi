@@ -450,9 +450,7 @@ add_action( 'wp_footer', function() {
         if (price && price.trim()) $('.shipping_method_delivery_price').html(price);
       }
       $(document.body).on('updated_checkout init_checkout', syncShippingPrice);
-      setTimeout(syncShippingPrice, 1500);
       /* Force WC to recalculate on page load (fixes stale cache from cart) */
-      setTimeout(function(){ $(document.body).trigger("update_checkout"); }, 500);
 
       /* WC native #place_order button handles submit */
     });
