@@ -445,10 +445,12 @@ add_action( 'wp_footer', function() {
       });
 
       /* Sync shipping price: copy from review-order (AJAX-rendered) to top shipping badge */
-      $(document.body).on('updated_checkout', function(){
+      function syncShippingPrice() {
         var price = $('#noriks-shipping-price').html();
-        if (price) $('.shipping_method_delivery_price').html(price);
-      });
+        if (price && price.trim()) $('.shipping_method_delivery_price').html(price);
+      }
+      $(document.body).on('updated_checkout init_checkout', syncShippingPrice);
+      setTimeout(syncShippingPrice, 1500);
 
       /* WC native #place_order button handles submit */
     });
