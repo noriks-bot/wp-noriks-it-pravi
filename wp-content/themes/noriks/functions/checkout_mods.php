@@ -389,6 +389,12 @@ add_action( 'wp_footer', function() {
           return false;
         }
 
+        /* Postcode — IT: exactly 5 digits */
+        if ($row.hasClass('validate-postcode') && val && !/^\d{5}$/.test(val)) {
+          showError($row, '\u2715 Il CAP deve essere di 5 cifre');
+          return false;
+        }
+
         /* Valid */
         if (val) showValid($row);
         return true;
