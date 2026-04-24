@@ -35,74 +35,49 @@ function noriks_add_primary_hold_to_statuses( $statuses ) {
 
 // ─── 2. COD orders → primary-hold (instead of processing) ───────────────
 
-// CORE FIX: Intercept COD payment status BEFORE WC sets it.
-// This prevents the processing email from firing before the upsell window.
-// WC_Gateway_COD::process_payment() uses this filter to decide the order status.
-add_filter( 'woocommerce_cod_process_payment_order_status', 'noriks_cod_status_primary_hold', 10, 2 );
-function noriks_cod_status_primary_hold( $status, $order ) {
-    return 'primary-hold';
-}
-
-// Schedule the 5-min timer on thankyou page load (order is already in primary-hold)
-add_action( 'woocommerce_thankyou', 'noriks_schedule_primary_hold_timer', 1 );
-function noriks_schedule_primary_hold_timer( $order_id ) {
+add_action( 'woocommerce_thankyou', 'noriks_set_cod_primary_hold', 1 );
+function noriks_set_cod_primary_hold( $order_id ) {
     if ( ! $order_id ) return;
     $order = wc_get_order( $order_id );
     if ( ! $order ) return;
 
-    // Only COD orders in primary-hold
+    // Only COD orders
     if ( $order->get_payment_method() !== 'cod' ) return;
-    if ( $order->get_status() !== 'primary-hold' ) return;
 
-    // Schedule auto-transition to processing after 5 minutes.
-    // Use Action Scheduler when available because it is more reliable than plain WP-Cron.
+    // Only if currently on-hold or processing (fresh order)
+    $status = $order->get_status();
+    if ( ! in_array( $status, array( 'on-hold', 'processing', 'pending' ) ) ) return;
+
+    // Don't re-apply if already in primary-hold
+    if ( $status === 'primary-hold' ) return;
+
+    $order->update_status( 'primary-hold', 'Upsell window: 5 min hold for post-purchase offers.' );
+
+    // Schedule auto-transition to processing after 5 minutes
     if ( ! wp_next_scheduled( 'noriks_primary_hold_to_processing', array( $order_id ) ) ) {
         wp_schedule_single_event( time() + 300, 'noriks_primary_hold_to_processing', array( $order_id ) );
     }
+}
 
-    if ( function_exists( 'as_next_scheduled_action' ) && function_exists( 'as_schedule_single_action' ) ) {
-        if ( ! as_next_scheduled_action( 'noriks_primary_hold_to_processing', array( 'order_id' => $order_id ), 'noriks-primary-hold' ) ) {
-            as_schedule_single_action( time() + 300, 'noriks_primary_hold_to_processing', array( 'order_id' => $order_id ), 'noriks-primary-hold' );
-        }
-    }
+// Auto-transition: primary-hold → processing after 5 min
+add_action( 'noriks_primary_hold_to_processing', 'noriks_transition_to_processing' );
+function noriks_transition_to_processing( $order_id ) {
+    $order = wc_get_order( $order_id );
+    if ( ! $order ) return;
+
+    // Only transition if still in primary-hold
+    if ( $order->get_status() !== 'primary-hold' ) return;
+
+    $order->update_status( 'processing', 'Upsell window expired — auto-transitioned to processing.' );
 }
 
 
-// ─── FAILSAFE: scheduled background sweep for stuck primary-hold orders ───
+// ─── FAILSAFE: sweep stuck primary-hold orders on every page load ────────
+// wp_cron depends on page visits — this catches any orders that slipped through
 
-add_filter( 'cron_schedules', 'noriks_add_five_minute_cron_schedule' );
-function noriks_add_five_minute_cron_schedule( $schedules ) {
-    if ( ! isset( $schedules['noriks_every_five_minutes'] ) ) {
-        $schedules['noriks_every_five_minutes'] = array(
-            'interval' => 300,
-            'display'  => __( 'Every 5 Minutes', 'textdomain' ),
-        );
-    }
-
-    return $schedules;
-}
-
-add_action( 'init', 'noriks_schedule_primary_hold_failsafe_cron' );
-function noriks_schedule_primary_hold_failsafe_cron() {
-    if ( wp_next_scheduled( 'noriks_primary_hold_failsafe_cron' ) ) {
-        if ( function_exists( 'as_next_scheduled_action' ) && function_exists( 'as_schedule_recurring_action' ) && ! as_next_scheduled_action( 'noriks_primary_hold_failsafe_cron', array(), 'noriks-primary-hold' ) ) {
-            as_schedule_recurring_action( time() + 300, 300, 'noriks_primary_hold_failsafe_cron', array(), 'noriks-primary-hold' );
-        }
-        return;
-    }
-
-    wp_schedule_event( time() + 300, 'noriks_every_five_minutes', 'noriks_primary_hold_failsafe_cron' );
-
-    if ( function_exists( 'as_next_scheduled_action' ) && function_exists( 'as_schedule_recurring_action' ) ) {
-        if ( ! as_next_scheduled_action( 'noriks_primary_hold_failsafe_cron', array(), 'noriks-primary-hold' ) ) {
-            as_schedule_recurring_action( time() + 300, 300, 'noriks_primary_hold_failsafe_cron', array(), 'noriks-primary-hold' );
-        }
-    }
-}
-
-add_action( 'noriks_primary_hold_failsafe_cron', 'noriks_failsafe_primary_hold_sweep' );
+add_action( 'init', 'noriks_failsafe_primary_hold_sweep' );
 function noriks_failsafe_primary_hold_sweep() {
-    // Only run once per minute in case multiple cron runners overlap.
+    // Only run once per minute (transient lock)
     if ( get_transient( 'noriks_ph_sweep_lock' ) ) return;
     set_transient( 'noriks_ph_sweep_lock', 1, 60 );
 
@@ -117,9 +92,16 @@ function noriks_failsafe_primary_hold_sweep() {
     }
 }
 
-// ─── FAILSAFE 2: if an overdue primary-hold order is manually saved, resolve it ───
 
+// ─── FAILSAFE 2: WooCommerce order list hook (catches admin visits) ──────
+
+add_action( 'woocommerce_order_list_table_prepare_items_query_args', 'noriks_failsafe_on_admin_orders' );
 add_action( 'woocommerce_before_order_object_save', 'noriks_failsafe_on_order_save' );
+
+function noriks_failsafe_on_admin_orders( $args ) {
+    noriks_failsafe_primary_hold_sweep();
+    return $args;
+}
 
 function noriks_failsafe_on_order_save( $order ) {
     // When any order is saved, also check for stuck primary-holds
@@ -149,6 +131,11 @@ function noriks_release_primary_hold() {
     $order->update_status( 'processing', 'Released from primary-hold (timer expired on client).' );
     wp_send_json_success( 'Released to processing' );
 }
+
+
+
+
+
 
 
 // ─── 4. AJAX: Refresh order items HTML ───────────────────────────────────
@@ -309,7 +296,7 @@ function noriks_handle_add_upsell() {
 
     $quantity = max( 1, absint( $_POST['quantity'] ?? 3 ) );
     // Prices depend on product type (bokserice vs majice)
-    $bokserice_prices = array( 1 => 7.99, 3 => 19.99, 5 => 29.99 );
+    $bokserice_prices = array( 1 => 4.99, 3 => 14.97, 5 => 24.95 );
     $majice_prices    = array( 1 => 12.99, 3 => 29.99, 6 => 39.99 );
     // ─── Detect product type: exact same logic as frontend thankyou.php ───
     $_detect_id = $product_id ?: $product->get_id();
