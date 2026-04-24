@@ -223,12 +223,12 @@ function noriks_remove_upsell() {
 
     // Only allow removing upsell items
     if ( $item->get_meta( '_noriks_upsell' ) !== 'thank you upsell' ) {
-        wp_send_json_error( 'Μόνο τα upsell προϊόντα μπορούν να αφαιρεθούν' );
+        wp_send_json_error( 'Solo i prodotti upsell possono essere rimossi' );
     }
 
     // Only allow while in primary-hold
     if ( $order->get_status() !== 'primary-hold' ) {
-        wp_send_json_error( 'Ο χρόνος τροποποιήσεων έχει λήξει' );
+        wp_send_json_error( 'Il tempo per le modifiche è scaduto' );
     }
 
     $product_name = $item->get_name();
@@ -236,9 +236,9 @@ function noriks_remove_upsell() {
     $order->calculate_totals();
     $order->save();
 
-    $order->add_order_note( sprintf( 'Upsell αφαιρέθηκε: %s', $product_name ) );
+    $order->add_order_note( sprintf( 'Upsell rimosso: %s', $product_name ) );
 
-    wp_send_json_success( array( 'message' => 'Αφαιρέθηκε' ) );
+    wp_send_json_success( array( 'message' => 'Rimosso' ) );
 }
 
 
@@ -254,29 +254,29 @@ function noriks_handle_add_upsell() {
     $nonce        = $_POST['nonce'] ?? '';
 
     if ( ! wp_verify_nonce( $nonce, 'noriks_upsell_' . $order_id ) ) {
-        wp_send_json_error( 'Μη έγκυρο αίτημα' );
+        wp_send_json_error( 'Richiesta non valida' );
     }
 
     $order = wc_get_order( $order_id );
-    if ( ! $order ) wp_send_json_error( 'Η παραγγελία δεν βρέθηκε' );
+    if ( ! $order ) wp_send_json_error( 'Ordine non trovato' );
 
     // Only allow upsell on COD orders in primary-hold
     if ( $order->get_payment_method() !== 'cod' ) {
-        wp_send_json_error( 'Upsell διαθέσιμο μόνο για αντικαταβολή' );
+        wp_send_json_error( 'Upsell disponibile solo per contrassegno' );
     }
     if ( $order->get_status() !== 'primary-hold' ) {
-        wp_send_json_error( 'Ο χρόνος προσθήκης έχει λήξει' );
+        wp_send_json_error( 'Il tempo per aggiungere è scaduto' );
     }
 
     // Time limit: 5 min from order creation (safety check)
     $created = $order->get_date_created();
     if ( $created && ( time() - $created->getTimestamp() ) > 330 ) { // 5.5 min grace
-        wp_send_json_error( 'Ο χρόνος προσθήκης έχει λήξει' );
+        wp_send_json_error( 'Il tempo per aggiungere è scaduto' );
     }
 
     // Get the actual product (variation or simple)
     $product = $variation_id ? wc_get_product( $variation_id ) : wc_get_product( $product_id );
-    if ( ! $product ) wp_send_json_error( 'Το προϊόν δεν βρέθηκε' );
+    if ( ! $product ) wp_send_json_error( 'Prodotto non trovato' );
 
     // Duplicate check
     $check_product_id = $variation_id ? $product_id : $product->get_id();
@@ -285,7 +285,7 @@ function noriks_handle_add_upsell() {
         $item_variation_id = $item->get_variation_id();
         if ( $item_product_id == $check_product_id || ( $variation_id && $item_variation_id == $variation_id ) ) {
             if ( $item->get_meta( '_noriks_upsell' ) ) {
-                wp_send_json_error( 'Έχετε ήδη προσθέσει αυτό το προϊόν' );
+                wp_send_json_error( 'Hai già aggiunto questo prodotto' );
             }
         }
     }
@@ -304,7 +304,7 @@ function noriks_handle_add_upsell() {
         $active_price = (float) $product->get_regular_price();
     }
     if ( ! $active_price ) {
-        wp_send_json_error( 'Η τιμή του προϊόντος δεν είναι διαθέσιμη' );
+        wp_send_json_error( 'Il prezzo del prodotto non è disponibile' );
     }
 
     $quantity = max( 1, absint( $_POST['quantity'] ?? 3 ) );
@@ -312,7 +312,7 @@ function noriks_handle_add_upsell() {
     $bokserice_prices = array( 1 => 7.99, 3 => 19.99, 5 => 29.99 );
     $majice_prices    = array( 1 => 12.99, 3 => 29.99, 6 => 39.99 );
     $name = strtolower($product->get_name());
-    $is_majice = strpos($name, 'μπλουζ') !== false || strpos($name, 'mplouzoakia') !== false || strpos($name, 'majic') !== false;
+    $is_majice = strpos($name, 'magliett') !== false || strpos($name, 'majic') !== false;
     $qty_prices = $is_majice ? $majice_prices : $bokserice_prices;
     $total_price = isset( $qty_prices[$quantity] ) ? $qty_prices[$quantity] : $active_price;
     $upsell_price = $total_price / $quantity;
@@ -323,7 +323,7 @@ function noriks_handle_add_upsell() {
         'total'    => $upsell_price * $quantity,
     ));
 
-    if ( ! $item_id ) wp_send_json_error( 'Σφάλμα κατά την προσθήκη' );
+    if ( ! $item_id ) wp_send_json_error( 'Errore durante l\'aggiunta' );
 
     // Mark as upsell
     $item = $order->get_item( $item_id );
@@ -336,7 +336,7 @@ function noriks_handle_add_upsell() {
 
     $order->add_order_note(
         sprintf(
-            'Thank you upsell: %s προστέθηκε με 50%% έκπτωση — τιμή προσφοράς: %s, τιμή upsell: %s',
+            'Thank you upsell: %s aggiunto con 50%% di sconto — prezzo offerta: %s, prezzo upsell: %s',
             $product->get_name(),
             wc_price( $active_price ),
             wc_price( $upsell_price )
@@ -344,7 +344,7 @@ function noriks_handle_add_upsell() {
     );
 
     wp_send_json_success( array(
-        'message'      => 'Προστέθηκε',
+        'message'      => 'Aggiunto',
         'product_name' => $product->get_name(),
         'upsell_price' => $upsell_price,
         'total'        => $order->get_formatted_order_total(),
