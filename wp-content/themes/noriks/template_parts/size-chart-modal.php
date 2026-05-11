@@ -63,6 +63,31 @@
   .size-chart-field label { text-align: left; }
 
   /* Modal stays auto-height on mobile too; nothing else needed */
+
+  /* --- Larger size-chart image with horizontal scroll on mobile --- */
+  /* Push content below the absolute X-close button so it doesn't overlap */
+  #custom-size-chart-modal { padding-top: 45px; padding-bottom: 10px; }
+
+  .size-chart-left {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* iOS momentum */
+    justify-content: flex-start;       /* scroll starts at the left edge */
+    scrollbar-width: thin;
+    padding-bottom: 6px;                /* room for native scrollbar */
+  }
+  .size-chart-left img {
+    width: auto !important;             /* override base 100% width */
+    max-width: none !important;
+    min-width: 720px;                   /* large enough for text to be readable */
+    height: auto !important;
+    margin-top: 0 !important;           /* override inline 70px margins */
+    margin-bottom: 0 !important;
+    object-fit: initial;                /* let natural size dictate dimensions */
+  }
+  /* Soft hint that the image is horizontally scrollable */
+  .size-chart-left::-webkit-scrollbar { height: 6px; }
+  .size-chart-left::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.25); border-radius: 3px; }
 }
 
 /* Desktop cleanups */

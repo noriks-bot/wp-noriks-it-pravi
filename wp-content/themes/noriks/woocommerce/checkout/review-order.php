@@ -11,6 +11,16 @@ defined( 'ABSPATH' ) || exit;
       <?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) :
         $_product = $cart_item['data'];
         $qty = $cart_item['quantity'];
+
+        // Orto bundle products are added to cart with quantity = 1 but the
+        // selected offer (e.g. "3 paira") stores the real item count in
+        // _orto_bundle_pairs (see orto-product plugin gck_add_cart_item_data).
+        // Show the real number of pieces in the "Nx" prefix.
+        $display_qty = $qty;
+        if ( ! empty( $cart_item['_orto_bundle_pairs'] ) ) {
+          $display_qty = $qty * (int) $cart_item['_orto_bundle_pairs'];
+        }
+
         $attrs = '';
         if ( !empty($cart_item['variation']) ) {
           $parts = array();
@@ -20,7 +30,7 @@ defined( 'ABSPATH' ) || exit;
       ?>
       <div class="c--darkgray review-section-container">
         <div class="review-product-info">
-          <div><?php echo esc_html($qty.'x '.$_product->get_name()); ?></div>
+          <div><?php echo esc_html($display_qty.'x '.$_product->get_name()); ?></div>
           <?php if ($attrs): ?><div class="review-product-info__attributes"><?php echo esc_html($attrs); ?></div><?php endif; ?>
         </div>
         <div class="info-price">
