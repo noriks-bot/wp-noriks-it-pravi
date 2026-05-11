@@ -1,7 +1,6 @@
-
 <?php
 /*
-Plugin Name: Orto Bundle Selector
+Plugin Name: Orto Bundle Selector (Italian)
 Description: Custom bundle radio buttons for Orto products (multiple pairs, supports 2 or 4+ custom attributes like 2 colors + 2 sizes).
 Version: 3.3
 Author: Ante
@@ -15,15 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 // OFFERS (ACF repeater)
 // ============================================================
 
-/**
- * Build bundle offers dynamically from ACF repeater _singlepp_orto_pairs.
- * Uses:
- *  - cena_1 = regular price
- *  - cena_2 = sale price (actual price)
- * Also reads:
- *  - p1, p2 (labels for 4-attribute UI headings + cart meta grouping)
- *  - tip (mixed|majica|bokserica|empty) -> controls which selectors appear in 4-attr products
- */
 function gck_get_bundle_offers( $product_id = null ) : array {
 
     if ( ! $product_id ) {
@@ -55,16 +45,14 @@ function gck_get_bundle_offers( $product_id = null ) : array {
         if ( $sale <= 0 ) continue;
 
         $saving_amount = $regular - $sale;
-        $saving_text   = "Ukupna ušteda " . number_format($saving_amount, 2, '.', '') . "€";
+        $saving_text   = "Risparmio totale " . number_format($saving_amount, 2, '.', '') . "€";
 
         $p1  = trim((string)($row['p1'] ?? ''));
         $p2  = trim((string)($row['p2'] ?? ''));
-        $tip = trim((string)($row['tip'] ?? '')); // NEW
+        $tip = trim((string)($row['tip'] ?? ''));
 
-        // unique offer id per row
         $offer_id = $qty . '__' . $idx;
 
-        // qty=1 exact
         if ( $qty === 1 ) {
             $offers[$offer_id] = [
                 "id"     => $offer_id,
@@ -72,7 +60,7 @@ function gck_get_bundle_offers( $product_id = null ) : array {
                 "title"  => $title,
                 "per"    => number_format($sale, 2, '.', ''),
                 "total"  => number_format($sale, 2, '.', ''),
-                "regular" => number_format($regular, 2, '.', ''), // cena_1
+                "regular" => number_format($regular, 2, '.', ''),
                 "saving" => $saving_text,
                 "p1"     => $p1,
                 "p2"     => $p2,
@@ -81,7 +69,6 @@ function gck_get_bundle_offers( $product_id = null ) : array {
             continue;
         }
 
-        // multi-item: floor down per item to 2 decimals
         $per_item       = $sale / $qty;
         $per_item_fixed = floor($per_item * 100) / 100;
 
@@ -91,7 +78,7 @@ function gck_get_bundle_offers( $product_id = null ) : array {
             "title"  => $title,
             "per"    => number_format($per_item_fixed, 2, '.', ''),
             "total"  => number_format($sale, 2, '.', ''),
-            "regular" => number_format($regular, 2, '.', ''), // cena_1
+            "regular" => number_format($regular, 2, '.', ''),
             "saving" => $saving_text,
             "p1"     => $p1,
             "p2"     => $p2,
@@ -109,7 +96,7 @@ function gck_is_orto_bundle_enabled( $product_id ) : bool {
 }
 
 // ============================================================
-// ATTRIBUTE HELPERS (supports 2 attrs OR 4 attrs)
+// ATTRIBUTE HELPERS
 // ============================================================
 
 function gck_get_custom_attributes_in_order( $product ) : array {
@@ -134,8 +121,8 @@ function gck_split_attrs_color_size( array $custom_attrs ) : array {
 
         $hay = strtolower( $key . ' ' . $label );
 
-        $is_color = ( strpos($hay, 'boja') !== false || strpos($hay, 'color') !== false || strpos($hay, 'colour') !== false );
-        $is_size  = ( strpos($hay, 'vel')  !== false || strpos($hay, 'veli') !== false || strpos($hay, 'size') !== false );
+        $is_color = ( strpos($hay, 'boja') !== false || strpos($hay, 'color') !== false || strpos($hay, 'colour') !== false || strpos($hay, 'colore') !== false );
+        $is_size  = ( strpos($hay, 'vel')  !== false || strpos($hay, 'veli') !== false || strpos($hay, 'size') !== false || strpos($hay, 'taglia') !== false );
 
         $values = $attr->get_options();
         if ( ! is_array($values) ) $values = [];
@@ -156,7 +143,6 @@ function gck_split_attrs_color_size( array $custom_attrs ) : array {
         }
     }
 
-    // fallback to old behavior if not detected
     if ( empty($colors) && empty($sizes) && count($custom_attrs) >= 2 ) {
         $keys = array_keys($custom_attrs);
 
@@ -198,19 +184,15 @@ function gck_attr_group_token( string $label, string $type ) : string {
     $l = strtolower( trim( $label ) );
 
     if ( $type === 'color' ) {
-        $l = str_replace(['boja', 'color', 'colour', ':'], ' ', $l);
+        $l = str_replace(['boja', 'color', 'colour', 'colore', ':'], ' ', $l);
     } else {
-        $l = str_replace(['veličina', 'velicina', 'size', ':'], ' ', $l);
+        $l = str_replace(['veličina', 'velicina', 'size', 'taglia', ':'], ' ', $l);
     }
 
     $l = trim( preg_replace('/\s+/', ' ', $l) );
     return sanitize_title( $l );
 }
 
-/**
- * Pair color + size into logical rows:
- * Prefer matching tokens, fallback by index.
- */
 function gck_pair_color_size_groups( array $colors, array $sizes ) : array {
     $groups = [];
 
@@ -306,7 +288,6 @@ function gck_render_bundle_selector() {
 
     $attr_groups = gck_pair_color_size_groups( $colors, $sizes );
 
-    // "4-attribute case" in your implementation means we have 2 selector groups (majica + bokserica)
     $show_group_titles = ( count($attr_groups) > 1 );
 
     ?>
@@ -376,18 +357,24 @@ function gck_render_bundle_selector() {
       .color-swatches .swatch.active { border-color: #ff6d2e; transform: scale(1.08); }
       .swatch-circle { width: 27px; height: 27px; border-radius: 50%; }
 
-      .color-black { background: #000; } .color-crna { background: #000; }
-      .color-blue  { background: #203240; } .color-modra { background: #203240; } .color-plava { background: #203240; }
-      .color-green  { background: #294d3b; } .color-zelena { background: #294d3b; }
-      .color-gray { background: #706d78; } .color-siva { background: #706d78; }
-      .color-crvena { background: #ba212f; }
+      /* Italian color classes */
+      .color-nero { background: #000; }
+      .color-black { background: #000; }
+      .color-blu { background: #203240; }
+      .color-blue { background: #203240; }
+      .color-verde { background: #294d3b; }
+      .color-green { background: #294d3b; }
+      .color-grigio { background: #706d78; }
+      .color-gray { background: #706d78; }
+      .color-rosso { background: #ba212f; }
+      .color-red { background: #ba212f; }
+      .color-bianco { background: #fff; border: 1px solid #ccc; }
       .color-white { background: #fff; border: 1px solid #ccc; }
-      .color-bela  { background: #fff; border: 1px solid #ccc; }
-      .color-bijela{ background: #fff; border: 1px solid #ccc; }
-      .color-bez { background: #e4e0cf; }
-      .color-smeda { background: #9f6f4e; }
-      .color-zelena { background: #65633c; }
-      .color-tamnoplava { background: #2a3262; }
+      .color-beige { background: #e4e0cf; }
+      .color-marrone { background: #9f6f4e; }
+      .color-brown { background: #9f6f4e; }
+      .color-blu-scuro { background: #2a3262; }
+      .color-navy { background: #2a3262; }
 
       .bundle-option input[type="radio"] {
           -webkit-appearance: none;
@@ -476,14 +463,10 @@ function gck_render_bundle_selector() {
       }
       .features { display: none !important; }
       
-      
-      
       @media (max-width: 490px) {
          .gck-divider span { 
              }
-         
       }
-      
       
       .gck-regular-price{
   color:#c00;
@@ -492,14 +475,9 @@ function gck_render_bundle_selector() {
   margin-right:6px;
 }
     </style>
-    
-    
-    
-    
 
     <?php
-    // Your extra conditional style block (kept)
-    if (  !has_term( array( 'orto-starter', 'orto-majice', 'orto-bokserice' ), 'product_cat', $product_id )  )   :
+    if (  !has_term( array( 'orto-starter', 'orto-magliette', 'orto-boxer' ), 'product_cat', $product_id )  )   :
     ?>
         <style>
           .bundle-option { border: 2px solid #ededed; background: #f4f4f4b0  !important; border-radius: 4px; }
@@ -509,35 +487,21 @@ function gck_render_bundle_selector() {
         </style>
     <?php endif; ?>
     
-    
-    
-        <?php
-    // Your extra conditional style block (kept)
+    <?php
     if (  has_term( array( 'orto-starter'), 'product_cat', $product_id )  )   :
     ?>
         <style>
-          
-          
             .price ins {
-                   
                    font-size: 25px !important;
                    font-weight: bold;
-               
                }
-               
                  .price del {
-                   
                    font-size: 25px !important;
-               
                }
-               
                .price-badge {
-                   
                    font-size: 17px !important;
                    margin-top: -7px !important;
                }
-               
-               
                   .gck-divider span {
         font-size: 17px;
         font-weight: 600;
@@ -550,8 +514,6 @@ function gck_render_bundle_selector() {
     }
           
            @media (max-width: 991px) {
-               
-               
                    .gck-divider span {
         font-size: 17px;
         font-weight: 600;
@@ -562,50 +524,36 @@ function gck_render_bundle_selector() {
         text-align: center !important;
         line-height: 1.3;
     }
-               
                #title-buy-now  {
                        font-size: 35px !important;
                        letter-spacing: 0.1px !important;
-               
                }
-               
-               
-               
-             
-               
            }
           
            @media (min-width: 992px) {
                .why-section img {
-               
                float: right;
                max-width: 70%;
                }
-               
                .why-content{
-               
                padding-right: 30px;
-               
                }
            }
-          
         </style>
     <?php endif; ?>
-    
-    
 
     <div class="gck-benefits-box">
         <ul class="gck-benefits-list">
             <?php if ( !has_term( array( 'orto-bokserice', 'orto-bokserice2', 'starter-paketi' ), 'product_cat', $product_id ) ) : ?>
-                <li><span class="gck-check">✔</span> <strong>Savršeno pristajanje</strong></li>
+                <li><span class="gck-check">✔</span> <strong>Vestibilità perfetta</strong></li>
             <?php endif; ?>
 
-            <li><strong>✔ Vrhunski materiali precizan kroj</strong></li>
-            <li><strong>✔ Udobnost bez kompromisa</strong></li>
+            <li><strong>✔ Materiali di qualità, taglio preciso</strong></li>
+            <li><strong>✔ Comfort senza compromessi</strong></li>
 
             <?php if ( has_term( array( 'orto-starter' ), 'product_cat', $product_id ) ) : ?>
-                <li style="color: #c00;"><strong>✔ Starter paket dostupan samo jednom po osobi</strong></li>
-                <li style="color: #c00;"><strong>✔ Limitirano na 1.000 paketa </strong></li>
+                <li style="color: #c00;"><strong>✔ Starter pack disponibile solo una volta per persona</strong></li>
+                <li style="color: #c00;"><strong>✔ Limitato a 1.000 pacchi</strong></li>
             <?php endif; ?>
         </ul>
 
@@ -614,20 +562,15 @@ function gck_render_bundle_selector() {
                 <path d="M11.4124 2.58464L2.08525 11.9118C1.86558 12.1315 1.86558 12.4876 2.08525 12.7073L5.78977 16.4118C6.00944 16.6315 6.3656 16.6315 6.58527 16.4118L15.9124 7.08466C16.1321 6.86499 16.1321 6.50883 15.9124 6.28916L12.2079 2.58464C11.9883 2.36497 11.6321 2.36497 11.4124 2.58464Z" stroke="#111213" stroke-width="0.84375"></path>
                 <path d="M9.28125 4.71875L11.5312 6.96875M6.75 7.25L9 9.5M4.21875 9.78125L6.46875 12.0312" stroke="#111213" stroke-width="0.84375"></path>
             </svg>
-            Tablica veličina
+            Guida alle taglie
         </a>
     </div>
 
     <div class="gck-top-banner-wrap">
         <?php if ( has_term( array( 'orto-starter' ), 'product_cat', $product_id ) ) : ?>
-            <!-- divider/timer removed in your current code -->
-            
             <div class="gck-divider">
-           <!-- <span>Više komada, veća ušteda!</span>-->
-           <span>Uzmite svoj ekskluzivni<br/> starter paket</span>
+           <span>Ottieni il tuo esclusivo<br/> starter pack</span>
         </div>
-        
-        
         <?php endif; ?>
     </div>
 
@@ -635,7 +578,7 @@ function gck_render_bundle_selector() {
         <div class="dev-banner" data-total="1000" data-sold="354">
             <div class="dev-banner__text">
                 <span class="dev-banner__icon">📦</span>
-                <span>Ograničena količina <b class="sold">0</b> / <b class="total">0</b> (Još <b class="remain">0</b> komada)</span>
+                <span>Quantità limitata <b class="sold">0</b> / <b class="total">0</b> (Solo <b class="remain">0</b> rimasti)</span>
             </div>
             <div class="dev-banner__bar" aria-label="Sales progress">
                 <div class="dev-banner__fill"></div>
@@ -683,20 +626,15 @@ function gck_render_bundle_selector() {
 
             $offer_p1 = trim((string)($data['p1'] ?? ''));
             $offer_p2 = trim((string)($data['p2'] ?? ''));
-            $offer_tip = strtolower(trim((string)($data['tip'] ?? ''))); // NEW
+            $offer_tip = strtolower(trim((string)($data['tip'] ?? '')));
 
-            // Decide which selector OPTIONS to show for each group in 4-attr case.
-            // IMPORTANT: we keep group field keys as-is so values do NOT overwrite.
-            // - mixed (or empty) => group0 uses group0 options, group1 uses group1 options
-            // - majica => BOTH groups show majica options (source group 0), but group1 keeps its own field keys
-            // - bokserica => BOTH groups show bokserica options (source group 1), but group0 keeps its own field keys
-            $force_source_group = null; // null = normal
+            $force_source_group = null;
             if ( $show_group_titles ) {
                 if ( $offer_tip === 'majica' ) {
                     $force_source_group = 0;
                 } elseif ( $offer_tip === 'bokserica' || $offer_tip === 'bokserice' ) {
                     $force_source_group = 1;
-                } // mixed or empty => null
+                }
             }
         ?>
             <label style="position: relative; <?php if ( ($loop_index == 1 ||  $loop_index == 3) && ! $show_group_titles) : ?> margin-top: 25px;  <?php endif; ?>"
@@ -704,11 +642,11 @@ function gck_render_bundle_selector() {
 
                 <?php if ( ! $show_group_titles ) : ?>
                     <?php if ( $loop_index == 1 ) : ?>
-                        <div class="gck-popular-badge">Najpopularnije 🔥</div>
+                        <div class="gck-popular-badge">Più popolare 🔥</div>
                     <?php endif; ?>
 
                     <?php if ( $loop_index == 3 ) : ?>
-                        <div class="gck-popular-badge-2">Najbolja cena 🔥</div>
+                        <div class="gck-popular-badge-2">Miglior prezzo 🔥</div>
                     <?php endif; ?>
                 <?php endif; ?>
 
@@ -719,38 +657,20 @@ function gck_render_bundle_selector() {
                     data-total="<?php echo esc_attr( $data['total'] ); ?>"
                     data-qty="<?php echo esc_attr( $pairs ); ?>"
                     <?php checked( $is_default ); ?>>
-                    
-                    
-                    
-  
 
                 <span class="bundle-option-title"><?php echo esc_html( $data['title'] ); ?></span>
                 
                   <?php
-
     if (  !has_term( array( 'orto-starter' ), 'product_cat', $product_id ) 
-    
     && !has_term( array( 'starter-paketi' ), 'product_cat', $product_id ) 
-    
     )  :  ?>
-                — <span class="bundle-option-title"><?php echo number_format( (float) $data['per'], 2 ); ?>€ / kom</span>
-                
-                
+                — <span class="bundle-option-title"><?php echo number_format( (float) $data['per'], 2 ); ?>€ / pz</span>
                 <?php endif; ?>
-                
 
                 <br/>
 
-                <!--
-                <div class="bundle-total-line">
-                    <span style="font-weight:normal;">Ukupno:</span>
-                    <span class="line-total"><?php echo number_format( (float) $data['total'], 2 ); ?>€</span>
-                </div>
-
--->
-
 <div class="bundle-total-line">
-    <span style="font-weight:normal;">Ukupno:</span>
+    <span style="font-weight:normal;">Totale:</span>
 
     <?php if ( ! empty($data['regular']) && (float)$data['regular'] > (float)$data['total'] ) : ?>
         <span class="gck-regular-price">
@@ -761,8 +681,6 @@ function gck_render_bundle_selector() {
     <span class="line-total"><?php echo number_format( (float) $data['total'], 2 ); ?>€</span>
 </div>
 
-
-
                 <div class="bundle-pairs <?php echo $is_default ? '' : 'hidden'; ?>"
                      data-offer-id="<?php echo esc_attr( $offer_id ); ?>"
                      data-qty="<?php echo esc_attr( $pairs ); ?>">
@@ -771,7 +689,6 @@ function gck_render_bundle_selector() {
                         <div class="bundle-pair">
                             <?php foreach ( $attr_groups as $g_index => $group ) :
 
-                                // Target group (field keys used for saving)
                                 $target_c = $group['color'] ?? null;
                                 $target_s = $group['size'] ?? null;
 
@@ -780,7 +697,6 @@ function gck_render_bundle_selector() {
                                 $target_size_field_key  = $target_s ? (string)($target_s['field_key'] ?? '') : '';
                                 $target_size_attr_key   = $target_s ? (string)($target_s['key'] ?? '') : '';
 
-                                // Source group (options shown to user)
                                 $source_index = $g_index;
                                 if ( $force_source_group !== null && isset($attr_groups[$force_source_group]) ) {
                                     $source_index = (int)$force_source_group;
@@ -795,7 +711,6 @@ function gck_render_bundle_selector() {
 
                                 if ( empty($color_values) && empty($size_values) ) continue;
 
-                                // Headings (p1/p2) in 4-attr case:
                                 $group_title = '';
                                 if ( $show_group_titles ) {
                                     if ( $g_index === 0 && $offer_p1 !== '' ) $group_title = $offer_p1;
@@ -846,8 +761,7 @@ function gck_render_bundle_selector() {
                         </div>
                     <?php endfor; ?>
 
-                    <small style="display: block; line-height: 1;"><?php esc_html_e( 'Nudimo 30 dana za povrat novca ili besplatnu zamjenu proizvoda – bezbrižna kupovina!
-', 'gift-card-kompetentnost' ); ?></small>
+                    <small style="display: block; line-height: 1;"><?php esc_html_e( 'Offriamo 30 giorni per il rimborso o cambio gratuito del prodotto – acquisti senza pensieri!', 'gift-card-kompetentnost' ); ?></small>
                 </div>
             </label>
         <?php
@@ -895,7 +809,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // default color + size
     document.querySelectorAll('.bundle-pairs').forEach(wrap => {
         wrap.querySelectorAll('.bundle-pair').forEach(pair => {
             pair.querySelectorAll('.color-swatches').forEach(swGroup => {
@@ -945,7 +858,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (radio.checked) updateBundleUI(radio);
     });
 
-    // validation
     const form = document.querySelector('form.cart');
     if (!form) return;
 
@@ -973,11 +885,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!valid) {
             e.preventDefault();
-            alert('Prosimo, izberite boju/barvu i veličinu za svaki set.');
+            alert('Si prega di selezionare un colore e una taglia per ogni set.');
         }
     });
 
-    // swatches
     document.querySelectorAll('.color-swatches').forEach(swWrap => {
         const hidden = swWrap.querySelector('.swatch-input');
         if (!hidden) return;
@@ -994,7 +905,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-/* Size sync per size attribute */
 document.addEventListener("DOMContentLoaded", function () {
     function activateSizeSync() {
         document.querySelectorAll('.bundle-pairs').forEach(pairBlock => {
@@ -1037,18 +947,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // CART / ORDER LOGIC
 // ============================================================
 
-/**
- * Build cart/order lines.
- *
- * ✅ 2-attribute case: returns "Crna - L"
- * ✅ 4-attribute case: uses offer p1/p2 and returns TWO lines per pair:
- *   "P1: X - Y"
- *   "P2: X - Y"
- *
- * NOTE: It assumes post order is:
- *   color1, size1, color2, size2
- * (this remains TRUE even when tip=majica/bokserica because we kept distinct field keys)
- */
 function gck_build_pair_lines( array $pairs_data, string $p1 = '', string $p2 = '' ) : array {
     $lines = [];
 

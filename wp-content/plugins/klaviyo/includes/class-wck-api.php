@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WCK_API {
 
-	const VERSION                    = '3.7.2';
+	const VERSION                    = '3.7.3';
 	const KLAVIYO_BASE_URL           = 'klaviyo/v1';
 	const ORDERS_ENDPOINT            = 'orders';
 	const EXTENSION_VERSION_ENDPOINT = 'version';
@@ -440,7 +440,8 @@ function kl_update_options( WP_REST_Request $request ) {
 	}
 
 	$updated_options = array_replace( $options, $body );
-	$is_update       = (bool) array_diff_assoc( $options, $updated_options );
+
+	$is_update = (bool) array_diff_assoc( $options, $updated_options );
 	// If there is no change between existing and new settings `update_option` returns false. Want to distinguish
 	// between that scenario and an actual problem when updating the plugin options.
 	if ( ! update_option( 'klaviyo_settings', $updated_options ) && $is_update ) {

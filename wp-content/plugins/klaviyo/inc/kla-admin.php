@@ -31,7 +31,7 @@ class WPKlaviyoAdmin {
 	 *
 	 * @var array
 	 */
-	private $klaviyo_options;
+	protected $klaviyo_options;
 
 	/**
 	 * Constructor
@@ -204,8 +204,8 @@ return $plugin_details['Name'];
                     <p>
                       You can find your Klaviyo API keys by going to the
                       <a href="https://www.klaviyo.com/account#api-keys-tab">account page</a> in Klaviyo.
-                      Your <strong>public</strong> API key will be 6-7 characters long.
-                      Your <strong>private</strong> API key will be 7 characters, a hyphen and then 16 more.<br /><br />
+                      Your <strong>public</strong> API key will be 6 characters long.
+                      Your <strong>private</strong> API key will start with <code>pk_</code> followed by 34 characters.<br /><br />
 
                       Once you have connected your Klaviyo account, tracking will be enabled for visitors.
                     </p>
@@ -299,13 +299,9 @@ return $plugin_details['Name'];
 		$klaviyo_notification = new WPKlaviyoNotification( 'settings_update' );
 
 		if ( ! empty( $_POST['klaviyo_option_submitted'] ) ) {
-			$klaviyo_settings = get_option( 'klaviyo_settings' );
+			$klaviyo_settings = get_option( 'klaviyo_settings', array() );
 
 			if ( isset( $_GET['page'] ) && 'klaviyo_settings' == $_GET['page'] && check_admin_referer( 'klaviyo-update-settings' ) ) {
-				if ( isset( $_POST['klaviyo_public_api_key'] ) && strlen( sanitize_text_field( wp_unslash( $_POST['klaviyo_public_api_key'] ) ) ) < 8 ) {
-					$klaviyo_settings['klaviyo_public_api_key'] = sanitize_text_field( wp_unslash( $_POST['klaviyo_public_api_key'] ) );
-				}
-
 				$klaviyo_setting_keys     = array(
 					'klaviyo_public_api_key',
 					'klaviyo_subscribe_checkbox',
@@ -328,6 +324,17 @@ return $plugin_details['Name'];
 				}
 
 				$klaviyo_settings = array_merge( $klaviyo_settings, $klaviyo_updated_settings );
+
+				if ( ! empty( $klaviyo_settings['klaviyo_public_api_key'] ) ) {
+					$klaviyo_settings['klaviyo_public_api_key'] = trim( $klaviyo_settings['klaviyo_public_api_key'] );
+				}
+
+				if ( ! empty( $klaviyo_settings['klaviyo_public_api_key'] )
+					&& ! WCK_Options::is_valid_public_api_key( $klaviyo_settings['klaviyo_public_api_key'] )
+				) {
+					$klaviyo_notification->admin_message( 'invalid_public_key', 10 );
+					return get_option( 'klaviyo_settings' );
+				}
 
 				if ( empty( $klaviyo_settings['klaviyo_sms_consent_disclosure_text'] ) ) {
 					$klaviyo_settings['klaviyo_sms_consent_disclosure_text'] = self::SMS_DISCLOSURE_TEXT;

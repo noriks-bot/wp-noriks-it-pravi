@@ -55,10 +55,31 @@ class WPKlaviyoAnalytics {
 	}
 
 	/**
+	 * Check if analytics scripts should be enqueued.
+	 * Analytics scripts are skipped when:
+	 * - Public API key is not configured
+	 * - On WooCommerce checkout pages (which have their own block integration)
+	 *
+	 * @return bool True if analytics scripts should be enqueued, false otherwise.
+	 */
+	private function should_enqueue_analytics() {
+		// phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual -- Maintaining consistency with existing codebase style.
+		if ( '' == $this->klaviyo_public_key ) {
+			return false;
+		}
+
+		if ( $this->is_woocommerce_checkout_page() ) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
 	 * Add klaviyo.js as external resource if public API key is set.
 	 */
 	public function insert_analytics() {
-		if ( '' == $this->klaviyo_public_key || $this->is_woocommerce_checkout_page() ) {
+		if ( ! $this->should_enqueue_analytics() ) {
 			return;
 		}
 
@@ -93,8 +114,14 @@ class WPKlaviyoAnalytics {
 
 	/**
 	 * Get logged in user and commenter and make available to kl-identify-browser.js
+	 * Only enqueues if klaviyojs will be loaded to avoid dependency warnings.
 	 */
 	public function identify_browser() {
+		// Guard: Only proceed if klaviyojs will be enqueued.
+		if ( ! $this->should_enqueue_analytics() ) {
+			return;
+		}
+
 		global $current_user;
 
 		$commenter       = wp_get_current_commenter();

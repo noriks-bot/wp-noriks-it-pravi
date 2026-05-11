@@ -63,14 +63,24 @@ if ( ! class_exists( 'WCK_Install' ) ) :
 		 * Install WCK
 		 */
 		public function install() {
-			// Update version.
-			update_option( 'woocommerce_klaviyo_version', WooCommerceKlaviyo::get_version() );
+			// Purge private API keys that were mistakenly saved as the public key.
+			$settings = get_option( 'klaviyo_settings' );
+			if ( is_array( $settings )
+				&& ! empty( $settings['klaviyo_public_api_key'] )
+				&& WCK_Options::is_private_api_key( $settings['klaviyo_public_api_key'] )
+			) {
+				$settings['klaviyo_public_api_key'] = '';
+				update_option( 'klaviyo_settings', $settings );
+			}
 
 			// Set activation time for review prompt if not already set i.e. do
 			// not update it during a plugin upgrade.
 			if (!get_option('klaviyo_activation_time')) {
 				update_option('klaviyo_activation_time', time());
 			}
+
+			// Update version last so migrations retry on failure.
+			update_option( 'woocommerce_klaviyo_version', WooCommerceKlaviyo::get_version() );
 
 			// Flush rules after install.
 			flush_rewrite_rules();

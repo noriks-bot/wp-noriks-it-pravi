@@ -42,7 +42,7 @@ class WCK_Options {
 	 *
 	 * @var bool|mixed|void $_options
 	 */
-	private $_options;
+	protected $_options;
 
 	/**
 	 * Constructor
@@ -97,5 +97,25 @@ class WCK_Options {
 	 */
 	public function get_all_options() {
 		return $this->_options ? $this->_options : array();
+	}
+
+	/**
+	 * Check if a key is a valid Klaviyo public API key (6 alphanumeric characters).
+	 *
+	 * @param string $key The key to validate.
+	 * @return bool
+	 */
+	public static function is_valid_public_api_key( $key ) {
+		return (bool) preg_match( '/^[a-zA-Z0-9]{6}$/', $key );
+	}
+
+	/**
+	 * Check if a key matches the Klaviyo private API key format (pk_ + 34 hex characters).
+	 *
+	 * @param string $key The key to check.
+	 * @return bool
+	 */
+	public static function is_private_api_key( $key ) {
+		return (bool) preg_match( '/^pk_[0-9a-f]{34}$/', $key );
 	}
 }

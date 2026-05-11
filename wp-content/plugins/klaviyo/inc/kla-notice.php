@@ -78,12 +78,15 @@ class WPKlaviyoNotification {
 			case 'add_email_list_id':
 				$message_text = 'Please add a List ID for Email consent';
 				break;
+			case 'invalid_public_key':
+				$message_text = 'The value entered is invalid. Please enter your public API key, which is a short 6-character alphanumeric string. The key was not saved.';
+				break;
 			default:
 				$message_text = $message;
 				break;
 		}
 
-		if ( in_array( $message, array( 'same_list_ids', 'add_sms_list_id', 'add_email_list_id' ) ) ) {
+		if ( in_array( $message, array( 'same_list_ids', 'add_sms_list_id', 'add_email_list_id', 'invalid_public_key' ) ) ) {
 			echo '<div id="msg-' . esc_attr( $message ) . '" class="notice notice-warning updated-fade is-dismissible"><p>' . esc_html( $message_text ) . '</p></div>' . "\n";
 		} else {
 			echo '<div id="msg-' . esc_attr( $message ) . '" class="updated fade"><p>' . esc_html( $message_text ) . '</p></div>' . "\n";
