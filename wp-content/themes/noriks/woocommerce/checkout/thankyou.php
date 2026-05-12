@@ -79,27 +79,59 @@ foreach ($upsell_qty_prices as $q => $p) {
     $upsell_qty_regular[$q] = $upsell_unit_price * $q;
 }
 
-// Helper: extract a size value (S/M/L/XL/...) from a variation attribute set.
-// 1) prefer an attribute whose KEY hints at size (velicina / size / vel / marime)
-// 2) fall back to the first VALUE matching a common clothing size pattern
+// Helper: extract a size value (S/M/L/XL/...) from any associative array.
+// Works for both variation attribute arrays and line item meta arrays.
+// Pass 1: attribute KEY hints (velicina / size / marime / vel / meret).
+// Pass 2: scan VALUES — direct match against size patterns, OR token
+//         match (so bundle / orto values like "Crna - M" or
+//         "Μαύρο - 3XL" still yield the size).
 if ( ! function_exists( 'noriks_extract_size_value' ) ) {
     function noriks_extract_size_value( $attrs ) {
         if ( ! is_array( $attrs ) || empty( $attrs ) ) return '';
 
-        $size_key_hints = array( 'velicina', 'size', 'marime', 'vel' );
+        $size_key_hints = array( 'velicina', 'size', 'marime', 'vel', 'meret' );
+        $size_patterns  = array( 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl', '2xl', '3xl', '4xl', '5xl' );
+
+        // Pass 1: KEY hints — when an attribute key clearly names size,
+        // accept its value (token-extracted if the value is composite)
         foreach ( $attrs as $k => $v ) {
             $kl = strtolower( (string) $k );
+            $key_is_size = false;
             foreach ( $size_key_hints as $hint ) {
-                if ( strpos( $kl, $hint ) !== false && $v !== '' ) {
-                    return (string) $v;
+                if ( strpos( $kl, $hint ) !== false ) { $key_is_size = true; break; }
+            }
+            if ( ! $key_is_size ) continue;
+            $vs = trim( (string) $v );
+            if ( $vs === '' ) continue;
+            if ( in_array( strtolower( $vs ), $size_patterns, true ) ) return $vs;
+            // Token scan inside the value
+            $tokens = preg_split( '/[\s\-,;\/|·]+/u', $vs );
+            if ( is_array( $tokens ) ) {
+                foreach ( $tokens as $tok ) {
+                    $tok = trim( $tok );
+                    if ( $tok !== '' && in_array( strtolower( $tok ), $size_patterns, true ) ) {
+                        return $tok;
+                    }
                 }
             }
+            // Size-keyed attribute, no recognised token in value — return
+            // the raw value so it still drives the dropdown selection.
+            return $vs;
         }
 
-        $size_value_patterns = array( 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl', '2xl', '3xl', '4xl', '5xl' );
+        // Pass 2: scan all VALUES — direct or tokenised match
         foreach ( $attrs as $v ) {
-            if ( in_array( strtolower( (string) $v ), $size_value_patterns, true ) ) {
-                return (string) $v;
+            $vs = trim( (string) $v );
+            if ( $vs === '' ) continue;
+            if ( in_array( strtolower( $vs ), $size_patterns, true ) ) return $vs;
+            $tokens = preg_split( '/[\s\-,;\/|·]+/u', $vs );
+            if ( is_array( $tokens ) ) {
+                foreach ( $tokens as $tok ) {
+                    $tok = trim( $tok );
+                    if ( $tok !== '' && in_array( strtolower( $tok ), $size_patterns, true ) ) {
+                        return $tok;
+                    }
+                }
             }
         }
 
@@ -116,21 +148,42 @@ if ( $upsell_product && $upsell_product->is_type('variable') ) {
     }
 }
 
-// Detect customer size from order — first ordered product that has a size wins
-// (works for any sized product: bokserice, tricou, etc.)
+// Detect customer size from order — first ordered product that has a size wins.
+// (A) Variable products (bokserice, tricou): size lives in variation attributes.
+// (B) Bundle / orto products: size lives in line item meta values like
+//     "Μαύρο - 3XL" / "Crna - M", with numeric meta keys (1, 2, 3...).
 $customer_size = '';
 if ( $order ) {
     foreach ( $order->get_items() as $item ) {
         if ( ! is_a( $item, 'WC_Order_Item_Product' ) ) continue;
-        if ( ! $item->get_variation_id() ) continue;
 
-        $var = wc_get_product( $item->get_variation_id() );
-        if ( ! $var ) continue;
+        // (A) Variation attributes
+        if ( $item->get_variation_id() ) {
+            $var = wc_get_product( $item->get_variation_id() );
+            if ( $var ) {
+                $detected = noriks_extract_size_value( (array) $var->get_attributes() );
+                if ( $detected !== '' ) {
+                    $customer_size = $detected;
+                    break;
+                }
+            }
+        }
 
-        $detected = noriks_extract_size_value( (array) $var->get_attributes() );
-        if ( $detected !== '' ) {
-            $customer_size = $detected;
-            break;
+        // (B) Line item meta — handles bundle / orto products
+        $meta_values = array();
+        foreach ( $item->get_meta_data() as $meta ) {
+            $key = is_object( $meta ) && isset( $meta->key ) ? (string) $meta->key : '';
+            $val = ( is_object( $meta ) && isset( $meta->value ) && is_scalar( $meta->value ) ) ? (string) $meta->value : '';
+            if ( $key !== '' ) {
+                $meta_values[ $key ] = $val;
+            }
+        }
+        if ( ! empty( $meta_values ) ) {
+            $detected = noriks_extract_size_value( $meta_values );
+            if ( $detected !== '' ) {
+                $customer_size = $detected;
+                break;
+            }
         }
     }
 }
