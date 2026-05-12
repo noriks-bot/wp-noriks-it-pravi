@@ -105,7 +105,7 @@ if ( ! function_exists( 'noriks_extract_size_value' ) ) {
             if ( $vs === '' ) continue;
             if ( in_array( strtolower( $vs ), $size_patterns, true ) ) return $vs;
             // Token scan inside the value
-            $tokens = preg_split( '/[\s\-,;\/|·]+/u', $vs );
+            $tokens = preg_split( '/[\s\-,;\/|·_]+/u', $vs );
             if ( is_array( $tokens ) ) {
                 foreach ( $tokens as $tok ) {
                     $tok = trim( $tok );
@@ -124,7 +124,7 @@ if ( ! function_exists( 'noriks_extract_size_value' ) ) {
             $vs = trim( (string) $v );
             if ( $vs === '' ) continue;
             if ( in_array( strtolower( $vs ), $size_patterns, true ) ) return $vs;
-            $tokens = preg_split( '/[\s\-,;\/|·]+/u', $vs );
+            $tokens = preg_split( '/[\s\-,;\/|·_]+/u', $vs );
             if ( is_array( $tokens ) ) {
                 foreach ( $tokens as $tok ) {
                     $tok = trim( $tok );
@@ -148,42 +148,86 @@ if ( $upsell_product && $upsell_product->is_type('variable') ) {
     }
 }
 
-// Detect customer size from order — first ordered product that has a size wins.
-// (A) Variable products (bokserice, tricou): size lives in variation attributes.
-// (B) Bundle / orto products: size lives in line item meta values like
-//     "Μαύρο - 3XL" / "Crna - M", with numeric meta keys (1, 2, 3...).
+// Detect customer size from order — first ordered product that yields a
+// recognised size wins. We try FIVE sources per item, in order:
+//   (A) variation attributes (variable products: bokserice, tricou)
+//   (B) raw line item meta (bundle / orto: "Crna - M", "Μαύρο - 3XL")
+//   (C) formatted meta display values (covers private/underscored keys)
+//   (D) product name (e.g. "Tricou Negru M")
+//   (E) SKU (e.g. "BOX-3XL", "NORIKS-SHIRTS-M")
+// If a sized clothing item is in the cart, one of these will hit.
 $customer_size = '';
 if ( $order ) {
     foreach ( $order->get_items() as $item ) {
         if ( ! is_a( $item, 'WC_Order_Item_Product' ) ) continue;
+
+        $detected = '';
 
         // (A) Variation attributes
         if ( $item->get_variation_id() ) {
             $var = wc_get_product( $item->get_variation_id() );
             if ( $var ) {
                 $detected = noriks_extract_size_value( (array) $var->get_attributes() );
-                if ( $detected !== '' ) {
-                    $customer_size = $detected;
-                    break;
+            }
+        }
+
+        // (B) Raw line item meta (handles bundle / orto)
+        if ( $detected === '' ) {
+            $meta_values = array();
+            foreach ( $item->get_meta_data() as $meta ) {
+                $key = is_object( $meta ) && isset( $meta->key ) ? (string) $meta->key : '';
+                $val = ( is_object( $meta ) && isset( $meta->value ) && is_scalar( $meta->value ) ) ? (string) $meta->value : '';
+                if ( $key !== '' ) {
+                    $meta_values[ $key ] = $val;
+                }
+            }
+            if ( ! empty( $meta_values ) ) {
+                $detected = noriks_extract_size_value( $meta_values );
+            }
+        }
+
+        // (C) Formatted meta display values
+        if ( $detected === '' ) {
+            $fmt = array();
+            $list = $item->get_formatted_meta_data( '', true );
+            if ( is_array( $list ) ) {
+                $i = 0;
+                foreach ( $list as $m ) {
+                    if ( ! is_object( $m ) ) continue;
+                    $key = isset( $m->key ) ? (string) $m->key : '';
+                    $val = isset( $m->display_value ) ? wp_strip_all_tags( (string) $m->display_value ) : '';
+                    if ( $val === '' ) continue;
+                    $fmt[ $key !== '' ? $key : 'fmt_' . $i ] = $val;
+                    $i++;
+                }
+            }
+            if ( ! empty( $fmt ) ) {
+                $detected = noriks_extract_size_value( $fmt );
+            }
+        }
+
+        // (D) Product name
+        if ( $detected === '' ) {
+            $name = (string) $item->get_name();
+            if ( $name !== '' ) {
+                $detected = noriks_extract_size_value( array( 'name' => $name ) );
+            }
+        }
+
+        // (E) SKU
+        if ( $detected === '' ) {
+            $product = $item->get_product();
+            if ( $product ) {
+                $sku = (string) $product->get_sku();
+                if ( $sku !== '' ) {
+                    $detected = noriks_extract_size_value( array( 'sku' => $sku ) );
                 }
             }
         }
 
-        // (B) Line item meta — handles bundle / orto products
-        $meta_values = array();
-        foreach ( $item->get_meta_data() as $meta ) {
-            $key = is_object( $meta ) && isset( $meta->key ) ? (string) $meta->key : '';
-            $val = ( is_object( $meta ) && isset( $meta->value ) && is_scalar( $meta->value ) ) ? (string) $meta->value : '';
-            if ( $key !== '' ) {
-                $meta_values[ $key ] = $val;
-            }
-        }
-        if ( ! empty( $meta_values ) ) {
-            $detected = noriks_extract_size_value( $meta_values );
-            if ( $detected !== '' ) {
-                $customer_size = $detected;
-                break;
-            }
+        if ( $detected !== '' ) {
+            $customer_size = $detected;
+            break;
         }
     }
 }
