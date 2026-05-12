@@ -79,29 +79,58 @@ foreach ($upsell_qty_prices as $q => $p) {
     $upsell_qty_regular[$q] = $upsell_unit_price * $q;
 }
 
+// Helper: extract a size value (S/M/L/XL/...) from a variation attribute set.
+// 1) prefer an attribute whose KEY hints at size (velicina / size / vel / marime)
+// 2) fall back to the first VALUE matching a common clothing size pattern
+if ( ! function_exists( 'noriks_extract_size_value' ) ) {
+    function noriks_extract_size_value( $attrs ) {
+        if ( ! is_array( $attrs ) || empty( $attrs ) ) return '';
+
+        $size_key_hints = array( 'velicina', 'size', 'marime', 'vel' );
+        foreach ( $attrs as $k => $v ) {
+            $kl = strtolower( (string) $k );
+            foreach ( $size_key_hints as $hint ) {
+                if ( strpos( $kl, $hint ) !== false && $v !== '' ) {
+                    return (string) $v;
+                }
+            }
+        }
+
+        $size_value_patterns = array( 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl', '2xl', '3xl', '4xl', '5xl' );
+        foreach ( $attrs as $v ) {
+            if ( in_array( strtolower( (string) $v ), $size_value_patterns, true ) ) {
+                return (string) $v;
+            }
+        }
+
+        return '';
+    }
+}
+
 // Variations for primary product
 $upsell_variations = array();
 if ( $upsell_product && $upsell_product->is_type('variable') ) {
     foreach ( $upsell_product->get_available_variations() as $v ) {
-        $size = '';
-        foreach ( $v['attributes'] as $k => $val ) { $size = $val; }
+        $size = noriks_extract_size_value( isset( $v['attributes'] ) ? $v['attributes'] : array() );
         $upsell_variations[] = array( 'id' => $v['variation_id'], 'size' => $size );
     }
 }
 
-// Detect customer size from order
+// Detect customer size from order — first ordered product that has a size wins
+// (works for any sized product: bokserice, tricou, etc.)
 $customer_size = '';
 if ( $order ) {
     foreach ( $order->get_items() as $item ) {
-        if ( is_a( $item, 'WC_Order_Item_Product' ) && $item->get_variation_id() ) {
-            $var = wc_get_product( $item->get_variation_id() );
-            if ( $var ) {
-                foreach ( $var->get_attributes() as $k => $v ) {
-                    if ( stripos( $k, 'velicina' ) !== false || stripos( $k, 'size' ) !== false ) {
-                        $customer_size = $v; break 2;
-                    }
-                }
-            }
+        if ( ! is_a( $item, 'WC_Order_Item_Product' ) ) continue;
+        if ( ! $item->get_variation_id() ) continue;
+
+        $var = wc_get_product( $item->get_variation_id() );
+        if ( ! $var ) continue;
+
+        $detected = noriks_extract_size_value( (array) $var->get_attributes() );
+        if ( $detected !== '' ) {
+            $customer_size = $detected;
+            break;
         }
     }
 }
