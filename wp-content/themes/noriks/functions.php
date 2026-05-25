@@ -35,6 +35,16 @@ add_filter( 'woocommerce_gallery_image_size', function() {
 
 
 
+add_filter( 'woocommerce_order_number', 'change_woocommerce_order_number' );
+function change_woocommerce_order_number( $order_id ) {
+    $prefix = 'NORIKS-IT-';
+    $new_order_id = $prefix . $order_id;
+    return $new_order_id;
+}
+
+
+
+
 // Dodaj v functions.php ali kot mu-plugin
 add_action('rest_api_init', function() {
     register_rest_route('noriks/v1', '/abandoned-carts', array(
