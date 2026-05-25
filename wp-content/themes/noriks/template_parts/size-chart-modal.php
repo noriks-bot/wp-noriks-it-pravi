@@ -461,14 +461,14 @@
           @media (max-width: 600px) {
             .noriks-sc-steps-grid { grid-template-columns: 1fr; }
             table.noriks-sc { font-size: 9.6px; min-width: 760px; margin: 0; }
-            .noriks-sc-steps { margin-top: 5px; }
+            .noriks-sc-steps { margin-top: 5px; padding: 0 5px; }
             .noriks-size-chart-wrap { padding: 0; }
             .noriks-sc-steps h3 { font-size: 13px; }
             .noriks-sc-step { font-size: 10.4px; }
             .noriks-sc-step .noriks-sc-num { flex: 0 0 18px; width: 18px; height: 18px; font-size: 10px; }
-            .noriks-sc-pro { font-size: 10.4px; padding: 8px 10px; }
+            .noriks-sc-pro { font-size: 10.4px; padding: 8px 10px; margin-left: 5px; margin-right: 5px; }
             .noriks-sc-pro-tag { font-size: 9px; padding: 4px 7px; }
-            .noriks-sc-guarantee { font-size: 10.4px; }
+            .noriks-sc-guarantee { font-size: 10.4px; padding: 0 5px; }
             .noriks-sc-check { width: 16px; height: 16px; font-size: 10.4px; }
           }
         </style>
