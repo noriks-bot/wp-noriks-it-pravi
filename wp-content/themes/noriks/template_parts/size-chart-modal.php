@@ -131,9 +131,9 @@
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
   }
-  .size-chart-titlebar { padding: 18px 16px; }
+  .size-chart-titlebar { padding: 12px 14px; }
   .size-chart-titlebar h2 { font-size: 15px; }
-  .size-chart-body { padding-top: 8px; padding-bottom: 26px; }
+  .size-chart-body { padding-top: 0; padding-bottom: 10px; }
 
   /* Image-based charts (boxers/socks/etc) — keep horizontal scroll */
   .size-chart-left {
@@ -248,7 +248,7 @@
         <style>
           .noriks-size-chart-wrap {
             width: 100%;
-            padding: 20px 18px 24px;
+            padding: 4px 8px 14px;
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             color: #111;
@@ -294,7 +294,8 @@
             }
           }
           table.noriks-sc {
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
             width: 100%;
             font-size: 14px;
             table-layout: fixed;
@@ -338,6 +339,62 @@
             width: 32px;
             letter-spacing: 1px;
           }
+          /* Sticky col 1 (Visina label) + col 2 (height column) on horizontal scroll */
+          table.noriks-sc thead tr:first-child > th:first-child,
+          table.noriks-sc tbody th.noriks-sc-vis-label {
+            position: sticky;
+            left: 0;
+            z-index: 5;
+            background: #b8b8b8;
+          }
+          table.noriks-sc thead tr:first-child > th:nth-child(2),
+          table.noriks-sc thead tr:nth-child(2) > th:first-child,
+          table.noriks-sc tbody tr:first-child > th:nth-of-type(2),
+          table.noriks-sc tbody tr:not(:first-child) > th:first-of-type {
+            position: sticky;
+            left: 32px;
+            z-index: 4;
+            background: #b8b8b8;
+            box-shadow: 3px 0 5px -2px rgba(0,0,0,0.18);
+          }
+          /* Make weight header row sticky vertically too */
+          table.noriks-sc thead th {
+            position: sticky;
+            top: 0;
+            z-index: 6;
+          }
+          /* Top-left sticky corners need higher z so they win */
+          table.noriks-sc thead tr:first-child > th:first-child { z-index: 9; }
+          table.noriks-sc thead tr:first-child > th:nth-child(2),
+          table.noriks-sc thead tr:nth-child(2) > th:first-child { z-index: 8; }
+          /* === Sticky first two columns so Velikost stays visible while horizontal scrolling === */
+          table.noriks-sc thead tr:first-child th.noriks-sc-empty:first-child,
+          table.noriks-sc tbody th.noriks-sc-vis-label {
+            position: sticky;
+            left: 0;
+            z-index: 3;
+            background: #b8b8b8;
+          }
+          table.noriks-sc thead tr:first-child th:nth-child(2),
+          table.noriks-sc thead tr:nth-child(2) th:first-child,
+          table.noriks-sc tbody tr:first-child > th:nth-of-type(2),
+          table.noriks-sc tbody tr:not(:first-child) > th:first-child {
+            position: sticky;
+            left: 32px;
+            z-index: 2;
+            background: #b8b8b8;
+            box-shadow: 3px 0 5px -2px rgba(0,0,0,0.20);
+          }
+          /* Vertical sticky thead so kg headers stay visible during vertical scroll */
+          table.noriks-sc thead th {
+            position: sticky;
+            top: 0;
+            z-index: 4;
+          }
+          /* Top-left intersections need highest z-index to overlap other sticky cells */
+          table.noriks-sc thead tr:first-child th.noriks-sc-empty:first-child,
+          table.noriks-sc thead tr:first-child th:nth-child(2),
+          table.noriks-sc thead tr:nth-child(2) th:first-child { z-index: 5; }
           table.noriks-sc td.noriks-sc-empty { background: #ececec; color: transparent; }
           table.noriks-sc td.noriks-sc-size {
             background: #d9d9d9;
@@ -432,7 +489,7 @@
           @media (max-width: 600px) {
             .noriks-sc-steps-grid { grid-template-columns: 1fr; }
             table.noriks-sc { font-size: 9.6px; min-width: 760px; }
-            .noriks-size-chart-wrap { padding: 48px 10px 56px; }
+            .noriks-size-chart-wrap { padding: 4px 6px 14px; }
             .noriks-sc-steps h3 { font-size: 13px; }
             .noriks-sc-step { font-size: 10.4px; }
             .noriks-sc-step .noriks-sc-num { flex: 0 0 18px; width: 18px; height: 18px; font-size: 10px; }
