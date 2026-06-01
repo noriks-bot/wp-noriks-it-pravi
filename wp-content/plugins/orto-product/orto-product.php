@@ -277,6 +277,30 @@ function gck_register_orto_countdown_fields() {
         'title'  => 'Orto Bundle – countdown',
         'fields' => array(
             array(
+                'key'          => 'field_orto_precheck_second',
+                'label'        => 'Pre-check 2nd offer by default',
+                'name'         => 'orto_precheck_second',
+                'type'         => 'true_false',
+                'instructions' => 'If enabled, the SECOND offer is pre-selected on page load instead of the first. Applies only to this product.',
+                'ui'           => 1,
+            ),
+            array(
+                'key'          => 'field_orto_show_gratis_labels',
+                'label'        => 'Show "free t-shirt" section labels',
+                'name'         => 'orto_show_gratis_labels',
+                'type'         => 'true_false',
+                'instructions' => 'Adds section labels above the color/size selectors. The number of free pieces is parsed from the offer title, e.g. "2+2".',
+                'ui'           => 1,
+            ),
+            array(
+                'key'          => 'field_orto_show_price_highlights',
+                'label'        => 'Show price highlights (price/pc + discount)',
+                'name'         => 'orto_show_price_highlights',
+                'type'         => 'true_false',
+                'instructions' => 'Adds a per-piece price chip (struck-through regular price/pc) and a green discount badge on each offer. Applies only to this product.',
+                'ui'           => 1,
+            ),
+            array(
                 'key'          => 'field_orto_show_countdown',
                 'label'        => 'Show countdown (scarcity bar)',
                 'name'         => 'orto_show_countdown',
@@ -329,6 +353,11 @@ function gck_register_orto_countdown_fields() {
     ) );
 }
 
+function gck_it_majice_phrase( int $n, bool $free = false ) : string {
+    $noun = ( $n === 1 ) ? 'maglietta' : 'magliette';
+    return $free ? ( $noun . ' gratis' ) : $noun;
+}
+
 add_action( 'woocommerce_before_add_to_cart_button', 'gck_render_bundle_selector', 5 );
 
 function gck_render_bundle_selector() {
@@ -343,6 +372,10 @@ function gck_render_bundle_selector() {
     if ( empty( $offers ) ) return;
 
     // Countdown / scarcity element (registered in code, per-product toggle).
+    $precheck_second       = (bool) get_field( 'orto_precheck_second', $product_id );
+    $show_gratis           = (bool) get_field( 'orto_show_gratis_labels', $product_id );
+    $show_price_highlights = (bool) get_field( 'orto_show_price_highlights', $product_id );
+
     $show_countdown    = (bool) get_field( 'orto_show_countdown', $product_id );
     $countdown_minutes = (int) get_field( 'orto_countdown_minutes', $product_id );
     if ( $countdown_minutes < 1 || $countdown_minutes > 1440 ) {
@@ -413,6 +446,47 @@ function gck_render_bundle_selector() {
           margin: 2px 0 0 0;
           letter-spacing: .2px;
       }
+
+      .gck-pair-label{
+          width: 100%;
+          font-weight: 800;
+          font-size: 15px;
+          color: #111;
+          margin: 2px 0 5px 0;
+          letter-spacing: .2px;
+          line-height: 1.2;
+      }
+      .gck-pair-label.is-gratis{ color: #c00; margin-top: 12px; }
+
+      .gck-per-chip{
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: #c00;
+          border-radius: 4px;
+          padding: 6px 9px;
+          margin-left: 4px;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1;
+          vertical-align: middle;
+      }
+      .gck-per-old{ color: rgba(255,255,255,0.85); text-decoration: line-through; font-weight: 600; }
+      .gck-per-new{ color: #fff; font-weight: 800; }
+      .gck-discount-badge{
+          display: inline-flex;
+          align-items: center;
+          margin-left: 6px;
+          background: #2e7d32;
+          color: #fff;
+          font-size: 13px;
+          font-weight: 800;
+          padding: 6px 9px;
+          border-radius: 4px;
+          line-height: 1;
+          vertical-align: middle;
+      }
+      .gck-hl-break{ display: none; }
 
       .bundle-total-line { margin-top: 0px; text-align: right; font-weight: 600; color: black; }
       small { color: black; }
@@ -544,6 +618,14 @@ function gck_render_bundle_selector() {
              }
       }
       
+      @media (max-width: 767px) {
+          .gck-pair-label { font-size: 14px; margin: 1px 0 4px 0; }
+          .gck-pair-label.is-gratis { margin-top: 8px; }
+          .gck-hl-break { display: block; }
+          .gck-per-chip { margin-left: 0; margin-top: 4px; }
+          .gck-discount-badge { margin-top: 4px; margin-left: 6px; }
+      }
+
       .gck-regular-price{
   color:#c00;
   text-decoration: line-through;
@@ -788,7 +870,7 @@ function gck_render_bundle_selector() {
 
     <div id="bundle-selector" class="bundle-box">
         <?php
-        $default_index = 0;
+        $default_index = ( $precheck_second && count( $offers ) > 1 ) ? 1 : 0;
         $loop_index    = 0;
 
         foreach ( $offers as $offer_id => $data ) :
@@ -809,6 +891,12 @@ function gck_render_bundle_selector() {
                     $force_source_group = 1;
                 }
             }
+
+            // Price highlights: per-piece regular price + discount %.
+            $per_regular  = ( $pairs > 0 ) ? ( (float) $data['regular'] / $pairs ) : 0;
+            $discount_pct = ( (float) $data['regular'] > 0 )
+                ? (int) round( ( ( (float) $data['regular'] - (float) $data['total'] ) / (float) $data['regular'] ) * 100 )
+                : 0;
         ?>
             <label style="position: relative; <?php if ( ($loop_index == 1 ||  $loop_index == 3) && ! $show_group_titles) : ?> margin-top: 25px;  <?php endif; ?>"
                    class="bundle-option<?php echo $is_default ? ' active' : ''; ?>">
@@ -837,7 +925,20 @@ function gck_render_bundle_selector() {
     if (  !has_term( array( 'orto-starter' ), 'product_cat', $product_id ) 
     && !has_term( array( 'starter-paketi' ), 'product_cat', $product_id ) 
     )  :  ?>
-                — <span class="bundle-option-title"><?php echo number_format( (float) $data['per'], 2 ); ?>€ / pz</span>
+                <?php if ( $show_price_highlights ) : ?>
+                    <br class="gck-hl-break">
+                    <span class="gck-per-chip">
+                        <?php if ( $per_regular > (float) $data['per'] ) : ?>
+                            <span class="gck-per-old"><?php echo number_format( $per_regular, 2 ); ?>€</span>
+                        <?php endif; ?>
+                        <span class="gck-per-new"><?php echo number_format( (float) $data['per'], 2 ); ?>€ / pz</span>
+                    </span>
+                    <?php if ( $discount_pct > 0 ) : ?>
+                        <span class="gck-discount-badge">−<?php echo (int) $discount_pct; ?>%</span>
+                    <?php endif; ?>
+                <?php else : ?>
+                    — <span class="bundle-option-title"><?php echo number_format( (float) $data['per'], 2 ); ?>€ / pz</span>
+                <?php endif; ?>
                 <?php endif; ?>
 
                 <br/>
@@ -858,7 +959,23 @@ function gck_render_bundle_selector() {
                      data-offer-id="<?php echo esc_attr( $offer_id ); ?>"
                      data-qty="<?php echo esc_attr( $pairs ); ?>">
 
+                    <?php
+                    // Gratis labels: parse "X+Y" from offer title (X = paid, Y = gratis).
+                    $gck_paid = 0;
+                    $gck_free = 0;
+                    if ( $show_gratis && preg_match( '/(\d+)\s*\+\s*(\d+)/u', (string) ( $data['title'] ?? '' ), $gck_m ) ) {
+                        $gck_paid = (int) $gck_m[1];
+                        $gck_free = (int) $gck_m[2];
+                    }
+                    $gck_show_sections = ( $show_gratis && ! $show_group_titles && ( $gck_paid + $gck_free ) > 0 );
+                    ?>
                     <?php for ( $i = 1; $i <= $pairs; $i++ ) : ?>
+                        <?php if ( $gck_show_sections && $gck_paid > 0 && $i === 1 ) : ?>
+                            <div class="gck-pair-label">Scegli <?php echo (int) $gck_paid; ?> <?php echo esc_html( gck_it_majice_phrase( $gck_paid ) ); ?></div>
+                        <?php endif; ?>
+                        <?php if ( $gck_show_sections && $gck_free > 0 && $i === ( $gck_paid + 1 ) ) : ?>
+                            <div class="gck-pair-label is-gratis">Scegli altre <?php echo (int) $gck_free; ?> <?php echo esc_html( gck_it_majice_phrase( $gck_free, true ) ); ?></div>
+                        <?php endif; ?>
                         <div class="bundle-pair">
                             <?php foreach ( $attr_groups as $g_index => $group ) :
 
