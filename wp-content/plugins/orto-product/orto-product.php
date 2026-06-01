@@ -1198,7 +1198,7 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener("DOMContentLoaded", function () {
     function activateSizeSync() {
         document.querySelectorAll('.bundle-pairs').forEach(pairBlock => {
-            const firstPair = pairBlock.querySelector('.bundle-pair:nth-child(1)');
+            const firstPair = pairBlock.querySelector('.bundle-pair');
             if (!firstPair) return;
 
             firstPair.querySelectorAll('select.gck-size-select').forEach(firstSelect => {
@@ -1209,13 +1209,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 firstSelect.dataset.gckBound = '1';
 
                 firstSelect.addEventListener('change', function () {
-                    const newSize = this.value;
+                    const newSize  = this.value;
+                    const selector = document.getElementById('bundle-selector');
+                    if (!selector) return;
 
-                    pairBlock.querySelectorAll('.bundle-pair').forEach((pair, index) => {
-                        if (index === 0) return;
-                        const sel = pair.querySelector('select.gck-size-select[data-size-key="' + CSS.escape(sizeKey) + '"]');
-                        if (sel) sel.value = newSize;
-                    });
+                    // Sync this size across ALL pairs in ALL offers (e.g. 4+4 -> 2+2)
+                    selector
+                        .querySelectorAll('select.gck-size-select[data-size-key="' + CSS.escape(sizeKey) + '"]')
+                        .forEach(sel => { if (sel !== this) sel.value = newSize; });
                 });
             });
         });
