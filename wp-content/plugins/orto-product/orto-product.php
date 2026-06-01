@@ -264,6 +264,71 @@ function gck_pair_color_size_groups( array $colors, array $sizes ) : array {
 // RENDER UI
 // ============================================================
 
+// ============================================================
+// COUNTDOWN / SCARCITY FIELDS (registered in code)
+// ============================================================
+add_action( 'acf/init', 'gck_register_orto_countdown_fields' );
+function gck_register_orto_countdown_fields() {
+    if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+        return;
+    }
+    acf_add_local_field_group( array(
+        'key'    => 'group_orto_countdown_options',
+        'title'  => 'Orto Bundle – countdown',
+        'fields' => array(
+            array(
+                'key'          => 'field_orto_show_countdown',
+                'label'        => 'Show countdown (scarcity bar)',
+                'name'         => 'orto_show_countdown',
+                'type'         => 'true_false',
+                'instructions' => 'Shows a scarcity/urgency bar with an evergreen per-visitor countdown above the offers. Applies only to this product.',
+                'ui'           => 1,
+            ),
+            array(
+                'key'               => 'field_orto_countdown_minutes',
+                'label'             => 'Countdown duration (minutes)',
+                'name'              => 'orto_countdown_minutes',
+                'type'              => 'number',
+                'instructions'      => 'How many minutes the countdown runs per visitor. Default 10. Resets discreetly on the next visit once it expires.',
+                'default_value'     => 10,
+                'min'               => 1,
+                'max'               => 1440,
+                'append'            => 'min',
+                'conditional_logic' => array(
+                    array(
+                        array( 'field' => 'field_orto_show_countdown', 'operator' => '==', 'value' => '1' ),
+                    ),
+                ),
+            ),
+            array(
+                'key'               => 'field_orto_countdown_stock',
+                'label'             => 'Remaining stock (pieces)',
+                'name'              => 'orto_countdown_stock',
+                'type'              => 'number',
+                'instructions'      => 'Number shown in the bar ("Only X left"). Set 0 or leave empty to hide it.',
+                'default_value'     => 27,
+                'min'               => 0,
+                'max'               => 9999,
+                'append'            => 'pcs',
+                'conditional_logic' => array(
+                    array(
+                        array( 'field' => 'field_orto_show_countdown', 'operator' => '==', 'value' => '1' ),
+                    ),
+                ),
+            ),
+        ),
+        'location'   => array(
+            array(
+                array( 'param' => 'post_type', 'operator' => '==', 'value' => 'product' ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position'   => 'normal',
+        'style'      => 'default',
+        'active'     => true,
+    ) );
+}
+
 add_action( 'woocommerce_before_add_to_cart_button', 'gck_render_bundle_selector', 5 );
 
 function gck_render_bundle_selector() {
@@ -276,6 +341,17 @@ function gck_render_bundle_selector() {
 
     $offers = gck_get_bundle_offers( $product_id );
     if ( empty( $offers ) ) return;
+
+    // Countdown / scarcity element (registered in code, per-product toggle).
+    $show_countdown    = (bool) get_field( 'orto_show_countdown', $product_id );
+    $countdown_minutes = (int) get_field( 'orto_countdown_minutes', $product_id );
+    if ( $countdown_minutes < 1 || $countdown_minutes > 1440 ) {
+        $countdown_minutes = 10;
+    }
+    $countdown_stock = (int) get_field( 'orto_countdown_stock', $product_id );
+    if ( $countdown_stock < 0 ) {
+        $countdown_stock = 0;
+    }
 
     $custom_attrs = gck_get_custom_attributes_in_order( $product );
     if ( count( $custom_attrs ) < 2 ) return;
@@ -557,6 +633,7 @@ function gck_render_bundle_selector() {
             <?php endif; ?>
         </ul>
 
+        <?php if ( ! $show_countdown ) : ?>
         <a id="open-size-chartCustom" href="#size-chart" class="gck-size-link">
             <svg style="margin-right: 5px; width: 23px; height: 23px; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
                 <path d="M11.4124 2.58464L2.08525 11.9118C1.86558 12.1315 1.86558 12.4876 2.08525 12.7073L5.78977 16.4118C6.00944 16.6315 6.3656 16.6315 6.58527 16.4118L15.9124 7.08466C16.1321 6.86499 16.1321 6.50883 15.9124 6.28916L12.2079 2.58464C11.9883 2.36497 11.6321 2.36497 11.4124 2.58464Z" stroke="#111213" stroke-width="0.84375"></path>
@@ -564,6 +641,7 @@ function gck_render_bundle_selector() {
             </svg>
             Guida alle taglie
         </a>
+        <?php endif; ?>
     </div>
 
     <div class="gck-top-banner-wrap">
@@ -584,7 +662,7 @@ function gck_render_bundle_selector() {
                 <div class="dev-banner__fill"></div>
             </div>
         </div>
-    <?php else: ?>
+    <?php elseif ( ! $show_countdown ) : ?>
         <div style="height: 10px;"></div>
     <?php endif; ?>
 
@@ -612,6 +690,101 @@ function gck_render_bundle_selector() {
         el.querySelector(".dev-banner__fill").style.width = pct + "%";
       })();
     </script>
+
+    <?php if ( $show_countdown ) : ?>
+        <style>
+          .gck-countdown{
+              background:#fdeeee;
+              border:1px solid #f3c9c9;
+              border-left:5px solid #c00;
+              border-radius:4px; padding:14px 16px; margin:14px 0;
+              font-family:'Roboto', sans-serif; color:#333; text-align:left;
+          }
+          .gck-countdown__head{
+              display:flex; align-items:center; gap:8px;
+              color:#c00; font-weight:800; font-size:16px;
+              margin-bottom:6px; line-height:1.2;
+          }
+          .gck-countdown__icon{ font-size:18px; line-height:1; animation:gckCdPulse 1.3s ease-in-out infinite; }
+          .gck-countdown__body{ font-size:14px; line-height:1.45; color:#333; }
+          .gck-countdown__body strong{ color:#c00; font-weight:800; }
+          .gck-countdown__timer{ font-weight:800; color:#c00; font-variant-numeric:tabular-nums; white-space:nowrap; }
+          @keyframes gckCdPulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.18); } }
+          @media (prefers-reduced-motion: reduce){ .gck-countdown__icon{ animation:none; } }
+          @media (max-width: 767px){
+              .gck-countdown{ padding:12px 13px; margin:11px 0; }
+              .gck-countdown__head{ font-size:15px; }
+              .gck-countdown__icon{ font-size:16px; }
+              .gck-countdown__body{ font-size:13px; }
+          }
+        </style>
+        <div class="gck-countdown" id="gck-countdown"
+             data-minutes="<?php echo esc_attr( $countdown_minutes ); ?>"
+             data-key="gck_cd_<?php echo esc_attr( $product_id ); ?>">
+            <div class="gck-countdown__head">
+                <span class="gck-countdown__icon">🔥</span>
+                Scorte limitate
+            </div>
+            <div class="gck-countdown__body">
+                L'offerta è valida solo oggi — ancora <span class="gck-countdown__timer" aria-live="polite">--:--</span>.<?php
+                if ( $countdown_stock > 0 ) :
+                    ?> Restano solo <strong><?php echo esc_html( $countdown_stock ); ?> pezzi</strong>.<?php
+                endif; ?> <strong>Affrettati prima che finiscano!</strong>
+            </div>
+        </div>
+        <script>
+          (function(){
+              var el = document.getElementById('gck-countdown');
+              if (!el) return;
+              var minutes = parseInt(el.getAttribute('data-minutes'), 10) || 10;
+              var key = el.getAttribute('data-key') || 'gck_cd_default';
+              var timerEl = el.querySelector('.gck-countdown__timer');
+              var durationMs = minutes * 60 * 1000;
+              var now = Date.now();
+              var end;
+              try {
+                  var stored = window.localStorage.getItem(key);
+                  end = stored ? parseInt(stored, 10) : 0;
+                  if (!end || isNaN(end) || end <= now) {
+                      end = now + durationMs;
+                      window.localStorage.setItem(key, String(end));
+                  }
+              } catch (e) {
+                  end = now + durationMs;
+              }
+              function pad(n){ return (n < 10 ? '0' : '') + n; }
+              function tick(){
+                  var diff = end - Date.now();
+                  if (diff <= 0){
+                      end = Date.now() + durationMs;
+                      try { window.localStorage.setItem(key, String(end)); } catch (e) {}
+                      diff = durationMs;
+                  }
+                  var totalSec = Math.floor(diff / 1000);
+                  var h = Math.floor(totalSec / 3600);
+                  var m = Math.floor((totalSec % 3600) / 60);
+                  var s = totalSec % 60;
+                  timerEl.textContent = h > 0
+                      ? (pad(h) + ':' + pad(m) + ':' + pad(s))
+                      : (pad(m) + ':' + pad(s));
+              }
+              tick();
+              setInterval(tick, 1000);
+          })();
+        </script>
+    <?php endif; ?>
+
+    <?php if ( $show_countdown ) : ?>
+    <div class="gck-size-link-wrap" style="text-align:right; margin:0 0 8px 0;">
+        <a id="open-size-chartCustom" href="#size-chart" class="gck-size-link">
+            <svg style="margin-right: 5px; width: 23px; height: 23px; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                <path d="M11.4124 2.58464L2.08525 11.9118C1.86558 12.1315 1.86558 12.4876 2.08525 12.7073L5.78977 16.4118C6.00944 16.6315 6.3656 16.6315 6.58527 16.4118L15.9124 7.08466C16.1321 6.86499 16.1321 6.50883 15.9124 6.28916L12.2079 2.58464C11.9883 2.36497 11.6321 2.36497 11.4124 2.58464Z" stroke="#111213" stroke-width="0.84375"></path>
+                <path d="M9.28125 4.71875L11.5312 6.96875M6.75 7.25L9 9.5M4.21875 9.78125L6.46875 12.0312" stroke="#111213" stroke-width="0.84375"></path>
+            </svg>
+            Guida alle taglie
+        </a>
+    </div>
+    <?php endif; ?>
 
     <div id="bundle-selector" class="bundle-box">
         <?php
