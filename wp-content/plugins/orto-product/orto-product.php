@@ -1078,6 +1078,7 @@ function gck_render_bundle_selector() {
                                         <select
                                             class="gck-size-select"
                                             data-size-key="<?php echo esc_attr($target_size_attr_key); ?>"
+                                            data-garment-group="<?php echo (int) $g_index; ?>"
                                             name="pairs[<?php echo esc_attr( $offer_id ); ?>][<?php echo $i; ?>][<?php echo esc_attr( $target_size_field_key ); ?>]">
                                             <?php foreach ( $size_values as $val ) : ?>
                                                 <option value="<?php echo esc_attr( $val ); ?>">
@@ -1243,12 +1244,26 @@ document.addEventListener("DOMContentLoaded", function () {
         const splitMode  = !!(selectorEl && selectorEl.dataset.splitGarments === '1');
 
         document.querySelectorAll('.bundle-pairs').forEach(pairBlock => {
-            // Normal: bind only the first pair's size selects.
-            // Split (SHBOX): bind every size select so picking any size links both garment groups.
-            const scope = splitMode ? pairBlock : pairBlock.querySelector('.bundle-pair');
-            if (!scope) return;
+            // Which selects act as "drivers" (their change syncs the others):
+            // Normal: the first pair's size selects (one per size attribute).
+            // Split (SHBOX): only the FIRST size select of each garment group
+            // (first majica, first bokserica). The 2nd/3rd stay independent.
+            let drivers;
+            if (splitMode) {
+                const seenGroup = {};
+                drivers = [];
+                pairBlock.querySelectorAll('select.gck-size-select').forEach(s => {
+                    const grp = s.dataset.garmentGroup || '';
+                    if (seenGroup[grp]) return;
+                    seenGroup[grp] = true;
+                    drivers.push(s);
+                });
+            } else {
+                const firstPair = pairBlock.querySelector('.bundle-pair');
+                drivers = firstPair ? Array.from(firstPair.querySelectorAll('select.gck-size-select')) : [];
+            }
 
-            scope.querySelectorAll('select.gck-size-select').forEach(firstSelect => {
+            drivers.forEach(firstSelect => {
                 const sizeKey = firstSelect.dataset.sizeKey || '';
                 if (!sizeKey) return;
 
@@ -1260,9 +1275,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     const selector = document.getElementById('bundle-selector');
                     if (!selector) return;
 
-                    const sel = splitMode
-                        ? 'select.gck-size-select'
-                        : 'select.gck-size-select[data-size-key="' + CSS.escape(sizeKey) + '"]';
+                    // Normal: sync this size across same-attribute selects in ALL pairs/offers.
+                    // Split (SHBOX): sync only within the same garment group, so majice and
+                    // bokserice are independent and the customer can pick different sizes.
+                    let sel;
+                    if (splitMode) {
+                        const grp = this.dataset.garmentGroup || '';
+                        sel = 'select.gck-size-select[data-garment-group="' + CSS.escape(grp) + '"]';
+                    } else {
+                        sel = 'select.gck-size-select[data-size-key="' + CSS.escape(sizeKey) + '"]';
+                    }
 
                     selector
                         .querySelectorAll(sel)
