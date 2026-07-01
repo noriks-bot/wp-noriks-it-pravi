@@ -98,7 +98,7 @@ add_action( 'after_setup_theme', function () {
 
 // Force direction arrows to show on single product gallery
 add_filter( 'woocommerce_single_product_carousel_options', function ( $options ) {
-    $options['directionNav'] = true;  // show prev/next arrows
+    $options['directionNav'] = false; // no prev/next arrows
     //$options['controlNav']   = true;  // show thumbnails/bullets (optional)
         $options['animationLoop'] = true;   // enable infinite loop
 
