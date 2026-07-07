@@ -1,0 +1,105 @@
+# Copyright (C) 2026 YMMV LLC
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Clone / Duplicate Orders for WooCommerce 1.0.8\n"
+"Report-Msgid-Bugs-To: https://www.ymmv.co\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-10-28T07:13:01+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: clone-duplicate-orders-for-woocommerce\n"
+
+#. Plugin Name of the plugin
+#: clone-duplicate-orders-for-woocommerce.php
+#: includes/class-cdo-wc-cloner.php:520
+msgid "Clone / Duplicate Orders for WooCommerce"
+msgstr ""
+
+#. Description of the plugin
+#: clone-duplicate-orders-for-woocommerce.php
+msgid "Clone, duplicate or copy WooCommerce orders in one-click. HPOS compatible."
+msgstr ""
+
+#. Author of the plugin
+#: clone-duplicate-orders-for-woocommerce.php
+msgid "YMMV LLC"
+msgstr ""
+
+#. Author URI of the plugin
+#: clone-duplicate-orders-for-woocommerce.php
+msgid "https://www.ymmv.co"
+msgstr ""
+
+#: includes/class-cdo-wc-cloner.php:131
+#: includes/class-cdo-wc-cloner.php:169
+msgid "Clone Order"
+msgstr ""
+
+#: includes/class-cdo-wc-cloner.php:135
+msgid "Clone is not available for this order."
+msgstr ""
+
+#: includes/class-cdo-wc-cloner.php:155
+msgid "Clone order"
+msgstr ""
+
+#: includes/class-cdo-wc-cloner.php:178
+#: includes/class-cdo-wc-cloner.php:243
+msgid "You do not have permission to clone orders."
+msgstr ""
+
+#: includes/class-cdo-wc-cloner.php:190
+msgid "This order is already being cloned, and we have detected multiple clicks. You will be redirected to the orders page shortly."
+msgstr ""
+
+#. translators: %1$ is number of seconds. %2$ is the word here that links to orders index.
+#: includes/class-cdo-wc-cloner.php:192
+#, php-format
+msgid "If you are not redirected within %1$d seconds, click %2$s."
+msgstr ""
+
+#. translators: %1$ is number of seconds. %2$ is the word here that links to orders index.
+#: includes/class-cdo-wc-cloner.php:192
+msgid "here"
+msgstr ""
+
+#: includes/class-cdo-wc-cloner.php:218
+#: includes/class-cdo-wc-cloner.php:250
+msgid "Failed to clone the order. Please try again."
+msgstr ""
+
+#: includes/class-cdo-wc-cloner.php:232
+msgid "Nonce verification failed or order ID not set."
+msgstr ""
+
+#. translators: %1$s: New order URL, %2$d: New order ID, %3$s: View the cloned order URL
+#: includes/class-cdo-wc-cloner.php:274
+#, php-format
+msgid "Order successfully duplicated. New order ID: <a href=\"%1$s\">#%2$d</a>. <a href=\"%3$s\">View the cloned order</a>"
+msgstr ""
+
+#: includes/class-cdo-wc-cloner.php:502
+msgid "HPOS Status"
+msgstr ""
+
+#. translators: %1$ %2$ wraps a link to the settings page
+#: includes/class-cdo-wc-init.php:80
+msgid "Thanks for activating Clone / Duplicate Orders for WooCommerce."
+msgstr ""
+
+#. translators: %1$s is the opening <a> tag with a link to activate WooCommerce, and %2$s is the closing </a> tag.
+#: includes/class-cdo-wc-init.php:115
+#, php-format
+msgid "Clone / Duplicate Orders for WooCommerce requires WooCommerce to be active. Please %1$s Activate WooCommerce %2$s."
+msgstr ""
+
+#. translators: %1$s is the opening <a> tag with a link to install WooCommerce, and %2$s is the closing </a> tag.
+#: includes/class-cdo-wc-init.php:127
+#, php-format
+msgid "Clone / Duplicate Orders for WooCommerce requires WooCommerce to be installed and active. Please %1$s Install WooCommerce%2$s."
+msgstr ""

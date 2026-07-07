@@ -593,6 +593,10 @@ function gck_render_bundle_selector() {
 
       .gck-popular-badge,
       .gck-popular-badge-2 {
+          
+          display: none !important;
+          
+          
           transform: rotate(3deg);
           position: absolute;
           top: -18px;
@@ -889,7 +893,7 @@ function gck_render_bundle_selector() {
 
     <div id="bundle-selector" class="bundle-box" data-split-garments="<?php echo $gck_split_garments ? '1' : '0'; ?>">
         <?php
-        $default_index = ( $precheck_second && count( $offers ) > 1 ) ? 1 : 0;
+        $default_index = ( $precheck_second && count( $offers ) > 2 ) ? 2 : 0;
         $loop_index    = 0;
 
         foreach ( $offers as $offer_id => $data ) :
