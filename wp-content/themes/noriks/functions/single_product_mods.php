@@ -88,19 +88,9 @@ function remove_storefront_product_image_zoom() {
 
 
 
-// Ensure WooCommerce gallery features are on
-add_action( 'after_setup_theme', function () {
-   // add_theme_support( 'wc-product-gallery-zoom' );
-   // add_theme_support( 'wc-product-gallery-lightbox' );
-    //add_theme_support( 'wc-product-gallery-slider' );
-} );
-
-
-// Force direction arrows to show on single product gallery
+// Hide the FlexSlider prev/next arrows natively (don't render them at all)
 add_filter( 'woocommerce_single_product_carousel_options', function ( $options ) {
-    $options['directionNav'] = true;  // show prev/next arrows
-    //$options['controlNav']   = true;  // show thumbnails/bullets (optional)
-        $options['animationLoop'] = true;   // enable infinite loop
+    $options['directionNav'] = false; // no prev/next arrows
 
     return $options;
 } );
