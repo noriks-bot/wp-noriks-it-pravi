@@ -420,7 +420,8 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
  <div class="accordion">
 
 
-    <!-- 1 - detajli -->
+    <!-- 1 - detajli --> <!-- nascosto su norikshers -->
+    <?php if ( ! ( function_exists('noriks_is_type') && noriks_is_type('norikshers', $current_product_id) ) ) : ?>
     <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAccordion(this)">
         <h3><?php echo get_field("singlepp_acc_h_1","options"); ?></h3>
@@ -470,8 +471,10 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
     
     
      
+     <?php endif; /* /nascosto dettagli su norikshers */ ?>
+
      <!-- 2 - slika tablica velicina -->
-     <?php if ( ! ( function_exists('noriks_is_type') && ( noriks_is_type('bunion', $current_product_id) || noriks_is_type('fisiorest', $current_product_id) ) ) ) : // nessuna tabella taglie per bunion + fisiorest ?>
+     <?php if ( ! ( function_exists('noriks_is_type') && ( noriks_is_type('bunion', $current_product_id) || noriks_is_type('fisiorest', $current_product_id) || noriks_is_type('norikshers', $current_product_id) ) ) ) : // nessuna tabella taglie per bunion + fisiorest + norikshers ?>
      <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAccordion(this)">
         <h3>Tabella delle taglie</h3>
@@ -517,7 +520,7 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
 
 
     <!-- 3 - savjeti za pranje-->
-    <?php if ( ! ( function_exists('noriks_is_type') && ( noriks_is_type('ortopas', $current_product_id) || noriks_is_type('bunion', $current_product_id) || noriks_is_type('fisiorest', $current_product_id) ) ) ) : // nessun consiglio di lavaggio per fascia/bunion/fisiorest ?>
+    <?php if ( ! ( function_exists('noriks_is_type') && ( noriks_is_type('ortopas', $current_product_id) || noriks_is_type('bunion', $current_product_id) || noriks_is_type('fisiorest', $current_product_id) || noriks_is_type('norikshers', $current_product_id) ) ) ) : // nessun consiglio di lavaggio per fascia/bunion/fisiorest/norikshers ?>
     <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAccordion(this)">
         <h3><?php echo get_field("singlepp_acc_h_2","options"); ?></h3>

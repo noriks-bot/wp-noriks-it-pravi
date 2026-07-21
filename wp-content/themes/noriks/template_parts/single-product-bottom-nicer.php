@@ -793,9 +793,15 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
   $is_ortopas_page    = ( function_exists('noriks_is_type') && noriks_is_type('ortopas', $current_product_id) );
   $is_bunion_page     = ( function_exists('noriks_is_type') && noriks_is_type('bunion', $current_product_id) );
   $is_fisiorest_page  = ( function_exists('noriks_is_type') && noriks_is_type('fisiorest', $current_product_id) );
+  $is_norikshers_review_page = ( function_exists('noriks_is_type') && noriks_is_type('norikshers', $current_product_id) );
+
+  // Nome prodotto di fallback mostrato nelle card recensioni.
+  $rv_fallback_title = $is_norikshers_review_page ? 'NORIKS HERS' : 'Una Maglietta Grigia';
 
   // Include review pools (own pool per product group)
-  if ( $is_fisiorest_page ) {
+  if ( $is_norikshers_review_page ) {
+    include get_stylesheet_directory() . '/auto_reviews/IT_norikshers.php';
+  } elseif ( $is_fisiorest_page ) {
     include get_stylesheet_directory() . '/auto_reviews/IT_fisiorest.php';
   } elseif ( $is_bunion_page ) {
     include get_stylesheet_directory() . '/auto_reviews/IT_bunion.php';
@@ -869,14 +875,16 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
       $is_ortopas   = false;
       $is_bunion    = false;
       $is_fisiorest = false;
+      $is_norikshers = false;
       if ( $product_id ) {
           $is_bokserice = has_term( array( 'bokserice','orto-bokserice', 'bokserice-sastavi-paket' ), 'product_cat', $product_id );
           $is_ortopas   = ( function_exists('noriks_is_type') && noriks_is_type('ortopas', $product_id) );
           $is_bunion    = ( function_exists('noriks_is_type') && noriks_is_type('bunion', $product_id) );
           $is_fisiorest = ( function_exists('noriks_is_type') && noriks_is_type('fisiorest', $product_id) );
+          $is_norikshers = ( function_exists('noriks_is_type') && noriks_is_type('norikshers', $product_id) );
       }
 
-      $cache_key = $transient_key . ( $is_fisiorest ? '_fisiorest' : ( $is_bunion ? '_bunion' : ( $is_ortopas ? '_ortopas' : ( $is_bokserice ? '_bokserice' : '_all' ) ) ) );
+      $cache_key = $transient_key . ( $is_norikshers ? '_norikshers' : ( $is_fisiorest ? '_fisiorest' : ( $is_bunion ? '_bunion' : ( $is_ortopas ? '_ortopas' : ( $is_bokserice ? '_bokserice' : '_all' ) ) ) ) );
 
       if ( function_exists( 'get_transient' ) ) {
           $cached = get_transient( $cache_key );
@@ -893,7 +901,9 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
           'order'   => 'DESC',
       ];
 
-      if ( $is_fisiorest ) {
+      if ( $is_norikshers ) {
+          $args['category'] = [ 'orto-norikshers', 'orto-noriks-hers' ];
+      } elseif ( $is_fisiorest ) {
           $args['category'] = [ 'orto-fisiorest' ];
       } elseif ( $is_bunion ) {
           $args['category'] = [ 'orto-bunion' ];
@@ -1144,8 +1154,8 @@ function assign_unique_avatars_first_n(array $reviews, array $avatar_pool, strin
 
   // Avatar pools based on page category
   $avatar_type = $is_bokserice_page ? 'bokserice' : 'majice';
-  // Belt + bunion + fisiorest: text-only reviews (no avatar images).
-  $avatar_pool = ( $is_ortopas_page || $is_bunion_page || $is_fisiorest_page ) ? array() : get_review_avatar_pool($avatar_type);
+  // Belt + bunion + fisiorest + norikshers: text-only reviews (no avatar images).
+  $avatar_pool = ( $is_ortopas_page || $is_bunion_page || $is_fisiorest_page || $is_norikshers_review_page ) ? array() : get_review_avatar_pool($avatar_type);
 
   $product_pool = get_wc_product_pool();
 
@@ -1187,8 +1197,8 @@ $auto_reviews_ship = assign_unique_avatars_first_n($auto_reviews_ship, $avatar_p
   $ship_count = count($auto_reviews_ship);
 ?>
 
-<?php if ( $is_ortopas_page || $is_bunion_page || $is_fisiorest_page ) : ?>
-<style>/* belt + bunion + fisiorest: text-only reviews, no avatar */ #reviews-section .avatar { display: none !important; }</style>
+<?php if ( $is_ortopas_page || $is_bunion_page || $is_fisiorest_page || $is_norikshers_review_page ) : ?>
+<style>/* belt + bunion + fisiorest + norikshers: text-only reviews, no avatar */ #reviews-section .avatar { display: none !important; }</style>
 <?php endif; ?>
 
 <section id="reviews-section" class="basic-reviews-section" style="margin-bottom:40px!important;padding-bottom:40px!important;">
@@ -1211,7 +1221,7 @@ $auto_reviews_ship = assign_unique_avatars_first_n($auto_reviews_ship, $avatar_p
       <?php if (!empty($initial_product)) : foreach ($initial_product as $review) :
         $name  = $review['name'] ?? 'Anonimo';
         $text  = $review['text'] ?? '';
-        $title = !empty($review['product_title']) ? $review['product_title'] : 'Una Maglietta Grigia';
+        $title = !empty($review['product_title']) ? $review['product_title'] : $rv_fallback_title;
         $url   = !empty($review['product_url'])   ? $review['product_url']   : '#';
         $stars = '★★★★★';
         $date_display = $review['assigned_date'] ?? '';
@@ -1246,7 +1256,7 @@ $auto_reviews_ship = assign_unique_avatars_first_n($auto_reviews_ship, $avatar_p
       <?php if (!empty($initial_ship)) : foreach ($initial_ship as $review) :
         $name  = $review['name'] ?? 'Anonimo';
         $text  = $review['text'] ?? '';
-        $title = !empty($review['product_title']) ? $review['product_title'] : 'Una Maglietta Grigia';
+        $title = !empty($review['product_title']) ? $review['product_title'] : $rv_fallback_title;
         $url   = !empty($review['product_url'])   ? $review['product_url']   : '#';
         $stars = '★★★★★';
         $date_display = $review['assigned_date'] ?? '';
@@ -1610,6 +1620,7 @@ $faq_list3 = get_field('faq_list_3', 'option');
 $is_ortopas_faq   = ( function_exists('noriks_is_type') && noriks_is_type('ortopas') );
 $is_bunion_faq    = ( function_exists('noriks_is_type') && noriks_is_type('bunion') );
 $is_fisiorest_faq = ( function_exists('noriks_is_type') && noriks_is_type('fisiorest') );
+$is_norikshers_faq = ( function_exists('noriks_is_type') && noriks_is_type('norikshers') );
 
 // Correttore alluce valgo — FAQ sul prodotto (traduzione, NORIKS).
 $bunion_faq = array(
@@ -1645,8 +1656,23 @@ $fisiorest_faq = array(
   array( 'questioon' => 'Posso restituirlo se non vedo risultati?', 'answer' => 'Certo! Offriamo una garanzia di rimborso completa entro 90 giorni dalla consegna, se non sei soddisfatto del prodotto. Scrivici a info@noriks.com e risponderemo entro 12 ore dalla ricezione del messaggio!' ),
 );
 
-$faq_pick = function( $title, $list ) use ( $is_ortopas_faq, $ortopas_faq, $is_bunion_faq, $bunion_faq, $is_fisiorest_faq, $fisiorest_faq ) {
+// NORIKS HERS (strisce di collagene al silicone per rughe) — FAQ sul prodotto (traduzione, NORIKS HERS).
+$norikshers_faq = array(
+  array( 'questioon' => 'In cosa si differenzia dai comuni cerotti anti-rughe o dalle creme per cicatrici?', 'answer' => 'La maggior parte dei cerotti anti-rughe è fatta di carta o idrocolloide, e le creme per cicatrici spesso restano solo sulla superficie della pelle. NORIKS HERS usa silicone di qualità clinica, di cui i dermatologi si fidano da anni per migliorare visibilmente la texture delle cicatrici e l\'elasticità della pelle — e oggi anche per ridurre le rughe.' ),
+  array( 'questioon' => 'Una sola striscia può davvero agire sia sulle rughe che sulle cicatrici?', 'answer' => 'Sì, perché rughe e cicatrici sono entrambe segni della degradazione del collagene o di una scarsa rigenerazione della pelle. Il silicone aiuta a trattenere l\'idratazione, a rigenerare il collagene e a levigare la texture della pelle, con benefici per entrambe.' ),
+  array( 'questioon' => 'In quanto tempo vedo i risultati?', 'answer' => 'La maggior parte degli utenti nota una levigatura visibile delle linee sottili già dopo 1-3 utilizzi, mentre l\'aspetto delle cicatrici migliora in 2-3 settimane di uso regolare. Le cicatrici e le rughe più profonde possono richiedere più tempo, ma i risultati si costruiscono nel tempo.' ),
+  array( 'questioon' => 'È sicuro per pelli sensibili o a tendenza acneica?', 'answer' => 'Assolutamente. NORIKS HERS è ipoallergenico, senza lattice e abbastanza delicato per le zone sensibili come il contorno occhi o bocca, e persino per i segni dell\'acne in via di guarigione. Se la tua pelle è molto reattiva, testa sempre prima una piccola zona.' ),
+  array( 'questioon' => 'Per quanto tempo posso indossarlo?', 'answer' => 'Per risultati ottimali consigliamo di indossare NORIKS HERS per 6-8 ore, durante la notte. Puoi usarlo anche di giorno — assicurati solo che la pelle sotto sia pulita e priva di oli o sieri.' ),
+  array( 'questioon' => 'Quanto dura un rotolo?', 'answer' => 'A seconda della frequenza e delle zone di utilizzo, un rotolo può durare 3-6 settimane. Essendo riutilizzabile, è molto più conveniente dei cerotti o delle creme monouso.' ),
+  array( 'questioon' => 'Resta al suo posto mentre dormo?', 'answer' => 'Sì! NORIKS HERS è realizzato con un adesivo delicato sulla pelle e resistente, che segue i tuoi movimenti. È traspirante e resta al suo posto, anche per chi dorme sul fianco.' ),
+  array( 'questioon' => 'Su quali zone posso usarlo?', 'answer' => 'Ovunque! La maggior parte dei clienti usa NORIKS HERS su: rughe della fronte, rughe tra le sopracciglia, rughe del sorriso, rughe del collo, segni post-acne, cicatrici da taglio cesareo, smagliature, cicatrici chirurgiche o da lesioni.' ),
+  array( 'questioon' => 'Perché NORIKS HERS è migliore dei cerotti economici online?', 'answer' => 'Molti cerotti venduti online sono di scarsa qualità, sottili o con un adesivo mediocre. NORIKS HERS usa silicone premium, testato in laboratorio per sicurezza e durata, e resta al suo posto tutta la notte. Inoltre offriamo un servizio clienti dedicato e sostituzioni più rapide, se hai bisogno di aiuto.' ),
+  array( 'questioon' => 'Esiste una garanzia di rimborso?', 'answer' => 'Sì, offriamo una garanzia senza rischi di 30 giorni. Se non sei soddisfatto, contattaci e sistemeremo tutto.' ),
+);
+
+$faq_pick = function( $title, $list ) use ( $is_ortopas_faq, $ortopas_faq, $is_bunion_faq, $bunion_faq, $is_fisiorest_faq, $fisiorest_faq, $is_norikshers_faq, $norikshers_faq ) {
   $is_info = ( stripos( (string) $title, 'prodotto' ) !== false );
+  if ( $is_norikshers_faq && $is_info ) { return $norikshers_faq; }
   if ( $is_fisiorest_faq && $is_info ) { return $fisiorest_faq; }
   if ( $is_bunion_faq && $is_info )    { return $bunion_faq; }
   if ( $is_ortopas_faq && $is_info )   { return $ortopas_faq; }
