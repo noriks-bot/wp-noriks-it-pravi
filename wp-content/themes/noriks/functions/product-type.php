@@ -33,6 +33,7 @@ function noriks_product_type_map() : array {
         'ortopas'                 => array( 'orto-ortopas', 'ortopas' ),
         'bunion'                  => array( 'orto-bunion', 'bunion' ),
         'fisiorest'               => array( 'orto-fisiorest', 'fisiorest' ),
+        'norikshers'              => array( 'orto-norikshers', 'orto-noriks-hers', 'norikshers' ),
         'singles-boxers'          => array( 'singles-boxers', '1-pezzo-boxer' ),
         'majice-bokserice-paketi' => array( 'set', 'orto-maglietta-boxer', 'majice-i-bokserice-paketi', 'kompleti' ),
         'black-friday'            => array( 'black-friday' ),
