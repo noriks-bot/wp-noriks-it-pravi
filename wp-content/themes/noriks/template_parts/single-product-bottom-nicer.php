@@ -1,5 +1,18 @@
 
 <?php
+/* Bunion / ortopas / fisiorest: dedicate why-sezioni (senza return — poi gira
+   il sistema comune di recensioni). Gli altri prodotti non vengono toccati. */
+if ( function_exists( 'noriks_is_type' ) ) {
+    if ( noriks_is_type( 'bunion' ) ) {
+        get_template_part( 'template_parts/product-bottom/why-bunion' );
+    } elseif ( noriks_is_type( 'ortopas' ) ) {
+        get_template_part( 'template_parts/product-bottom/why-ortopas' );
+    } elseif ( noriks_is_type( 'fisiorest' ) ) {
+        get_template_part( 'template_parts/product-bottom/why-fisiorest' );
+    }
+}
+?>
+<?php
 if (  has_term( array( 'pacchetto-starter','orto-starter' ), 'product_cat', get_the_id() )  )   :
 ?>
 
@@ -775,9 +788,18 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
   // Detect if current product belongs to bokserice group
   $current_product_id = (function_exists('is_product') && is_product()) ? get_queried_object_id() : get_the_id();
   $is_bokserice_page  = has_term( array( 'boxer','orto-bokserice', 'bokserice-sastavi-paket' ), 'product_cat', $current_product_id );
+  $is_ortopas_page    = ( function_exists('noriks_is_type') && noriks_is_type('ortopas', $current_product_id) );
+  $is_bunion_page     = ( function_exists('noriks_is_type') && noriks_is_type('bunion', $current_product_id) );
+  $is_fisiorest_page  = ( function_exists('noriks_is_type') && noriks_is_type('fisiorest', $current_product_id) );
 
-  // Include review pools
-  if ( ! $is_bokserice_page )  {
+  // Include review pools (own pool per product group)
+  if ( $is_fisiorest_page ) {
+    include get_stylesheet_directory() . '/auto_reviews/IT_fisiorest.php';
+  } elseif ( $is_bunion_page ) {
+    include get_stylesheet_directory() . '/auto_reviews/IT_bunion.php';
+  } elseif ( $is_ortopas_page ) {
+    include get_stylesheet_directory() . '/auto_reviews/IT_ortopas.php';
+  } elseif ( ! $is_bokserice_page )  {
     include get_stylesheet_directory() . '/auto_reviews/'.$reviews_language.'.php';
   } else {
     include get_stylesheet_directory() . '/auto_reviews/IT_bokserice.php';
@@ -842,11 +864,17 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
       }
 
       $is_bokserice = false;
+      $is_ortopas   = false;
+      $is_bunion    = false;
+      $is_fisiorest = false;
       if ( $product_id ) {
           $is_bokserice = has_term( array( 'bokserice','orto-bokserice', 'bokserice-sastavi-paket' ), 'product_cat', $product_id );
+          $is_ortopas   = ( function_exists('noriks_is_type') && noriks_is_type('ortopas', $product_id) );
+          $is_bunion    = ( function_exists('noriks_is_type') && noriks_is_type('bunion', $product_id) );
+          $is_fisiorest = ( function_exists('noriks_is_type') && noriks_is_type('fisiorest', $product_id) );
       }
 
-      $cache_key = $transient_key . ( $is_bokserice ? '_bokserice' : '_all' );
+      $cache_key = $transient_key . ( $is_fisiorest ? '_fisiorest' : ( $is_bunion ? '_bunion' : ( $is_ortopas ? '_ortopas' : ( $is_bokserice ? '_bokserice' : '_all' ) ) ) );
 
       if ( function_exists( 'get_transient' ) ) {
           $cached = get_transient( $cache_key );
@@ -863,7 +891,13 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
           'order'   => 'DESC',
       ];
 
-      if ( $is_bokserice ) {
+      if ( $is_fisiorest ) {
+          $args['category'] = [ 'orto-fisiorest' ];
+      } elseif ( $is_bunion ) {
+          $args['category'] = [ 'orto-bunion' ];
+      } elseif ( $is_ortopas ) {
+          $args['category'] = [ 'orto-ortopas' ];
+      } elseif ( $is_bokserice ) {
           $args['category'] = [ 'bokserice' ];
       } else {
           $args['tax_query'] = [
@@ -1108,7 +1142,8 @@ function assign_unique_avatars_first_n(array $reviews, array $avatar_pool, strin
 
   // Avatar pools based on page category
   $avatar_type = $is_bokserice_page ? 'bokserice' : 'majice';
-  $avatar_pool = get_review_avatar_pool($avatar_type);
+  // Belt + bunion + fisiorest: text-only reviews (no avatar images).
+  $avatar_pool = ( $is_ortopas_page || $is_bunion_page || $is_fisiorest_page ) ? array() : get_review_avatar_pool($avatar_type);
 
   $product_pool = get_wc_product_pool();
 
@@ -1149,6 +1184,10 @@ $auto_reviews_ship = assign_unique_avatars_first_n($auto_reviews_ship, $avatar_p
   $prod_count = count($auto_reviews_en);
   $ship_count = count($auto_reviews_ship);
 ?>
+
+<?php if ( $is_ortopas_page || $is_bunion_page || $is_fisiorest_page ) : ?>
+<style>/* belt + bunion + fisiorest: text-only reviews, no avatar */ #reviews-section .avatar { display: none !important; }</style>
+<?php endif; ?>
 
 <section id="reviews-section" class="basic-reviews-section" style="margin-bottom:40px!important;padding-bottom:40px!important;">
   <div class="container basic-reviews-section-container" style="width:100%;max-width:1440px;padding-top:20px!important;margin:0 auto;padding-left: 10px; padding-right: 10px;">
@@ -1565,6 +1604,52 @@ $auto_reviews_ship = assign_unique_avatars_first_n($auto_reviews_ship, $avatar_p
 $faq_list = get_field('faq_list', 'option');
 $faq_list2 = get_field('faq_list_2', 'option');
 $faq_list3 = get_field('faq_list_3', 'option');
+
+$is_ortopas_faq   = ( function_exists('noriks_is_type') && noriks_is_type('ortopas') );
+$is_bunion_faq    = ( function_exists('noriks_is_type') && noriks_is_type('bunion') );
+$is_fisiorest_faq = ( function_exists('noriks_is_type') && noriks_is_type('fisiorest') );
+
+// Correttore alluce valgo — FAQ sul prodotto (traduzione, NORIKS).
+$bunion_faq = array(
+  array( 'questioon' => 'Quanto in fretta mi sentirò meglio?', 'answer' => 'Circa 30 minuti — è il tempo necessario per attenuare il fastidio. Con un uso regolare per due settimane sentirai un sollievo notevole nelle attività quotidiane come camminare, stare in piedi o dormire.' ),
+  array( 'questioon' => 'Quanto in fretta noterò una differenza sull\'alluce?', 'answer' => 'Dipende dalla gravità dell\'alluce valgo: la maggior parte dei clienti nota un miglioramento visibile dopo 4-8 settimane. Alluce lieve: 4 settimane. Alluce moderato: 4 settimane. Alluce grave: 8 settimane.' ),
+  array( 'questioon' => 'Si può indossare nelle scarpe? Posso camminarci?', 'answer' => 'No, non entra nella scarpa. Sì, puoi camminarci. Tuttavia è pensato per il riposo — quando sei sdraiato sul divano, guardi la TV, leggi o dormi.' ),
+  array( 'questioon' => 'E se dovesse essere scomodo?', 'answer' => 'È del tutto normale! Il correttore NORIKS è progettato per essere abbastanza saldo da allineare l\'articolazione dell\'alluce, fermare l\'infiammazione e ridurre il fastidio. Potresti aver bisogno di 1-2 sessioni per abituarti, dopodiché ti sentirai molto meglio!' ),
+  array( 'questioon' => 'Per quanto tempo dovrei usarlo?', 'answer' => 'Consigliamo di iniziare con 30 minuti al giorno e aumentare gradualmente fino a una sessione di 1-3 ore. Quando ti senti a tuo agio, puoi iniziare a indossarlo anche durante il sonno. Indossalo mentre ti rilassi — sul divano, davanti alla TV, leggendo o dormendo.' ),
+  array( 'questioon' => 'Aiuterà con la mia condizione specifica?', 'answer' => 'Il correttore NORIKS è ideale per: alleviare il fastidio che incide sulle attività quotidiane come camminare o stare in piedi; alleviare il disagio da alluce valgo durante il riposo o il sonno; trattare l\'alluce valgo in fase iniziale che potrebbe progredire; l\'alluce valgo ricomparso dopo un intervento; aiutare con l\'alluce valgo grave in attesa di intervento; e come efficace opzione non chirurgica.' ),
+  array( 'questioon' => 'Si adatterà al mio piede? Esistono lato destro e sinistro?', 'answer' => 'Indipendentemente dalla taglia del piede — dal più piccolo piede di bambino a un grande piede da adulto — il correttore NORIKS si adatta comodamente. Non ci sono lati! Grazie al design flessibile si adatta con la stessa facilità al piede sinistro o destro.' ),
+);
+
+// Fascia ortopedica — FAQ sul prodotto (traduzione, NORIKS).
+$ortopas_faq = array(
+  array( 'questioon' => 'Quanto in fretta sento sollievo dal dolore?', 'answer' => 'Molti utenti percepiscono un sollievo evidente da sciatica e dolori lombari subito dopo aver indossato la fascia NORIKS. La sua compressione mirata offre un sostegno immediato, stabilizza la colonna vertebrale e riduce la pressione sui nervi. Per un effetto duraturo consigliamo di indossare la fascia in modo costante secondo le istruzioni per almeno due settimane. Col tempo, con un uso corretto e sane abitudini, potrai avvertire un sollievo duraturo e una migliore mobilità.' ),
+  array( 'questioon' => 'Come si posiziona correttamente la fascia?', 'answer' => 'Indossa la fascia NORIKS intorno ai fianchi, poco sotto la linea della vita. Deve trovarsi sopra la zona sacrale (parte bassa della schiena, appena sopra i glutei) e sotto la cresta iliaca (parte superiore dei fianchi laterali). Per maggiori informazioni consulta le istruzioni d\'uso.' ),
+  array( 'questioon' => 'La fascia indebolisce i miei muscoli?', 'answer' => 'No, la fascia NORIKS non indebolisce i muscoli come un busto per la schiena. Aiuta solo a tenere insieme le articolazioni sacroiliache e ripristina la normale tensione dei legamenti. Puoi indossarla per settimane o mesi senza timore di atrofia muscolare.' ),
+  array( 'questioon' => 'Posso indossare la fascia anche mentre dormo?', 'answer' => 'Sì, puoi indossare la fascia anche di notte. La durata d\'uso non è limitata e un uso prolungato non ha effetti negativi.' ),
+  array( 'questioon' => 'Quanto stretta va indossata?', 'answer' => 'La fascia deve aderire bene, ma non troppo stretta, per evitare fastidi. Devi poterti muovere senza problemi, senza che la fascia stringa o scivoli. La tensione è facilmente regolabile con le fasce elastiche.' ),
+  array( 'questioon' => 'A chi la consigliate?', 'answer' => 'A tutti coloro che soffrono di dolori lombari, sciatica, tensione muscolare, ernia del disco, dolori all\'anca o al bacino e problemi all\'articolazione sacroiliaca. Indipendentemente da età, sesso, altezza e peso.' ),
+  array( 'questioon' => 'Esiste una garanzia di rimborso?', 'answer' => 'Offriamo una garanzia di soddisfazione! Se non sei soddisfatto della fascia NORIKS, contattaci a info@noriks.com per la restituzione e il rimborso entro 90 giorni. Il termine decorre dal ricevimento della fascia.' ),
+);
+
+// FisioRest — FAQ sul prodotto (traduzione, NORIKS).
+$fisiorest_faq = array(
+  array( 'questioon' => 'Come funziona NORIKS FisioRest?', 'answer' => 'FisioRest combina trazione, calore e massaggio vibrante con un design ergonomico in memory foam. Questa tecnologia distende il collo con l\'angolazione giusta e scarica la colonna cervicale. Poi il rilassante massaggio caldo stimola l\'afflusso di sangue ricco di ossigeno e nutrienti ai muscoli, favorendo la rigenerazione dei tessuti.' ),
+  array( 'questioon' => 'Perché FisioRest è migliore di altri dispositivi?', 'answer' => 'NORIKS FisioRest è speciale perché combina <strong>tre terapie in una</strong> — calore, massaggio e delicata trazione — che rilassano i muscoli e riallineano il collo per un sollievo duraturo. Inoltre è <strong>senza fili, sicuro per il sonno e avvolto in seta rinfrescante</strong> per un comfort che non troverai altrove.' ),
+  array( 'questioon' => 'Come si usa FisioRest?', 'answer' => '1. Caricalo con il cavo USB-C e il caricabatterie in dotazione per circa 4-6 ore. 2. Tieni premuto il tasto del massaggio o del calore per 5 secondi finché non si accende la spia. 3. Premendo di nuovo i tasti modifichi la velocità del massaggio e le impostazioni del calore. 4. Goditi un massaggio rilassante!' ),
+  array( 'questioon' => 'Per quanto tempo dovrei usare FisioRest?', 'answer' => 'Consigliamo di iniziare con 15 minuti per far abituare il collo. Col tempo puoi arrivare a una sessione completa. Come riferimento: un ciclo di calore delicato, massaggio e trazione dura 30 minuti, che è di solito il tempo ideale per far rilassare il collo e recuperare la sua curvatura naturale.' ),
+  array( 'questioon' => 'FisioRest è senza fili?', 'answer' => 'Sì! NORIKS FisioRest è completamente senza fili e ricaricabile per l\'uso quotidiano.' ),
+  array( 'questioon' => 'Come si pulisce FisioRest?', 'answer' => 'Il tessuto è resistente a oli e polvere, ma consigliamo di pulire FisioRest dopo l\'uso con una salvietta disinfettante, poiché la fodera del cuscino non è lavabile.' ),
+  array( 'questioon' => 'È sicuro per tutti?', 'answer' => 'NORIKS FisioRest è progettato per adattarsi a tutti, indipendentemente da età o sesso. Tuttavia ogni situazione è diversa. Per indicazioni dettagliate e adatte alle tue esigenze, consigliamo di consultare un medico.' ),
+  array( 'questioon' => 'Posso restituirlo se non vedo risultati?', 'answer' => 'Certo! Offriamo una garanzia di rimborso completa entro 90 giorni dalla consegna, se non sei soddisfatto del prodotto. Scrivici a info@noriks.com e risponderemo entro 12 ore dalla ricezione del messaggio!' ),
+);
+
+$faq_pick = function( $title, $list ) use ( $is_ortopas_faq, $ortopas_faq, $is_bunion_faq, $bunion_faq, $is_fisiorest_faq, $fisiorest_faq ) {
+  $is_info = ( stripos( (string) $title, 'prodotto' ) !== false );
+  if ( $is_fisiorest_faq && $is_info ) { return $fisiorest_faq; }
+  if ( $is_bunion_faq && $is_info )    { return $bunion_faq; }
+  if ( $is_ortopas_faq && $is_info )   { return $ortopas_faq; }
+  return $list;
+};
 ?>
 
 
@@ -1582,6 +1667,7 @@ $faq_list3 = get_field('faq_list_3', 'option');
             color: #222223;
             margin-bottom: 10px; "><?php echo get_field('faq_title_1', 'option'); ?></h4>
             <?php
+              $faq_list = $faq_pick( get_field('faq_title_1', 'option'), $faq_list );
               if( $faq_list && is_array($faq_list) ):
                       foreach( $faq_list as $faq_item ):
               ?>
@@ -1608,6 +1694,7 @@ $faq_list3 = get_field('faq_list_3', 'option');
             color: #001e36;
             margin-bottom: 10px; "><?php echo get_field('faq_title_2', 'option'); ?></h4>
             <?php
+              $faq_list2 = $faq_pick( get_field('faq_title_2', 'option'), $faq_list2 );
               if( $faq_list2 && is_array($faq_list2) ):
                       foreach( $faq_list2 as $faq_item ):
               ?>
@@ -1634,6 +1721,7 @@ $faq_list3 = get_field('faq_list_3', 'option');
             color: #001e36;
             margin-bottom: 10px; "><?php echo get_field('faq_title_3', 'option'); ?></h4>
             <?php
+              $faq_list3 = $faq_pick( get_field('faq_title_3', 'option'), $faq_list3 );
               if( $faq_list3 && is_array($faq_list3) ):
                       foreach( $faq_list3 as $faq_item ):
               ?>

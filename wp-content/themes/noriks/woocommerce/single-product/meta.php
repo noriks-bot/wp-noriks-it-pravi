@@ -428,19 +428,31 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
       </div>
       <div class="accordion-content">
           
-         <?php if( !$is_boxers &&  !$is_carape &&   !$is_mixed_bundle ): ?>
-         
-         
-         
+         <?php if( !$is_boxers &&  !$is_carape &&   !$is_mixed_bundle && ! ( function_exists('noriks_is_type') && ( noriks_is_type('ortopas', $current_product_id) || noriks_is_type('bunion', $current_product_id) || noriks_is_type('fisiorest', $current_product_id) ) ) ): ?>
+
+
+
         <?php echo get_field("singlepp_acc_t_1","options"); ?>
-        
-        
+
+
         <?php elseif(  has_term( array( 'orto-starter', 'orto-majica-bokserica' ), 'product_cat', $current_product_id )  ): ?>
-        
-        
-        
+
+
+
                 Le nostre magliette premium sono realizzate con un misto di alta qualità di 60% cotone ring-spun e 40% poliestere, garantendo un tessuto estremamente morbido e resistente alle pieghe. <br><br>I boxer NORIKS sono realizzati con un misto premium di 95% modal e 5% elastan, garantendo un tessuto estremamente morbido ed elastico che si adatta perfettamente al corpo. La fascia elastica è progettata per una vestibilità ottimale, offrendo comfort senza costrizioni. <br>
-        
+
+        <?php elseif( function_exists('noriks_is_type') && noriks_is_type('fisiorest', $current_product_id) ): ?>
+
+                NORIKS FisioRest è un cuscino terapeutico per il collo che combina trazione, calore e massaggio vibrante in un design ergonomico in memory foam. Distende delicatamente il collo con l'angolazione corretta, scarica la colonna cervicale e, con calore e massaggio, scioglie la tensione muscolare. Senza fili, ricaricabile e avvolto in morbida seta rinfrescante – sicuro anche per il sonno.
+
+        <?php elseif( function_exists('noriks_is_type') && noriks_is_type('bunion', $current_product_id) ): ?>
+
+                Il correttore per alluce valgo NORIKS, con la sua terapia di allineamento avanzata e il meccanismo a snodo brevettato, riporta delicatamente l'alluce nella posizione naturale, allevia il fastidio e previene l'ulteriore crescita della sporgenza. Il design flessibile ti permette anche di camminarci. Si adatta a tutte le taglie di piede, senza lato destro o sinistro. Da usare a riposo – mentre ti rilassi, guardi la TV, leggi o dormi.
+
+        <?php elseif( function_exists('noriks_is_type') && noriks_is_type('ortopas', $current_product_id) ): ?>
+
+                La fascia ortopedica NORIKS stabilizza in modo mirato la parte bassa della schiena grazie a una compressione mirata, allinea correttamente il bacino e scarica il nervo sciatico. Sottile e invisibile sotto i vestiti, con livello di sostegno regolabile. Adatta in caso di dolori lombari, sciatica, tensione muscolare e problemi all'articolazione sacroiliaca.
+
         <?php else: ?>
         
         
@@ -459,43 +471,53 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
     
      
      <!-- 2 - slika tablica velicina -->
+     <?php if ( ! ( function_exists('noriks_is_type') && ( noriks_is_type('bunion', $current_product_id) || noriks_is_type('fisiorest', $current_product_id) ) ) ) : // nessuna tabella taglie per bunion + fisiorest ?>
      <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAccordion(this)">
         <h3>Tabella delle taglie</h3>
         <div class="toggle">+</div>
       </div>
       <div class="accordion-content">
-          
-           <?php if( $is_boxers ): ?>
-       
-        
+
+           <?php if( function_exists('noriks_is_type') && noriks_is_type('ortopas', $current_product_id) ): ?>
+
+          <div style="line-height:1.9;">
+            <strong>S/M</strong> : circonferenza fianchi 75–110 cm<br>
+            <strong>L/XL</strong> : circonferenza fianchi 110–140 cm<br><br>
+            Misura la circonferenza dei fianchi per trovare la tua taglia.
+          </div>
+
+        <?php elseif( $is_boxers ): ?>
+
+
           <img src="https://noriks.com/it/wp-content/uploads/2026/02/boxers_size_it.png">
-          
-          
-          
-        
+
+
+
         <?php elseif(  $is_carape ): ?>
-        
-        
+
+
                   <img src="https://noriks.com/it/wp-content/uploads/2026/02/Nogavice_tabela_velikosti_it.png">
-                  
+
     <?php elseif(  $is_mixed_bundle ): ?>
-    
+
      <img src="<?php echo get_template_directory_uri(); ?>/img/tabela-velikosti-majice.jpg">
 <img src="https://noriks.com/it/wp-content/uploads/2026/02/boxers_size_it.png">
-        
+
           <?php else: ?>
-      
-      
+
+
        <img src="<?php echo get_template_directory_uri(); ?>/img/tabela-velikosti-majice.jpg">
-        
-            
+
+
         <?php endif; ?>
       </div>
     </div>
+    <?php endif; // /nessuna tabella taglie per bunion + fisiorest ?>
 
 
     <!-- 3 - savjeti za pranje-->
+    <?php if ( ! ( function_exists('noriks_is_type') && ( noriks_is_type('ortopas', $current_product_id) || noriks_is_type('bunion', $current_product_id) || noriks_is_type('fisiorest', $current_product_id) ) ) ) : // nessun consiglio di lavaggio per fascia/bunion/fisiorest ?>
     <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAccordion(this)">
         <h3><?php echo get_field("singlepp_acc_h_2","options"); ?></h3>
@@ -504,20 +526,21 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
       <div class="accordion-content">
              <?php if( !$is_boxers &&  !$is_carape &&   !$is_mixed_bundle ): ?>
         <?php echo get_field("singlepp_acc_t_2","options"); ?>
-        
-         
+
+
         <?php elseif(  has_term( array( 'orto-starter', 'orto-majica-bokserica' ), 'product_cat', $current_product_id )  ): ?>
-        
-        
-        
-                         Lavare i colori con i colori. Programma delicato a bassa temperatura. Asciugare steso o in asciugatrice a bassa temperatura. Non candeggiare.              
-        
-        
+
+
+
+                         Lavare i colori con i colori. Programma delicato a bassa temperatura. Asciugare steso o in asciugatrice a bassa temperatura. Non candeggiare.
+
+
           <?php else: ?>
             <?php echo get_field("__overwrite_sekcije_bellow_3"); ?>
         <?php endif; ?>
       </div>
     </div>
+    <?php endif; // /nessun consiglio di lavaggio per fascia/bunion/fisiorest ?>
 
 
 
