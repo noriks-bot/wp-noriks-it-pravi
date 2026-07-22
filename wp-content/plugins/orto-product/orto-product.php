@@ -434,7 +434,16 @@ function gck_render_bundle_selector() {
     $gck_no_attrs    = has_term( array( 'orto-bunion', 'orto-fisiorest', 'orto-norikshers', 'orto-noriks-hers' ), 'product_cat', $product_id );
     $gck_single_size = has_term( 'orto-ortopas', 'product_cat', $product_id );
 
-    if ( ! $gck_no_attrs && ! $gck_single_size && count( $custom_attrs ) < 2 ) return;
+    // SHGIFTS (orto-majica-darila): the SAME split-garment selector as SHBOX,
+    // extended to 3 garment groups (4 magliette + 1 boxer + 1 calza). Gated
+    // strictly to this category. This site's save/sync collapses product
+    // attributes to a single Colore/Taglia, so the 3 groups' colour/size options
+    // are sourced from hardcoded arrays fed into the EXACT SHBOX swatch/select
+    // markup + CSS (see the render branch below). Detected early and bypasses the
+    // attribute guards so it always renders regardless of product attributes.
+    $gck_shgifts = has_term( 'orto-majica-darila', 'product_cat', $product_id );
+
+    if ( ! $gck_no_attrs && ! $gck_single_size && ! $gck_shgifts && count( $custom_attrs ) < 2 ) return;
 
     $split  = gck_split_attrs_color_size( $custom_attrs );
     $colors = $split['colors'];
@@ -445,7 +454,7 @@ function gck_render_bundle_selector() {
         $sizes  = array();
     } elseif ( $gck_single_size ) {
         if ( empty($sizes) ) return;
-    } else {
+    } elseif ( ! $gck_shgifts ) {
         if ( empty($colors) || empty($sizes) ) return;
     }
 
@@ -697,7 +706,7 @@ function gck_render_bundle_selector() {
     </style>
 
     <?php
-    if (  !has_term( array( 'orto-starter', 'orto-magliette', 'orto-boxer', 'orto-ortopas', 'orto-bunion', 'orto-fisiorest', 'orto-norikshers', 'orto-noriks-hers' ), 'product_cat', $product_id )  )   :
+    if (  !has_term( array( 'orto-starter', 'orto-magliette', 'orto-boxer', 'orto-ortopas', 'orto-bunion', 'orto-fisiorest', 'orto-norikshers', 'orto-noriks-hers', 'orto-majica-darila' ), 'product_cat', $product_id )  )   :
     ?>
         <style>
           .bundle-option { border: 2px solid #ededed; background: #f4f4f4b0  !important; border-radius: 4px; }
@@ -706,7 +715,21 @@ function gck_render_bundle_selector() {
           .bundle-box select { border: 2px solid black !important; }
         </style>
     <?php endif; ?>
-    
+
+    <?php
+    // SHGIFTS: the calza size labels ("39-43" …) are wider than shirt/boxer sizes,
+    // so widen just that one size-select so the value isn't clipped/overlapped.
+    if ( $gck_shgifts ) :
+    ?>
+        <style>
+          #bundle-selector .gck-size-select[data-size-key="carapa_size"] {
+              max-width: 130px !important;
+              min-width: 96px !important;
+              padding-right: 26px !important;
+          }
+        </style>
+    <?php endif; ?>
+
     <?php
     if (  has_term( array( 'orto-starter'), 'product_cat', $product_id )  )   :
     ?>
@@ -779,7 +802,7 @@ function gck_render_bundle_selector() {
         </ul>
         <?php endif; ?>
 
-        <?php if ( ! $show_countdown && ! $gck_no_attrs && ! $gck_single_size ) : ?>
+        <?php if ( ! $show_countdown && ! $gck_no_attrs && ! $gck_single_size && ! $gck_shgifts ) : // no size chart on the gifts set ?>
         <a id="open-size-chartCustom" href="#size-chart" class="gck-size-link">
             <svg style="margin-right: 5px; width: 23px; height: 23px; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
                 <path d="M11.4124 2.58464L2.08525 11.9118C1.86558 12.1315 1.86558 12.4876 2.08525 12.7073L5.78977 16.4118C6.00944 16.6315 6.3656 16.6315 6.58527 16.4118L15.9124 7.08466C16.1321 6.86499 16.1321 6.50883 15.9124 6.28916L12.2079 2.58464C11.9883 2.36497 11.6321 2.36497 11.4124 2.58464Z" stroke="#111213" stroke-width="0.84375"></path>
@@ -920,7 +943,7 @@ function gck_render_bundle_selector() {
         </script>
     <?php endif; ?>
 
-    <?php if ( $show_countdown && ! $gck_no_attrs && ! $gck_single_size ) : ?>
+    <?php if ( $show_countdown && ! $gck_no_attrs && ! $gck_single_size && ! $gck_shgifts ) : // no size chart on the gifts set ?>
     <div class="gck-size-link-wrap" style="text-align:right; margin:0 0 8px 0;">
         <a id="open-size-chartCustom" href="#size-chart" class="gck-size-link">
             <svg style="margin-right: 5px; width: 23px; height: 23px; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
@@ -957,6 +980,10 @@ function gck_render_bundle_selector() {
         $loop_index    = 0;
 
         foreach ( $offers as $offer_id => $data ) :
+            // SHGIFTS is a single fixed set (4+1+1); render only the first offer row
+            // even if the bundle meta happens to carry more than one.
+            if ( $gck_shgifts && $loop_index > 0 ) break;
+
             $pairs = (int) ( $data['qty'] ?? 0 );
             if ( $pairs <= 0 ) continue;
 
@@ -977,9 +1004,11 @@ function gck_render_bundle_selector() {
 
             // Price highlights: per-piece regular price + discount %.
             // SHBOX split: real piece count is pairs * 2 (majice + bokserice).
-            $gck_pieces   = $gck_split_garments ? ( $pairs * 2 ) : $pairs;
+            // SHGIFTS: real piece count is 6 (4 magliette + 1 boxer + 1 calza),
+            // so per-piece pricing reads sensibly, same idea as the SHBOX split.
+            $gck_pieces   = $gck_split_garments ? ( $pairs * 2 ) : ( $gck_shgifts ? 6 : $pairs );
             $per_regular  = ( $gck_pieces > 0 ) ? ( (float) $data['regular'] / $gck_pieces ) : 0;
-            $gck_per_new  = $gck_split_garments
+            $gck_per_new  = ( $gck_split_garments || $gck_shgifts )
                 ? ( ( $gck_pieces > 0 ) ? ( floor( ( (float) $data['total'] / $gck_pieces ) * 100 ) / 100 ) : 0 )
                 : (float) $data['per'];
             $discount_pct = ( (float) $data['regular'] > 0 )
@@ -1057,6 +1086,103 @@ function gck_render_bundle_selector() {
                     }
                     $gck_show_sections = ( $show_gratis && ! $show_group_titles && ( $gck_paid + $gck_free ) > 0 && ! $gck_no_attrs );
                     ?>
+                    <?php if ( $gck_shgifts ) : ?>
+                    <?php
+                    // ---- SHGIFTS: SHBOX-style split-garment selector, 3 groups (4+1+1) ----
+                    // SAME markup/CSS as the SHBOX split path (.gck-pair-label section
+                    // headers + .bundle-pair rows with .color-swatches + .gck-size-select).
+                    // Colour/size OPTIONS come from the product's REAL (admin-managed)
+                    // attributes — "Colore maglietta"/"Taglia maglietta", "Colore boxer"/
+                    // "Taglia boxer", "Colore calza"/"Taglia calza" — grouped by the garment
+                    // word via the same helper SHBOX uses ($attr_groups). Form field names
+                    // stay stable (majica_color …) so cart/label capture and the socks-width
+                    // CSS are unaffected. Falls back to hardcoded options if a garment group
+                    // can't be resolved, so it never breaks. Each item gets its own pair
+                    // index so all 6 selections reach the cart.
+                    $gck_sections = array(
+                        array(
+                            'label'   => 'Scegli 4 magliette',
+                            'gratis'  => false, 'count' => 4, 'gg' => 0, 'garment' => 'majica',
+                            'ckey'    => 'majica_color', 'skey' => 'majica_size',
+                            'colors'  => array( 'Nero', 'Bianco', 'Grigio', 'Beige', 'Blu scuro', 'Marrone', 'Verde' ),
+                            'sizes'   => array( 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL' ),
+                        ),
+                        array(
+                            'label'   => 'Scegli 1 boxer in omaggio',
+                            'gratis'  => true, 'count' => 1, 'gg' => 1, 'garment' => 'bokserica',
+                            'ckey'    => 'bokserica_color', 'skey' => 'bokserica_size',
+                            'colors'  => array( 'Nero', 'Blu', 'Grigio', 'Verde', 'Rosso' ),
+                            'sizes'   => array( 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL' ),
+                        ),
+                        array(
+                            'label'   => 'Scegli il colore delle calze (5 paia)',
+                            'gratis'  => true, 'count' => 1, 'gg' => 2, 'garment' => 'carapa',
+                            'ckey'    => 'carapa_color', 'skey' => 'carapa_size',
+                            'colors'  => array( 'Nero', 'Bianco' ),
+                            'sizes'   => array( '39-43', '43-46' ),
+                        ),
+                    );
+
+                    // Real, admin-managed option lists per garment from the grouped
+                    // attributes ($attr_groups was built earlier with the SHBOX helper).
+                    $gck_real = array();
+                    foreach ( (array) $attr_groups as $grp ) {
+                        $c   = $grp['color'] ?? null;
+                        $s   = $grp['size'] ?? null;
+                        $hay = strtolower(
+                            (string) ( $c['label'] ?? '' ) . ' ' . (string) ( $c['key'] ?? '' ) . ' ' .
+                            (string) ( $s['label'] ?? '' ) . ' ' . (string) ( $s['key'] ?? '' ) . ' ' .
+                            (string) ( $grp['token'] ?? '' )
+                        );
+                        $cv = $c ? array_values( array_filter( array_map( 'strval', (array) ( $c['values'] ?? array() ) ), 'strlen' ) ) : array();
+                        $sv = $s ? array_values( array_filter( array_map( 'strval', (array) ( $s['values'] ?? array() ) ), 'strlen' ) ) : array();
+                        if ( strpos( $hay, 'majic' ) !== false || strpos( $hay, 'maglie' ) !== false )       { $gck_real['majica']    = array( 'colors' => $cv, 'sizes' => $sv ); }
+                        elseif ( strpos( $hay, 'bokseric' ) !== false || strpos( $hay, 'boxer' ) !== false ) { $gck_real['bokserica'] = array( 'colors' => $cv, 'sizes' => $sv ); }
+                        elseif ( strpos( $hay, 'carap' ) !== false || strpos( $hay, 'calz' ) !== false )     { $gck_real['carapa']    = array( 'colors' => $cv, 'sizes' => $sv ); }
+                    }
+
+                    $gck_run = 0;
+                    ?>
+                    <?php foreach ( $gck_sections as $sec ) :
+                        $garment    = (string) $sec['garment'];
+                        // Prefer real attribute options; fall back to hardcoded per group.
+                        $colors_use = ( ! empty( $gck_real[ $garment ]['colors'] ) ) ? $gck_real[ $garment ]['colors'] : $sec['colors'];
+                        $sizes_use  = ( ! empty( $gck_real[ $garment ]['sizes'] ) )  ? $gck_real[ $garment ]['sizes']  : $sec['sizes'];
+                    ?>
+                        <div class="gck-pair-label<?php echo $sec['gratis'] ? ' is-gratis' : ''; ?>"><?php echo esc_html( $sec['label'] ); ?></div>
+                        <?php for ( $k = 1; $k <= (int) $sec['count']; $k++ ) : $gck_run++; ?>
+                        <div class="bundle-pair">
+                            <div class="bundle-attr-row">
+                                <?php if ( ! empty( $colors_use ) && $sec['ckey'] !== '' ) : ?>
+                                    <div class="color-swatches"
+                                         data-attr-key="<?php echo esc_attr( $sec['ckey'] ); ?>"
+                                         data-name="pairs[<?php echo esc_attr( $offer_id ); ?>][<?php echo (int) $gck_run; ?>][<?php echo esc_attr( $sec['ckey'] ); ?>]">
+                                        <?php foreach ( $colors_use as $val ) : $slug = sanitize_title( $val ); ?>
+                                            <div class="swatch" data-value="<?php echo esc_attr( $val ); ?>" title="<?php echo esc_attr( $val ); ?>">
+                                                <span class="swatch-circle color-<?php echo esc_attr( $slug ); ?>"></span>
+                                            </div>
+                                        <?php endforeach; ?>
+                                        <input type="hidden" class="swatch-input"
+                                               data-attr-key="<?php echo esc_attr( $sec['ckey'] ); ?>"
+                                               name="pairs[<?php echo esc_attr( $offer_id ); ?>][<?php echo (int) $gck_run; ?>][<?php echo esc_attr( $sec['ckey'] ); ?>]"
+                                               value="">
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ( ! empty( $sizes_use ) && $sec['skey'] !== '' ) : ?>
+                                    <select class="gck-size-select"
+                                            data-size-key="<?php echo esc_attr( $sec['skey'] ); ?>"
+                                            data-garment-group="<?php echo (int) $sec['gg']; ?>"
+                                            name="pairs[<?php echo esc_attr( $offer_id ); ?>][<?php echo (int) $gck_run; ?>][<?php echo esc_attr( $sec['skey'] ); ?>]">
+                                        <?php foreach ( $sizes_use as $val ) : ?>
+                                            <option value="<?php echo esc_attr( $val ); ?>"><?php echo esc_html( $val ); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <?php endfor; ?>
+                    <?php endforeach; ?>
+                    <?php else : ?>
                     <?php
                     // Render passes. Normal: single pass, all groups interleaved per pair.
                     // SHBOX split (SKU NORIKS-ORTO-SHBOX): two sections — paid majice, then gratis bokserice.
@@ -1157,6 +1283,7 @@ function gck_render_bundle_selector() {
                         </div>
                     <?php endfor; ?>
                     <?php endforeach; ?>
+                    <?php endif; /* $gck_shgifts vs SHBOX/normal render */ ?>
 
                     <?php if ( ! $gck_no_attrs ) : ?>
                     <small style="display: block; line-height: 1;"><?php esc_html_e( 'Offriamo 30 giorni per il rimborso o cambio gratuito del prodotto – acquisti senza pensieri!', 'gift-card-kompetentnost' ); ?></small>
@@ -1407,6 +1534,43 @@ function gck_build_pair_lines( array $pairs_data, string $p1 = '', string $p2 = 
     return $lines;
 }
 
+/**
+ * SHGIFTS (orto-majica-darila) line builder.
+ *
+ * The SHBOX-style 4+1+1 selector submits ONE pair index per chosen item — six in
+ * total: maglietta 1-4 (colour+size), boxer (colour+size), calza (colour+size).
+ * Each line is labelled by inspecting its field keys so the cart / order clearly
+ * shows which garment was picked, e.g. "Maglietta: Nero - L", "Boxer: Blu - M",
+ * "Calza: Nero - 39-43".
+ */
+function gck_build_shgifts_lines( array $pairs_data ) : array {
+    $lines = [];
+
+    foreach ( $pairs_data as $attrs ) {
+        if ( ! is_array( $attrs ) ) continue;
+
+        $label = '';
+        foreach ( array_keys( $attrs ) as $k ) {
+            $kl = strtolower( (string) $k );
+            if ( strpos( $kl, 'majic' ) !== false )    { $label = 'Maglietta'; break; }
+            if ( strpos( $kl, 'bokseric' ) !== false ) { $label = 'Boxer';     break; }
+            if ( strpos( $kl, 'carap' ) !== false )    { $label = 'Calza';     break; }
+        }
+
+        $clean = [];
+        foreach ( $attrs as $v ) {
+            $v = trim( (string) $v );
+            if ( $v !== '' ) $clean[] = $v;
+        }
+        if ( empty( $clean ) ) continue;
+
+        $line    = implode( ' - ', $clean );
+        $lines[] = ( $label !== '' ) ? ( $label . ': ' . $line ) : $line;
+    }
+
+    return $lines;
+}
+
 add_filter( 'woocommerce_add_cart_item_data', 'gck_add_cart_item_data', 10, 3 );
 function gck_add_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
 
@@ -1433,7 +1597,14 @@ function gck_add_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
     $pairs_all  = isset( $_POST['pairs'] ) ? (array) $_POST['pairs'] : [];
     $pairs_data = isset( $pairs_all[ $offer_id ] ) ? (array) $pairs_all[ $offer_id ] : [];
 
-    $lines = gck_build_pair_lines( $pairs_data, $p1, $p2 );
+    // SHGIFTS (orto-majica-darila): 6 items (4 magliette + 1 boxer + 1 calza),
+    // each under its own pair index, labelled by garment. Strictly gated to that
+    // category; SHBOX and every other product keep the original p1/p2 builder.
+    if ( has_term( 'orto-majica-darila', 'product_cat', $product_id ) ) {
+        $lines = gck_build_shgifts_lines( $pairs_data );
+    } else {
+        $lines = gck_build_pair_lines( $pairs_data, $p1, $p2 );
+    }
 
     $total      = (float) $offer['total'];
     $unit_price = $total;
@@ -1528,4 +1699,123 @@ function gck_order_item_meta( $item, $cart_item_key, $values, $order ) {
     if ( ! empty( $values['_orto_offer_id'] ) ) {
         $item->add_meta_data( '_offer_id', sanitize_text_field( $values['_orto_offer_id'] ), true );
     }
+}
+
+// ============================================================
+// SHGIFTS FREE-GIFTS INFO STRIP (display only, orto-majica-darila)
+// ============================================================
+/**
+ * Purely informational "free gifts" strip shown UNDER the add-to-cart button on
+ * the SHGIFTS product (category orto-majica-darila). It only DISPLAYS what comes
+ * free with the purchase — no inputs, no selects, no swatches, no JS, no cart
+ * interaction. Completely self-contained and does not touch the bundle selector
+ * or cart logic. Strictly gated to the orto-majica-darila category.
+ */
+add_action( 'woocommerce_after_add_to_cart_button', 'gck_shgifts_free_gifts_notice', 20 );
+function gck_shgifts_free_gifts_notice() {
+
+    if ( ! function_exists( 'is_product' ) || ! is_product() ) {
+        return;
+    }
+
+    global $product;
+    if ( ! $product instanceof WC_Product ) {
+        return;
+    }
+    if ( ! has_term( 'orto-majica-darila', 'product_cat', $product->get_id() ) ) {
+        return;
+    }
+
+    // Gifts shown: 1x boxer + 5x paio di calze. Images + crossed-out reference
+    // prices are editable placeholders — adjust to real photos/prices.
+    $boxer_img = 'https://noriks.com/hr/wp-content/uploads/2026/01/StarterPack_2xcrnaboksarica.png';
+    $socks_img = 'https://noriks.com/hr/wp-content/uploads/2025/11/stumfi_crni3942-683x1024.jpg.webp';
+
+    $gifts = array(
+        array( 'label' => '1x boxer', 'img' => $boxer_img, 'price' => '19,99 €' ),
+    );
+    for ( $i = 0; $i < 5; $i++ ) {
+        $gifts[] = array( 'label' => '1x paio di calze', 'img' => $socks_img, 'price' => '12,99 €' );
+    }
+    ?>
+    <style>
+      .gck-fg{
+          margin:16px 0 6px;
+          background:#f4f4f4;
+          border:1px solid #e2e2e2;
+          border-radius:9px;
+          overflow:hidden;
+      }
+      .gck-fg__head{
+          background:linear-gradient(90deg,#111 0%,#2b2b2b 55%,#3d3d3d 100%);
+          color:#fff;
+          font-weight:700;
+          font-size:15px;
+          text-align:center;
+          letter-spacing:.3px;
+          padding:12px 14px;
+      }
+      .gck-fg__grid{
+          display:flex;
+          flex-wrap:nowrap;
+          gap:8px;
+          justify-content:center;
+          padding:18px 12px 14px;
+      }
+      .gck-fg__card{
+          flex:1 1 0;
+          min-width:0;
+          box-sizing:border-box;
+          background:#fff;
+          border:1.5px dashed #c9c9c9;
+          border-radius:4px;
+          padding:16px 6px 9px;
+          text-align:center;
+          position:relative;
+      }
+      .gck-fg__badge{
+          position:absolute;
+          top:-10px; left:50%; transform:translateX(-50%);
+          background:#111;
+          color:#fff;
+          font-size:10px;
+          font-weight:800;
+          letter-spacing:1px;
+          padding:3px 10px;
+          border-radius:4px;
+          text-transform:uppercase;
+          white-space:nowrap;
+          box-shadow:0 1px 2px rgba(0,0,0,.18);
+      }
+      .gck-fg__img{
+          width:100%;
+          max-width:100%;
+          height:74px;
+          object-fit:contain;
+          margin:6px auto 8px;
+          display:block;
+      }
+      .gck-fg__label{ font-weight:600; font-size:13px; color:#222; }
+      .gck-fg__price{ font-size:12px; margin-top:2px; }
+      .gck-fg__price s{ color:#8c8c8c; }
+      @media (max-width:600px){
+          .gck-fg__grid{ flex-wrap:wrap; }
+          .gck-fg__card{ flex:1 1 28%; min-width:88px; }
+          .gck-fg__img{ height:60px; }
+      }
+    </style>
+    <div class="gck-fg">
+        <div class="gck-fg__head">6 prodotti GRATIS con ogni acquisto</div>
+        <div class="gck-fg__grid">
+            <?php foreach ( $gifts as $g ) : ?>
+                <div class="gck-fg__card">
+                    <span class="gck-fg__badge">Omaggio</span>
+                    <img class="gck-fg__img" src="<?php echo esc_url( $g['img'] ); ?>" alt="<?php echo esc_attr( $g['label'] ); ?>" loading="lazy">
+                    <div class="gck-fg__label"><?php echo esc_html( $g['label'] ); ?></div>
+                    <div class="gck-fg__price"><s><?php echo esc_html( $g['price'] ); ?></s></div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php
 }
