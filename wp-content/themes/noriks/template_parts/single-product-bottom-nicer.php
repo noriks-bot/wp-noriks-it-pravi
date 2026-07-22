@@ -200,7 +200,7 @@ L INIZIO PIÙ SEMPLICE E SICURO
 
 
 <?php
-if (  has_term( array( 'magliette', 'orto-magliette' ), 'product_cat', get_the_id() )  ||  has_term( 'set', 'product_cat', get_the_id() )) :
+if (  has_term( array( 'magliette', 'orto-magliette', 'orto-majica-darila' ), 'product_cat', get_the_id() )  ||  has_term( 'set', 'product_cat', get_the_id() )) :
 ?>
 
 
