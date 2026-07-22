@@ -708,7 +708,11 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
       <!--<h4 style="" class="highlight"><?php echo get_field("singlepp_content_standard_reviews_t1","options"); ?></h4>-->
       <h1 style="color:black;     margin-bottom: 4px;">
 
-          <?php if ( !has_term( array( 'bokserice', 'bokserice-sastavi-paket' ), 'product_cat', get_the_ID() ) ): ?>
+          <?php if ( function_exists('noriks_is_type') && noriks_is_type('norikshers') ): ?>
+
+          Non sei sola nella ricerca di una pelle liscia e senza rughe.
+
+          <?php elseif ( !has_term( array( 'bokserice', 'bokserice-sastavi-paket' ), 'product_cat', get_the_ID() ) ): ?>
 
           <?php echo get_field("singlepp_content_standard_reviews_t2","options"); ?>
 
@@ -720,7 +724,7 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
 
 
           </h1>
-    <p class="note" style="color: black; margin-top: 0px; margin-bottom: 5px;"><?php echo get_field("singlepp_content_standard_reviews_t3","options"); ?></p>
+    <p class="note" style="color: black; margin-top: 0px; margin-bottom: 5px;"><?php if ( function_exists('noriks_is_type') && noriks_is_type('norikshers') ): ?>Migliaia di donne usano già le strisce di collagene in silicone HERS per una pelle più liscia, più soda e dall'aspetto più giovane.<?php else: ?><?php echo get_field("singlepp_content_standard_reviews_t3","options"); ?><?php endif; ?></p>
     </div>
   </section>
   </div>
