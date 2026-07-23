@@ -362,30 +362,7 @@ function gck_it_majice_phrase( int $n, bool $free = false, string $type = 'majic
     return $free ? ( $noun . ' gratis' ) : $noun;
 }
 
-add_action( 'acf/init', 'gck_register_orto_bundle_fields' );
-function gck_register_orto_bundle_fields() {
-    if ( ! function_exists( 'acf_add_local_field_group' ) ) { return; }
-    acf_add_local_field_group( array(
-        'key'    => 'group_singlepp_orto_bundle',
-        'title'  => 'Single product ORTO bundle',
-        'fields' => array(
-            array( 'key' => 'field_6926d0deb1e5e', 'label' => 'Orto bundle on', 'name' => '_singlepp_orto_ison', 'type' => 'true_false', 'ui' => 1 ),
-            array( 'key' => 'field_692961841385b', 'label' => 'Orto pairs', 'name' => '_singlepp_orto_pairs', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add Row', 'sub_fields' => array(
-                array( 'key' => 'field_692961991385c', 'label' => 'qty', 'name' => 'qty', 'type' => 'text' ),
-                array( 'key' => 'field_6929619d1385d', 'label' => 'tekst_1', 'name' => 'tekst_1', 'type' => 'text' ),
-                array( 'key' => 'field_692961a21385e', 'label' => 'tekst_2', 'name' => 'tekst_2', 'type' => 'text' ),
-                array( 'key' => 'field_692961a41385f', 'label' => 'cena_1', 'name' => 'cena_1', 'type' => 'text' ),
-                array( 'key' => 'field_692961a913860', 'label' => 'cena_2', 'name' => 'cena_2', 'type' => 'text' ),
-                array( 'key' => 'field_692961ab13861', 'label' => 'prihranek', 'name' => 'prihranek', 'type' => 'text' ),
-                array( 'key' => 'field_6968dfc7eee25', 'label' => 'p1', 'name' => 'p1', 'type' => 'text' ),
-                array( 'key' => 'field_6968dfcceee26', 'label' => 'p2', 'name' => 'p2', 'type' => 'text' ),
-                array( 'key' => 'field_696a45d4a7972', 'label' => 'tip', 'name' => 'tip', 'type' => 'text' ),
-            ) ),
-        ),
-        'location' => array( array( array( 'param' => 'post_type', 'operator' => '==', 'value' => 'product' ) ) ),
-        'active'   => true,
-    ) );
-}
+
 
 add_action( 'woocommerce_before_add_to_cart_button', 'gck_render_bundle_selector', 5 );
 
