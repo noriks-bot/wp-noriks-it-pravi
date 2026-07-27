@@ -37,6 +37,8 @@ function noriks_product_type_map() : array {
         // KidsNest cuscino per bambini per una respirazione corretta (Needo-style).
         'kidsnest'                => array( 'orto-kidsnest', 'kidsnest' ),
         'leakboxers'              => array( 'orto-leak-boxers', 'leak-boxers' ),
+        // ErgoSit orthopedic pillow (ortopedski jastuk) — no colour/size, quantity-only bundle.
+        'ortopedski-jastuk'       => array( 'orto-ortopedski-jastuk', 'ortopedski-jastuk' ),
         'kompresijske-majice'     => array( 'orto-kompresijske-majice', 'kompresijske-majice' ),
         'majica-darila'           => array( 'orto-majica-darila', 'majica-darila' ),
         'singles-boxers'          => array( 'singles-boxers', '1-pezzo-boxer' ),

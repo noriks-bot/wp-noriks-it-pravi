@@ -459,8 +459,38 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
     <?php endif; ?>
 
 
-    <!-- 1 - detajli --> <!-- nascosto su norikshers -->
-    <?php if ( ! ( function_exists('noriks_is_type') && noriks_is_type('norikshers', $current_product_id) ) ) : ?>
+    <!-- ErgoSit cuscino ortopedico: primi due elementi accordion (copia dell'originale, IT) -->
+    <?php if ( function_exists('noriks_is_type') && noriks_is_type( 'ortopedski-jastuk', $current_product_id ) ) : ?>
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h3>Specifiche del prodotto</h3>
+        <div class="toggle">+</div>
+      </div>
+      <div class="accordion-content">
+        <ul style="margin:8px 0 12px; padding-left:18px;">
+          <li style="margin:0 0 8px;"><strong>Fodera esterna:</strong> Tessuto a maglia traspirante, sfoderabile e lavabile in lavatrice, ipoallergenico</li>
+          <li style="margin:0 0 8px;"><strong>Nucleo:</strong> Schiuma adattiva OrthoFlex™ | Atossica, certificata OEKO-TEX® | Progettata per scaricare la pressione + allineare la postura</li>
+        </ul>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h3>Cosa lo rende così speciale?</h3>
+        <div class="toggle">+</div>
+      </div>
+      <div class="accordion-content">
+        <ul style="margin:8px 0 12px; padding-left:18px;">
+          <li style="margin:0 0 10px;"><strong>Memory foam OrthoFlex™:</strong> Schiuma ad alta densità che scarica la pressione e si adatta senza appiattirsi — sostiene coccige, anche e colonna per un comfort che dura tutto il giorno.</li>
+          <li style="margin:0 0 10px;"><strong>Fodera BreatheEase™:</strong> Morbida, traspirante e delicata sulla pelle. Si toglie e si lava in lavatrice, così il cuscino resta sempre fresco.</li>
+          <li style="margin:0 0 10px;"><strong>Sostegno equilibrato:</strong> Né troppo morbido, né troppo rigido. Progettato per allineare la postura e alleviare i punti dolenti dopo lunghe ore da seduti.</li>
+        </ul>
+      </div>
+    </div>
+    <?php endif; ?>
+
+
+    <!-- 1 - detajli --> <!-- nascosto su norikshers + cuscino ortopedico -->
+    <?php if ( ! ( function_exists('noriks_is_type') && ( noriks_is_type('norikshers', $current_product_id) || noriks_is_type('ortopedski-jastuk', $current_product_id) ) ) ) : ?>
     <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAccordion(this)">
         <h3><?php echo get_field("singlepp_acc_h_1","options"); ?></h3>
@@ -525,7 +555,7 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
      <?php endif; /* /nascosto dettagli su norikshers */ ?>
 
      <!-- 2 - slika tablica velicina -->
-     <?php if ( ! ( function_exists('noriks_is_type') && ( noriks_is_type('bunion', $current_product_id) || noriks_is_type('fisiorest', $current_product_id) || noriks_is_type('norikshers', $current_product_id) ) ) ) : // nessuna tabella taglie per bunion + fisiorest + norikshers ?>
+     <?php if ( ! ( function_exists('noriks_is_type') && ( noriks_is_type('bunion', $current_product_id) || noriks_is_type('fisiorest', $current_product_id) || noriks_is_type('norikshers', $current_product_id) || noriks_is_type('ortopedski-jastuk', $current_product_id) ) ) ) : // nessuna tabella taglie per bunion + fisiorest + norikshers + cuscino ortopedico ?>
      <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAccordion(this)">
         <h3>Tabella delle taglie</h3>
@@ -645,7 +675,7 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
 
 
     <!-- 3 - savjeti za pranje-->
-    <?php if ( ! ( function_exists('noriks_is_type') && ( noriks_is_type('ortopas', $current_product_id) || noriks_is_type('bunion', $current_product_id) || noriks_is_type('fisiorest', $current_product_id) || noriks_is_type('norikshers', $current_product_id) || noriks_is_type('kidsnest', $current_product_id) ) ) ) : // nessun consiglio di lavaggio per fascia/bunion/fisiorest/norikshers/kidsnest ?>
+    <?php if ( ! ( function_exists('noriks_is_type') && ( noriks_is_type('ortopas', $current_product_id) || noriks_is_type('bunion', $current_product_id) || noriks_is_type('fisiorest', $current_product_id) || noriks_is_type('norikshers', $current_product_id) || noriks_is_type('ortopedski-jastuk', $current_product_id) || noriks_is_type('kidsnest', $current_product_id) ) ) ) : // nessun consiglio di lavaggio per fascia/bunion/fisiorest/norikshers/cuscino ortopedico/kidsnest ?>
     <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAccordion(this)">
         <h3><?php echo get_field("singlepp_acc_h_2","options"); ?></h3>
