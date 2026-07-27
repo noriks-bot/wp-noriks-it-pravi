@@ -57,8 +57,8 @@ if ( $upsell_is_majice ) {
     $upsell_qty_names  = array( 1 => '1x Boxer grigio', 3 => '3x Boxer grigi', 5 => '5x Boxer grigi' );
     $upsell_qty_images = array(
         1 => 'https://noriks.com/it/wp-content/uploads/2025/11/sive-boksarice-produktna.jpg',
-        3 => 'https://noriks.com/it/wp-content/uploads/2025/11/sive-boksarice-produktna.jpg', // TODO: 3x siva kompozitna, ko obstaja
-        5 => 'https://noriks.com/it/wp-content/uploads/2025/11/sive-boksarice-produktna.jpg', // TODO: 5x siva kompozitna, ko obstaja
+        3 => get_template_directory_uri() . '/img/upsell/siva-3x.png',
+        5 => get_template_directory_uri() . '/img/upsell/siva-5x.png',
     );
     $upsell_title_text = 'Aggiungi boxer ora – 50% di sconto';
 }
