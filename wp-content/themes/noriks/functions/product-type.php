@@ -34,6 +34,8 @@ function noriks_product_type_map() : array {
         'bunion'                  => array( 'orto-bunion', 'bunion' ),
         'fisiorest'               => array( 'orto-fisiorest', 'fisiorest' ),
         'norikshers'              => array( 'orto-norikshers', 'orto-noriks-hers', 'norikshers' ),
+        // KidsNest cuscino per bambini per una respirazione corretta (Needo-style).
+        'kidsnest'                => array( 'orto-kidsnest', 'kidsnest' ),
         'leakboxers'              => array( 'orto-leak-boxers', 'leak-boxers' ),
         'kompresijske-majice'     => array( 'orto-kompresijske-majice', 'kompresijske-majice' ),
         'majica-darila'           => array( 'orto-majica-darila', 'majica-darila' ),

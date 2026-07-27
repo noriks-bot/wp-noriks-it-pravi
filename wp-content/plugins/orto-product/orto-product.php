@@ -358,6 +358,10 @@ function gck_it_majice_phrase( int $n, bool $free = false, string $type = 'majic
         $noun = 'boxer';
         return $free ? ( $noun . ' gratis' ) : $noun;
     }
+    if ( $type === 'carapa' ) {
+        $noun = ( $n === 1 ) ? 'calza' : 'calze';
+        return $free ? ( $noun . ' gratis' ) : $noun;
+    }
     $noun = ( $n === 1 ) ? 'maglietta' : 'magliette';
     return $free ? ( $noun . ' gratis' ) : $noun;
 }
@@ -382,8 +386,9 @@ function gck_render_bundle_selector() {
     $show_gratis           = (bool) get_field( 'orto_show_gratis_labels', $product_id );
     $show_price_highlights = (bool) get_field( 'orto_show_price_highlights', $product_id );
 
-    // Garment type for gratis labels: "bokserica" (boxers) vs default "majica".
-    // Detect via product category or slug/name so each product gets the correct noun.
+    // Garment type for gratis labels: "bokserica" (boxers), "carapa"
+    // (compression socks) vs default "majica" (t-shirt). Detect via product
+    // category or slug/name so each product gets the correct noun.
     $gck_garment = 'majica';
     if (
         has_term( array( 'orto-bokserice', 'orto-bokserice2' ), 'product_cat', $product_id )
@@ -391,6 +396,16 @@ function gck_render_bundle_selector() {
         || ( stripos( (string) $product->get_name(), 'bokseric' ) !== false )
     ) {
         $gck_garment = 'bokserica';
+    } elseif (
+        has_term( array( 'orto-kompresijske-carape' ), 'product_cat', $product_id )
+        || ( stripos( (string) $product->get_slug(), 'calzin' ) !== false )
+        || ( stripos( (string) $product->get_slug(), 'calze' ) !== false )
+        || ( stripos( (string) $product->get_name(), 'calzin' ) !== false )
+        || ( stripos( (string) $product->get_name(), 'calze' ) !== false )
+    ) {
+        // Compression SOCKS only. Note: the compression MAJICA (orto-kompresijske-majice)
+        // must NOT match here — it keeps the default "majica" noun.
+        $gck_garment = 'carapa';
     }
 
     $show_countdown    = (bool) get_field( 'orto_show_countdown', $product_id );
@@ -409,7 +424,7 @@ function gck_render_bundle_selector() {
     //  - orto-bunion / orto-fisiorest : quantity-only bundle, NO colour and NO size selectors.
     //  - orto-ortopas                 : single "Taglia" attribute, no colour (size selector only).
     $gck_no_attrs    = has_term( array( 'orto-bunion', 'orto-fisiorest', 'orto-norikshers', 'orto-noriks-hers' ), 'product_cat', $product_id );
-    $gck_single_size = has_term( 'orto-ortopas', 'product_cat', $product_id );
+    $gck_single_size = has_term( array( 'orto-ortopas', 'orto-kidsnest' ), 'product_cat', $product_id );
 
     // SHGIFTS (orto-majica-darila): the SAME split-garment selector as SHBOX,
     // extended to 3 garment groups (4 magliette + 1 boxer + 1 calza). Gated
@@ -683,7 +698,7 @@ function gck_render_bundle_selector() {
     </style>
 
     <?php
-    if (  !has_term( array( 'orto-starter', 'orto-majice', 'orto-magliette', 'orto-bokserice', 'orto-boxer', 'orto-kompresijske-carape', 'orto-ortopas', 'orto-bunion', 'orto-fisiorest', 'orto-norikshers', 'orto-noriks-hers', 'orto-majica-darila', 'orto-leak-boxers', 'orto-kompresijske-majice' ), 'product_cat', $product_id )  )   :
+    if (  !has_term( array( 'orto-starter', 'orto-majice', 'orto-magliette', 'orto-bokserice', 'orto-boxer', 'orto-kompresijske-carape', 'orto-ortopas', 'orto-bunion', 'orto-fisiorest', 'orto-norikshers', 'orto-noriks-hers', 'orto-majica-darila', 'orto-leak-boxers', 'orto-kompresijske-majice', 'orto-kidsnest' ), 'product_cat', $product_id )  )   :
     ?>
         <style>
           .bundle-option { border: 2px solid #ededed; background: #f4f4f4b0  !important; border-radius: 4px; }
@@ -769,7 +784,7 @@ function gck_render_bundle_selector() {
     <?php endif; ?>
 
     <div class="gck-benefits-box">
-        <?php if ( ! has_term( array( 'orto-ortopas', 'orto-bunion', 'orto-fisiorest', 'orto-norikshers', 'orto-noriks-hers' ), 'product_cat', $product_id ) ) : // hide benefits list for back belt + bunion + fisiorest ?>
+        <?php if ( ! has_term( array( 'orto-ortopas', 'orto-bunion', 'orto-fisiorest', 'orto-norikshers', 'orto-noriks-hers', 'orto-leak-boxers', 'orto-kompresijske-majice', 'orto-kidsnest' ), 'product_cat', $product_id ) ) : // hide benefits list for back belt + bunion + fisiorest + leak boxers + kompresijske majice + kidsnest ?>
         <ul class="gck-benefits-list">
             <?php if ( !has_term( array( 'orto-bokserice', 'orto-bokserice2', 'starter-paketi' ), 'product_cat', $product_id ) ) : ?>
                 <li><span class="gck-check">✔</span> <strong>Vestibilità perfetta</strong></li>
@@ -785,7 +800,7 @@ function gck_render_bundle_selector() {
         </ul>
         <?php endif; ?>
 
-        <?php if ( ! $show_countdown && ! $gck_no_attrs && ! $gck_single_size && ! $gck_shgifts ) : // no size chart on the gifts set ?>
+        <?php if ( ! $show_countdown && ! $gck_no_attrs && ! $gck_single_size && ! $gck_shgifts && ! has_term( array( 'orto-leak-boxers', 'orto-kompresijske-majice' ), 'product_cat', $product_id ) ) : // no size chart on the gifts set; leak boxers + kompresijske majice show it above the bundle buttons instead ?>
         <a id="open-size-chartCustom" href="#size-chart" class="gck-size-link">
             <svg style="margin-right: 5px; width: 23px; height: 23px; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
                 <path d="M11.4124 2.58464L2.08525 11.9118C1.86558 12.1315 1.86558 12.4876 2.08525 12.7073L5.78977 16.4118C6.00944 16.6315 6.3656 16.6315 6.58527 16.4118L15.9124 7.08466C16.1321 6.86499 16.1321 6.50883 15.9124 6.28916L12.2079 2.58464C11.9883 2.36497 11.6321 2.36497 11.4124 2.58464Z" stroke="#111213" stroke-width="0.84375"></path>
@@ -926,7 +941,7 @@ function gck_render_bundle_selector() {
         </script>
     <?php endif; ?>
 
-    <?php if ( $show_countdown && ! $gck_no_attrs && ! $gck_single_size && ! $gck_shgifts ) : // no size chart on the gifts set ?>
+    <?php if ( $show_countdown && ! $gck_no_attrs && ! $gck_single_size && ! $gck_shgifts && ! has_term( array( 'orto-leak-boxers', 'orto-kompresijske-majice' ), 'product_cat', $product_id ) ) : // no size chart on the gifts set; leak boxers + kompresijske majice show it above the bundle buttons instead ?>
     <div class="gck-size-link-wrap" style="text-align:right; margin:0 0 8px 0;">
         <a id="open-size-chartCustom" href="#size-chart" class="gck-size-link">
             <svg style="margin-right: 5px; width: 23px; height: 23px; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
@@ -956,6 +971,15 @@ function gck_render_bundle_selector() {
     <style>
       #bundle-selector.is-no-attrs .bundle-pairs { border-top: 0 !important; padding-top: 0 !important; margin-top: 0 !important; }
     </style>
+    <?php endif; ?>
+    <?php // Leak boxers + kompresijske majice: size-chart link top-right, directly above the bundle buttons.
+    if ( has_term( array( 'orto-leak-boxers', 'orto-kompresijske-majice' ), 'product_cat', $product_id ) ) : ?>
+    <div class="gck-size-link-wrap" style="text-align:right; margin:0 0 10px 0;">
+        <a id="open-size-chartCustom" href="#size-chart" class="gck-size-link">
+            <svg style="margin-right:5px;width:20px;height:20px;display:inline-block;vertical-align:middle;" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none"><path d="M11.4124 2.58464L2.08525 11.9118C1.86558 12.1315 1.86558 12.4876 2.08525 12.7073L5.78977 16.4118C6.00944 16.6315 6.3656 16.6315 6.58527 16.4118L15.9124 7.08466C16.1321 6.86499 16.1321 6.50883 15.9124 6.28916L12.2079 2.58464C11.9883 2.36497 11.6321 2.36497 11.4124 2.58464Z" stroke="#111213" stroke-width="0.84375"></path></svg>
+            Guida alle taglie
+        </a>
+    </div>
     <?php endif; ?>
     <div id="bundle-selector" class="bundle-box<?php echo $gck_single_size ? ' is-single-size' : ''; ?><?php echo $gck_no_attrs ? ' is-no-attrs' : ''; ?>" data-split-garments="<?php echo $gck_split_garments ? '1' : '0'; ?>">
         <?php
