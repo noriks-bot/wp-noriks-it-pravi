@@ -51,14 +51,14 @@ if ( $upsell_is_majice ) {
     );
     $upsell_title_text = 'Aggiungi magliette ora – 50% di sconto';
 } else {
-    $upsell_product_id = 2781; // Crne Bokserice
-    $upsell_name       = 'Boxer neri';
+    $upsell_product_id = 2829; // Boxer grigi (siva verzija, ista struktura kot crna)
+    $upsell_name       = 'Boxer grigi';
     $upsell_qty_prices = array( 1 => 4.99, 3 => 14.97, 5 => 24.95 );
-    $upsell_qty_names  = array( 1 => '1x Boxer nero', 3 => '3x Boxer neri', 5 => '5x Boxer neri' );
+    $upsell_qty_names  = array( 1 => '1x Boxer grigio', 3 => '3x Boxer grigi', 5 => '5x Boxer grigi' );
     $upsell_qty_images = array(
-        1 => 'https://noriks.com/hr/wp-content/uploads/2025/11/crne-boksarice-produktna.jpg',
-        3 => 'https://noriks.com/hr/wp-content/uploads/2025/11/boksarice_3x_crne.png',
-        5 => 'https://noriks.com/hr/wp-content/uploads/2026/01/boksarice_5x_crne.png',
+        1 => 'https://noriks.com/it/wp-content/uploads/2025/11/sive-boksarice-produktna.jpg',
+        3 => 'https://noriks.com/it/wp-content/uploads/2025/11/sive-boksarice-produktna.jpg', // TODO: 3x siva kompozitna, ko obstaja
+        5 => 'https://noriks.com/it/wp-content/uploads/2025/11/sive-boksarice-produktna.jpg', // TODO: 5x siva kompozitna, ko obstaja
     );
     $upsell_title_text = 'Aggiungi boxer ora – 50% di sconto';
 }
