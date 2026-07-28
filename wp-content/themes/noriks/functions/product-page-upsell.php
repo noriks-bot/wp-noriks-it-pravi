@@ -57,12 +57,14 @@ function noriks_pp_upsell_register_fields() {
 function noriks_pp_upsell_config() {
 	return apply_filters( 'noriks_pp_upsell_config', array(
 		'product_id' => 2793,                    // Plave Bokserice (varijabilni proizvod)
-		'qty'        => 4,                       // uvijek 3 komada, iste veličine
+		'qty'        => 4,                       // uvijek 4 komada, iste veličine
 		'total'      => 19.99,                   // ista cijena kao thank you upsell (4 komada)
 		'title'      => '4x Boxer blu',
 		'desc'       => 'Traspiranti e morbidi — aggiungili all\'ordine con il %s%% di sconto.', // %s = izracunati popust
 		'size_attr'  => 'Taglia',
-		// Kompozitna slika 3 komada na svijetlo sivoj podlozi (kvadratna).
+		// Interna oznaka paketa (SKU konvencija kao kod bundle proizvoda + UPSELL na kraju).
+		'sku'        => 'NORIKS-BOX-BLUE-4-PACK-UPSELL',
+		// Kompozitna slika 4 komada na svijetlo sivoj podlozi (kvadratna).
 		'image'      => get_template_directory_uri() . '/img/upsell/upsell-4x-modre.png',
 	) );
 }
@@ -523,6 +525,11 @@ function noriks_pp_upsell_order_item_meta( $item, $cart_item_key, $values, $orde
 			$item->set_name( (string) $values['_noriks_pp_upsell_title'] );
 		}
 		$item->add_meta_data( '_noriks_upsell_pieces', (int) ( $values['_noriks_pp_upsell_qty'] ?? 1 ), true );
+		$cfg_sku = noriks_pp_upsell_config();
+		if ( ! empty( $cfg_sku['sku'] ) ) {
+			// Interna oznaka paketa — po istoj SKU konvenciji kao bundle proizvodi.
+			$item->add_meta_data( '_noriks_upsell_sku', sanitize_text_field( $cfg_sku['sku'] ), true );
+		}
 		// Sadrzaj paketa u narudzbi, isto numerirano kao kod orto bundlea.
 		if ( ! empty( $values['_noriks_pp_upsell_lines'] ) && is_array( $values['_noriks_pp_upsell_lines'] ) ) {
 			foreach ( array_values( $values['_noriks_pp_upsell_lines'] ) as $i => $line ) {
