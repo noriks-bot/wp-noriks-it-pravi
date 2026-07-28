@@ -281,9 +281,10 @@ function noriks_pp_upsell_render() {
 	   visina usklađena s kvačicom (30px) da red bude poravnat */
 	.npu-wrap .npu-size {
 		flex: 0 0 auto; max-width: 150px; min-width: 84px;
-		height: 30px; line-height: 1; box-sizing: border-box;
-		margin: 0; padding: 0 28px 0 11px; border-radius: 6px; border: 2px solid #ff6d2e;
-		background-color: #ffffff; font-size: 16px !important; font-weight: 700 !important; color: #333 !important;
+		/* visina in tipografija enaki kot pri izbirnikih velikosti v paketu (izmerjeno: 35.1px / 18px) */
+		height: 35px; line-height: 1.2; box-sizing: border-box;
+		margin: 0; padding: 1px 28px 1px 11px; border-radius: 6px; border: 2px solid #ff6d2e;
+		background-color: #ffffff; font-size: 18px !important; font-weight: 700 !important; color: #333 !important;
 		appearance: none; -webkit-appearance: none; -moz-appearance: none;
 		background-image: linear-gradient(45deg, transparent 50%, #444 50%),
 		                  linear-gradient(135deg, #444 50%, transparent 50%);
