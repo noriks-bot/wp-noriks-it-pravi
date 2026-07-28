@@ -133,21 +133,26 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 	
 	
-	<div class="top-header">
+		<?php
+  // Top scrolling bar icons (inline SVG, inherit text color).
+  $mq_ico_truck  = '<svg class="mq-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5h11v9H3z"/><path d="M14 9.5h3.8l2.7 3v3H14z"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17.3" cy="17.5" r="1.6"/></svg>';
+  $mq_ico_shield = '<svg class="mq-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M8.8 12l2.2 2.2 4.2-4.4"/></svg>';
+?>
+<div class="top-header">
   <div class="marquee">
     <div class="marquee-content">
-      <span><a href="/it/shop">Spedizione gratuita per ordini superiori a 70€</a></span>
-      <span><a href="/it/shop">30 giorni senza rischi – prova senza preoccupazioni</a></span>
+      <span><a href="/it/shop"><?php echo $mq_ico_truck; ?>Spedizione gratuita per ordini superiori a 70€</a></span>
+      <span><a href="/it/shop"><?php echo $mq_ico_shield; ?>30 giorni senza rischi – prova senza preoccupazioni</a></span>
       <!--<span><a href="/hr/shop">Zimska ponuda: Do 70% popusta!</a></span>-->
 
       <!-- DUPLICATED for seamless infinite loop -->
-      <span><a href="/it/shop">Spedizione gratuita per ordini superiori a 70€</a></span>
-      <span><a href="/it/shop">30 giorni senza rischi – prova senza preoccupazioni</a></span>
+      <span><a href="/it/shop"><?php echo $mq_ico_truck; ?>Spedizione gratuita per ordini superiori a 70€</a></span>
+      <span><a href="/it/shop"><?php echo $mq_ico_shield; ?>30 giorni senza rischi – prova senza preoccupazioni</a></span>
      <!-- <span><a href="/hr/shop">Zimska ponuda: Do 70% popusta!</a></span>-->
       
        <!-- DUPLICATED for seamless infinite loop -->
-      <span><a href="/it/shop">Spedizione gratuita per ordini superiori a 70€</a></span>
-      <span><a href="/it/shop">30 giorni senza rischi – prova senza preoccupazioni</a></span>
+      <span><a href="/it/shop"><?php echo $mq_ico_truck; ?>Spedizione gratuita per ordini superiori a 70€</a></span>
+      <span><a href="/it/shop"><?php echo $mq_ico_shield; ?>30 giorni senza rischi – prova senza preoccupazioni</a></span>
      <!-- <span><a href="/hr/shop">Zimska ponuda: Do 70% popusta!</a></span>-->
     </div>
   </div>
