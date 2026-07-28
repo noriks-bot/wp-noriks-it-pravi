@@ -284,12 +284,26 @@ function noriks_pp_upsell_render() {
 	.npu-wrap .npu-size:focus { outline: 2px solid var(--npu-accent); outline-offset: 1px; }
 
 	@media (max-width: 560px) {
-		.npu-wrap .npu-grid { column-gap: 10px; row-gap: 10px; }
-		.npu-wrap .npu-img-wrap { width: clamp(100px, 30vw, 128px); }
-		.npu-wrap .npu-title { font-size: 16px !important; }
-		.npu-wrap .npu-desc { font-size: 14px !important; }
-		.npu-wrap .npu-price { font-size: 16px !important; }
-		.npu-wrap .npu-actions { gap: 10px; }
+		/* mobitel po referenci: veca slika preko obje visine, kvacica ostaje u tekstualnom
+		   stupcu (ne preko cijele sirine), sve stisnuto da izbornik stane u isti red */
+		.npu-wrap .npu-box { padding: 8px; }
+		.npu-wrap .npu-grid { column-gap: 10px; row-gap: 8px; }
+		.npu-wrap .npu-img-wrap { grid-row: 1 / 3; align-self: center; width: clamp(116px, 36vw, 150px); }
+		.npu-wrap .npu-info { grid-column: 2 / -1; }
+		.npu-wrap .npu-actions { grid-column: 2 / -1; gap: 8px; flex-wrap: wrap; }
+		.npu-wrap .npu-title { font-size: 15px !important; line-height: 1.25 !important; margin: 0 0 5px !important; }
+		.npu-wrap .npu-desc { font-size: 13.5px !important; line-height: 1.35 !important; }
+		.npu-wrap .npu-prices { margin-top: 8px; gap: 8px; }
+		.npu-wrap .npu-price { font-size: 15px !important; padding: 5px 9px 4px; }
+		.npu-wrap .npu-price-old { font-size: 14px !important; }
+		.npu-wrap .npu-check { gap: 6px; }
+		.npu-wrap .npu-box-mark { width: 24px; height: 24px; flex: 0 0 24px; border-radius: 6px; }
+		.npu-wrap .npu-check input[type="checkbox"]:checked + .npu-box-mark::before {
+			left: 7px; top: 2px; width: 7px; height: 13px; border-width: 0 3px 3px 0;
+		}
+		.npu-wrap .npu-check-text { font-size: 14px !important; }
+		.npu-wrap .npu-size { height: 26px; min-width: 64px; font-size: 14px !important; padding: 0 22px 0 8px;
+			background-position: calc(100% - 12px) 50%, calc(100% - 8px) 50%; }
 	}
 	</style>
 
