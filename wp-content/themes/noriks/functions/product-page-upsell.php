@@ -256,12 +256,19 @@ function noriks_pp_upsell_render() {
 		width: 30px; height: 30px; flex: 0 0 30px; display: inline-block; position: relative;
 		background-color: #fff; border: 2px solid #d9d9d9; border-radius: 7px; box-sizing: border-box;
 	}
-	.npu-wrap .npu-check input[type="checkbox"]:checked + .npu-box-mark { border-color: var(--npu-accent); }
-	.npu-wrap .npu-check input[type="checkbox"]:checked + .npu-box-mark::before {
-		content: ""; position: absolute; left: 9px; top: 3px; width: 9px; height: 16px;
-		border-right: 4px solid var(--npu-accent); border-bottom: 4px solid var(--npu-accent);
-		transform: rotate(40deg); -webkit-backface-visibility: hidden;
+	/* oznaceno stanje: puni narancasti kvadrat s bijelom kvacicom, tocno centrirano */
+	.npu-wrap .npu-box-mark::before {
+		content: ""; position: absolute; left: 50%; top: 46%;
+		width: 7px; height: 13px; box-sizing: border-box;
+		border: solid #fff; border-width: 0 3px 3px 0; border-radius: 1px;
+		transform: translate(-50%, -50%) rotate(45deg);
+		opacity: 0; transition: opacity .12s ease;
+		-webkit-backface-visibility: hidden;
 	}
+	.npu-wrap .npu-check input[type="checkbox"]:checked + .npu-box-mark {
+		background-color: var(--npu-accent); border-color: var(--npu-accent);
+	}
+	.npu-wrap .npu-check input[type="checkbox"]:checked + .npu-box-mark::before { opacity: 1; }
 	.npu-wrap .npu-check input[type="checkbox"]:focus-visible + .npu-box-mark { outline: 2px solid var(--npu-accent); outline-offset: 2px; }
 	.npu-wrap .npu-check-text {
 		font-size: 16px !important; font-weight: 700 !important; line-height: 1.2 !important;
@@ -313,6 +320,45 @@ function noriks_pp_upsell_render() {
 			cb.checked = !cb.checked;
 			cb.dispatchEvent(new Event('change', { bubbles: true }));
 		});
+	})();
+	</script>
+
+	<script>
+	/* Kad kupac promijeni PRVI izbornik velicine u paketu, upsell izbornik se
+	   automatski postavi na istu velicinu (dok je kupac sam ne promijeni). */
+	(function () {
+		var sel = document.querySelector('.npu-size');
+		if (!sel) { return; }
+		var touched = false;
+		sel.addEventListener('change', function () { touched = true; });
+
+		function firstBundleSize() {
+			var all = document.querySelectorAll('.gck-size-select');
+			for (var i = 0; i < all.length; i++) {
+				if (all[i].offsetParent !== null && all[i].value) { return all[i]; }
+			}
+			return null;
+		}
+		function sync() {
+			if (touched) { return; }
+			var src = firstBundleSize();
+			if (!src) { return; }
+			var v = String(src.value).trim().toLowerCase();
+			for (var i = 0; i < sel.options.length; i++) {
+				if (String(sel.options[i].value).trim().toLowerCase() === v) {
+					sel.value = sel.options[i].value;
+					return;
+				}
+			}
+		}
+		document.addEventListener('change', function (e) {
+			var t = e.target;
+			if (!t) { return; }
+			if (t.classList && t.classList.contains('gck-size-select')) { sync(); }
+			if (t.name === 'bundle_option') { setTimeout(sync, 60); }
+		});
+		setTimeout(sync, 250);
+		setTimeout(sync, 900);
 	})();
 	</script>
 	<?php
