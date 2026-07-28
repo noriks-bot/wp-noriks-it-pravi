@@ -400,32 +400,97 @@ function noriks_pp_upsell_maybe_add( $cart_item_key, $product_id, $quantity, $va
 		return;
 	}
 
-	$qty  = max( 1, (int) $cfg['qty'] );
-	// BEZ zaokruzivanja: 19.99 / 4 = 4.9975; zaokruzeno na 5.00 dalo bi 20.00 u kosarici.
-	// WooCommerce mnozi punom preciznoscu pa je zbroj tocno jednak upsell cijeni.
-	$unit = (float) $cfg['total'] / $qty;
+	$qty = max( 1, (int) $cfg['qty'] );
 
+	// Sadrzaj paketa: jedan red po komadu (naziv proizvoda + odabrana velicina).
+	$parent    = wc_get_product( (int) $cfg['product_id'] );
+	$line_name = $parent ? $parent->get_name() : (string) $cfg['title'];
+	$lines     = array();
+	for ( $i = 0; $i < $qty; $i++ ) {
+		$lines[] = $line_name . ' - ' . $size;
+	}
+
+	// PAKET: u kosaricu ide JEDNA stavka (kolicina 1) s cijenom cijelog paketa.
+	// Tako kupac ne moze mijenjati kolicinu niti razbiti ponudu na komade.
 	$busy = true;
 	WC()->cart->add_to_cart(
 		(int) $cfg['product_id'],
-		$qty,
+		1,
 		$variation_id_upsell,
 		$var->get_variation_attributes(),
 		array(
-			'_noriks_pp_upsell'      => 1,
-			'_noriks_pp_upsell_unit' => $unit,
-			'_noriks_pp_upsell_key'  => md5( 'npu' . $variation_id_upsell . microtime( true ) ),
+			'_noriks_pp_upsell'       => 1,
+			'_noriks_pp_upsell_unit'  => (float) $cfg['total'], // cijena cijelog paketa (kolicina 1)
+			'_noriks_pp_upsell_qty'   => $qty,                  // koliko komada paket sadrzi
+			'_noriks_pp_upsell_title' => (string) $cfg['title'],
+			'_noriks_pp_upsell_lines' => $lines,                // sadrzaj paketa, red po red
+			'_noriks_pp_upsell_key'   => md5( 'npu' . $variation_id_upsell . microtime( true ) ),
 		)
 	);
 	$busy = false;
+}
+
+/* ---- Paket u kosarici: ime, sadrzaj, slika, zakljucana kolicina ---- */
+
+/* Sadrzaj paketa red po red (isti prikaz kao orto bundle: "1: ... / 2: ..."). */
+add_filter( 'woocommerce_get_item_data', 'noriks_pp_upsell_item_data', 20, 2 );
+function noriks_pp_upsell_item_data( $item_data, $cart_item ) {
+	if ( empty( $cart_item['_noriks_pp_upsell_lines'] ) || ! is_array( $cart_item['_noriks_pp_upsell_lines'] ) ) {
+		return $item_data;
+	}
+	$numbered = array();
+	foreach ( array_values( $cart_item['_noriks_pp_upsell_lines'] ) as $i => $line ) {
+		$numbered[] = esc_html( ( $i + 1 ) . ': ' . $line );
+	}
+	$item_data[] = array(
+		'name'    => false,
+		'display' => implode( '<br>', $numbered ),
+	);
+	return $item_data;
+}
+
+/* U kosarici se prikazuje slika paketa (kompozit), a ne slika jedne varijacije. */
+add_filter( 'woocommerce_cart_item_thumbnail', 'noriks_pp_upsell_cart_thumb', 20, 3 );
+function noriks_pp_upsell_cart_thumb( $thumbnail, $cart_item, $cart_item_key ) {
+	if ( empty( $cart_item['_noriks_pp_upsell'] ) ) {
+		return $thumbnail;
+	}
+	$cfg = noriks_pp_upsell_config();
+	if ( empty( $cfg['image'] ) ) {
+		return $thumbnail;
+	}
+	return '<img src="' . esc_url( $cfg['image'] ) . '" alt="' . esc_attr( $cfg['title'] ) . '" width="300" height="300" class="npu-cart-thumb attachment-woocommerce_thumbnail" />';
+}
+
+/* ---- Paket u kosarici: ime stavke, zakljucana kolicina ---- */
+
+add_filter( 'woocommerce_cart_item_name', 'noriks_pp_upsell_cart_item_name', 20, 3 );
+function noriks_pp_upsell_cart_item_name( $name, $cart_item, $cart_item_key ) {
+	if ( ! empty( $cart_item['_noriks_pp_upsell'] ) && ! empty( $cart_item['_noriks_pp_upsell_title'] ) ) {
+		return esc_html( $cart_item['_noriks_pp_upsell_title'] );
+	}
+	return $name;
+}
+
+/* Kolicina se ne moze mijenjati — prikazuje se samo broj komada u paketu. */
+add_filter( 'woocommerce_cart_item_quantity', 'noriks_pp_upsell_cart_item_quantity', 20, 3 );
+function noriks_pp_upsell_cart_item_quantity( $html, $cart_item_key, $cart_item ) {
+	if ( ! empty( $cart_item['_noriks_pp_upsell'] ) ) {
+		$qty = (int) ( $cart_item['_noriks_pp_upsell_qty'] ?? 1 );
+		return '<span class="npu-cart-qty">' . esc_html( $qty ) . '</span>';
+	}
+	return $html;
 }
 
 /* Vrati custom podatke stavke iz sesije. */
 add_filter( 'woocommerce_get_cart_item_from_session', 'noriks_pp_upsell_from_session', 20, 2 );
 function noriks_pp_upsell_from_session( $cart_item, $values ) {
 	if ( ! empty( $values['_noriks_pp_upsell'] ) ) {
-		$cart_item['_noriks_pp_upsell']      = $values['_noriks_pp_upsell'];
-		$cart_item['_noriks_pp_upsell_unit'] = $values['_noriks_pp_upsell_unit'] ?? null;
+		$cart_item['_noriks_pp_upsell']       = $values['_noriks_pp_upsell'];
+		$cart_item['_noriks_pp_upsell_unit']  = $values['_noriks_pp_upsell_unit'] ?? null;
+		$cart_item['_noriks_pp_upsell_qty']   = $values['_noriks_pp_upsell_qty'] ?? 1;
+		$cart_item['_noriks_pp_upsell_title'] = $values['_noriks_pp_upsell_title'] ?? '';
+		$cart_item['_noriks_pp_upsell_lines'] = $values['_noriks_pp_upsell_lines'] ?? array();
 	}
 	return $cart_item;
 }
@@ -453,5 +518,16 @@ add_action( 'woocommerce_checkout_create_order_line_item', 'noriks_pp_upsell_ord
 function noriks_pp_upsell_order_item_meta( $item, $cart_item_key, $values, $order ) {
 	if ( ! empty( $values['_noriks_pp_upsell'] ) ) {
 		$item->add_meta_data( '_noriks_upsell', 'product_page_upsell', true );
+		// Paket: kolicina stavke je 1, pa broj komada mora biti jasno zapisan u narudzbi.
+		if ( ! empty( $values['_noriks_pp_upsell_title'] ) ) {
+			$item->set_name( (string) $values['_noriks_pp_upsell_title'] );
+		}
+		$item->add_meta_data( '_noriks_upsell_pieces', (int) ( $values['_noriks_pp_upsell_qty'] ?? 1 ), true );
+		// Sadrzaj paketa u narudzbi, isto numerirano kao kod orto bundlea.
+		if ( ! empty( $values['_noriks_pp_upsell_lines'] ) && is_array( $values['_noriks_pp_upsell_lines'] ) ) {
+			foreach ( array_values( $values['_noriks_pp_upsell_lines'] ) as $i => $line ) {
+				$item->add_meta_data( (string) ( $i + 1 ), sanitize_text_field( $line ), true );
+			}
+		}
 	}
 }
