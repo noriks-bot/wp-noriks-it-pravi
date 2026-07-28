@@ -154,6 +154,7 @@ function noriks_pp_upsell_render() {
 	if ( ! $image ) {
 		$image = wc_placeholder_img_src( 'medium' );
 	}
+	noriks_pp_upsell_styles();
 	?>
 	<div class="npu-wrap">
 		<span class="npu-label">Acquista insieme e risparmia:</span>
@@ -192,130 +193,6 @@ function noriks_pp_upsell_render() {
 		</div>
 	</div>
 
-	<style>
-	/* Sve vrijednosti eksplicitne — tema inače nameće svoju boju (#6d6d6d),
-	   liniju (1.618) i težinu (400) pa je izgled odstupao od reference. */
-	.npu-wrap {
-		--npu-accent: #ff5b01;
-		--npu-accent-light: #ffeee8;
-		--npu-ink: #1a1a1a;
-		margin: 18px 0 6px;
-	}
-	.npu-wrap .npu-label {
-		display: block; font-size: 16px !important; font-weight: 400 !important;
-		line-height: 1.4 !important; color: var(--npu-ink) !important; margin: 0 0 8px;
-	}
-	.npu-wrap .npu-box {
-		border: 2px solid var(--npu-accent);
-		border-radius: 6px;
-		box-shadow: 0 2px 3px 0 #00000029;
-		padding: 8px;
-		background-color: #fafafb;   /* svjetlije od podloge slike (#f2f2f4) */
-		color: var(--npu-ink);
-		font-size: 16px;
-		line-height: 1.4;
-		transition: background-color .15s ease;
-	}
-	.npu-wrap .npu-box.npu-checked { background-color: var(--npu-accent-light); }
-	.npu-wrap .npu-grid { display: grid; grid-template-columns: auto minmax(0,1fr); column-gap: 10px; row-gap: 10px; }
-	/* slika je unutar okvira s razmakom (kao na referenci), kvadratna */
-	.npu-wrap .npu-img-wrap {
-		grid-column: 1 / 2; grid-row: 1 / 3; align-self: center;
-		width: clamp(104px, 30vw, 150px);
-		background-color: #f2f2f4;
-		border-radius: 6px;
-		overflow: hidden;
-		display: block;
-	}
-	.npu-wrap .npu-img {
-		display: block; width: 100%; height: auto; aspect-ratio: 1 / 1;
-		object-fit: cover; border-radius: 0;
-	}
-	.npu-wrap .npu-info { grid-column: 2 / -1; }   /* auto-placement -> 1. red */
-	.npu-wrap .npu-title {
-		font-size: 17px !important; font-weight: 700 !important; line-height: 1.3 !important;
-		color: var(--npu-ink) !important; margin: 0 0 6px !important; padding: 0;
-	}
-	.npu-wrap .npu-desc {
-		font-size: 15px !important; line-height: 1.45 !important; color: #3d3d3d !important; margin: 0;
-	}
-	.npu-wrap .npu-prices { margin-top: 10px; line-height: 1; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-	.npu-wrap .npu-price {
-		display: inline-block; font-size: 17px !important; font-weight: 700 !important; line-height: 1.15 !important;
-		color: #fff !important; background-color: var(--npu-accent);
-		border-radius: 6px; padding: 6px 11px 5px; white-space: nowrap;
-	}
-	.npu-wrap .npu-price .woocommerce-Price-amount,
-	.npu-wrap .npu-price bdi { color: #fff !important; font-weight: 700 !important; }
-	.npu-wrap .npu-price-old {
-		font-size: 16px !important; font-weight: 600 !important; line-height: 1.15 !important;
-		color: var(--npu-ink) !important; text-decoration: line-through;
-	}
-	.npu-wrap .npu-price-old .woocommerce-Price-amount,
-	.npu-wrap .npu-price-old bdi { color: var(--npu-ink) !important; text-decoration: line-through; }
-	.npu-wrap .npu-box p:last-child { margin: 0; }
-
-	.npu-wrap .npu-actions {
-		grid-column: 2 / -1;                    /* bez grid-row: auto-placement -> 2. red */
-		display: flex; align-items: center; justify-content: flex-start;
-		gap: 14px; flex-wrap: wrap;
-	}
-	.npu-wrap .npu-check { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; margin: 0; padding: 0; }
-	.npu-wrap .npu-check input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
-	.npu-wrap .npu-box-mark {
-		width: 30px; height: 30px; flex: 0 0 30px; display: inline-block; position: relative;
-		background-color: #fff; border: 2px solid #d9d9d9; border-radius: 7px; box-sizing: border-box;
-	}
-	/* oznaceno stanje: puni narancasti kvadrat s bijelom kvacicom, tocno centrirano */
-	.npu-wrap .npu-box-mark::before {
-		content: ""; position: absolute; left: 50%; top: 46%;
-		width: 7px; height: 13px; box-sizing: border-box;
-		border: solid #fff; border-width: 0 3px 3px 0; border-radius: 1px;
-		transform: translate(-50%, -50%) rotate(45deg);
-		opacity: 0; transition: opacity .12s ease;
-		-webkit-backface-visibility: hidden;
-	}
-	.npu-wrap .npu-check input[type="checkbox"]:checked + .npu-box-mark {
-		background-color: var(--npu-accent); border-color: var(--npu-accent);
-	}
-	.npu-wrap .npu-check input[type="checkbox"]:checked + .npu-box-mark::before { opacity: 1; }
-	.npu-wrap .npu-check input[type="checkbox"]:focus-visible + .npu-box-mark { outline: 2px solid var(--npu-accent); outline-offset: 2px; }
-	.npu-wrap .npu-check-text {
-		font-size: 16px !important; font-weight: 700 !important; line-height: 1.2 !important;
-		color: var(--npu-ink) !important;
-	}
-
-	/* izbornik veličine — stil postojećih izbornika u bundle selectoru,
-	   visina usklađena s kvačicom (30px) da red bude poravnat */
-	.npu-wrap .npu-size {
-		flex: 0 0 auto; max-width: 150px; min-width: 84px;
-		/* visina in tipografija enaki kot pri izbirnikih velikosti v paketu (izmerjeno: 35.1px / 18px) */
-		height: 35px; line-height: 1.2; box-sizing: border-box;
-		margin: 0; padding: 1px 28px 1px 11px; border-radius: 6px; border: 2px solid #ff6d2e;
-		background-color: #ffffff; font-size: 18px !important; font-weight: 700 !important; color: #333 !important;
-		appearance: none; -webkit-appearance: none; -moz-appearance: none;
-		background-image: linear-gradient(45deg, transparent 50%, #444 50%),
-		                  linear-gradient(135deg, #444 50%, transparent 50%);
-		background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
-		background-size: 6px 6px, 6px 6px; background-repeat: no-repeat;
-	}
-	.npu-wrap .npu-size:focus { outline: 2px solid var(--npu-accent); outline-offset: 1px; }
-
-	@media (max-width: 560px) {
-		/* mobitel: slika poravnata s vrhom naslova, kvacica u tekstualnom stupcu,
-		   a kvacica i izbornik zadrzavaju ISTE dimenzije kao na desktopu */
-		.npu-wrap .npu-box { padding: 8px; }
-		.npu-wrap .npu-grid { column-gap: 10px; row-gap: 8px; }
-		.npu-wrap .npu-img-wrap { grid-row: 1 / 3; align-self: start; width: clamp(112px, 34vw, 148px); }
-		.npu-wrap .npu-info { grid-column: 2 / -1; }
-		.npu-wrap .npu-actions { grid-column: 2 / -1; gap: 10px; flex-wrap: wrap; }
-		.npu-wrap .npu-title { font-size: 15px !important; line-height: 1.25 !important; margin: 0 0 5px !important; }
-		.npu-wrap .npu-desc { font-size: 13.5px !important; line-height: 1.35 !important; }
-		.npu-wrap .npu-prices { margin-top: 8px; gap: 8px; }
-		.npu-wrap .npu-price { font-size: 15px !important; padding: 5px 9px 4px; }
-		.npu-wrap .npu-price-old { font-size: 14px !important; }
-	}
-	</style>
 
 	<script>
 	(function () {
@@ -633,6 +510,7 @@ function noriks_pp_upsell2_render() {
 	$discount = ( $regular_total > 0 ) ? (int) round( ( 1 - ( (float) $cfg['total'] / $regular_total ) ) * 100 ) : 0;
 	$desc     = ( strpos( $cfg['desc'], '%s' ) !== false ) ? sprintf( $cfg['desc'], $discount ) : $cfg['desc'];
 	$image    = $cfg['image'] ? $cfg['image'] : wc_placeholder_img_src( 'medium' );
+	noriks_pp_upsell_styles();
 	?>
 	<div class="npu-wrap">
 		<span class="npu-label"><?php echo esc_html( $cfg['label'] ); ?></span>
@@ -794,4 +672,138 @@ function noriks_pp_upsell2_order_item_meta( $item, $cart_item_key, $values, $ord
 		$cfg = noriks_pp_upsell2_config();
 		$item->update_meta_data( '_noriks_upsell_sku', sanitize_text_field( $cfg['sku'] ) );
 	}
+}
+
+/* CSS izpisemo enkrat, ne glede na to kateri upsell je vklopljen. */
+function noriks_pp_upsell_styles() {
+	static $done = false;
+	if ( $done ) {
+		return;
+	}
+	$done = true;
+	?>	<style>
+	/* Sve vrijednosti eksplicitne — tema inače nameće svoju boju (#6d6d6d),
+	   liniju (1.618) i težinu (400) pa je izgled odstupao od reference. */
+	.npu-wrap {
+		--npu-accent: #ff5b01;
+		--npu-accent-light: #ffeee8;
+		--npu-ink: #1a1a1a;
+		margin: 18px 0 6px;
+	}
+	.npu-wrap .npu-label {
+		display: block; font-size: 16px !important; font-weight: 400 !important;
+		line-height: 1.4 !important; color: var(--npu-ink) !important; margin: 0 0 8px;
+	}
+	.npu-wrap .npu-box {
+		border: 2px solid var(--npu-accent);
+		border-radius: 6px;
+		box-shadow: 0 2px 3px 0 #00000029;
+		padding: 8px;
+		background-color: #fafafb;   /* svjetlije od podloge slike (#f2f2f4) */
+		color: var(--npu-ink);
+		font-size: 16px;
+		line-height: 1.4;
+		transition: background-color .15s ease;
+	}
+	.npu-wrap .npu-box.npu-checked { background-color: var(--npu-accent-light); }
+	.npu-wrap .npu-grid { display: grid; grid-template-columns: auto minmax(0,1fr); column-gap: 10px; row-gap: 10px; }
+	/* slika je unutar okvira s razmakom (kao na referenci), kvadratna */
+	.npu-wrap .npu-img-wrap {
+		grid-column: 1 / 2; grid-row: 1 / 3; align-self: center;
+		width: clamp(104px, 30vw, 150px);
+		background-color: #f2f2f4;
+		border-radius: 6px;
+		overflow: hidden;
+		display: block;
+	}
+	.npu-wrap .npu-img {
+		display: block; width: 100%; height: auto; aspect-ratio: 1 / 1;
+		object-fit: cover; border-radius: 0;
+	}
+	.npu-wrap .npu-info { grid-column: 2 / -1; }   /* auto-placement -> 1. red */
+	.npu-wrap .npu-title {
+		font-size: 17px !important; font-weight: 700 !important; line-height: 1.3 !important;
+		color: var(--npu-ink) !important; margin: 0 0 6px !important; padding: 0;
+	}
+	.npu-wrap .npu-desc {
+		font-size: 15px !important; line-height: 1.45 !important; color: #3d3d3d !important; margin: 0;
+	}
+	.npu-wrap .npu-prices { margin-top: 10px; line-height: 1; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+	.npu-wrap .npu-price {
+		display: inline-block; font-size: 17px !important; font-weight: 700 !important; line-height: 1.15 !important;
+		color: #fff !important; background-color: var(--npu-accent);
+		border-radius: 6px; padding: 6px 11px 5px; white-space: nowrap;
+	}
+	.npu-wrap .npu-price .woocommerce-Price-amount,
+	.npu-wrap .npu-price bdi { color: #fff !important; font-weight: 700 !important; }
+	.npu-wrap .npu-price-old {
+		font-size: 16px !important; font-weight: 600 !important; line-height: 1.15 !important;
+		color: var(--npu-ink) !important; text-decoration: line-through;
+	}
+	.npu-wrap .npu-price-old .woocommerce-Price-amount,
+	.npu-wrap .npu-price-old bdi { color: var(--npu-ink) !important; text-decoration: line-through; }
+	.npu-wrap .npu-box p:last-child { margin: 0; }
+
+	.npu-wrap .npu-actions {
+		grid-column: 2 / -1;                    /* bez grid-row: auto-placement -> 2. red */
+		display: flex; align-items: center; justify-content: flex-start;
+		gap: 14px; flex-wrap: wrap;
+	}
+	.npu-wrap .npu-check { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; margin: 0; padding: 0; }
+	.npu-wrap .npu-check input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+	.npu-wrap .npu-box-mark {
+		width: 30px; height: 30px; flex: 0 0 30px; display: inline-block; position: relative;
+		background-color: #fff; border: 2px solid #d9d9d9; border-radius: 7px; box-sizing: border-box;
+	}
+	/* oznaceno stanje: puni narancasti kvadrat s bijelom kvacicom, tocno centrirano */
+	.npu-wrap .npu-box-mark::before {
+		content: ""; position: absolute; left: 50%; top: 46%;
+		width: 7px; height: 13px; box-sizing: border-box;
+		border: solid #fff; border-width: 0 3px 3px 0; border-radius: 1px;
+		transform: translate(-50%, -50%) rotate(45deg);
+		opacity: 0; transition: opacity .12s ease;
+		-webkit-backface-visibility: hidden;
+	}
+	.npu-wrap .npu-check input[type="checkbox"]:checked + .npu-box-mark {
+		background-color: var(--npu-accent); border-color: var(--npu-accent);
+	}
+	.npu-wrap .npu-check input[type="checkbox"]:checked + .npu-box-mark::before { opacity: 1; }
+	.npu-wrap .npu-check input[type="checkbox"]:focus-visible + .npu-box-mark { outline: 2px solid var(--npu-accent); outline-offset: 2px; }
+	.npu-wrap .npu-check-text {
+		font-size: 16px !important; font-weight: 700 !important; line-height: 1.2 !important;
+		color: var(--npu-ink) !important;
+	}
+
+	/* izbornik veličine — stil postojećih izbornika u bundle selectoru,
+	   visina usklađena s kvačicom (30px) da red bude poravnat */
+	.npu-wrap .npu-size {
+		flex: 0 0 auto; max-width: 150px; min-width: 84px;
+		/* visina in tipografija enaki kot pri izbirnikih velikosti v paketu (izmerjeno: 35.1px / 18px) */
+		height: 35px; line-height: 1.2; box-sizing: border-box;
+		margin: 0; padding: 1px 28px 1px 11px; border-radius: 6px; border: 2px solid #ff6d2e;
+		background-color: #ffffff; font-size: 18px !important; font-weight: 700 !important; color: #333 !important;
+		appearance: none; -webkit-appearance: none; -moz-appearance: none;
+		background-image: linear-gradient(45deg, transparent 50%, #444 50%),
+		                  linear-gradient(135deg, #444 50%, transparent 50%);
+		background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
+		background-size: 6px 6px, 6px 6px; background-repeat: no-repeat;
+	}
+	.npu-wrap .npu-size:focus { outline: 2px solid var(--npu-accent); outline-offset: 1px; }
+
+	@media (max-width: 560px) {
+		/* mobitel: slika poravnata s vrhom naslova, kvacica u tekstualnom stupcu,
+		   a kvacica i izbornik zadrzavaju ISTE dimenzije kao na desktopu */
+		.npu-wrap .npu-box { padding: 8px; }
+		.npu-wrap .npu-grid { column-gap: 10px; row-gap: 8px; }
+		.npu-wrap .npu-img-wrap { grid-row: 1 / 3; align-self: start; width: clamp(112px, 34vw, 148px); }
+		.npu-wrap .npu-info { grid-column: 2 / -1; }
+		.npu-wrap .npu-actions { grid-column: 2 / -1; gap: 10px; flex-wrap: wrap; }
+		.npu-wrap .npu-title { font-size: 15px !important; line-height: 1.25 !important; margin: 0 0 5px !important; }
+		.npu-wrap .npu-desc { font-size: 13.5px !important; line-height: 1.35 !important; }
+		.npu-wrap .npu-prices { margin-top: 8px; gap: 8px; }
+		.npu-wrap .npu-price { font-size: 15px !important; padding: 5px 9px 4px; }
+		.npu-wrap .npu-price-old { font-size: 14px !important; }
+	}
+	</style>
+	<?php
 }
