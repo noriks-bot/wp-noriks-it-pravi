@@ -153,7 +153,7 @@ $lbv = get_template_directory_uri() . '/img/leakboxers-videos/';
   .lbx-wrap{max-width:1120px;margin:0 auto;padding:0 18px;}
   .lbx-wrap-narrow{max-width:860px;margin:0 auto;padding:0 18px;}
   .lbx-row2{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
-  .lbx-eyebrow{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:19px;color:#1f8a9c;margin:0 0 4px;}
+  .lbx-eyebrow{font-family:inherit;font-style:italic;font-size:19px;color:#1f8a9c;margin:0 0 4px;}
   .lbx-h2{font-size:clamp(23px,3.2vw,34px);font-weight:800;color:#12233b;line-height:1.15;margin:0 0 14px;}
   .lbx-h2 em{color:#1f8a9c;font-style:normal;}
   .lbx-center{text-align:center;}

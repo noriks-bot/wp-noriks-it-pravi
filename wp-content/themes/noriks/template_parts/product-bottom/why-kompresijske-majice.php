@@ -174,7 +174,7 @@ $kmv = get_template_directory_uri() . '/img/kompsfit-videos/';
 .kmf-wrap{max-width:1100px;margin:0 auto;padding:0 18px;}
 .kmf-row2{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
 .kmf-eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:700;color:#8a8f96;margin:0 0 6px;}
-.kmf-h2{font-size:clamp(24px,3.2vw,34px);line-height:1.15;font-weight:800;color:#141414;margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;}
+.kmf-h2{font-size:clamp(24px,3.2vw,34px);line-height:1.15;font-weight:800;color:#141414;margin:0 0 16px;font-family:inherit;}
 .kmf-h2 em{font-style:italic;color:#141414;}
 .kmf-center{text-align:center;}
 .kmf-upper{text-transform:uppercase;font-size:clamp(20px,2.6vw,26px);}
