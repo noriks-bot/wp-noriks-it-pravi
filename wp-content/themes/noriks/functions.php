@@ -8,6 +8,7 @@
 include(get_template_directory() . '/functions/product-type.php'); // central product-type resolver (load first)
 include(get_template_directory() . '/functions/checkout_mods.php');
 include(get_template_directory() . '/functions/thankyou_upsell.php');
+include(get_template_directory() . '/functions/product-page-upsell.php'); // upsell okvir ispod gumba na stranici proizvoda (ACF prekidac)
 include(get_template_directory() . '/functions/sidecart-upsell-modal.php');
 include(get_template_directory() . '/functions/cpts.php');
 include(get_template_directory() . '/functions/options.php');
