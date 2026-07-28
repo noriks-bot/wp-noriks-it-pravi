@@ -41,6 +41,14 @@ function noriks_pp_upsell_register_fields() {
 				'instructions' => 'Aggiunge il riquadro "Acquista insieme e risparmia" subito sotto il pulsante Aggiungi al carrello. Il cliente sceglie la taglia e 4 pezzi vengono aggiunti al prezzo upsell. Vale solo per questo prodotto.',
 				'ui'           => 1,
 			),
+			array(
+				'key'          => 'field_noriks_pp_upsell2',
+				'label'        => 'Mostra upsell #2 sotto il pulsante (2 magliette: nera + grigia)',
+				'name'         => 'noriks_pp_upsell2',
+				'type'         => 'true_false',
+				'instructions' => 'Seconda box upsell: pacchetto di 2 magliette (1 nera + 1 grigia), il cliente sceglie una taglia per entrambe. Indipendente dal primo interruttore.',
+				'ui'           => 1,
+			),
 		),
 		'location'   => array(
 			array(
