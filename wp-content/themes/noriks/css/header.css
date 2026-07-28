@@ -2,7 +2,7 @@
 .top-header {
   width: 100%;
   background: #d5d5d5;
-  padding: 2px 0;
+  padding: 6px 0;
   overflow: hidden;
 }
 
@@ -11,14 +11,38 @@
   overflow: hidden;
   white-space: nowrap;
   color: black;
+  display: flex;
+  align-items: center;
 }
 
 .marquee-content {
   display: inline-flex;
   align-items: center;
+  flex: 0 0 auto;
    color: black;
   gap: 70px;
+  line-height: 1;
   animation: marqueeScroll 28s linear infinite;
+}
+
+.marquee-content span {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+    color: black;
+}
+
+.marquee-content a {
+  color: black;
+  font-size: 14px;
+  font-weight: normal;
+  text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  gap: 6px;
 }
 
 .marquee-content .mq-ico {
@@ -26,20 +50,6 @@
   height: 19px;
   flex: 0 0 auto;
   display: block;
-}
-
-.marquee-content span {
-  display: inline-block;
-    color: black;
-}
-
-.marquee-content a {
-  color: black;
-  font-size: 13px;
-  font-weight: normal;
-  text-decoration: none;
-    color: black;
-    text-transform: uppercase;
 }
 
 @keyframes marqueeScroll {
