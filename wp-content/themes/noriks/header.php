@@ -626,7 +626,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="languageModal" class="language-modal">
   <div class="language-modal-content">
     <span class="language-close" onclick="closeLanguageModal()">&times;</span>
-    <h3><?php  echo get_field("country_shop_list_POPUP_t1","options"); ?></h3>
+    <h3>Seleziona il tuo paese</h3>
    <div class="language-options">
 
   <a href="https://noriks.com/" class="language-option">
