@@ -2,12 +2,12 @@
 /**
  * NORIKS — upsell na stranici proizvoda ("Kupi zajedno i uštedi").
  *
- * Okvir se prikazuje ODMAH ISPOD gumba "Dodaj u košaricu" i nudi 3x Plave Bokserice
+ * Okvir se prikazuje ODMAH ISPOD gumba "Dodaj u košaricu" i nudi 4x Plave Bokserice
  * po istoj cijeni kao post-purchase upsell na thank you stranici (14,97 € za 3 kom).
  *
  * - Uključuje se ACF prekidačem `noriks_pp_upsell` (polje registrirano u KODU, dolje).
  *   Prekidač je per-proizvod, pa se upsell može uključiti samo tamo gdje ga želimo.
- * - Kupac bira SAMO veličinu (jedan izbornik, sva 3 komada iste veličine).
+ * - Kupac bira SAMO veličinu (jedan izbornik, sva 4 komada iste veličine).
  * - Kad je kvačica označena, uz glavni proizvod se u košaricu dodaje zasebna stavka
  *   (varijacija plavih bokserica) s upsell cijenom.
  * - Stavka se u narudžbi označava meta poljem `_noriks_upsell` = 'product_page_upsell'
@@ -35,10 +35,10 @@ function noriks_pp_upsell_register_fields() {
 		'fields' => array(
 			array(
 				'key'          => 'field_noriks_pp_upsell',
-				'label'        => 'Mostra upsell sotto il pulsante (3x Boxer blu)',
+				'label'        => 'Mostra upsell sotto il pulsante (4x Boxer blu)',
 				'name'         => 'noriks_pp_upsell',
 				'type'         => 'true_false',
-				'instructions' => 'Aggiunge il riquadro "Acquista insieme e risparmia" subito sotto il pulsante Aggiungi al carrello. Il cliente sceglie la taglia e 3 pezzi vengono aggiunti al prezzo upsell. Vale solo per questo prodotto.',
+				'instructions' => 'Aggiunge il riquadro "Acquista insieme e risparmia" subito sotto il pulsante Aggiungi al carrello. Il cliente sceglie la taglia e 4 pezzi vengono aggiunti al prezzo upsell. Vale solo per questo prodotto.',
 				'ui'           => 1,
 			),
 		),
@@ -57,13 +57,13 @@ function noriks_pp_upsell_register_fields() {
 function noriks_pp_upsell_config() {
 	return apply_filters( 'noriks_pp_upsell_config', array(
 		'product_id' => 2793,                    // Plave Bokserice (varijabilni proizvod)
-		'qty'        => 3,                       // uvijek 3 komada, iste veličine
-		'total'      => 14.97,                   // ista cijena kao thank you upsell (3 x 4,99)
-		'title'      => '3x Boxer blu',
+		'qty'        => 4,                       // uvijek 3 komada, iste veličine
+		'total'      => 19.99,                   // ista cijena kao thank you upsell (4 komada)
+		'title'      => '4x Boxer blu',
 		'desc'       => 'Traspiranti e morbidi — aggiungili all\'ordine con il %s%% di sconto.', // %s = izracunati popust
 		'size_attr'  => 'Taglia',
 		// Kompozitna slika 3 komada na svijetlo sivoj podlozi (kvadratna).
-		'image'      => get_template_directory_uri() . '/img/upsell/upsell-3x-modre.png',
+		'image'      => get_template_directory_uri() . '/img/upsell/upsell-4x-modre.png',
 	) );
 }
 
@@ -199,7 +199,7 @@ function noriks_pp_upsell_render() {
 		border: 2px solid var(--npu-accent);
 		border-radius: 8px;
 		box-shadow: 0 2px 3px 0 #00000029;
-		padding: 10px;
+		padding: 8px;
 		background-color: #fafafb;   /* svjetlije od podloge slike (#f2f2f4) */
 		color: var(--npu-ink);
 		font-size: 16px;
@@ -207,20 +207,18 @@ function noriks_pp_upsell_render() {
 		transition: background-color .15s ease;
 	}
 	.npu-wrap .npu-box.npu-checked { background-color: var(--npu-accent-light); }
-	.npu-wrap .npu-grid { display: grid; grid-template-columns: auto minmax(0,1fr); column-gap: 14px; row-gap: 12px; }
-	/* slika ide do samog ruba okvira: negativne margine ponistavaju padding kutije,
-	   a lijevi kutovi prate unutarnji radijus (8px - 2px obrub = 6px) */
+	.npu-wrap .npu-grid { display: grid; grid-template-columns: auto minmax(0,1fr); column-gap: 10px; row-gap: 10px; }
+	/* slika je unutar okvira s razmakom (kao na referenci), kvadratna */
 	.npu-wrap .npu-img-wrap {
-		grid-column: 1 / 2; grid-row: 1 / 3; align-self: stretch;
-		margin: -10px 0 -10px -10px;
-		width: clamp(104px, 30vw, 160px);
+		grid-column: 1 / 2; grid-row: 1 / 3; align-self: center;
+		width: clamp(104px, 30vw, 150px);
 		background-color: #f2f2f4;
-		border-radius: 6px 0 0 6px;
+		border-radius: 6px;
 		overflow: hidden;
 		display: block;
 	}
 	.npu-wrap .npu-img {
-		display: block; width: 100%; height: 100%; min-height: 100%;
+		display: block; width: 100%; height: auto; aspect-ratio: 1 / 1;
 		object-fit: cover; border-radius: 0;
 	}
 	.npu-wrap .npu-info { grid-column: 2 / -1; }   /* auto-placement -> 1. red */
@@ -287,7 +285,7 @@ function noriks_pp_upsell_render() {
 
 	@media (max-width: 560px) {
 		.npu-wrap .npu-grid { column-gap: 10px; row-gap: 10px; }
-		.npu-wrap .npu-img-wrap { width: clamp(96px, 28vw, 130px); }
+		.npu-wrap .npu-img-wrap { width: clamp(100px, 30vw, 128px); }
 		.npu-wrap .npu-title { font-size: 16px !important; }
 		.npu-wrap .npu-desc { font-size: 14px !important; }
 		.npu-wrap .npu-price { font-size: 16px !important; }
