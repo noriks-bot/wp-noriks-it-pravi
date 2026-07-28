@@ -539,3 +539,251 @@ function noriks_pp_upsell_order_item_meta( $item, $cart_item_key, $values, $orde
 		}
 	}
 }
+/* ============================================================
+ * UPSELL #2 — paket 2 majice (1 crna + 1 siva), jedna veličina za obje.
+ * Potpuno neovisan o prvom upsellu: vlastiti ACF prekidač (noriks_pp_upsell2),
+ * vlastita konfiguracija i vlastita logika košarice. Dijeli samo CSS.
+ * ============================================================ */
+
+function noriks_pp_upsell2_config() {
+	return apply_filters( 'noriks_pp_upsell2_config', array(
+		'product_a'  => 250,   // Crna majica (varijabilni proizvod) — nosi stavku u košarici
+		'product_b'  => 471,   // Siva majica (varijabilni proizvod)
+		'total'      => 18.99, // cijena cijelog paketa (2 komada)
+		'title'      => '1x Maglietta nera + 1x grigia',
+		'desc'       => 'Due magliette basic nel pacchetto — aggiungile al tuo ordine con il %s%% di sconto.',
+		'size_attr'  => 'Taglia',
+		'sku'        => 'NORIKS-SHIRTS-BLACK-GRAY-2-PACK-UPSELL',
+		'image'      => get_template_directory_uri() . '/img/upsell/upsell-2x-majici.png',
+		'label'      => 'Acquista insieme e risparmia:',
+		'add_text'   => 'Aggiungi all\'acquisto',
+		'aria'       => 'Taglia delle magliette',
+	) );
+}
+
+/** Je li upsell #2 uključen za dani proizvod. */
+function noriks_pp_upsell2_enabled( $product_id = 0 ) {
+	$product_id = $product_id ? (int) $product_id : (int) get_the_ID();
+	if ( ! $product_id || ! function_exists( 'get_field' ) ) {
+		return false;
+	}
+	$cfg = noriks_pp_upsell2_config();
+	if ( in_array( $product_id, array( (int) $cfg['product_a'], (int) $cfg['product_b'] ), true ) ) {
+		return false; // nikad na samim upsell proizvodima
+	}
+	return (bool) get_field( 'noriks_pp_upsell2', $product_id );
+}
+
+/** Veličine dostupne kod OBA proizvoda -> array( velicina => array(vid_a, vid_b) ). */
+function noriks_pp_upsell2_sizes() {
+	$cfg = noriks_pp_upsell2_config();
+	$map = array();
+	foreach ( array( 'a' => $cfg['product_a'], 'b' => $cfg['product_b'] ) as $slot => $pid ) {
+		$prod = wc_get_product( (int) $pid );
+		if ( ! $prod || ! $prod->is_type( 'variable' ) ) {
+			return array();
+		}
+		foreach ( $prod->get_children() as $vid ) {
+			$var = wc_get_product( $vid );
+			if ( ! $var || ! $var->is_in_stock() || ! $var->is_purchasable() ) {
+				continue;
+			}
+			$size = $var->get_attribute( $cfg['size_attr'] );
+			if ( $size === '' ) {
+				$attrs = $var->get_variation_attributes();
+				$size  = $attrs ? (string) reset( $attrs ) : '';
+			}
+			if ( $size !== '' && ! isset( $map[ $size ][ $slot ] ) ) {
+				$map[ $size ][ $slot ] = (int) $vid;
+			}
+		}
+	}
+	// zadrži samo veličine koje postoje kod OBA proizvoda
+	return array_filter( $map, function( $v ) { return isset( $v['a'], $v['b'] ); } );
+}
+
+add_action( 'woocommerce_after_add_to_cart_button', 'noriks_pp_upsell2_render', 16 );
+function noriks_pp_upsell2_render() {
+	if ( ! noriks_pp_upsell2_enabled() ) {
+		return;
+	}
+	$cfg   = noriks_pp_upsell2_config();
+	$sizes = noriks_pp_upsell2_sizes();
+	if ( empty( $sizes ) ) {
+		return;
+	}
+
+	// Redovna cijena = redovna cijena obje majice zajedno.
+	$regular_total = 0.0;
+	foreach ( array( 'a', 'b' ) as $slot ) {
+		foreach ( $sizes as $pair ) {
+			$var = wc_get_product( $pair[ $slot ] );
+			if ( $var ) { $regular_total += (float) $var->get_regular_price(); }
+			break;
+		}
+	}
+	$discount = ( $regular_total > 0 ) ? (int) round( ( 1 - ( (float) $cfg['total'] / $regular_total ) ) * 100 ) : 0;
+	$desc     = ( strpos( $cfg['desc'], '%s' ) !== false ) ? sprintf( $cfg['desc'], $discount ) : $cfg['desc'];
+	$image    = $cfg['image'] ? $cfg['image'] : wc_placeholder_img_src( 'medium' );
+	?>
+	<div class="npu-wrap">
+		<span class="npu-label"><?php echo esc_html( $cfg['label'] ); ?></span>
+
+		<div class="npu-box" id="npu2-box">
+			<div class="npu-grid">
+				<span class="npu-img-wrap">
+					<img class="npu-img" src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $cfg['title'] ); ?>" loading="lazy">
+				</span>
+
+				<div class="npu-info">
+					<p class="npu-title"><?php echo esc_html( $cfg['title'] ); ?></p>
+					<div class="npu-desc"><?php echo esc_html( $desc ); ?></div>
+					<div class="npu-prices">
+						<span class="npu-price"><?php echo wc_price( (float) $cfg['total'] ); ?></span>
+						<?php if ( $regular_total > 0 ) : ?>
+							<span class="npu-price-old"><?php echo wc_price( $regular_total ); ?></span>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class="npu-actions">
+					<label class="npu-check">
+						<input type="checkbox" id="npu2-toggle" name="noriks_pp_upsell2" value="1">
+						<span class="npu-box-mark" aria-hidden="true"></span>
+						<span class="npu-check-text"><?php echo esc_html( $cfg['add_text'] ); ?></span>
+					</label>
+
+					<select class="npu-size" name="noriks_pp_upsell2_size" aria-label="<?php echo esc_attr( $cfg['aria'] ); ?>">
+						<?php foreach ( array_keys( $sizes ) as $size ) : ?>
+							<option value="<?php echo esc_attr( $size ); ?>"><?php echo esc_html( $size ); ?></option>
+						<?php endforeach; ?>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	(function () {
+		var box = document.getElementById('npu2-box');
+		var cb  = document.getElementById('npu2-toggle');
+		if (!box || !cb) { return; }
+		function paint() { box.classList.toggle('npu-checked', cb.checked); }
+		cb.addEventListener('change', paint);
+		paint();
+		box.addEventListener('click', function (e) {
+			if (e.target.closest('.npu-size') || e.target.closest('.npu-check')) { return; }
+			cb.checked = !cb.checked;
+			cb.dispatchEvent(new Event('change', { bubbles: true }));
+		});
+		/* velicina se uskladi s prvim izbornikom u paketu, dok je kupac sam ne promijeni */
+		var sel = box.querySelector('.npu-size'), touched = false;
+		if (sel) {
+			sel.addEventListener('change', function () { touched = true; });
+			var sync = function () {
+				if (touched) { return; }
+				var all = document.querySelectorAll('.gck-size-select'), src = null;
+				for (var i = 0; i < all.length; i++) { if (all[i].offsetParent !== null && all[i].value) { src = all[i]; break; } }
+				if (!src) { return; }
+				var v = String(src.value).trim().toLowerCase();
+				for (var j = 0; j < sel.options.length; j++) {
+					if (String(sel.options[j].value).trim().toLowerCase() === v) { sel.value = sel.options[j].value; return; }
+				}
+			};
+			document.addEventListener('change', function (e) {
+				var t = e.target; if (!t) { return; }
+				if (t.classList && t.classList.contains('gck-size-select')) { sync(); }
+				if (t.name === 'bundle_option') { setTimeout(sync, 60); }
+			});
+			setTimeout(sync, 250); setTimeout(sync, 900);
+		}
+	})();
+	</script>
+	<?php
+}
+
+/* ---- Dodavanje paketa u košaricu ---- */
+add_action( 'woocommerce_add_to_cart', 'noriks_pp_upsell2_maybe_add', 21, 6 );
+function noriks_pp_upsell2_maybe_add( $cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data ) {
+	static $busy2 = false;
+	if ( $busy2 || ! empty( $cart_item_data['_noriks_pp_upsell2'] ) || ! empty( $cart_item_data['_noriks_pp_upsell'] ) ) {
+		return;
+	}
+	if ( empty( $_POST['noriks_pp_upsell2'] ) || ! noriks_pp_upsell2_enabled( $product_id ) ) {
+		return;
+	}
+	$cfg   = noriks_pp_upsell2_config();
+	$sizes = noriks_pp_upsell2_sizes();
+	if ( empty( $sizes ) ) {
+		return;
+	}
+	$size = isset( $_POST['noriks_pp_upsell2_size'] ) ? sanitize_text_field( wp_unslash( $_POST['noriks_pp_upsell2_size'] ) ) : '';
+	if ( $size === '' || ! isset( $sizes[ $size ] ) ) {
+		$size = (string) key( $sizes );
+	}
+	$vid_a = (int) $sizes[ $size ]['a'];
+	$var_a = wc_get_product( $vid_a );
+	$var_b = wc_get_product( (int) $sizes[ $size ]['b'] );
+	if ( ! $var_a || ! $var_b ) {
+		return;
+	}
+
+	$prod_a = wc_get_product( (int) $cfg['product_a'] );
+	$prod_b = wc_get_product( (int) $cfg['product_b'] );
+	$lines  = array(
+		( $prod_a ? $prod_a->get_name() : 'Maglietta nera' ) . ' - ' . $size,
+		( $prod_b ? $prod_b->get_name() : 'grigia' ) . ' - ' . $size,
+	);
+
+	// PAKET: jedna stavka (količina 1) s cijenom cijelog paketa.
+	$busy2 = true;
+	WC()->cart->add_to_cart(
+		(int) $cfg['product_a'],
+		1,
+		$vid_a,
+		$var_a->get_variation_attributes(),
+		array(
+			'_noriks_pp_upsell2'      => 1,
+			'_noriks_pp_upsell'       => 1,   // dijeli prikaz/cijenu s prvim upsellom
+			'_noriks_pp_upsell_unit'  => (float) $cfg['total'],
+			'_noriks_pp_upsell_qty'   => 2,
+			'_noriks_pp_upsell_title' => (string) $cfg['title'],
+			'_noriks_pp_upsell_lines' => $lines,
+			'_noriks_pp_upsell_sku'   => (string) $cfg['sku'],
+			'_noriks_pp_upsell_key'   => md5( 'npu2' . $vid_a . microtime( true ) ),
+		)
+	);
+	$busy2 = false;
+}
+
+/* Slika paketa u košarici (upsell #2). */
+add_filter( 'woocommerce_cart_item_thumbnail', 'noriks_pp_upsell2_cart_thumb', 21, 3 );
+function noriks_pp_upsell2_cart_thumb( $thumbnail, $cart_item, $cart_item_key ) {
+	if ( empty( $cart_item['_noriks_pp_upsell2'] ) ) {
+		return $thumbnail;
+	}
+	$cfg = noriks_pp_upsell2_config();
+	if ( empty( $cfg['image'] ) ) {
+		return $thumbnail;
+	}
+	return '<img src="' . esc_url( $cfg['image'] ) . '" alt="' . esc_attr( $cfg['title'] ) . '" width="300" height="300" class="npu-cart-thumb attachment-woocommerce_thumbnail" />';
+}
+
+/* Prenos podataka iz sesije + oznaka u narudžbi. */
+add_filter( 'woocommerce_get_cart_item_from_session', 'noriks_pp_upsell2_from_session', 21, 2 );
+function noriks_pp_upsell2_from_session( $cart_item, $values ) {
+	if ( ! empty( $values['_noriks_pp_upsell2'] ) ) {
+		$cart_item['_noriks_pp_upsell2']    = 1;
+		$cart_item['_noriks_pp_upsell_sku'] = $values['_noriks_pp_upsell_sku'] ?? '';
+	}
+	return $cart_item;
+}
+
+add_action( 'woocommerce_checkout_create_order_line_item', 'noriks_pp_upsell2_order_item_meta', 21, 4 );
+function noriks_pp_upsell2_order_item_meta( $item, $cart_item_key, $values, $order ) {
+	if ( ! empty( $values['_noriks_pp_upsell2'] ) ) {
+		$item->update_meta_data( '_noriks_upsell', 'product_page_upsell_2' );
+		$cfg = noriks_pp_upsell2_config();
+		$item->update_meta_data( '_noriks_upsell_sku', sanitize_text_field( $cfg['sku'] ) );
+	}
+}
