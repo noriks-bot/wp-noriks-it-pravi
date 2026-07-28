@@ -197,7 +197,7 @@ function noriks_pp_upsell_render() {
 	}
 	.npu-wrap .npu-box {
 		border: 2px solid var(--npu-accent);
-		border-radius: 10px;
+		border-radius: 8px;
 		box-shadow: 0 2px 3px 0 #00000029;
 		padding: 10px;
 		background-color: #fafafb;   /* svjetlije od podloge slike (#f2f2f4) */
@@ -209,13 +209,13 @@ function noriks_pp_upsell_render() {
 	.npu-wrap .npu-box.npu-checked { background-color: var(--npu-accent-light); }
 	.npu-wrap .npu-grid { display: grid; grid-template-columns: auto minmax(0,1fr); column-gap: 14px; row-gap: 12px; }
 	/* slika ide do samog ruba okvira: negativne margine ponistavaju padding kutije,
-	   a lijevi kutovi prate unutarnji radijus (10px - 2px obrub = 8px) */
+	   a lijevi kutovi prate unutarnji radijus (8px - 2px obrub = 6px) */
 	.npu-wrap .npu-img-wrap {
 		grid-column: 1 / 2; grid-row: 1 / 3; align-self: stretch;
 		margin: -10px 0 -10px -10px;
 		width: clamp(104px, 30vw, 160px);
 		background-color: #f2f2f4;
-		border-radius: 8px 0 0 8px;
+		border-radius: 6px 0 0 6px;
 		overflow: hidden;
 		display: block;
 	}
