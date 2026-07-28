@@ -401,7 +401,9 @@ function noriks_pp_upsell_maybe_add( $cart_item_key, $product_id, $quantity, $va
 	}
 
 	$qty  = max( 1, (int) $cfg['qty'] );
-	$unit = round( (float) $cfg['total'] / $qty, 2 );
+	// BEZ zaokruzivanja: 19.99 / 4 = 4.9975; zaokruzeno na 5.00 dalo bi 20.00 u kosarici.
+	// WooCommerce mnozi punom preciznoscu pa je zbroj tocno jednak upsell cijeni.
+	$unit = (float) $cfg['total'] / $qty;
 
 	$busy = true;
 	WC()->cart->add_to_cart(
