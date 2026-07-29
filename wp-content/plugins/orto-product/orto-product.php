@@ -959,8 +959,17 @@ function gck_render_bundle_selector() {
       #bundle-selector.is-single-size .bundle-pair,
       #bundle-selector.is-single-size .bundle-attr-row { width: 100% !important; display: block !important; }
       #bundle-selector.is-single-size .gck-size-select {
-          display: block !important; width: 50% !important; max-width: 50% !important;
-          white-space: nowrap; text-overflow: ellipsis; overflow: hidden;
+          display: block !important;
+          width: 50% !important;        /* desktop: 50% */
+          max-width: 50% !important;    /* pobijedi bazni .bundle-box select { max-width:150px } */
+          min-width: 0 !important;
+          flex: 0 0 auto !important;
+          box-sizing: border-box;
+          font-size: 12px;
+          padding: 11px 30px 11px 12px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
       }
       @media (max-width: 767px) {
           #bundle-selector.is-single-size .gck-size-select { width: 80% !important; max-width: 80% !important; }
