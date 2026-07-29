@@ -434,7 +434,7 @@ function noriks_pp_upsell2_config() {
 	return apply_filters( 'noriks_pp_upsell2_config', array(
 		'product_a'  => 250,   // Crna majica (varijabilni proizvod) — nosi stavku u košarici
 		'product_b'  => 471,   // Siva majica (varijabilni proizvod)
-		'total'      => 18.99, // cijena cijelog paketa (2 komada)
+		'total'      => 16.99, // cijena cijelog paketa (2 komada)
 		'title'      => '1x Maglietta nera + 1x grigia',
 		'desc'       => 'Due magliette basic nel pacchetto — aggiungile al tuo ordine con il %s%% di sconto.',
 		'size_attr'  => 'Taglia',
