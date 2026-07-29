@@ -623,40 +623,46 @@ add_action('woocommerce_review_order_before_submit', function(){
         </button>
         <div id="noriks-coupon-expanded" style="display:none;gap:8px;align-items:center;">
             <input type="text" id="noriks_coupon_code" placeholder="Codice coupon" style="flex:1;padding:10px 14px;border:1px solid #ccc;border-radius:6px;font-size:14px;" />
-            <button type="button" style="padding:10px 20px;background:#000;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;" onclick="noriksApplyCoupon()">Applica</button>
+            <button type="button" style="padding:10px 20px;background:#000;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;" onclick="noriksApplyCoupon(this)">Applica</button>
             <button type="button" style="padding:8px 10px;background:none;border:1px solid #ddd;border-radius:6px;font-size:14px;color:#999;cursor:pointer;line-height:1;" onclick="this.parentElement.style.display='none';document.getElementById('noriks-coupon-btn').style.display='inline-flex';">✕</button>
         </div>
         <div id="noriks-coupon-msg" style="display:none;margin-top:8px;padding:6px 10px;border-radius:4px;font-size:12px;"></div>
     </div>
     <script>
-    function noriksApplyCoupon(){
-        var code=document.getElementById('noriks_coupon_code').value.trim();
+    function noriksApplyCoupon(btn){
+        btn = btn || (window.event && window.event.target);
+        var input=document.getElementById('noriks_coupon_code');
+        var code=(input.value||'').trim();
         if(!code)return;
         var msg=document.getElementById('noriks-coupon-msg');
-        var btn=event.target;btn.textContent='...';btn.disabled=true;
+        if(btn){btn.textContent='...';btn.disabled=true;}
+        function reset(){ if(btn){btn.textContent='Applica';btn.disabled=false;} }
         fetch('<?php echo esc_url(wc_get_checkout_url()); ?>?wc-ajax=apply_coupon',{
             method:'POST',
-            body:new URLSearchParams({coupon_code:code,security:'<?php echo wp_create_nonce("apply-coupon"); ?>'}),
-            headers:{'Content-Type':'application/x-www-form-urlencoded'}
-        }).then(function(r){
-            var ok=r.ok;return r.text().then(function(html){return{ok:ok,html:html};});
-        }).then(function(res){
+            credentials:'same-origin',
+            headers:{'Content-Type':'application/x-www-form-urlencoded'},
+            body:new URLSearchParams({coupon_code:code,security:'<?php echo wp_create_nonce("apply-coupon"); ?>'})
+        }).then(function(r){return r.text();}).then(function(html){
             msg.style.display='block';
-            var isError=!res.ok||res.html.indexOf('woocommerce-error')!==-1||res.html.indexOf('woocommerce-message')===-1;
-            if(isError){
-                msg.style.background='#fde8e8';msg.style.color='#c00';
-                var txt=res.html.replace(/<[^>]*>/g,'').trim();
-                msg.innerHTML='❌ '+(txt||'Coupon non valido.');
-            }else{
+            var isError   = html.indexOf('woocommerce-error')!==-1;
+            var isApplied = !isError && html.indexOf('woocommerce-message')!==-1;
+            if(isApplied){
                 msg.style.background='#e8fde8';msg.style.color='#080';
                 msg.innerHTML='✅ Coupon applicato con successo!';
-                document.getElementById('noriks_coupon_code').value='';
-                if(window.jQuery)jQuery('body').trigger('update_checkout');
+                input.value='';
+            }else{
+                msg.style.background='#fde8e8';msg.style.color='#c00';
+                var t=(html.replace(/<[^>]*>/g,'')||'').trim();
+                // Empty / "-1" response usually means an expired security token (cached page).
+                if(!t || t==='-1'){ t='Coupon non applicato. Aggiorna la pagina e riprova.'; }
+                msg.textContent=t;
             }
-            btn.textContent='Applica';btn.disabled=false;
+            // Always resync totals with the real cart state.
+            if(window.jQuery){ jQuery(document.body).trigger('update_checkout'); }
+            reset();
         }).catch(function(){
             msg.style.display='block';msg.style.background='#fde8e8';msg.style.color='#c00';
-            msg.textContent='Errore. Riprova.';btn.textContent='Applica';btn.disabled=false;
+            msg.textContent='Errore. Riprova.';reset();
         });
     }
     </script>
