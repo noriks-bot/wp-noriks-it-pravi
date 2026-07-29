@@ -832,6 +832,7 @@ function noriks_pp_upsell3_config() {
 		'title'      => 'Maglietta compressiva NORIKS FIT',
 		'desc'       => 'Modella la silhouette e sostiene la postura — aggiungila al tuo ordine con il %s%% di sconto.',
 		'size_attr'  => 'Taglia',
+		'sizes'      => array( 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL' ), // upsell nudi S–4XL
 		'sku'        => 'NORIKS-KOMPSFIT-1-UPSELL',
 		'image'      => '', // prazno => koristi se glavna slika proizvoda
 		'label'      => 'Acquista insieme e risparmia:',
@@ -855,7 +856,11 @@ function noriks_pp_upsell3_enabled( $product_id = 0 ) {
 
 /** Veličine iz atributa proizvoda (jednostavan proizvod nema varijacije). */
 function noriks_pp_upsell3_sizes() {
-	$cfg  = noriks_pp_upsell3_config();
+	$cfg = noriks_pp_upsell3_config();
+	// Ponuda je izricito S–4XL (5XL se ne nudi u upsellu).
+	if ( ! empty( $cfg['sizes'] ) && is_array( $cfg['sizes'] ) ) {
+		return array_values( $cfg['sizes'] );
+	}
 	$prod = wc_get_product( (int) $cfg['product_id'] );
 	if ( ! $prod ) {
 		return array();
