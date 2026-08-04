@@ -19,6 +19,10 @@ defined( 'ABSPATH' ) || exit;
         $display_qty = $qty;
         if ( ! empty( $cart_item['_orto_bundle_pairs'] ) ) {
           $display_qty = $qty * (int) $cart_item['_orto_bundle_pairs'];
+        } elseif ( ! empty( $cart_item['_noriks_pp_upsell_qty'] ) ) {
+          // Upsell paketi (4x bokserice, 2x majica ...) so v kosarici kot 1 vrstica
+          // s ceno paketa; v povzetku naj pise pravo stevilo kosov, ne "1x".
+          $display_qty = $qty * (int) $cart_item['_noriks_pp_upsell_qty'];
         }
 
         $attrs = '';
