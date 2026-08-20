@@ -1254,8 +1254,31 @@ function assign_unique_avatars_first_n(array $reviews, array $avatar_pool, strin
   // Avatar pools based on page category
   $avatar_type = $is_bokserice_page ? 'bokserice' : 'majice';
   // Belt + bunion + fisiorest + norikshers + leak boxers + kompresijske majice + ortopedski jastuk + kidsnest: text-only reviews (no avatar images).
-  $avatar_pool = ( function_exists('noriks_is_type') && noriks_is_type('orto') )
-      ? array() : get_review_avatar_pool($avatar_type);  // brez fotografija na orto proizvodima
+  $noriks_no_photos = function_exists('noriks_is_type') && (
+        noriks_is_type('kompresijske-nogavice') ||
+        noriks_is_type('ortopas') ||
+        noriks_is_type('bunion') ||
+        noriks_is_type('fisiorest') ||
+        noriks_is_type('kneefix') ||
+        noriks_is_type('kidsnest') ||
+        noriks_is_type('ortopedski-jastuk') ||
+        noriks_is_type('leakboxers') ||
+        noriks_is_type('kompresijske-majice') ||
+        noriks_is_type('norikshers') ||
+        noriks_is_type('nosilka') ||
+        noriks_is_type('controlpro') ||
+        noriks_is_type('dental') ||
+        noriks_is_type('hairmagic') ||
+        noriks_is_type('norikshersbrush') ||
+        noriks_is_type('noriks-cards') ||
+        noriks_is_type('cloath') ||
+        noriks_is_type('bra') ||
+        noriks_is_type('hyd') ||
+        noriks_is_type('snore') ||
+        noriks_is_type('cloud')
+  );
+  // fotografije osoba: samo na odjeci (majice, bokserice, kompleti), ne na ortopedskim pomagalima
+  $avatar_pool = $noriks_no_photos ? array() : get_review_avatar_pool($avatar_type);
 
   // On single-product landing pages (leak boxers / kompresijske majice) the cards should
   // reference THIS product (via $rv_fallback_title), not random pool products.
