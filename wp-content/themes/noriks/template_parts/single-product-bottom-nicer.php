@@ -1239,7 +1239,7 @@ function assign_unique_avatars_first_n(array $reviews, array $avatar_pool, strin
   // Avatar pools based on page category
   $avatar_type = $is_bokserice_page ? 'bokserice' : 'majice';
   // Belt + bunion + fisiorest + norikshers + leak boxers + kompresijske majice + ortopedski jastuk + kidsnest: text-only reviews (no avatar images).
-  $avatar_pool = ( $is_ortopas_page || $is_bunion_page || $is_fisiorest_page || $is_norikshers_review_page || $is_leakboxers_page || $is_kompmajice_page || $is_jastuk_page || $is_kidsnest_page ) ? array() : get_review_avatar_pool($avatar_type);
+  $avatar_pool = ( ( function_exists('noriks_is_type') && noriks_is_type('kompresijske-nogavice') ) || $is_ortopas_page || $is_bunion_page || $is_fisiorest_page || $is_norikshers_review_page || $is_leakboxers_page || $is_kompmajice_page || $is_jastuk_page || $is_kidsnest_page ) ? array() : get_review_avatar_pool($avatar_type);
 
   // On single-product landing pages (leak boxers / kompresijske majice) the cards should
   // reference THIS product (via $rv_fallback_title), not random pool products.
