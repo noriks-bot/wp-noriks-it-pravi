@@ -860,11 +860,15 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
   $is_kidsnest_page   = ( function_exists('noriks_is_type') && noriks_is_type('kidsnest', $current_product_id) );
 
   // Nome prodotto di fallback mostrato nelle card recensioni.
-  $rv_fallback_title = $is_kidsnest_page ? 'Cuscino NORIKS KidsNest'
+  $rv_fallback_title = ( function_exists('noriks_is_type') && noriks_is_type('kompresijske-nogavice') ) ? 'Calze a compressione NORIKS'
+                     : ( $is_ortopas_page ? 'Fascia lombare NORIKS'
+                     : ( $is_bunion_page ? 'Correttore alluce valgo NORIKS'
+                     : ( $is_fisiorest_page ? 'NORIKS FisioRest'
+                     : ( $is_kidsnest_page ? 'Cuscino NORIKS KidsNest'
                      : ( $is_jastuk_page ? 'Cuscino ortopedico NORIKS ErgoSit'
                      : ( $is_leakboxers_page ? 'Boxer assorbenti NORIKS'
                      : ( $is_kompmajice_page ? 'Maglia compressiva NORIKS FIT'
-                     : ( $is_norikshers_review_page ? 'NORIKS HERS' : 'Una Maglietta Grigia' ) ) ) );
+                     : ( $is_norikshers_review_page ? 'NORIKS HERS' : 'Una Maglietta Grigia' ) ) ) ) ) ) ) );
 
   // Include review pools (own pool per product group)
   if ( $is_kidsnest_page ) {
