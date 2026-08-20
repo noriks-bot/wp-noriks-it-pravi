@@ -718,7 +718,13 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
       <!--<h4 style="" class="highlight"><?php echo get_field("singlepp_content_standard_reviews_t1","options"); ?></h4>-->
       <h1 style="color:black;     margin-bottom: 4px;">
 
-          <?php if ( function_exists('noriks_is_type') && noriks_is_type('fisiorest') ): ?>
+          <?php if ( function_exists('noriks_is_type') && noriks_is_type('kneefix') ): ?>
+
+          
+
+          Non sei l'unico a cercare un ginocchio più stabile.
+
+          <?php elseif ( function_exists('noriks_is_type') && noriks_is_type('fisiorest') ): ?>
 
           
 
@@ -780,7 +786,7 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
 
 
           </h1>
-    <p class="note" style="color: black; margin-top: 0px; margin-bottom: 5px;"><?php if ( function_exists('noriks_is_type') && noriks_is_type('fisiorest') ): ?>Migliaia di persone usano già NORIKS FisioRest per ridurre dolore e tensione al collo – trazione, vibrazione e calore in un unico dispositivo.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('bunion') ): ?>Migliaia di persone indossano già il correttore NORIKS per meno dolore e un alluce più dritto – a casa, davanti alla TV o durante il sonno.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('ortopas') ): ?>Migliaia di persone indossano già la fascia NORIKS per meno dolore e una schiena più stabile – al lavoro, nei sollevamenti e stando seduti a lungo.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('kompresijske-nogavice') ): ?>Migliaia di uomini indossano già le calze a compressione NORIKS per gambe più leggere e meno stanche – al lavoro, in viaggio e in allenamento.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('bokserice') ): ?>Migliaia di uomini indossano già i boxer NORIKS – comfort che dura tutto il giorno.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('norikshers') ): ?>Migliaia di donne usano già le strisce di collagene in silicone HERS per una pelle più liscia, più soda e dall'aspetto più giovane.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('leakboxers') ): ?>Migliaia di uomini indossano già i boxer assorbenti NORIKS per restare asciutti e sicuri di sé – senza assorbenti né pannoloni.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('kompresijske-majice') ): ?>Migliaia di uomini indossano già la maglia compressiva NORIKS per una pancia levigata, una postura migliore e più sicurezza di sé.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('ortopedski-jastuk') ): ?>Migliaia di clienti usano già il cuscino ortopedico NORIKS ErgoSit per sedersi senza dolore al coccige, alla schiena e alle anche – in auto, in ufficio e a casa.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('kidsnest') ): ?>Migliaia di genitori hanno già sostituito il cuscino comune con NORIKS KidsNest – notti più silenziose, respirazione nasale e un sonno che rigenera davvero.<?php else: ?><?php echo get_field("singlepp_content_standard_reviews_t3","options"); ?><?php endif; ?></p>
+    <p class="note" style="color: black; margin-top: 0px; margin-bottom: 5px;"><?php if ( function_exists('noriks_is_type') && noriks_is_type('kneefix') ): ?>Migliaia di persone indossano già la ginocchiera NORIKS KneeFix per un ginocchio più stabile – sulle scale, in passeggiata e stando molto in piedi.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('fisiorest') ): ?>Migliaia di persone usano già NORIKS FisioRest per ridurre dolore e tensione al collo – trazione, vibrazione e calore in un unico dispositivo.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('bunion') ): ?>Migliaia di persone indossano già il correttore NORIKS per meno dolore e un alluce più dritto – a casa, davanti alla TV o durante il sonno.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('ortopas') ): ?>Migliaia di persone indossano già la fascia NORIKS per meno dolore e una schiena più stabile – al lavoro, nei sollevamenti e stando seduti a lungo.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('kompresijske-nogavice') ): ?>Migliaia di uomini indossano già le calze a compressione NORIKS per gambe più leggere e meno stanche – al lavoro, in viaggio e in allenamento.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('bokserice') ): ?>Migliaia di uomini indossano già i boxer NORIKS – comfort che dura tutto il giorno.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('norikshers') ): ?>Migliaia di donne usano già le strisce di collagene in silicone HERS per una pelle più liscia, più soda e dall'aspetto più giovane.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('leakboxers') ): ?>Migliaia di uomini indossano già i boxer assorbenti NORIKS per restare asciutti e sicuri di sé – senza assorbenti né pannoloni.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('kompresijske-majice') ): ?>Migliaia di uomini indossano già la maglia compressiva NORIKS per una pancia levigata, una postura migliore e più sicurezza di sé.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('ortopedski-jastuk') ): ?>Migliaia di clienti usano già il cuscino ortopedico NORIKS ErgoSit per sedersi senza dolore al coccige, alla schiena e alle anche – in auto, in ufficio e a casa.<?php elseif ( function_exists('noriks_is_type') && noriks_is_type('kidsnest') ): ?>Migliaia di genitori hanno già sostituito il cuscino comune con NORIKS KidsNest – notti più silenziose, respirazione nasale e un sonno che rigenera davvero.<?php else: ?><?php echo get_field("singlepp_content_standard_reviews_t3","options"); ?><?php endif; ?></p>
     </div>
   </section>
   </div>
@@ -849,7 +855,7 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
 
   // Detect if current product belongs to bokserice group
   $current_product_id = (function_exists('is_product') && is_product()) ? get_queried_object_id() : get_the_id();
-  $is_bokserice_page  = has_term( array( 'boxer','orto-bokserice', 'bokserice-sastavi-paket' ), 'product_cat', $current_product_id );
+  $is_bokserice_page = ( function_exists('noriks_is_type') && noriks_is_type('bokserice') );
   $is_ortopas_page    = ( function_exists('noriks_is_type') && noriks_is_type('ortopas', $current_product_id) );
   $is_bunion_page     = ( function_exists('noriks_is_type') && noriks_is_type('bunion', $current_product_id) );
   $is_fisiorest_page  = ( function_exists('noriks_is_type') && noriks_is_type('fisiorest', $current_product_id) );
@@ -860,7 +866,8 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
   $is_kidsnest_page   = ( function_exists('noriks_is_type') && noriks_is_type('kidsnest', $current_product_id) );
 
   // Nome prodotto di fallback mostrato nelle card recensioni.
-  $rv_fallback_title = ( function_exists('noriks_is_type') && noriks_is_type('kompresijske-nogavice') ) ? 'Calze a compressione NORIKS'
+  $rv_fallback_title = ( function_exists('noriks_is_type') && noriks_is_type('kneefix') ) ? 'Ginocchiera NORIKS KneeFix'
+                     : ( ( function_exists('noriks_is_type') && noriks_is_type('kompresijske-nogavice') ) ? 'Calze a compressione NORIKS'
                      : ( $is_ortopas_page ? 'Fascia lombare NORIKS'
                      : ( $is_bunion_page ? 'Correttore alluce valgo NORIKS'
                      : ( $is_fisiorest_page ? 'NORIKS FisioRest'
@@ -868,10 +875,12 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
                      : ( $is_jastuk_page ? 'Cuscino ortopedico NORIKS ErgoSit'
                      : ( $is_leakboxers_page ? 'Boxer assorbenti NORIKS'
                      : ( $is_kompmajice_page ? 'Maglia compressiva NORIKS FIT'
-                     : ( $is_norikshers_review_page ? 'NORIKS HERS' : 'Una Maglietta Grigia' ) ) ) ) ) ) ) );
+                     : ( $is_norikshers_review_page ? 'NORIKS HERS' : 'Una Maglietta Grigia' ) ) ) ) ) ) ) ) );
 
   // Include review pools (own pool per product group)
-  if ( $is_kidsnest_page ) {
+  if ( ( function_exists('noriks_is_type') && noriks_is_type('kneefix') ) ) {
+    include get_stylesheet_directory() . '/auto_reviews/IT_kneefix.php';
+  } elseif ( $is_kidsnest_page ) {
     include get_stylesheet_directory() . '/auto_reviews/IT_kidsnest.php';
   } elseif ( $is_jastuk_page ) {
     include get_stylesheet_directory() . '/auto_reviews/IT_ortopedski_jastuk.php';
@@ -962,7 +971,7 @@ I boxer NORIKS sono realizzati con un materiale più resistente - durano più a 
       $is_nogavice    = false;
       $is_kidsnest  = false;
       if ( $product_id ) {
-          $is_bokserice = has_term( array( 'bokserice','orto-bokserice', 'bokserice-sastavi-paket' ), 'product_cat', $product_id );
+          $is_bokserice = ( function_exists('noriks_is_type') && noriks_is_type('bokserice', $product_id) );
           $is_ortopas   = ( function_exists('noriks_is_type') && noriks_is_type('ortopas', $product_id) );
           $is_bunion    = ( function_exists('noriks_is_type') && noriks_is_type('bunion', $product_id) );
           $is_fisiorest = ( function_exists('noriks_is_type') && noriks_is_type('fisiorest', $product_id) );
