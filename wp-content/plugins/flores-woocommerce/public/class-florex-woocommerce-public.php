@@ -360,7 +360,7 @@ class Flores_Woocommerce_Public {
 	function _bot_detected() {
 		return (
 		  isset($_SERVER['HTTP_USER_AGENT'])
-		  && preg_match('/bot|crawl|slurp|spider|mediapartners/i', $_SERVER['HTTP_USER_AGENT'])
+		  && preg_match('/bot|crawl|slurp|spider|mediapartners|facebookexternalhit|facebookcatalog|meta-external/i', $_SERVER['HTTP_USER_AGENT'])
 		);
 	}
 
