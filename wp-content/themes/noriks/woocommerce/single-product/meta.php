@@ -80,7 +80,7 @@ global $product;
         
         <div class="feature">
       <img src="https://noriks.com/hr/wp-content/uploads/2025/07/footer_icon1-1.png" alt="Shirt Icon" class="feature__icon info-icon">
-          <p class="feature__text">Prova 30 giorni, senza rischio</p>
+          <p class="feature__text">Prova 14 giorni, senza rischio</p>
         </div>
         
         
@@ -718,7 +718,7 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
       </div>
       <div class="accordion-content">
        <p></p>
-       Crediamo così tanto che ti piacerà NORIKS che hai <b data-stringify-type="bold">30 giorni</b> per il reso o il cambio gratuito.
+       Crediamo così tanto che ti piacerà NORIKS che hai <b data-stringify-type="bold">14 giorni</b> per il reso o il cambio gratuito.
 Senza burocrazia, senza stress – risolviamo in pochi clic. </p>
 
 <p>

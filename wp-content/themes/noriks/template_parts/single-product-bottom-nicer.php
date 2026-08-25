@@ -1833,7 +1833,7 @@ $kidsnest_faq = array(
   array( 'questioon' => 'È sicuro? Cosa c\'è dentro?', 'answer' => 'KidsNest è realizzato in memory foam ipoallergenico certificato OEKO-TEX® — senza formaldeide, metalli pesanti e BPA. È resistente agli acari e traspirante, e la fodera si toglie e si lava in lavatrice.' ),
   array( 'questioon' => 'Il mio bambino lo userà davvero?', 'answer' => 'Sì. La forma ergonomica si sente come un sostegno, non come qualcosa di strano — la maggior parte dei bambini si abitua in 1–2 notti. I genitori raccontano spesso che dopo la prima settimana i bambini non vogliono più dormire senza. La struttura a 3 zone accoglie la testa in modo naturale — non c\'è un "modo giusto", niente battaglie prima di dormire.' ),
   array( 'questioon' => 'Funziona se il mio bambino respira già con la bocca?', 'answer' => 'Sì — è progettato proprio per questi bambini. La struttura a 3 zone aiuta a prevenire l\'inclinazione della testa all\'indietro, che fa aprire la bocca durante il sonno. Nella maggior parte dei bambini, entro 7–14 notti le labbra si chiudono naturalmente e la respirazione nasale ritorna.' ),
-  array( 'questioon' => 'E se al mio bambino non dovesse aiutare?', 'answer' => 'Fai dormire il bambino sul KidsNest per 30 notti. Se non vedi una differenza — meno respirazione con la bocca, notti più silenziose, un sonno più tranquillo — contattaci e ti rimborsiamo. Senza domande e senza clausole in piccolo.' ),
+  array( 'questioon' => 'E se al mio bambino non dovesse aiutare?', 'answer' => 'Fai dormire il bambino sul KidsNest per 14 notti. Se non vedi una differenza — meno respirazione con la bocca, notti più silenziose, un sonno più tranquillo — contattaci e ti rimborsiamo. Senza domande e senza clausole in piccolo.' ),
 );
 
 // Correttore alluce valgo — FAQ sul prodotto (traduzione, NORIKS).
@@ -1855,7 +1855,7 @@ $ortopas_faq = array(
   array( 'questioon' => 'Posso indossare la fascia anche mentre dormo?', 'answer' => 'Sì, puoi indossare la fascia anche di notte. La durata d\'uso non è limitata e un uso prolungato non ha effetti negativi.' ),
   array( 'questioon' => 'Quanto stretta va indossata?', 'answer' => 'La fascia deve aderire bene, ma non troppo stretta, per evitare fastidi. Devi poterti muovere senza problemi, senza che la fascia stringa o scivoli. La tensione è facilmente regolabile con le fasce elastiche.' ),
   array( 'questioon' => 'A chi la consigliate?', 'answer' => 'A tutti coloro che soffrono di dolori lombari, sciatica, tensione muscolare, ernia del disco, dolori all\'anca o al bacino e problemi all\'articolazione sacroiliaca. Indipendentemente da età, sesso, altezza e peso.' ),
-  array( 'questioon' => 'Esiste una garanzia di rimborso?', 'answer' => 'Offriamo una garanzia di soddisfazione! Se non sei soddisfatto della fascia NORIKS, contattaci a info@noriks.com per la restituzione e il rimborso entro 90 giorni. Il termine decorre dal ricevimento della fascia.' ),
+  array( 'questioon' => 'Esiste una garanzia di rimborso?', 'answer' => 'Offriamo una garanzia di soddisfazione! Se non sei soddisfatto della fascia NORIKS, contattaci a info@noriks.com per la restituzione e il rimborso entro 14 giorni. Il termine decorre dal ricevimento della fascia.' ),
 );
 
 // FisioRest — FAQ sul prodotto (traduzione, NORIKS).
@@ -1867,7 +1867,7 @@ $fisiorest_faq = array(
   array( 'questioon' => 'FisioRest è senza fili?', 'answer' => 'Sì! NORIKS FisioRest è completamente senza fili e ricaricabile per l\'uso quotidiano.' ),
   array( 'questioon' => 'Come si pulisce FisioRest?', 'answer' => 'Il tessuto è resistente a oli e polvere, ma consigliamo di pulire FisioRest dopo l\'uso con una salvietta disinfettante, poiché la fodera del cuscino non è lavabile.' ),
   array( 'questioon' => 'È sicuro per tutti?', 'answer' => 'NORIKS FisioRest è progettato per adattarsi a tutti, indipendentemente da età o sesso. Tuttavia ogni situazione è diversa. Per indicazioni dettagliate e adatte alle tue esigenze, consigliamo di consultare un medico.' ),
-  array( 'questioon' => 'Posso restituirlo se non vedo risultati?', 'answer' => 'Certo! Offriamo una garanzia di rimborso completa entro 90 giorni dalla consegna, se non sei soddisfatto del prodotto. Scrivici a info@noriks.com e risponderemo entro 12 ore dalla ricezione del messaggio!' ),
+  array( 'questioon' => 'Posso restituirlo se non vedo risultati?', 'answer' => 'Certo! Offriamo una garanzia di rimborso completa entro 14 giorni dalla consegna, se non sei soddisfatto del prodotto. Scrivici a info@noriks.com e risponderemo entro 12 ore dalla ricezione del messaggio!' ),
 );
 
 // NORIKS HERS (strisce di collagene al silicone per rughe) — FAQ sul prodotto (traduzione, NORIKS HERS).
@@ -1881,7 +1881,7 @@ $norikshers_faq = array(
   array( 'questioon' => 'Resta al suo posto mentre dormo?', 'answer' => 'Sì! NORIKS HERS è realizzato con un adesivo delicato sulla pelle e resistente, che segue i tuoi movimenti. È traspirante e resta al suo posto, anche per chi dorme sul fianco.' ),
   array( 'questioon' => 'Su quali zone posso usarlo?', 'answer' => 'Ovunque! La maggior parte dei clienti usa NORIKS HERS su: rughe della fronte, rughe tra le sopracciglia, rughe del sorriso, rughe del collo, segni post-acne, cicatrici da taglio cesareo, smagliature, cicatrici chirurgiche o da lesioni.' ),
   array( 'questioon' => 'Perché NORIKS HERS è migliore dei cerotti economici online?', 'answer' => 'Molti cerotti venduti online sono di scarsa qualità, sottili o con un adesivo mediocre. NORIKS HERS usa silicone premium, testato in laboratorio per sicurezza e durata, e resta al suo posto tutta la notte. Inoltre offriamo un servizio clienti dedicato e sostituzioni più rapide, se hai bisogno di aiuto.' ),
-  array( 'questioon' => 'Esiste una garanzia di rimborso?', 'answer' => 'Sì, offriamo una garanzia senza rischi di 30 giorni. Se non sei soddisfatto, contattaci e sistemeremo tutto.' ),
+  array( 'questioon' => 'Esiste una garanzia di rimborso?', 'answer' => 'Sì, offriamo una garanzia senza rischi di 14 giorni. Se non sei soddisfatto, contattaci e sistemeremo tutto.' ),
 );
 
 $faq_pick = function( $title, $list ) use ( $is_ortopas_faq, $ortopas_faq, $is_bunion_faq, $bunion_faq, $is_fisiorest_faq, $fisiorest_faq, $is_norikshers_faq, $norikshers_faq, $is_leakboxers_faq, $leakboxers_faq, $is_kompmajice_faq, $kompmajice_faq, $is_jastuk_faq, $jastuk_faq, $is_kidsnest_faq, $kidsnest_faq ) {
