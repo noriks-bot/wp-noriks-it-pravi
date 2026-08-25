@@ -99,7 +99,7 @@ if ( ! $short_description ) {
 
 <?php if ( function_exists('noriks_is_type') && noriks_is_type('norikshers') ) : ?>
 <div class="nhs-usp">
-  <div class="nhs-usp-guarantee"><svg width="15" height="15" viewBox="0 0 24 24" style="flex:0 0 auto;"><circle cx="12" cy="12" r="12" fill="#7c3aed"/><path d="M7 12.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Garanzia soddisfatti o rimborsati 14 giorni</div>
+  <div class="nhs-usp-guarantee"><svg width="15" height="15" viewBox="0 0 24 24" style="flex:0 0 auto;"><circle cx="12" cy="12" r="12" fill="#7c3aed"/><path d="M7 12.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Garanzia soddisfatti o rimborsati 30 giorni</div>
   <div class="nhs-usp-grid">
     <div><span class="nhs-usp-ic">≈</span> Riduce le rughe</div>
     <div><span class="nhs-usp-ic">↓</span> Riduce le linee sottili</div>

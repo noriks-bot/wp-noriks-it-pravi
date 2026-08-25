@@ -25,7 +25,7 @@ $bun_results = array(
 
 // Perché scegliere noi — confronto (stesso stile della tabella knc sulle calze con zip)
 $bun_cmp = array(
-    'Garanzia di rimborso di 14 giorni',
+    'Garanzia di rimborso di 30 giorni',
     'Allevia il disagio',
     'Previene la crescita dell\'alluce valgo',
     'Migliora nel tempo la condizione dell\'alluce valgo',
@@ -116,7 +116,7 @@ $bun_steps = array(
         <li>Intensità dello stretching <strong>regolabile</strong></li>
         <li>Progettato e raccomandato da <strong>professionisti medici</strong></li>
         <li><strong>Facile da usare</strong> e trasportabile</li>
-        <li><strong>Garanzia di rimborso di 14 giorni</strong> („risultati o rimborso completo"), perché siamo così sicuri del nostro prodotto e sappiamo che ti aiuterà</li>
+        <li><strong>Garanzia di rimborso di 30 giorni</strong> („risultati o rimborso completo"), perché siamo così sicuri del nostro prodotto e sappiamo che ti aiuterà</li>
       </ul>
     </div>
     <div class="bun-col bun-media">

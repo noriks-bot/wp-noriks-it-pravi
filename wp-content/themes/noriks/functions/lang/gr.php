@@ -100,11 +100,11 @@ function noriks_gr_translations() {
         // Header marquee
         'Doprava zdarma pro objednávky nad 1700 Kč' => 'Δωρεάν αποστολή για παραγγελίες άνω των 70 €',
         'Doprava zdarma při objednávkách nad 1700 Kč' => 'Δωρεάν αποστολή για παραγγελίες άνω των 70 €',
-        '14 dní bez rizika – vyzkoušej bez obav' => '14 ημέρες χωρίς ρίσκο – δοκιμάστε χωρίς ανησυχία',
+        '30 dní bez rizika – vyzkoušej bez obav' => '30 ημέρες χωρίς ρίσκο – δοκιμάστε χωρίς ανησυχία',
         
         // Product page features
         'Platba na dobírku' => 'Αντικαταβολή',
-        'Vyzkoušejte 14 dní, bez rizika' => 'Δοκιμάστε 14 ημέρες, χωρίς ρίσκο',
+        'Vyzkoušejte 30 dní, bez rizika' => 'Δοκιμάστε 30 ημέρες, χωρίς ρίσκο',
         
         // Shipping/delivery
         'Objednejte během následujících' => 'Παραγγείλτε εντός',

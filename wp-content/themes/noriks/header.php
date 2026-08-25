@@ -142,17 +142,17 @@ document.addEventListener('DOMContentLoaded', function () {
   <div class="marquee">
     <div class="marquee-content">
       <span><a href="/it/shop"><?php echo $mq_ico_truck; ?>Spedizione gratuita per ordini superiori a 70€</a></span>
-      <span><a href="/it/shop"><?php echo $mq_ico_shield; ?>14 giorni senza rischi – prova senza preoccupazioni</a></span>
+      <span><a href="/it/shop"><?php echo $mq_ico_shield; ?>30 giorni senza rischi – prova senza preoccupazioni</a></span>
       <!--<span><a href="/hr/shop">Zimska ponuda: Do 70% popusta!</a></span>-->
 
       <!-- DUPLICATED for seamless infinite loop -->
       <span><a href="/it/shop"><?php echo $mq_ico_truck; ?>Spedizione gratuita per ordini superiori a 70€</a></span>
-      <span><a href="/it/shop"><?php echo $mq_ico_shield; ?>14 giorni senza rischi – prova senza preoccupazioni</a></span>
+      <span><a href="/it/shop"><?php echo $mq_ico_shield; ?>30 giorni senza rischi – prova senza preoccupazioni</a></span>
      <!-- <span><a href="/hr/shop">Zimska ponuda: Do 70% popusta!</a></span>-->
       
        <!-- DUPLICATED for seamless infinite loop -->
       <span><a href="/it/shop"><?php echo $mq_ico_truck; ?>Spedizione gratuita per ordini superiori a 70€</a></span>
-      <span><a href="/it/shop"><?php echo $mq_ico_shield; ?>14 giorni senza rischi – prova senza preoccupazioni</a></span>
+      <span><a href="/it/shop"><?php echo $mq_ico_shield; ?>30 giorni senza rischi – prova senza preoccupazioni</a></span>
      <!-- <span><a href="/hr/shop">Zimska ponuda: Do 70% popusta!</a></span>-->
     </div>
   </div>
