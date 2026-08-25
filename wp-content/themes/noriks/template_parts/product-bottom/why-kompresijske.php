@@ -60,7 +60,7 @@ $knv = get_template_directory_uri() . '/img/kompresijske-videos/';
           <tr><td>Cerniera rinforzata, non si inceppa mai</td><td class="mid">—</td><td class="no">✕</td><td class="us ok">✓</td></tr>
           <tr><td>Tessuto traspirante</td><td class="mid">~</td><td class="no">✕</td><td class="us ok">✓</td></tr>
           <tr><td>Comfort tutto il giorno (+12 ore)</td><td class="mid">~</td><td class="no">✕</td><td class="us ok">✓</td></tr>
-          <tr><td>Garanzia soddisfatti o rimborsati 60 giorni</td><td class="no">✕</td><td class="no">✕</td><td class="us ok">✓</td></tr>
+          <tr><td>Garanzia soddisfatti o rimborsati 30 giorni</td><td class="no">✕</td><td class="no">✕</td><td class="us ok">✓</td></tr>
           <tr class="knc-price"><td>Prezzo al paio</td><td>da 85 €</td><td>~15 €</td><td class="us">da 23,33 €</td></tr>
         </tbody>
       </table>

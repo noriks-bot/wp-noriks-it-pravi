@@ -46,7 +46,7 @@ $opz_cmp_rows = array(
     array( 'Prezzo conveniente',                  true,  false ),
     array( 'Rilassamento immediato',              true,  false ),
     array( 'Senza attese',                        true,  false ),
-    array( 'Garanzia di rimborso di 60 giorni',   true,  false ),
+    array( 'Garanzia di rimborso di 30 giorni',   true,  false ),
     array( 'Costi a lungo termine',               false, true  ),
 );
 /* Recensioni con immagine — 8) sezione */

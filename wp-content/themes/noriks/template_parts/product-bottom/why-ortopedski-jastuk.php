@@ -83,7 +83,7 @@ $oj_img = function( $file, $alt ) use ( $oj ) {
 <section class="oj-sec oj-stills-sec">
   <div class="oj-trustbar" aria-hidden="true">
     <div class="oj-trustbar-track">
-      <?php $oj_trust = array('120.000+ CLIENTI','VALUTAZIONE 4,8/5','OEKO-TEX®','CONSIGLIATO DAI MEDICI','GARANZIA 60 GIORNI','DESIGN ORTOPEDICO');
+      <?php $oj_trust = array('120.000+ CLIENTI','VALUTAZIONE 4,8/5','OEKO-TEX®','CONSIGLIATO DAI MEDICI','GARANZIA 30 GIORNI','DESIGN ORTOPEDICO');
       for ( $r = 0; $r < 2; $r++ ) { foreach ( $oj_trust as $t ) { echo '<span class="oj-trust-item">'.esc_html($t).'</span><span class="oj-trust-dot">•</span>'; } } ?>
     </div>
   </div>
@@ -177,10 +177,10 @@ $oj_img = function( $file, $alt ) use ( $oj ) {
 <section class="oj-sec oj-guar-sec">
   <div class="oj-wrap">
   <div class="oj-guarantee oj-row2">
-    <div class="oj-guar-badge"><?php echo $oj_img('15_znacka_60_dana_HR.png','Garanzia di rimborso di 60 giorni'); ?></div>
+    <div class="oj-guar-badge"><?php echo $oj_img('15_znacka_30_dana.png','Garanzia di rimborso di 30 giorni'); ?></div>
     <div class="oj-guar-copy">
       <h2 class="oj-h2 oj-h2-light">Provalo per <em class="oj-pink-i">60 giorni</em>, senza pensieri</h2>
-      <p>Trovare il cuscino giusto non è facile — molti si appiattiscono o semplicemente non danno un vero sollievo. Per questo ogni NORIKS <strong>ErgoSit</strong> è coperto dalla nostra <strong>garanzia di comfort di 60 giorni</strong>.</p>
+      <p>Trovare il cuscino giusto non è facile — molti si appiattiscono o semplicemente non danno un vero sollievo. Per questo ogni NORIKS <strong>ErgoSit</strong> è coperto dalla nostra <strong>garanzia di comfort di 30 giorni</strong>.</p>
       <p>Portalo in ufficio, in auto o per le lunghe ore a casa. Se non senti meno dolore e più comfort nella tua seduta quotidiana, il nostro team farà in modo di sistemare le cose.</p>
       <p>Perché quando si tratta della tua salute e del tuo comfort, crediamo che la differenza tu la debba <strong>sentire</strong>, non solo sperare.</p>
     </div>

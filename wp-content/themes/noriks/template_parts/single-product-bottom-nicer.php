@@ -1771,7 +1771,7 @@ $jastuk_faq = array(
   array( 'questioon' => 'La fodera si può lavare?', 'answer' => 'Sì. La fodera si toglie e si può lavare in lavatrice, così il cuscino resta fresco e pulito. Il tessuto è traspirante, ipoallergenico e certificato OEKO-TEX®.' ),
   array( 'questioon' => 'Va bene per la mia sedia o il mio sedile?', 'answer' => 'ErgoSit ha una forma universale e si adatta alla maggior parte dei sedili dell\'auto, delle sedie da ufficio e da cucina e delle carrozzine. Non ci sono taglie — un unico modello va bene per tutti.' ),
   array( 'questioon' => 'In quanto tempo sento la differenza?', 'answer' => 'La maggior parte degli utenti sente meno pressione sul coccige e una seduta più comoda già dal primo giorno. Per una postura migliore e meno mal di schiena, l\'effetto si costruisce ulteriormente con l\'uso regolare.' ),
-  array( 'questioon' => 'Esiste una garanzia di rimborso?', 'answer' => 'Sì, ogni NORIKS ErgoSit è coperto da una garanzia di comfort di 60 giorni. Se non senti meno dolore e più comfort, contattaci e sistemeremo tutto.' ),
+  array( 'questioon' => 'Esiste una garanzia di rimborso?', 'answer' => 'Sì, ogni NORIKS ErgoSit è coperto da una garanzia di comfort di 30 giorni. Se non senti meno dolore e più comfort, contattaci e sistemeremo tutto.' ),
 );
 
 // NORIKS FIT (maglia compressiva/modellante) — FAQ sul prodotto (traduzione, NORIKS FIT).
