@@ -105,9 +105,8 @@
 			<div class="nf-wrap nf-main-grid">
 
 				<div class="nf-brand-col">
-					<p class="nf-brand-tagline">Abbigliamento per fisici più robusti, tagliato per vestire davvero bene.</p>
 					<p class="nf-brand-desc"><?php echo esc_html( $nf_brand ); ?></p>
-					<a class="nf-btn nf-btn-outline" href="/it/shop">Scopri la collezione</a>
+					<a class="nf-btn nf-btn-outline" href="/it/shop">Acquista ora</a>
 				</div>
 
 				<nav class="nf-links">
