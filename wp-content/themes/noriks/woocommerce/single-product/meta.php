@@ -450,7 +450,7 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
       <div class="accordion-content">
         <p>Il consiglio che hai sentito è vero solo a metà. Sì, il palato superiore si consolida intorno ai 9 anni. Ma il viso si sviluppa fino ai 20, la mascella inferiore cresce fino ai 17 e le vie respiratorie si adattano continuamente.</p>
         <p>Per questo ogni notte di respirazione con la bocca dopo i 9 anni aggiunge nuovo danno al vecchio: digrignamento dei denti, mal di testa, un sonno che non riposa, calo di concentrazione — e una stanchezza che tutti scambiano per pigrizia. Il tuo adolescente non è pigro. Respira a fatica per sei ore ogni notte.</p>
-        <p>KidsNest nella taglia <strong>9–18 anni</strong> è realizzato per una testa, un collo e delle spalle più grandi. Un profilo diverso, un'altezza diversa, un sostegno diverso. Lo stesso meccanismo di fondo: il corretto allineamento di testa, collo e mascella, per tutta la notte, su un corpo che sta ancora crescendo.</p>
+        <p>KidsNest nella taglia <strong>9–14 anni</strong> è realizzato per una testa, un collo e delle spalle più grandi. Un profilo diverso, un'altezza diversa, un sostegno diverso. Lo stesso meccanismo di fondo: il corretto allineamento di testa, collo e mascella, per tutta la notte, su un corpo che sta ancora crescendo.</p>
         <p>Cosa notano i genitori: il russare si calma in 7–14 notti, torna la vera energia mattutina, i mal di testa svaniscono, la concentrazione ritorna.</p>
         <p>La finestra migliore resta dai 3 ai 9 anni. Una finestra forte è dagli 8 ai 18. Nessuna è del tutto chiusa — ma ogni notte di attesa aggiunge pressione a un corpo che cerca di recuperare.</p>
         <p><strong>Ieri è passato. Stasera è ancora tuo.</strong></p>
@@ -500,7 +500,7 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
 
          <?php if( function_exists('noriks_is_type') && noriks_is_type( 'kidsnest', $current_product_id ) ): ?>
 
-                NORIKS KidsNest è realizzato in memory foam ipoallergenico certificato OEKO-TEX® — senza formaldeide, metalli pesanti e BPA — con una fodera traspirante e lavabile che si toglie con facilità.<br><br>La sua struttura ergonomica a 3 zone accoglie delicatamente la testa, sostiene il collo e aiuta a mantenere la colonna vertebrale in allineamento naturale — anche quando il bambino si gira molto durante la notte. Favorisce così la respirazione nasale e un sonno più tranquillo e profondo.<br><br>Disponibile in tre taglie (1–3, 3–9 e 9–18 anni), cresce con il tuo bambino e offre la giusta altezza di sostegno in ogni fase dello sviluppo.
+                NORIKS KidsNest è realizzato in memory foam ipoallergenico certificato OEKO-TEX® — senza formaldeide, metalli pesanti e BPA — con una fodera traspirante e lavabile che si toglie con facilità.<br><br>La sua struttura ergonomica a 3 zone accoglie delicatamente la testa, sostiene il collo e aiuta a mantenere la colonna vertebrale in allineamento naturale — anche quando il bambino si gira molto durante la notte. Favorisce così la respirazione nasale e un sonno più tranquillo e profondo.<br><br>Disponibile in tre taglie (1–3, 3–9 e 9–14 anni), cresce con il tuo bambino e offre la giusta altezza di sostegno in ogni fase dello sviluppo.
 
          <?php elseif( function_exists('noriks_is_type') && noriks_is_type( 'leakboxers', $current_product_id ) ): ?>
 
