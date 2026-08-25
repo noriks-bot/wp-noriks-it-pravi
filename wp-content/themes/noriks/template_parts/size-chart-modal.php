@@ -729,7 +729,7 @@
 
         <div class="noriks-sc-guarantee">
           <span class="noriks-sc-check">&#10003;</span>
-          <span>Non sei sicuro? Cambio taglia gratuito entro 30 giorni.</span>
+          <span>Non sei sicuro? Cambio taglia entro 30 giorni.</span>
         </div>
       </div>
 

@@ -718,7 +718,7 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
       </div>
       <div class="accordion-content">
        <p></p>
-       Crediamo così tanto che ti piacerà NORIKS che hai <b data-stringify-type="bold">30 giorni</b> per il reso o il cambio gratuito.
+       Crediamo così tanto che ti piacerà NORIKS che hai <b data-stringify-type="bold">30 giorni</b> per il reso o il cambio.
 Senza burocrazia, senza stress – risolviamo in pochi clic. </p>
 
 <p>

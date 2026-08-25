@@ -1494,7 +1494,7 @@ function gck_render_bundle_selector() {
                     <?php endif; /* $gck_shgifts vs SHBOX/normal render */ ?>
 
                     <?php if ( ! $gck_no_attrs ) : ?>
-                    <small style="display: block; line-height: 1;"><?php esc_html_e( 'Offriamo 30 giorni per il rimborso o cambio gratuito del prodotto – acquisti senza pensieri!', 'gift-card-kompetentnost' ); ?></small>
+                    <small style="display: block; line-height: 1;"><?php esc_html_e( 'Offriamo 30 giorni per il rimborso o cambio del prodotto – acquisti senza pensieri!', 'gift-card-kompetentnost' ); ?></small>
                     <?php endif; ?>
                 </div>
             </label>
