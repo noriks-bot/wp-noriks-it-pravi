@@ -558,13 +558,29 @@ add_filter( 'woocommerce_order_button_text', function() { return 'Acquista'; });
 
 /* Force address_2 required in IT locale (WC defaults it to optional) */
 add_filter( 'woocommerce_get_country_locale', function( $locale ) {
-    $locale['IT']['address_2'] = array(
-        'required' => true,
-        'label'    => 'Numero Civico',
-        'placeholder' => 'Numero Civico',
-    );
+    $a1 = array( 'label' => 'Via/Piazza', 'placeholder' => 'Via/Piazza', 'required' => true );
+    $a2 = array( 'label' => 'Numero Civico', 'placeholder' => 'Numero Civico', 'required' => true );
+    foreach ( array( 'default', 'IT' ) as $cc ) {
+        if ( ! isset( $locale[ $cc ] ) || ! is_array( $locale[ $cc ] ) ) {
+            $locale[ $cc ] = array();
+        }
+        $locale[ $cc ]['address_1'] = isset( $locale[ $cc ]['address_1'] ) && is_array( $locale[ $cc ]['address_1'] )
+            ? array_merge( $locale[ $cc ]['address_1'], $a1 ) : $a1;
+        $locale[ $cc ]['address_2'] = isset( $locale[ $cc ]['address_2'] ) && is_array( $locale[ $cc ]['address_2'] )
+            ? array_merge( $locale[ $cc ]['address_2'], $a2 ) : $a2;
+        // WooCommerce ima v locale svoj vrstni red (telefon na 100 = zadnji).
+        // Vrnemo nas vrstni red: telefon prvi, potem e-posta, ime, naslov.
+        $prio = array( 'address_1' => 50, 'address_2' => 60, 'postcode' => 70, 'city' => 80, 'phone' => 10 );
+        foreach ( $prio as $pk => $pv ) {
+            if ( ! isset( $locale[ $cc ][ $pk ] ) || ! is_array( $locale[ $cc ][ $pk ] ) ) {
+                $locale[ $cc ][ $pk ] = array();
+            }
+            $locale[ $cc ][ $pk ]['priority'] = $pv;
+        }
+        $locale[ $cc ]['phone']['required'] = true;
+    }
     return $locale;
-});
+}, 20 );
 
 /**
  * Payment gateway order: COD → Stripe → PayPal
