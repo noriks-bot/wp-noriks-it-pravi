@@ -80,6 +80,13 @@ function noriks_shop_filter_items() {
 	// Kategorija je na seznamu -> uporabi posnete napise in vrstni red.
 	if ( isset( $map[ $term->slug ] ) ) return $map[ $term->slug ];
 
+	// Kategorija je SAMA postavka nekega seznama (npr. Bestsellers, Starter paketi,
+	// Veliki paketi) — te so vrhnje, brez starsa, zato jih zgornji pogoj ne ujame.
+	// Pokazemo isti seznam kot na trgovini, s klikom oznacenim trenutnim.
+	foreach ( $map as $group => $items ) {
+		if ( isset( $items[ $term->slug ] ) ) return $items;
+	}
+
 	// Podkategorija (npr. /majice/3-paket-majic) -> pokazi seznam starsa,
 	// tako kot je delal vticnik.
 	if ( $term->parent ) {
