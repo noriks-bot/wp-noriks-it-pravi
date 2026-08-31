@@ -358,12 +358,12 @@ if ( is_shop() ) {
 
 
 
-    echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2"]');
+    noriks_shop_filter_links();
 
 // CATEGORY: /bokserice + ALL CHILD CATEGORIES
 } elseif ( is_product_category_or_child('boxer') ) {
 
-    echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2-2-2"]');
+    noriks_shop_filter_links();
 
 // CATEGORY GROUP
 } elseif (
@@ -372,27 +372,27 @@ if ( is_shop() ) {
     is_product_category_or_child('pacchetto-starter')
 ) {
 
-    echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2"]');
+    noriks_shop_filter_links();
 
 // CATEGORY: /majice + children
 } elseif ( is_product_category_or_child('magliette') ) {
 
-    echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2-2"]');
+    noriks_shop_filter_links();
 
 // CATEGORY: /kompleti + children
 } elseif ( is_product_category_or_child('set') ) {
 
-    echo do_shortcode('[yith_wcan_filters slug="default-preset"]');
+    noriks_shop_filter_links();
 
 // CATEGORY: /carape + children
 } elseif ( is_product_category_or_child('calzini') ) {
 
-    echo do_shortcode('[yith_wcan_filters slug="default-preset-2"]');
+    noriks_shop_filter_links();
 
 // FALLBACK for any other product category
 } elseif ( is_product_category() ) {
 
-    echo do_shortcode('[yith_wcan_filters slug="default-preset-2-2"]');
+    noriks_shop_filter_links();
 }
 ?>
         </div>
