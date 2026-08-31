@@ -11,6 +11,7 @@ include(get_template_directory() . '/functions/flash-deals-banner.php'); // trak
 include(get_template_directory() . '/functions/checkout_mods.php');
 include(get_template_directory() . '/functions/phone-validate.php');
 include(get_template_directory() . '/functions/shop-filter-links.php'); // filtri kategorij brez YITH vticnika // nezno preverjanje telefonske stevilke
+include(get_template_directory() . '/functions/cart-notice.php'); // brez zelene vrstice "dodano v kosarico"
 include(get_template_directory() . '/functions/thankyou_upsell.php');
 include(get_template_directory() . '/functions/product-page-upsell.php'); // upsell okvir ispod gumba na stranici proizvoda (ACF prekidac)
 include(get_template_directory() . '/functions/sidecart-upsell-modal.php');
