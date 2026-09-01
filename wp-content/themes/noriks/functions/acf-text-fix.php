@@ -2,25 +2,38 @@
 /**
  * Popravki besedil, ki so shranjena v ACF nastavitvah.
  *
- * Do ACF moznosti ni dostopa prek REST API-ja, zato jih popravimo ob izpisu.
- * Vsak filter deluje SAMO, dokler je v bazi se staro besedilo - takoj ko ga
- * Dejan popravi v wp-adminu, filter nima vec kaj zamenjati in se sam umakne.
+ * Do ACF moznosti prek REST API-ja ni dostopa, zato besedilo popravimo ob izpisu.
+ * Deluje samo, dokler je v bazi staro besedilo — ko ga Dejan popravi v wp-adminu,
+ * funkcija nima vec kaj zamenjati.
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-add_filter( 'acf/load_value', function ( $value, $post_id, $field ) {
-    if ( ! is_string( $value ) || $value === '' ) { return $value; }
-    $map = array(
-        'singlepp_acc_h_3' => array( 'Resi semplici e cambi gratuiti' => 'Resi semplici e cambi' ),
-    );
-    $name = isset( $field['name'] ) ? $field['name'] : '';
-    if ( isset( $map[ $name ] ) ) {
-        foreach ( $map[ $name ] as $staro => $novo ) {
-            if ( strpos( $value, $staro ) !== false ) {
-                $value = str_replace( $staro, $novo, $value );
-            }
+if ( ! function_exists( 'noriks_strip_free' ) ) {
+    /** Odstrani besedo "brezplacno" iz napisa o zamenjavah (Dejan, 25. 8. 2026). */
+    function noriks_strip_free( $txt ) {
+        if ( ! is_string( $txt ) || $txt === '' ) { return $txt; }
+        $words = array(
+            'besplatne','besplatna','besplatan','besplatnu',
+            'brezplačne','brezplačna','brezplačno',
+            'bezplatné','bezplatná','bezplatne',
+            'bezpłatne','bezpłatna','darmowe','darmowa',
+            'gratuite','gratuiti','gratuita','gratuit',
+            'δωρεάν','kostenloser','kostenlose','kostenlos',
+            'ingyenes','ingyen','free',
+        );
+        foreach ( $words as $w ) {
+            $txt = str_ireplace( array( ' ' . $w . ' ', ' ' . $w, $w . ' ' ), ' ', $txt );
         }
+        $txt = preg_replace( '/\s{2,}/u', ' ', $txt );
+        return trim( $txt );
     }
-    return $value;
-}, 20, 3 );
+}
+
+if ( ! function_exists( 'noriks_fix_days' ) ) {
+    /** Popravi zastarel rok dostave v ACF besedilu. */
+    function noriks_fix_days( $txt ) {
+        if ( ! is_string( $txt ) || $txt === '' ) { return $txt; }
+        return $txt;
+    }
+}
