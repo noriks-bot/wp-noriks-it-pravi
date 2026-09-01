@@ -425,9 +425,6 @@ document.addEventListener('DOMContentLoaded', function () {
         <?php endforeach; ?>
       <?php endif; ?>
       
-            <a class="mobile-only-menu-item" href="tel:+38518801114" style="color: white;">
-  <i class="fas fa-phone" style="margin-right: 8px;"></i>+385 188 011 14
-</a>
 <a class="mobile-only-menu-item" href="mailto:info@noriks.com" style="color: white;">
   <i class="fas fa-envelope" style="margin-right: 8px;"></i>info@noriks.com
 </a>
