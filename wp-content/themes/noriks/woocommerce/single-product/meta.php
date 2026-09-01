@@ -152,7 +152,7 @@ global $product;
     // Get shipping days: today +2 business days, today +3 business days
     const today = new Date();
     const first  = addBusinessDays(today, 2);
-    const second = addBusinessDays(today, 3);
+    const second = addBusinessDays(today, 5);
 
     function formatDayMonth(d) {
       return `${d.getDate()}.${d.getMonth()+1}.`; // e.g. 21.8.
