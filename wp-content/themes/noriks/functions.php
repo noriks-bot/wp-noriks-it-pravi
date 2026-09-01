@@ -9,6 +9,7 @@ include(get_template_directory() . '/functions/product-type.php'); // central pr
 include(get_template_directory() . '/functions/pack-switcher.php'); // scelta della dimensione della confezione + altre combinazioni di colori
 include(get_template_directory() . '/functions/flash-deals-banner.php'); // traka sezonske rasprodaje
 include(get_template_directory() . '/functions/checkout_mods.php');
+include(get_template_directory() . '/functions/acf-text-fix.php'); // popravki besedil iz ACF nastavitev
 include(get_template_directory() . '/functions/out-of-stock-notice.php'); // obvestilo ni na zalogi
 include(get_template_directory() . '/functions/phone-validate.php');
 include(get_template_directory() . '/functions/shop-filter-links.php'); // filtri kategorij brez YITH vticnika // nezno preverjanje telefonske stevilke
