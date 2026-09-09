@@ -18,7 +18,7 @@ $fis_science = array(
 );
 $fis_v = get_template_directory_uri() . '/img/fisiorest-videos/';
 $fis_i = get_template_directory_uri() . '/img/fisiorest/';
-$fis_hero_video = $fis_v . 'hero.mp4';
+$fis_hero_video = $fis_v . 'hero-v2.mp4';
 
 // 3) Raccomandato dagli esperti
 $fis_experts = array(
@@ -151,7 +151,7 @@ $fis_upgrades = array(
       <h2 class="fis-h2">Progettato da ingegneri. Realizzato secondo gli standard della fisioterapia</h2>
       <p>Abbiamo investito oltre 50.000 € e 2 anni di sviluppo affinché NORIKS non fosse solo un dispositivo di massaggio per il collo. È un dispositivo completo per la terapia del collo che cura davvero la causa. Ogni ordine passa attraverso un rigoroso controllo qualità per arrivare in condizioni perfette.</p>
     </div>
-    <div class="fis-row2-media"><video src="<?php echo esc_url( $fis_v.'hero.mp4' ); ?>" muted autoplay loop playsinline preload="metadata"></video></div>
+    <div class="fis-row2-media"><video src="<?php echo esc_url( $fis_v.'hero-v2.mp4' ); ?>" muted autoplay loop playsinline preload="metadata"></video></div>
   </div>
 </section>
 
