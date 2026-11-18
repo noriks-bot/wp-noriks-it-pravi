@@ -40,6 +40,8 @@ function noriks_ajax_add_to_cart() {
     $product_id   = absint($_POST['product_id'] ?? 0);
     $variation_id = absint($_POST['variation_id'] ?? 0);
     $quantity     = max(1, intval($_POST['quantity'] ?? 1));
+    // Mystery 1x / 2x: kolicina je fiksna (v oknu se izbere samo velikost)
+    if ( noriks_sc_fiksna_kolicina( wc_get_product( $product_id ) ) ) { $quantity = 1; }
     
     $variations = [];
     foreach ($_POST as $key => $value) {
@@ -79,6 +81,11 @@ function noriks_ajax_add_to_cart() {
         wc_clear_notices();
         wp_send_json_error(['message' => $msg]);
     }
+}
+
+/** Izdelki s fiksno kolicino v oknu stranske kosarice (Mystery 1x / 2x): kupec izbere samo velikost. */
+function noriks_sc_fiksna_kolicina( $product ) {
+    return $product && preg_match( '/^NORIKS-MYSTERY-SHIRT-/', (string) $product->get_sku() ) === 1;
 }
 
 function noriks_get_product_variations() {
@@ -130,7 +137,7 @@ function noriks_get_product_variations() {
 
     wp_send_json_success([
         'product_id' => $product_id,
-        'product_name' => $product->get_name(),
+        'product_name' => $product->get_name(), 'fixed_qty' => noriks_sc_fiksna_kolicina( $product ),
         'product_image' => wp_get_attachment_image_url($product->get_image_id(), 'medium'),
         'price_html' => $product->get_price_html(),
         'attributes' => $attributes,
@@ -155,7 +162,7 @@ function noriks_get_product_variation_data($product_id) {
     foreach ($product->get_available_variations() as $v) {
         $variations[] = ['variation_id' => $v['variation_id'], 'attributes' => $v['attributes'], 'price_html' => $v['price_html'], 'is_in_stock' => $v['is_in_stock'], 'image' => $v['image']['thumb_src'] ?? ''];
     }
-    return ['product_id' => $product_id, 'product_name' => $product->get_name(), 'product_image' => wp_get_attachment_image_url($product->get_image_id(), 'medium'), 'price_html' => $product->get_price_html(), 'attributes' => $attributes, 'variations' => $variations];
+    return ['product_id' => $product_id, 'product_name' => $product->get_name(), 'fixed_qty' => noriks_sc_fiksna_kolicina( $product ), 'product_image' => wp_get_attachment_image_url($product->get_image_id(), 'medium'), 'price_html' => $product->get_price_html(), 'attributes' => $attributes, 'variations' => $variations];
 }
 
 // Enqueue modal CSS/JS
@@ -429,6 +436,8 @@ function noriks_upsell_modal_markup() {
             $('#noriks-modal-img').attr('src', modalData.product_image);
             $('#noriks-modal-title').text(modalData.product_name);
             $('#noriks-modal-price').html(modalData.price_html);
+            // Mystery 1x / 2x: brez izbire kolicine, samo velikost
+            $('.noriks-modal-qty-row').toggle(!modalData.fixed_qty);
 
             var $attrs = $('#noriks-modal-attributes').empty();
             
@@ -549,7 +558,7 @@ function noriks_upsell_modal_markup() {
 
             $btn.addClass('adding').text('AGGIUNGO...');
 
-            var qty = parseInt($('#noriks-qty-val').val()) || 1;
+            var qty = modalData.fixed_qty ? 1 : (parseInt($('#noriks-qty-val').val()) || 1);
             var data = {
                 action: 'noriks_add_to_cart',
                 product_id: modalData.product_id,
