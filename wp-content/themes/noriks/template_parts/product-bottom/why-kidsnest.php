@@ -15,7 +15,7 @@ $kn = get_template_directory_uri() . '/img/kidsnest/';
 <!-- ============ 1) Trust marquee (plava traka, vrti se) ============ -->
 <div class="kn-marquee" aria-hidden="true">
   <div class="kn-marquee-track">
-    <?php $kn_ticker = array('CONSIGLIATO DAI PEDIATRI','MEMORY FOAM OEKO-TEX®','STRUTTURA A 3 ZONE','90 NOTTI DI PROVA','IPOALLERGENICO','FODERA LAVABILE');
+    <?php $kn_ticker = array('CONSIGLIATO DAI PEDIATRI','MEMORY FOAM','STRUTTURA A 3 ZONE','90 NOTTI DI PROVA','IPOALLERGENICO','FODERA LAVABILE');
     for ( $r = 0; $r < 2; $r++ ) { foreach ( $kn_ticker as $t ) { echo '<span class="kn-tick">'.esc_html($t).'</span><span class="kn-dot">•</span>'; } } ?>
   </div>
 </div>

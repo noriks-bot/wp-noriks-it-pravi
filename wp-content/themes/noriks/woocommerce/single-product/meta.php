@@ -469,7 +469,7 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
       <div class="accordion-content">
         <ul style="margin:8px 0 12px; padding-left:18px;">
           <li style="margin:0 0 8px;"><strong>Fodera esterna:</strong> Tessuto a maglia traspirante, sfoderabile e lavabile in lavatrice, ipoallergenico</li>
-          <li style="margin:0 0 8px;"><strong>Nucleo:</strong> Schiuma adattiva OrthoFlex™ | Atossica, certificata OEKO-TEX® | Progettata per scaricare la pressione + allineare la postura</li>
+          <li style="margin:0 0 8px;"><strong>Nucleo:</strong> Schiuma adattiva OrthoFlex™ | Atossica | Progettata per scaricare la pressione + allineare la postura</li>
         </ul>
       </div>
     </div>
@@ -500,7 +500,7 @@ $is_mixed_bundle = has_term( array( 'set','orto-starter','orto-maglietta-boxer',
 
          <?php if( function_exists('noriks_is_type') && noriks_is_type( 'kidsnest', $current_product_id ) ): ?>
 
-                NORIKS KidsNest è realizzato in memory foam ipoallergenico certificato OEKO-TEX® — senza formaldeide, metalli pesanti e BPA — con una fodera traspirante e lavabile che si toglie con facilità.<br><br>La sua struttura ergonomica a 3 zone accoglie delicatamente la testa, sostiene il collo e aiuta a mantenere la colonna vertebrale in allineamento naturale — anche quando il bambino si gira molto durante la notte. Favorisce così la respirazione nasale e un sonno più tranquillo e profondo.<br><br>Disponibile in tre taglie (1–3, 3–9 e 9–14 anni), cresce con il tuo bambino e offre la giusta altezza di sostegno in ogni fase dello sviluppo.
+                NORIKS KidsNest è realizzato in memory foam ipoallergenico — senza formaldeide, metalli pesanti e BPA — con una fodera traspirante e lavabile che si toglie con facilità.<br><br>La sua struttura ergonomica a 3 zone accoglie delicatamente la testa, sostiene il collo e aiuta a mantenere la colonna vertebrale in allineamento naturale — anche quando il bambino si gira molto durante la notte. Favorisce così la respirazione nasale e un sonno più tranquillo e profondo.<br><br>Disponibile in tre taglie (1–3, 3–9 e 9–14 anni), cresce con il tuo bambino e offre la giusta altezza di sostegno in ogni fase dello sviluppo.
 
          <?php elseif( function_exists('noriks_is_type') && noriks_is_type( 'leakboxers', $current_product_id ) ): ?>
 
